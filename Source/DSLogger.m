@@ -8,6 +8,8 @@
 //  IMPORTANT: This code is intended to be compiled for the ARC mode
 //
 
+#import "DSLogger.h"
+
 #pragma mark -
 #pragma mark DSLogRecord (used by DSLogger)
 
@@ -130,12 +132,6 @@ static DSLogger *sharedLogger = nil;
     _lastUpdatedAt = [NSDate distantPast];
     
 	return self;
-}
-
-- (void)dealloc {
-    if (serialQueue) {
-        dispatch_release(serialQueue);
-    }
 }
 
 - (void)logFromFunction:(NSString *)fnName withInfo:(NSString *)info {

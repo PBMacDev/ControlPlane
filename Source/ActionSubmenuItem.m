@@ -24,11 +24,6 @@
     return self;
 }
 
-- (void) dealloc {
-    [items release];
-    
-    [super dealloc];
-}
 - (void) addObject:(id) object {
     [items addObject:object];
 }

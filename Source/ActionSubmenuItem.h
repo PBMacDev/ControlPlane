@@ -6,15 +6,15 @@
 //  Copyright (c) 2012. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @interface ActionSubmenuItem : NSObject <NSMenuDelegate> {
     NSMutableArray *items;
-    id target;
+    id __unsafe_unretained target;
 }
 
-@property (readwrite, retain) NSMutableArray *items;
-@property (readwrite, assign) id target;
+@property (readwrite, strong) NSMutableArray *items;
+@property (readwrite, unsafe_unretained) id target;
 
 - (void) addObject:(id) object;
 

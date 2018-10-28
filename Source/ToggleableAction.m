@@ -38,11 +38,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];

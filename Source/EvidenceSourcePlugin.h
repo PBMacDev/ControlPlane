@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @protocol EvidenceSourcePlugin <NSObject>
 
@@ -71,7 +71,7 @@
  * @method
  * @abstract dealloc method would only be needed if you're not compiling with ARC
  */
-- (void)dealloc NS_AUTOMATED_REFCOUNT_UNAVAILABLE;
+//- (void)dealloc NS_AUTOMATED_REFCOUNT_UNAVAILABLE;
 
 
 /*!

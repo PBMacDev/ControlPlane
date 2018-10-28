@@ -19,11 +19,3 @@
 + (NSArray *)limitedOptions;
 
 @end
-
-@interface PreventDisplaySleepActionStorage : NSObject
-
-@property (assign) IOPMAssertionID assertionID;
-
-+ (id) sharedStorage;
-
-@end

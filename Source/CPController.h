@@ -6,6 +6,7 @@
 //  Major rework by Vladimir Beloborodov (VladimirTechMan) in Q2-Q3 2013.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "ContextsDataSource.h"
 #import "EvidenceSource.h"
 

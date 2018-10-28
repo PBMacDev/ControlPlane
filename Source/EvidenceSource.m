@@ -24,31 +24,31 @@
 @synthesize screenIsLocked;
 
 - (id)initWithPanel:(NSPanel *)initPanel {
-	if ([[self class] isEqualTo:[EvidenceSource class]]) {
-		[NSException raise:@"Abstract Class Exception"
+    if ([[self class] isEqualTo:[EvidenceSource class]]) {
+        [NSException raise:@"Abstract Class Exception"
                     format:@"Error, attempting to instantiate EvidenceSource directly."];
-	}
+    }
     
-	if (!(self = [super init]))
-		return nil;
+    if (!(self = [super init]))
+        return nil;
     
-	running = NO;
-	dataCollected = NO;
-	startAfterSleep = NO;
+    running = NO;
+    dataCollected = NO;
+    startAfterSleep = NO;
     goingToSleep = NO;
     screenIsLocked = NO;
     
-	oldDescription = nil;
+    oldDescription = nil;
 
     panel = initPanel;
 
-	// Get notified when we go to sleep, and wake from sleep
-	[[NSNotificationCenter defaultCenter] addObserver:self
+    // Get notified when we go to sleep, and wake from sleep
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(goingToSleep:)
                                                  name:@"systemWillSleep"
                                                object:nil];
     
-	[[NSNotificationCenter defaultCenter] addObserver:self
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(wakeFromSleep:)
                                                  name:@"systemDidWake"
                                                object:nil];
@@ -77,18 +77,18 @@
                                                             name:@"com.apple.screenIsLocked"
                                                           object:nil];
     
-	return self;
+    return self;
 }
 
 + (NSPanel *)getPanelFromNibNamed:(NSString *)name instantiatedWithOwner:(id)owner {
-	// load nib
-	NSNib *nib = [[[NSNib alloc] initWithNibNamed:name bundle:nil] autorelease];
-	if (!nib) {
-		NSLog(@"%@ >> failed loading nib named '%@'!", [self class], name);
-		return nil;
-	}
+    // load nib
+    NSNib *nib = [[NSNib alloc] initWithNibNamed:name bundle:nil];
+    if (!nib) {
+        NSLog(@"%@ >> failed loading nib named '%@'!", [self class], name);
+        return nil;
+    }
 
-	NSArray *topLevelObjects = nil;
+    NSArray *topLevelObjects = nil;
     if ([nib respondsToSelector:@selector(instantiateWithOwner:topLevelObjects:)]) {
         if (![nib instantiateWithOwner:owner topLevelObjects:&topLevelObjects]) {
             NSLog(@"%@ >> failed instantiating nib (named '%@')!", [self class], name);
@@ -101,7 +101,7 @@
         }
     }
     
-	// Look for an NSPanel
+    // Look for an NSPanel
     for (NSObject *obj in topLevelObjects) {
         if ([obj isKindOfClass:[NSPanel class]]) {
             return (NSPanel *) obj;
@@ -117,9 +117,8 @@
         return nil;
     }
     
-    panel = [[[self class] getPanelFromNibNamed:name instantiatedWithOwner:self] retain];
+    panel = [[self class] getPanelFromNibNamed:name instantiatedWithOwner:self];
     if (!panel) {
-        [self release];
         return nil;
     }
 
@@ -129,14 +128,6 @@
 - (void)dealloc {
     [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-
-	[panel release];
-
-	if (oldDescription) {
-		[oldDescription release];
-    }
-
-	[super dealloc];
 }
 
 
@@ -167,26 +158,26 @@
 }
 
 - (BOOL)matchesRulesOfType:(NSString *)type {
-	return [[self typesOfRulesMatched] containsObject:type];
+    return [[self typesOfRulesMatched] containsObject:type];
 }
 
 - (BOOL)dataCollected {
-	return dataCollected;
+    return dataCollected;
 }
 
 - (void)setDataCollected:(BOOL)collected {
-	dataCollected = collected;
+    dataCollected = collected;
 }
 
 - (BOOL)isRunning {
-	return running;
+    return running;
 }
 
 - (void)setThreadNameFromClassName {
-	// Mac OS X 10.5 (Leopard) introduces -[NSThread setName:], which might make crash logs easier to read
-	NSThread *thr = [NSThread currentThread];
-	if ([thr respondsToSelector:@selector(setName:)])
-		[thr performSelector:@selector(setName:) withObject:NSStringFromClass([self class])];
+    // Mac OS X 10.5 (Leopard) introduces -[NSThread setName:], which might make crash logs easier to read
+    NSThread *thr = [NSThread currentThread];
+    if ([thr respondsToSelector:@selector(setName:)])
+        [thr performSelector:@selector(setName:) withObject:NSStringFromClass([self class])];
 }
 
 #pragma mark -
@@ -194,91 +185,89 @@
 
 - (void)setContextMenu:(NSMenu *)menu
 {
-	[ruleContext setMenu:menu];
+    [ruleContext setMenu:menu];
 }
 
 - (void)runPanelAsSheetOfWindow:(NSWindow *)window withParameter:(NSDictionary *)parameter
-		 callbackObject:(NSObject *)callbackObject selector:(SEL)selector
+         callbackObject:(NSObject *)callbackObject selector:(SEL)selector
 {
-	NSString *typeToUse = [[self typesOfRulesMatched] objectAtIndex:0];
-	if ([parameter objectForKey:@"type"])
-		typeToUse = [parameter valueForKey:@"type"];
-	[self writeToPanel:parameter usingType:typeToUse];
+    NSString *typeToUse = [[self typesOfRulesMatched] objectAtIndex:0];
+    if ([parameter objectForKey:@"type"])
+        typeToUse = [parameter valueForKey:@"type"];
+    [self writeToPanel:parameter usingType:typeToUse];
 
-	NSMethodSignature *sig = [callbackObject methodSignatureForSelector:selector];
-	NSInvocation *contextInfo = [NSInvocation invocationWithMethodSignature:sig];
-	[contextInfo setSelector:selector];
-	[contextInfo setTarget:callbackObject];
+    NSMethodSignature *sig = [callbackObject methodSignatureForSelector:selector];
+    NSInvocation *contextInfo = [NSInvocation invocationWithMethodSignature:sig];
+    [contextInfo setSelector:selector];
+    [contextInfo setTarget:callbackObject];
 
-	[NSApp beginSheet:panel
-	   modalForWindow:window
-	    modalDelegate:self
-	   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-	      contextInfo:[contextInfo retain]];
+    [NSApp beginSheet:panel
+       modalForWindow:window
+        modalDelegate:self
+       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+          contextInfo:CFBridgingRetain(contextInfo)];
 }
 
 - (IBAction)closeSheetWithOK:(id)sender
 {
-	[NSApp endSheet:panel returnCode:NSOKButton];
-	[panel orderOut:nil];
+    [NSApp endSheet:panel returnCode:NSOKButton];
+    [panel orderOut:nil];
 }
 
 - (IBAction)closeSheetWithCancel:(id)sender
 {
-	[NSApp endSheet:panel returnCode:NSCancelButton];
-	[panel orderOut:nil];
+    [NSApp endSheet:panel returnCode:NSCancelButton];
+    [panel orderOut:nil];
 }
 
 // Private
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
-    NSInvocation *inv = (NSInvocation *) contextInfo;
+    NSInvocation *inv = (__bridge NSInvocation *) contextInfo;
 
-	if (returnCode == NSOKButton) {
-        NSDictionary *dict = [self readFromPanel];
+    if (returnCode == NSOKButton) {
+        __unsafe_unretained NSDictionary *dict = [self readFromPanel];
         [inv setArgument:&dict atIndex:2];
         [inv invoke];
     }
 
-	[inv release];
 }
 
 - (NSMutableDictionary *)readFromPanel
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-		[[ruleContext selectedItem] representedObject], @"context",
-		[NSNumber numberWithDouble:[ruleConfidenceSlider doubleValue]], @"confidence",
-		[[self typesOfRulesMatched] objectAtIndex:0], @"type",
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+        [[ruleContext selectedItem] representedObject], @"context",
+        [NSNumber numberWithDouble:[ruleConfidenceSlider doubleValue]], @"confidence",
+        [[self typesOfRulesMatched] objectAtIndex:0], @"type",
         [NSNumber numberWithInteger:[self.negateRule state]], @"negate",
-		nil];
+        nil];
 
-	if (oldDescription)
-		[dict setValue:oldDescription forKey:@"description"];
+    if (oldDescription)
+        [dict setValue:oldDescription forKey:@"description"];
 
-	return dict;
+    return dict;
 }
 
 - (void)writeToPanel:(NSDictionary *)dict usingType:(NSString *)type
 {
-	if ([dict objectForKey:@"context"]) {
-		// Set up context selector
-		NSInteger index = [ruleContext indexOfItemWithRepresentedObject:[dict valueForKey:@"context"]];
-		[ruleContext selectItemAtIndex:index];
-	}
+    if ([dict objectForKey:@"context"]) {
+        // Set up context selector
+        NSInteger index = [ruleContext indexOfItemWithRepresentedObject:[dict valueForKey:@"context"]];
+        [ruleContext selectItemAtIndex:index];
+    }
 
-	if ([dict objectForKey:@"confidence"]) {
-		// Set up confidence slider
-		[ruleConfidenceSlider setDoubleValue:[[dict valueForKey:@"confidence"] doubleValue]];
-	}
+    if ([dict objectForKey:@"confidence"]) {
+        // Set up confidence slider
+        [ruleConfidenceSlider setDoubleValue:[[dict valueForKey:@"confidence"] doubleValue]];
+    }
 
-	// Hang on to custom descriptions
-	[oldDescription autorelease];
-	oldDescription = nil;
-	if ([dict objectForKey:@"description"]) {
-		NSString *desc = [dict valueForKey:@"description"];
-		if (desc && ([desc length] > 0))
-			oldDescription = [desc retain];
-	}
+    // Hang on to custom descriptions
+    oldDescription = nil;
+    if ([dict objectForKey:@"description"]) {
+        NSString *desc = [dict valueForKey:@"description"];
+        if (desc && ([desc length] > 0))
+            oldDescription = desc;
+    }
     
     if ([dict objectForKey:@"negate"]) {
         [self.negateRule setState:[[dict valueForKey:@"negate"] integerValue]];
@@ -298,14 +287,14 @@
     if ([rulesThatBelongToThisEvidenceSource count] > 0)
         [rulesThatBelongToThisEvidenceSource removeAllObjects];
 
-    NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *tmp = [[NSMutableArray alloc] init];
     [tmp addObjectsFromArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"Rules"]];
     
     NSDictionary *currentRule;
 
     for (NSUInteger i = 0; i < [tmp count]; i++) {
         currentRule = [tmp objectAtIndex:i];
-        NSString *currentType = [[[NSString alloc] initWithString:[currentRule valueForKey:@"type"]] autorelease];
+        NSString *currentType = [[NSString alloc] initWithString:[currentRule valueForKey:@"type"]];
         
         if ([currentType isEqualToString:[[self typesOfRulesMatched] objectAtIndex:0]]) {
             [rulesThatBelongToThisEvidenceSource addObject:currentRule];
@@ -317,25 +306,25 @@
 }
 
 - (void)start {
-	[self doesNotRecognizeSelector:_cmd];
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (void)stop {
-	[self doesNotRecognizeSelector:_cmd];
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (NSString *)name {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 - (NSArray *)typesOfRulesMatched {
-	return [NSArray arrayWithObject:[self name]];
+    return [NSArray arrayWithObject:[self name]];
 }
 
 - (BOOL)doesRuleMatch:(NSMutableDictionary *)rule {
-	[self doesNotRecognizeSelector:_cmd];
-	return NO;
+    [self doesNotRecognizeSelector:_cmd];
+    return NO;
 }
 
 - (NSString *) friendlyName {
@@ -431,11 +420,11 @@
 }
 
 - (id)init {
-	if (!(self = [super init])) {
-		return nil;
+    if (!(self = [super init])) {
+        return nil;
     }
 
-	NSMutableArray *classes = [NSMutableArray arrayWithObjects:
+    NSMutableArray *classes = [NSMutableArray arrayWithObjects:
 #ifdef DEBUG_MODE
                         [StressTestEvidenceSource class],
 #endif
@@ -447,24 +436,24 @@
                         [FireWireEvidenceSource class],
                         [MonitorEvidenceSource class],
                         [USBEvidenceSource class],
-						[AudioOutputEvidenceSource class],
+                        [AudioOutputEvidenceSource class],
                         //[HostAvailabilityEvidenceSource class],
-						[BluetoothEvidenceSource class],
-                        [BonjourEvidenceSource class],	
-						[CoreLocationSource class],
+                        [BluetoothEvidenceSource class],
+                        [BonjourEvidenceSource class],    
+                        [CoreLocationSource class],
                         [DNSEvidenceSource class],
                         [LaptopLidEvidenceSource class],
-						[LightEvidenceSource class],
+                        [LightEvidenceSource class],
                         [MountedVolumeEvidenceSource class],
-						[WiFiEvidenceSourceCoreWLAN class],
-						[PowerEvidenceSource class],
+                        [WiFiEvidenceSourceCoreWLAN class],
+                        [PowerEvidenceSource class],
                         [RemoteDesktopEvidenceSource class],
-						[RunningApplicationEvidenceSource class],
+                        [RunningApplicationEvidenceSource class],
                         [ScreenLockEvidenceSource class],
                         [ShellScriptEvidenceSource class],
-						[SleepEvidenceSource class],
-						[TimeOfDayEvidenceSource class],
-						nil];
+                        [SleepEvidenceSource class],
+                        [TimeOfDayEvidenceSource class],
+                        nil];
     
 #ifdef DEBUG_MODE
     for (NSString *pluginPath in [self getEvidenceSourcePlugins]) {
@@ -480,33 +469,33 @@
     }
 #endif
 
-	if (NO) {
-		// Purely for the benefit of 'genstrings'
+    if (NO) {
+        // Purely for the benefit of 'genstrings'
         NSLocalizedString(@"AttachedPowerAdapter", @"Evidence source");
-		NSLocalizedString(@"AudioOutput", @"Evidence source");
-		NSLocalizedString(@"Bluetooth", @"Evidence source");
-		NSLocalizedString(@"Bonjour", @"Evidence source");
-		NSLocalizedString(@"CoreLocation", @"Evidence source");
+        NSLocalizedString(@"AudioOutput", @"Evidence source");
+        NSLocalizedString(@"Bluetooth", @"Evidence source");
+        NSLocalizedString(@"Bonjour", @"Evidence source");
+        NSLocalizedString(@"CoreLocation", @"Evidence source");
         NSLocalizedString(@"Context", @"Evidence Source");
-		NSLocalizedString(@"FireWire", @"Evidence source");
-		NSLocalizedString(@"DNS", @"Evidence source");
-		NSLocalizedString(@"IPAddr", @"Evidence source");
-		NSLocalizedString(@"Light", @"Evidence source");
-		NSLocalizedString(@"Monitor", @"Evidence source");
-		NSLocalizedString(@"NetworkLink", @"Evidence source");
-		NSLocalizedString(@"Power", @"Evidence source");
+        NSLocalizedString(@"FireWire", @"Evidence source");
+        NSLocalizedString(@"DNS", @"Evidence source");
+        NSLocalizedString(@"IPAddr", @"Evidence source");
+        NSLocalizedString(@"Light", @"Evidence source");
+        NSLocalizedString(@"Monitor", @"Evidence source");
+        NSLocalizedString(@"NetworkLink", @"Evidence source");
+        NSLocalizedString(@"Power", @"Evidence source");
         NSLocalizedString(@"RemoteDesktop", @"Evidence source");
-		NSLocalizedString(@"RunningApplication", @"Evidence source");
+        NSLocalizedString(@"RunningApplication", @"Evidence source");
         NSLocalizedString(@"ScreenLock", @"Evidence source");
         NSLocalizedString(@"Shell Script", @"Evidence source");
-		NSLocalizedString(@"Sleep/Wake", @"Evidence source");
-		NSLocalizedString(@"TimeOfDay", @"Evidence source");
-		NSLocalizedString(@"USB", @"Evidence source");
+        NSLocalizedString(@"Sleep/Wake", @"Evidence source");
+        NSLocalizedString(@"TimeOfDay", @"Evidence source");
+        NSLocalizedString(@"USB", @"Evidence source");
         NSLocalizedString(@"WiFi using CoreWLAN", @"Evidence source");
-	}
+    }
 
-	// Instantiate all the evidence sources if they are supported on this device
-	NSMutableArray *srcList = [[NSMutableArray alloc] initWithCapacity:[classes count]];
+    // Instantiate all the evidence sources if they are supported on this device
+    NSMutableArray *srcList = [[NSMutableArray alloc] initWithCapacity:[classes count]];
     for (Class class in classes) {
         if ([class isEvidenceSourceApplicableToSystem]) {
             @autoreleasepool {
@@ -516,24 +505,18 @@
                     continue;
                 }
                 [srcList addObject:src];
-                [src release];
             }
         }
     }
 
-	sources = srcList;
+    sources = srcList;
     enabledSourcesForRuleTypes = [[NSCache alloc] init];
 
-	return self;
+    return self;
 }
 
 - (void)dealloc {
     [self stopAllRunningEvidenceSources];
-
-    [enabledSourcesForRuleTypes release];
-	[sources release];
-
-	[super dealloc];
 }
 
 /**
@@ -575,12 +558,12 @@
 }
 
 - (EvidenceSource *)sourceWithName:(NSString *)name {
-	for (EvidenceSource *src in sources) {
-		if ([[src name] isEqualToString:name]) {
-			return src;
+    for (EvidenceSource *src in sources) {
+        if ([[src name] isEqualToString:name]) {
+            return src;
         }
     }
-	return nil;
+    return nil;
 }
 
 - (void)startEvidenceSource:(EvidenceSource *)src {
@@ -623,7 +606,7 @@
 
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [sources enumerateObjectsUsingBlock:^(EvidenceSource *src, NSUInteger idx, BOOL *stop) {
-		if ([src matchesRulesOfType:ruleType]) {
+        if ([src matchesRulesOfType:ruleType]) {
             if ([standardUserDefaults boolForKey:[src enablementKeyName]]) { // if enabled
                 [indexes addIndex:idx];
             }
@@ -634,7 +617,7 @@
 }
 
 - (RuleMatchStatusType)ruleMatches:(NSMutableDictionary *)rule {
-	NSString *ruleType = rule[@"type"];
+    NSString *ruleType = rule[@"type"];
 
     NSIndexSet *sourceIndexes = [enabledSourcesForRuleTypes objectForKey:ruleType];
     if (!sourceIndexes) {
@@ -659,53 +642,51 @@
         }
     }];
 
-	return result;
+    return result;
 }
 
 - (NSEnumerator *)sourceEnumerator {
-	return [sources objectEnumerator];
+    return [sources objectEnumerator];
 }
 
 #pragma mark NSMenu delegates
 
 - (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(int)index shouldCancel:(BOOL)shouldCancel {
-	EvidenceSource *src = sources[index];
+    EvidenceSource *src = sources[index];
     NSString *friendlyName = [src friendlyName];
-	[item setTitle:[NSString stringWithFormat:NSLocalizedString(@"Add '%@' Rule...", @"Menu item"),
+    [item setTitle:[NSString stringWithFormat:NSLocalizedString(@"Add '%@' Rule...", @"Menu item"),
                     friendlyName]];
 
     NSArray *typesOfRulesMatched = [src typesOfRulesMatched];
-	if ([typesOfRulesMatched count] > 1) {
-		NSMenu *submenu = [[NSMenu alloc] init];
-		for (NSString *type in typesOfRulesMatched) {
-			NSMenuItem *it = [[NSMenuItem alloc] init];
-			[it setTitle:NSLocalizedString(type, @"Rule type")];
-			[it setTarget:prefsWindowController];
-			[it setAction:@selector(addRule:)];
-			[it setRepresentedObject:@[src, type]];
-			[submenu addItem:it];
-            [it release];
-		}
-		[item setSubmenu:submenu];
-        [submenu release];
-	} else {
-		[item setTarget:prefsWindowController];
-		[item setAction:@selector(addRule:)];
-		[item setRepresentedObject:src];
-	}
+    if ([typesOfRulesMatched count] > 1) {
+        NSMenu *submenu = [[NSMenu alloc] init];
+        for (NSString *type in typesOfRulesMatched) {
+            NSMenuItem *it = [[NSMenuItem alloc] init];
+            [it setTitle:NSLocalizedString(type, @"Rule type")];
+            [it setTarget:prefsWindowController];
+            [it setAction:@selector(addRule:)];
+            [it setRepresentedObject:@[src, type]];
+            [submenu addItem:it];
+        }
+        [item setSubmenu:submenu];
+    } else {
+        [item setTarget:prefsWindowController];
+        [item setAction:@selector(addRule:)];
+        [item setRepresentedObject:src];
+    }
 
-	// Bindings
-	[item bind:@"enabled" toObject:src withKeyPath:@"dataCollected" options:nil];
-	// TODO?: enabled2 -> NSUserDefaults.values.Enable%@EvidenceSource
+    // Bindings
+    [item bind:@"enabled" toObject:src withKeyPath:@"dataCollected" options:nil];
+    // TODO?: enabled2 -> NSUserDefaults.values.Enable%@EvidenceSource
 
     [item setHidden:![src isRunning]];
 
-	return YES;
+    return YES;
 }
 
 - (BOOL)menuHasKeyEquivalent:(NSMenu *)menu forEvent:(NSEvent *)event target:(id *)target action:(SEL *)action {
-	// TODO: support keyboard menu jumping?
-	return NO;
+    // TODO: support keyboard menu jumping?
+    return NO;
 }
 
 // we're being asked how many items should be in the add new rule menu
@@ -713,53 +694,53 @@
 // the '- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(int)index shouldCancel:(BOOL)shouldCancel'
 // call which is next
 - (NSUInteger)numberOfItemsInMenu:(NSMenu *)menu {
-	return [sources count];
+    return [sources count];
 }
 
 #pragma mark NSTableViewDataSource protocol methods
 
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
-	return [sources count];
+    return [sources count];
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex {
-	EvidenceSource *src = sources[rowIndex];
+    EvidenceSource *src = sources[rowIndex];
     NSString *friendlyName = [src friendlyName];
-	NSString *col_id = [aTableColumn identifier];
+    NSString *col_id = [aTableColumn identifier];
 
-	if ([@"enabled" isEqualToString:col_id]) {
-		return [[NSUserDefaults standardUserDefaults] valueForKey:[src enablementKeyName]];
-	} else if ([@"name" isEqualToString:col_id]) {
-		return NSLocalizedString(friendlyName, @"Evidence source");
-	}
+    if ([@"enabled" isEqualToString:col_id]) {
+        return [[NSUserDefaults standardUserDefaults] valueForKey:[src enablementKeyName]];
+    } else if ([@"name" isEqualToString:col_id]) {
+        return NSLocalizedString(friendlyName, @"Evidence source");
+    }
 
-	// Shouldn't get here!
-	return nil;
+    // Shouldn't get here!
+    return nil;
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject
    forTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex {
 
-	NSString *col_id = [aTableColumn identifier];
+    NSString *col_id = [aTableColumn identifier];
 
-	if ([@"enabled" isEqualToString:col_id]) {
+    if ([@"enabled" isEqualToString:col_id]) {
         EvidenceSource *src = sources[rowIndex];
         if ([anObject boolValue]) {
             [self startEvidenceSource:src];
         } else {
             [self stopEvidenceSource:src];
         }
-		[[NSUserDefaults standardUserDefaults] setValue:anObject forKey:[src enablementKeyName]];
-		return;
-	}
+        [[NSUserDefaults standardUserDefaults] setValue:anObject forKey:[src enablementKeyName]];
+        return;
+    }
 
-	// Shouldn't get here!
+    // Shouldn't get here!
 }
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect
             tableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation {
 
-	NSString *col_id = [aTableColumn identifier];
+    NSString *col_id = [aTableColumn identifier];
 
     if ([@"name" isEqualToString:col_id]) {
         return [sources[row] description];

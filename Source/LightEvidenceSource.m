@@ -53,10 +53,6 @@ enum {
     return self;
 }
 
-- (void)dealloc {
-	[super dealloc];
-}
-
 - (BOOL)openAppleLMUController {
     // Find the IO service
     kern_return_t kr = KERN_FAILURE;
@@ -179,7 +175,6 @@ enum {
 + (BOOL) isEvidenceSourceApplicableToSystem {
     LightEvidenceSource *les = [[LightEvidenceSource alloc] init];
     BOOL test = [les openAppleLMUController];
-    [les release];
     
     return test;
 }

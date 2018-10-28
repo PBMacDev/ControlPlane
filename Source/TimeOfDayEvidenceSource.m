@@ -130,7 +130,6 @@
 	NSString *desc = [NSString stringWithFormat:@"%@ %@-%@", selectedDay,
 		[fmt stringFromDate:startTime], [fmt stringFromDate:endTime]];
 
-    [fmt release];
 	[dict setValue:param forKey:@"parameter"];
 	if (![dict objectForKey:@"description"])
 		[dict setValue:desc forKey:@"description"];

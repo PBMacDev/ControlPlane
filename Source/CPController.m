@@ -40,7 +40,6 @@
     for (id obj in self) {
         id objMutableCopy = [obj mutableCopy];
         [arrayMutableCopy addObject:objMutableCopy];
-        [objMutableCopy release];
     }
     return arrayMutableCopy;
 }
@@ -227,7 +226,7 @@ static NSSet *sharedActiveContexts = nil;
 - (NSImage *)tintedIconImage:(NSImage *)image withTint:(NSColor *)color {
     if ((image != nil) && [image isTemplate]) {
         if ((color != nil) && ([color alphaComponent] > 0.0) && ![color isEqualTo:[NSColor blackColor]]) {
-            NSImage *tintedImage = [[image copy] autorelease];
+            NSImage *tintedImage = [image copy];
             [tintedImage setTemplate:NO];
             [tintedImage lockFocus];
             [[color colorUsingColorSpaceName:NSCalibratedRGBColorSpace] set];
@@ -245,7 +244,7 @@ static NSSet *sharedActiveContexts = nil;
 		return nil;
     }
 
-	sbImageTemplate = [[self prepareImageForMenubar:@"cp-icon"] retain];
+	sbImageTemplate = [self prepareImageForMenubar:@"cp-icon"];
     [sbImageTemplate setTemplate:YES];
 
 	sbItem = nil;
@@ -260,12 +259,11 @@ static NSSet *sharedActiveContexts = nil;
     screenLockActionQueue = [[NSMutableArray alloc] init];
 
     if (![self doInitUpdatingQueue]) {
-        [self release];
         return nil;
     }
     
     NSArray *rulesInUserDefaults = [[NSUserDefaults standardUserDefaults] arrayForKey:@"Rules"];
-    _rules = [[rulesInUserDefaults deepMutableCopy] retain];
+    _rules = [rulesInUserDefaults deepMutableCopy];
 
     _forceOneFullUpdate = YES;
     
@@ -275,19 +273,6 @@ static NSSet *sharedActiveContexts = nil;
 - (void)dealloc {
     [self stopMonitoringSleepAndPowerNotifications];
     [self doReleaseUpdatingQueue];
-
-    [_rules release];
-    [_candidateContextUUID release];
-
-    [screenLockActionQueue release];
-    [screenSaverActionQueue release];
-
-    [sbImageTemplate release];
-
-    [_currentContextPath release];
-    [_currentContext release];
-    
-	[super dealloc];
 }
 
 - (ContextsDataSource *)contextsDataSource {
@@ -313,7 +298,6 @@ static NSSet *sharedActiveContexts = nil;
         }
         
         [rules addObject:rule];
-        [rule release];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:rules forKey:@"Rules"];
@@ -321,7 +305,6 @@ static NSSet *sharedActiveContexts = nil;
     self.rules = rules; // atomic
     self.forceOneFullUpdate = YES;
     
-    [rules release];
     
     [self shiftRegularUpdatesToStartAt:dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC)];
 }
@@ -361,21 +344,18 @@ static NSSet *sharedActiveContexts = nil;
 	[[NSUserDefaults standardUserDefaults] setValue:[ctxt uuid] forKey:@"DefaultContext"];
 
 	// See if there are old rules and actions to import
-	NSArray *oldRules = (NSArray *) CFPreferencesCopyAppValue(CFSTR("Rules"), oldDomain);
-	NSArray *oldActions = (NSArray *) CFPreferencesCopyAppValue(CFSTR("Actions"), oldDomain);
+    NSArray *oldRules = (NSArray *) CFBridgingRelease(CFPreferencesCopyAppValue(CFSTR("Rules"), oldDomain));
+    NSArray *oldActions = (NSArray *) CFBridgingRelease(CFPreferencesCopyAppValue(CFSTR("Actions"), oldDomain));
 	if (!oldRules || !oldActions) {
 		if (oldRules)
-			CFRelease(oldRules);
+            CFRelease((__bridge CFTypeRef)(oldRules));
 		else if (oldActions)
-			CFRelease(oldActions);
+            CFRelease((__bridge CFTypeRef)(oldActions));
 		
 		[self importVersion1SettingsFinish:rulesImported withActions:actionsImported andIPActions:ipActionsFound];
 		return;
 	}
 	
-	[oldRules autorelease];
-	[oldActions autorelease];
-
 	// Replicate (some) rules
 	NSMutableArray *newRules = [NSMutableArray array];
 	en = [oldRules objectEnumerator];
@@ -432,7 +412,7 @@ static NSSet *sharedActiveContexts = nil;
 	en = [lookup objectEnumerator];
 	cnt = 0;
 	while ((ctxt = [en nextObject])) {
-		Action *act = [[[NetworkLocationAction alloc] initWithOption:[ctxt name]] autorelease];
+		Action *act = [[NetworkLocationAction alloc] initWithOption:[ctxt name]];
 		NSMutableDictionary *act_dict = [act dictionary];
 		[act_dict setValue:[ctxt uuid] forKey:@"context"];
 		[act_dict setValue:NSLocalizedString(@"Set Network Location", @"") forKey:@"description"];
@@ -446,7 +426,7 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void)importVersion1SettingsFinish: (BOOL)rulesImported withActions: (BOOL)actionsImported andIPActions: (BOOL)ipActionsFound {
-	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+	NSAlert *alert = [[NSAlert alloc] init];
 	[alert setAlertStyle:NSInformationalAlertStyle];
 	if (!rulesImported && !actionsImported)
 		[alert setMessageText:NSLocalizedString(@"Quick Start", @"")];
@@ -681,7 +661,6 @@ static NSSet *sharedActiveContexts = nil;
 	NSDictionary *attrs = @{ NSFontAttributeName: [NSFont menuBarFontOfSize:0] };
 	NSAttributedString *as = [[NSAttributedString alloc] initWithString:title attributes:attrs];
 	[sbItem setAttributedTitle:as];
-    [as release];
 }
 
 - (void)updateMenuBarImageOnIconColorPreviewNotification:(NSNotification *)notification {
@@ -750,7 +729,7 @@ static NSSet *sharedActiveContexts = nil;
         [self doHideFromStatusBar:YES];
 	}
 
-	sbItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+	sbItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	[sbItem setHighlightMode:YES];
 
     [self updateMenuBarImage];
@@ -774,7 +753,6 @@ static NSSet *sharedActiveContexts = nil;
     if (forced || [[NSUserDefaults standardUserDefaults] boolForKey:@"HideStatusBarIcon"]) {
         if (sbItem) {
             [[NSStatusBar systemStatusBar] removeStatusItem:sbItem];
-            [sbItem release];
             sbItem = nil;
         }
     }
@@ -783,11 +761,11 @@ static NSSet *sharedActiveContexts = nil;
 - (void)startOrStopHidingFromStatusBar {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HideStatusBarIcon"]) {
         if (!sbHideTimer && sbItem) {
-            sbHideTimer = [[NSTimer scheduledTimerWithTimeInterval: (NSTimeInterval)STATUS_BAR_LINGER
+            sbHideTimer = [NSTimer scheduledTimerWithTimeInterval: (NSTimeInterval)STATUS_BAR_LINGER
                                                             target: self
                                                           selector: @selector(hideFromStatusBar:)
                                                           userInfo: nil
-                                                           repeats: NO] retain];
+                                                           repeats: NO];
         }
     } else {
 		if (sbHideTimer) {
@@ -828,9 +806,9 @@ static NSSet *sharedActiveContexts = nil;
 
 - (void)rebuildForceContextMenu {
 	// Fill in 'Force context' submenu
-	NSMenu *submenu = [[[NSMenu alloc] init] autorelease];
+	NSMenu *submenu = [[NSMenu alloc] init];
 	for (Context *ctxt in [contextsDataSource orderedTraversal]) {
-		NSMenuItem *item = [[[NSMenuItem alloc] init] autorelease];
+		NSMenuItem *item = [[NSMenuItem alloc] init];
 		[item setTitle:[ctxt name]];
 		[item setIndentationLevel:[ctxt.depth intValue]];
 		[item setRepresentedObject:ctxt.uuid];
@@ -844,7 +822,7 @@ static NSSet *sharedActiveContexts = nil;
         
 		[submenu addItem:item];
         
-		item = [[item copy] autorelease];
+		item = [item copy];
 		[item setTitle:[NSString stringWithFormat:@"%@ (*)", [item title]]];
 		[item setKeyEquivalentModifierMask:NSAlternateKeyMask];
 		[item setAlternate:YES];
@@ -874,7 +852,7 @@ static NSSet *sharedActiveContexts = nil;
     
     // insert all active contexts
     if ([self.activeContexts count] == 0) {
-        NSMenuItem *currentContextMenuItem = [[[NSMenuItem alloc] initWithTitle:@"?" action:nil keyEquivalent:@""] autorelease];
+        NSMenuItem *currentContextMenuItem = [[NSMenuItem alloc] initWithTitle:@"?" action:nil keyEquivalent:@""];
         [currentContextMenuItem setTag:99];
         [currentContextMenuItem setIndentationLevel:1];
         [currentContextMenuItem setEnabled:NO];
@@ -886,12 +864,12 @@ static NSSet *sharedActiveContexts = nil;
             NSMenuItem *currentContextMenuItem = nil;
 
             if ([self.stickyActiveContexts containsObject:context]) {
-                currentContextMenuItem = [[[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%@*", context.name] action:@selector(deactivateContextByMenuClick:) keyEquivalent:@""] autorelease];
+                currentContextMenuItem = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"%@*", context.name] action:@selector(deactivateContextByMenuClick:) keyEquivalent:@""];
                 
                 [currentContextMenuItem setToolTip:NSLocalizedString(@"Context is Sticky, click to deactivate context", @"")];
             }
             else {
-                currentContextMenuItem = [[[NSMenuItem alloc] initWithTitle:context.name action:@selector(deactivateContextByMenuClick:) keyEquivalent:@""] autorelease];
+                currentContextMenuItem = [[NSMenuItem alloc] initWithTitle:context.name action:@selector(deactivateContextByMenuClick:) keyEquivalent:@""];
                 [currentContextMenuItem setToolTip:NSLocalizedString(@"Click to deactivate context", @"")];
             }
             
@@ -1191,7 +1169,6 @@ static NSSet *sharedActiveContexts = nil;
             NSArray *queue = screenSaverActionQueue;
             screenSaverActionQueue = [[NSMutableArray alloc] init];
             [self executeOrQueueActions:queue];
-            [queue release];
         }
     });
 }
@@ -1213,7 +1190,6 @@ static NSSet *sharedActiveContexts = nil;
             NSArray *queue = screenLockActionQueue;
             screenLockActionQueue = [[NSMutableArray alloc] init];
             [self executeOrQueueActions:queue];
-            [queue release];
         }
     });
 }
@@ -1698,7 +1674,6 @@ static NSSet *sharedActiveContexts = nil;
     [guessesForConversion enumerateKeysAndObjectsUsingBlock:^(NSString *uuid, NSNumber *conf, BOOL *stop) {
         guesses[uuid] = @(1.0 - [conf doubleValue]);
     }];
-    [guessesForConversion release];
 
     return guesses;
 }
@@ -1937,13 +1912,10 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
 - (void)doReleaseUpdatingQueue {
     if (updatingTimer) {
         dispatch_source_cancel(updatingTimer);
-        dispatch_release(updatingTimer);
     }
     if (concurrentActionQueue) {
-        dispatch_release(concurrentActionQueue);
     }
     if (updatingQueue) {
-        dispatch_release(updatingQueue);
     }
 }
 

@@ -51,40 +51,24 @@
     for (Class typeClass in ruleTypeClasses) {
         if (![typeClass isSubclassOfClass:ruleTypeClass]) {
             NSLog(@"%@ >> rule type class '%@' is not a subclass of RuleType!", [self class], typeClass);
-            [typeNames release];
-            [supportedTypes release];
-            [self release];
             return nil;
         }
 
         RuleType *ruleType = [(RuleType *) [typeClass alloc] initWithEvidenceSource:self];
         if (!ruleType) {
             NSLog(@"%@ >> failed to create an object of class '%@'!", [self class], typeClass);
-            [typeNames release];
-            [supportedTypes release];
-            [self release];
             return nil;
         }
 
         NSString *typeName = [ruleType name];
         supportedTypes[typeName] = ruleType;
         [typeNames addObject:typeName];
-        [ruleType release]; // it has been retained by types
     }
 
     ruleTypes = (NSDictionary *) supportedTypes;
     ruleTypeNames = (NSArray *) typeNames;
 
     return self;
-}
-
-- (void)dealloc {
-    panel = nil;
-    [_panelRuleContextMenu release];
-    [ruleTypeNames release];
-    [ruleTypes release];
-
-	[super dealloc];
 }
 
 - (BOOL)matchesRulesOfType:(NSString *)type {
@@ -143,7 +127,6 @@
     [ruleType writeToPanel:rule];
 
     if (oldDescription && [ruleType canAutoupdateDescription:oldDescription ofRule:rule]) {
-        [oldDescription autorelease];
         oldDescription = nil;
     }
 }

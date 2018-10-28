@@ -50,36 +50,29 @@
 	return self;
 }
 
-- (void) dealloc {
-	[app release];
-	[super dealloc];
-}
-
 - (void) setControlPlaneAsURLHandler {
-    NSString *currentSystemBrowser = (NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef) @"http");
+    NSString *currentSystemBrowser = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef) @"http");
     
     if (![[currentSystemBrowser lowercaseString] isEqualToString:[[[NSBundle mainBundle] bundleIdentifier] lowercaseString]]) {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:NSLocalizedString(@"You are adding or have triggered a Default Browser Action but ControlPlane is not currently set as the system wide default web browser. For the Default Browser Action feature to work properly ControlPlane must be set as the system's default web browser. ControlPlane will take the URL and then pass it to the browser of your choice. You may be asked to confirm this choice if you are using OS X 10.10 (Yosemite) or higher. Please select 'Use ControlPlane' if prompted." , @"")];
         [alert runModal];
-        [alert release];
         
-        LSSetDefaultHandlerForURLScheme((CFStringRef) @"https", (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
-        LSSetDefaultRoleHandlerForContentType(kUTTypeHTML, kLSRolesViewer, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
-        LSSetDefaultRoleHandlerForContentType(kUTTypeURL, kLSRolesViewer, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
-        LSSetDefaultRoleHandlerForContentType(kUTTypeFileURL, kLSRolesViewer, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
-        LSSetDefaultRoleHandlerForContentType(kUTTypeText, kLSRolesViewer, (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+        LSSetDefaultHandlerForURLScheme((CFStringRef) @"https", (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+        LSSetDefaultRoleHandlerForContentType(kUTTypeHTML, kLSRolesViewer, (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+        LSSetDefaultRoleHandlerForContentType(kUTTypeURL, kLSRolesViewer, (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+        LSSetDefaultRoleHandlerForContentType(kUTTypeFileURL, kLSRolesViewer, (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+        LSSetDefaultRoleHandlerForContentType(kUTTypeText, kLSRolesViewer, (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
 
     }
-    LSSetDefaultHandlerForURLScheme((CFStringRef) @"http", (CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
+    LSSetDefaultHandlerForURLScheme((CFStringRef) @"http", (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);
 
-    [currentSystemBrowser release];
 }
 
 - (NSMutableDictionary *) dictionary {
 	NSMutableDictionary *dict = [super dictionary];
 	
-	[dict setObject: [[app copy] autorelease] forKey: @"parameter"];
+	[dict setObject:[app copy] forKey: @"parameter"];
 	
 	return dict;
 }
@@ -106,7 +99,7 @@
 }
 
 + (NSArray *) limitedOptions {
-	NSArray *handlers = [(NSArray *) LSCopyAllHandlersForURLScheme((CFStringRef) @"http") autorelease];
+    NSArray *handlers = (__bridge NSArray *) LSCopyAllHandlersForURLScheme((CFStringRef) @"http");
 	
 	// no handlers
 	if (!handlers)
@@ -151,14 +144,13 @@
     }
     
     NSString *decodedURL = [url stringByRemovingPercentEncoding];
-    NSString *newURL = (NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                                           NULL,
-                                                                           (CFStringRef)decodedURL,
-                                                                           (CFStringRef)@"#",
-                                                                           (CFStringRef)@" ",
-                                                                           kCFStringEncodingUTF8 );
+    NSString *newURL = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                             NULL,
+                                                                                             (CFStringRef)decodedURL,
+                                                                                             (CFStringRef)@"#",
+                                                                                             (CFStringRef)@" ",
+                                                                                             kCFStringEncodingUTF8 ));
     NSArray *urls = [NSArray arrayWithObject:[NSURL URLWithString:newURL]];
-    [newURL release];
 
 
     [[NSWorkspace sharedWorkspace] openURLs:urls withAppBundleIdentifier:browser options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:nil];

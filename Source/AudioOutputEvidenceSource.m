@@ -14,11 +14,9 @@
 static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
 			     const AudioObjectPropertyAddress *inPropertyID, void *inClientData) {
     
-	AudioOutputEvidenceSource *src = (AudioOutputEvidenceSource *) inClientData;
+    AudioOutputEvidenceSource *src = (__bridge AudioOutputEvidenceSource *) inClientData;
 
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[src doRealUpdate];
-	[pool release];
 
 	return 0;
 }
@@ -138,7 +136,7 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
 	
 	address.mSelector = kAudioHardwarePropertyDefaultOutputDevice;
 	
-	if (AudioObjectAddPropertyListener(kAudioObjectSystemObject, &address, &sourceChange, self) != noErr) {
+	if (AudioObjectAddPropertyListener(kAudioObjectSystemObject, &address, &sourceChange, (__bridge void * _Nullable) self) != noErr) {
 		NSLog(@"%s >> AudioDeviceAddPropertyListener failed!", __PRETTY_FUNCTION__);
 		return;
 	}
@@ -197,7 +195,7 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
         kAudioObjectPropertyElementMaster
     };
     
-    if (AudioObjectAddPropertyListener(builtinDeviceID, &sourceAddr, &sourceChange, self) != noErr) {
+    if (AudioObjectAddPropertyListener(builtinDeviceID, &sourceAddr, &sourceChange, (__bridge void * _Nullable)(self)) != noErr) {
         NSLog(@"%s >> AudioDeviceAddPropertyListener failed!", __PRETTY_FUNCTION__);
         return;
     }
@@ -220,12 +218,12 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
 	};
 	
 	// Unregister listener; I don't know what we could do if this fails ...
-	AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &address, &sourceChange, self);
+    AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &address, &sourceChange, (__bridge void * _Nullable)(self));
     
     address.mSelector =kAudioDevicePropertyDataSource;
     address.mScope = kAudioDevicePropertyScopeOutput;
     address.mElement = kAudioObjectPropertyElementMaster;
-    AudioObjectRemovePropertyListener(builtinDeviceID, &address, &sourceChange, self);
+    AudioObjectRemovePropertyListener(builtinDeviceID, &address, &sourceChange, (__bridge void * _Nullable)(self));
 
 	source = 0;
 	[self setDataCollected:NO];

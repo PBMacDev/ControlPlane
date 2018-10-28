@@ -29,11 +29,6 @@
 	return self;
 }
 
-- (void)dealloc {
-    [status release];
-    [super dealloc];
-}
-
 - (NSString *)description {
     return NSLocalizedString(@"Create rules based on what power source your Mac is currently running on."
                              " Can include power adapter or battery.", @"");
@@ -44,8 +39,8 @@
 	CFArrayRef list = IOPSCopyPowerSourcesList(blob);
 
 	__block BOOL onBattery = YES;
-    [(NSArray *) list enumerateObjectsUsingBlock:^(id source, NSUInteger idx, BOOL *stop) {
-		NSDictionary *dict = (NSDictionary *) IOPSGetPowerSourceDescription(blob, (CFTypeRef) source);
+    [(__bridge NSArray *) list enumerateObjectsUsingBlock:^(id source, NSUInteger idx, BOOL *stop) {
+        NSDictionary *dict = (__bridge NSDictionary *) IOPSGetPowerSourceDescription(blob, (__bridge CFTypeRef) source);
 
 		if ([dict[@kIOPSPowerSourceStateKey] isEqualToString:@kIOPSACPowerValue]) {
 			onBattery = NO;

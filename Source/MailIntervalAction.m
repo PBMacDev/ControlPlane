@@ -43,11 +43,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	//[time release];
-	//[super dealloc];
-}
-
 - (NSMutableDictionary *) dictionary {
 	NSMutableDictionary *dict = [super dictionary];
 	

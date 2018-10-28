@@ -8,6 +8,7 @@
 //  Bug fix and implementation improvements by Vladimir Beloborodov (VladimirTechMan) on 21-22 July 2013.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "CPController.h"
 
 @interface CPController (SleepMonitor)

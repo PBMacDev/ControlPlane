@@ -11,7 +11,6 @@
 @interface BonjourEvidenceSource : GenericEvidenceSource<CPBonjourResolverDelegate,NSNetServiceDelegate>
 
 - (id)init;
-- (void)dealloc;
 
 - (void)start;
 - (void)stop;

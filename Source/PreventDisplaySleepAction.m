@@ -9,6 +9,8 @@
 #import "PreventDisplaySleepAction.h"
 #import <IOKit/pwr_mgt/IOPMLib.h>
 
+static IOPMAssertionID preventDisplaySleepActionAssertionID = 0;
+
 @implementation PreventDisplaySleepAction
 
 
@@ -20,37 +22,26 @@
 }
 
 - (BOOL) execute: (NSString **) errorString {
-    IOPMAssertionID assertionID;
-    IOReturn success = kIOReturnError;
+    IOReturn ioReturn = kIOReturnSuccess;
     // kIOPMAssertionTypeNoDisplaySleep prevents display sleep,
     // kIOPMAssertionTypeNoIdleSleep prevents idle sleep
 
-    PreventDisplaySleepActionStorage *assertionIdStorage = [PreventDisplaySleepActionStorage sharedStorage];
-    
-    
-    if (turnOn && !([assertionIdStorage assertionID] > 0)) {
+    if (turnOn && (preventDisplaySleepActionAssertionID == 0)) {
         //  NOTE: IOPMAssertionCreateWithName limits the string to 128 characters.
-        CFStringRef reasonForActivity= CFSTR("ControlPlane is preventing display sleep");
+        ioReturn = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep,
+                                                       kIOPMAssertionLevelOn, CFSTR("ControlPlane is preventing display sleep"), &preventDisplaySleepActionAssertionID);
         
-
-        
-        success = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep,
-                                                       kIOPMAssertionLevelOn, reasonForActivity, &assertionID);
-        
-        [assertionIdStorage setAssertionID:assertionID];
     }
-    else if (!turnOn && [assertionIdStorage assertionID] > 0) {
-        assertionID = [assertionIdStorage assertionID];
-        
-        if (assertionID)
-            success = IOPMAssertionRelease(assertionID);
-        
-        [assertionIdStorage setAssertionID:0];
+    else if (!turnOn && (preventDisplaySleepActionAssertionID != 0)) {
+        ioReturn = IOPMAssertionRelease(preventDisplaySleepActionAssertionID);
+        if (ioReturn == kIOReturnSuccess) {
+            preventDisplaySleepActionAssertionID = 0;
+        }
     }
 	
 	
 	// result
-	if (success != kIOReturnSuccess && [assertionIdStorage assertionID] != 0) {
+	if (ioReturn != kIOReturnSuccess) {
 		*errorString = @"Unable to enable/disable display sleep.";
 		return NO;
 	} else
@@ -83,50 +74,6 @@
 
 + (NSString *)menuCategory {
     return NSLocalizedString(@"System Preferences", @"");
-}
-
-@end
-
-static PreventDisplaySleepActionStorage *sharedStorage;
-
-@implementation PreventDisplaySleepActionStorage
-
-+ (id) sharedStorage {
-    @synchronized(self) {
-        if(sharedStorage == nil) {
-            sharedStorage = [[super allocWithZone:NULL] init];
-            sharedStorage.assertionID = 0;
-        }
-    }
-    
-    return sharedStorage;
-}
-
-+ (id) allocWithZone:(NSZone *)zone {
-    return [[self sharedStorage] retain];
-}
-
-- (id) copyWithZone:(NSZone *)zone {
-    return self;
-}
-- (id) retain {
-    return self;
-}
-- (NSUInteger)retainCount {
-    return UINT_MAX; //denotes an object that cannot be released
-}
-- (oneway void)release {
-    // never release
-}
-
-- (id)autorelease {
-    return self;
-}
-
-- (id)init {
-    self = [super init];
-    
-    return self;
 }
 
 @end

@@ -36,16 +36,10 @@
   return [self initWithOption:dict[@"parameter"]];
 }
 
-- (void)dealloc
-{
-  self.deviceAddressString = nil;
-  [super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
   NSMutableDictionary *dict = [super dictionary];
-  dict[@"parameter"] = [[self.deviceAddressString copy] autorelease];
+  dict[@"parameter"] = [self.deviceAddressString copy];
   return dict;
 }
 
@@ -59,13 +53,13 @@
 - (BOOL)execute:(NSString **)errorString
 {
   ToggleBluetoothAction *toggleAction =
-    [[[ToggleBluetoothAction alloc] initWithOption:@YES] autorelease];
+    [[ToggleBluetoothAction alloc] initWithOption:@YES];
   NSString *error = nil;
   BOOL didToggle = [toggleAction execute:&error];
   if (!didToggle) {
     NSLog(@"%s Aborting because Bluetooth could not be turned on",
           __PRETTY_FUNCTION__);
-    *errorString = [[error copy] autorelease];
+    *errorString = [error copy];
     return NO;
   }
   IOBluetoothDevice *device =
@@ -100,8 +94,8 @@
     NSString *deviceAddress = device.addressString;
     if (deviceName && deviceAddress) {
       [options addObject:@{
-        @"option": [[deviceAddress copy] autorelease],
-        @"description": [[deviceName copy] autorelease],
+        @"option": [deviceAddress copy],
+        @"description": [deviceName copy],
       }];
     }
   }

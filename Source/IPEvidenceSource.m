@@ -55,15 +55,6 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 	return self;
 }
 
-- (void)dealloc
-{
-	[lock release];
-	[addresses release];
-
-	[super dealloc];
-}
-
-
 - (NSString *) description {
     return NSLocalizedString(@"Create rules based on the IPv4 or IPv6 address assigned to your Mac.", @"");
 }
@@ -103,7 +94,6 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 
 - (void)doFullUpdate
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[self setThreadNameFromClassName];
 
 	NSArray *addrs = [[self class] enumerate];
@@ -116,8 +106,6 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 	[self setDataCollected:[addresses count] > 0];
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
 	[lock unlock];
-
-	[pool release];
 }
 
 - (void)start {

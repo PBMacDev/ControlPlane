@@ -22,7 +22,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 #ifdef DEBUG_MODE
             NSLog(@"linkChange called with changedKeys:\n%@", changedKeys);
 #endif
-            [(NetworkLinkEvidenceSource *) info doFullUpdate:nil];
+            [(__bridge NetworkLinkEvidenceSource *) info doFullUpdate:nil];
         }
     }
 }
@@ -57,10 +57,6 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 
 - (void)dealloc {
     [self doStop];
-    
-	[_interfaces release];
-
-	[super dealloc];
 }
 
 - (NSString *)description {
@@ -68,7 +64,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 }
 
 - (NSSet *)enumerate {
-    NSArray *services = [(NSArray *) SCNetworkServiceCopyAll(prefs) autorelease];
+    NSArray *services = (NSArray *) CFBridgingRelease(SCNetworkServiceCopyAll(prefs));
 
     // For some connections, we get several Services with different ID
     // but same name (e.g. 'Ethernet'), presumably because they have
@@ -122,7 +118,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
     }
 
 	// Register for asynchronous notifications
-	SCDynamicStoreContext ctxt = {0, self, NULL, NULL, NULL}; // {version, info, retain, release, copyDescription}
+    SCDynamicStoreContext ctxt = {0, (__bridge void * _Nullable)(self), NULL, NULL, NULL}; // {version, info, retain, release, copyDescription}
 	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), linkChange, &ctxt);
     if (!store) {
         [self doStop];
@@ -180,7 +176,6 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
             dispatch_queue_set_specific(serialQueue, queueIsStopped, queueIsStopped, NULL);
             dispatch_resume(serialQueue);
         }
-        dispatch_release(serialQueue);
         serialQueue = NULL;
     }
 
@@ -214,7 +209,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 
 - (NSArray *)getSuggestions {
 	NSMutableArray *arr = [NSMutableArray array];
-	NSArray *all = [(NSArray *) SCNetworkServiceCopyAll(prefs) autorelease];
+    NSArray *all = (NSArray *) CFBridgingRelease(SCNetworkServiceCopyAll(prefs));
 
     // See comments in -enumerate:
     NSMutableSet *alreadySeen = [NSMutableSet set];

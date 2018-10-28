@@ -14,7 +14,6 @@
 - (id)initWithNibNamed:(NSString *)name;
 
 - (id)initWithRules:(NSArray *)ruleTypeClasses;
-- (void)dealloc;
 
 - (BOOL)matchesRulesOfType:(NSString *)type;
 - (NSArray *)typesOfRulesMatched;

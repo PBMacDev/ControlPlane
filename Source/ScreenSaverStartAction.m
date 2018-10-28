@@ -51,7 +51,6 @@
 		return NO;
 	}
 	*/
-    [screenSaver release];
 	return YES;
 }
 

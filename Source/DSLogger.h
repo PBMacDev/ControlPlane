@@ -6,6 +6,7 @@
 //  Modified by Vladimir Beloborodov on 01 Apr 2013.
 //
 
+#import <Cocoa/Cocoa.h>
 
 @interface DSLogger : NSObject
 
@@ -17,7 +18,6 @@
 + (void)logFromFunction:(NSString *)fnName withInfo:(NSString *)info;
 
 - (id)init;
-- (void)dealloc;
 
 - (void)logFromFunction:(NSString *)fnName withInfo:(NSString *)info;
 - (NSString *)buffer;

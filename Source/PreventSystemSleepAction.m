@@ -9,6 +9,8 @@
 #import "PreventSystemSleepAction.h"
 #import <IOKit/pwr_mgt/IOPMLib.h>
 
+static IOPMAssertionID preventSystemSleepActionAssertionID = 0;
+
 @implementation PreventSystemSleepAction
 
 - (NSString *) description {
@@ -19,37 +21,26 @@
 }
 
 - (BOOL) execute: (NSString **) errorString {
-    IOPMAssertionID assertionID;
-    IOReturn success = kIOReturnError;
+    IOReturn ioReturn = kIOReturnSuccess;
     // kIOPMAssertionTypeNoDisplaySleep prevents display sleep,
     // kIOPMAssertionTypeNoIdleSleep prevents idle sleep
     
-    PreventSystemSleepActionStorage *assertionIdStorage = [PreventSystemSleepActionStorage sharedStorage];
-    
-    
-    if (turnOn && !([assertionIdStorage assertionID] > 0)) {
+    if (turnOn && (preventSystemSleepActionAssertionID == 0)) {
+        
         //  NOTE: IOPMAssertionCreateWithName limits the string to 128 characters.
-        CFStringRef reasonForActivity= CFSTR("ControlPlane is preventing system sleep");
-        
-        
-        
-        success = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep,
-                                              kIOPMAssertionLevelOn, reasonForActivity, &assertionID);
-        
-        [assertionIdStorage setAssertionID:assertionID];
+        ioReturn = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep,
+                                              kIOPMAssertionLevelOn, CFSTR("ControlPlane is preventing system sleep"), &preventSystemSleepActionAssertionID);
     }
-    else if (!turnOn && [assertionIdStorage assertionID] > 0) {
-        assertionID = [assertionIdStorage assertionID];
-        
-        if (assertionID)
-            success = IOPMAssertionRelease(assertionID);
-        
-        [assertionIdStorage setAssertionID:0];
+    else if (!turnOn && (preventSystemSleepActionAssertionID != 0)) {
+        ioReturn = IOPMAssertionRelease(preventSystemSleepActionAssertionID);
+        if (ioReturn == kIOReturnSuccess) {
+            preventSystemSleepActionAssertionID = 0;
+        }
     }
 	
 	
 	// result
-	if (success != kIOReturnSuccess && [assertionIdStorage assertionID] != 0) {
+	if (ioReturn != kIOReturnSuccess) {
 		*errorString = @"Unable to enable/disable system sleep.";
 		return NO;
 	} else
@@ -82,49 +73,6 @@
 
 + (NSString *)menuCategory {
     return NSLocalizedString(@"System Preferences", @"");
-}
-
-@end
-
-static PreventSystemSleepActionStorage *sharedStorage;
-
-@implementation PreventSystemSleepActionStorage
-
-+ (id) sharedStorage {
-    @synchronized(self) {
-        if(sharedStorage == nil) {
-            sharedStorage = [[super allocWithZone:NULL] init];
-            sharedStorage.assertionID = 0;
-        }
-    }
-    return sharedStorage;
-}
-
-+ (id) allocWithZone:(NSZone *)zone {
-    return [[self sharedStorage] retain];
-}
-
-- (id) copyWithZone:(NSZone *)zone {
-    return self;
-}
-- (id) retain {
-    return self;
-}
-- (NSUInteger)retainCount {
-    return UINT_MAX; //denotes an object that cannot be released
-}
-- (oneway void)release {
-    // never release
-}
-
-- (id)autorelease {
-    return self;
-}
-
-- (id)init {
-    self = [super init];
-    
-    return self;
 }
 
 @end

@@ -16,7 +16,6 @@
 @property (retain) NSString *destinationVolumePath;
 
 - (id) initWithDictionary: (NSDictionary *) dict;
-- (void) dealloc;
 - (NSMutableDictionary *) dictionary;
 
 - (NSString *) description;

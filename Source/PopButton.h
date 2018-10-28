@@ -7,6 +7,8 @@
 //  Modified by VladimirTechMan (Vladimir Beloborodov) on 22 May 2014.
 //
 
+#import <Cocoa/Cocoa.h>
+
 @interface PopButton : NSButton
 
 //@property (strong) NSMenu *menu;

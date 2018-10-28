@@ -14,7 +14,6 @@
 	if (self.isValid)
 		[self invalidate];
 	
-	[self release];
 	return nil;
 }
 

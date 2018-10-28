@@ -36,9 +36,7 @@ extern void CGSSetSwipeScrollDirection(const CGSConnection cid, BOOL dir);
     
     [[NSUserDefaults standardUserDefaults] setPersistentDomain:globalSettings forName:NSGlobalDomain];
     BOOL success = [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [globalSettings release];
-    
+        
     
 	if (!success) {
 		if (turnOn)

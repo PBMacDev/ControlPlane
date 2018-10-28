@@ -6,6 +6,8 @@
 //  Copyright (c) 2011. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
+
 @interface NSTimer (Invalidation)
 
 /**

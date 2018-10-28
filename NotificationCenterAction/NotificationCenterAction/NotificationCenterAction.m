@@ -90,11 +90,6 @@
 }
 
 
-- (void)dealloc {
-    
-}
-
-
 + (NSString *)helpTextForActionOfType:(NSString *)type {
     return @"help text";
 }

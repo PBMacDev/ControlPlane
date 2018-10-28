@@ -74,15 +74,6 @@
 	return self;
 }
 
-- (void)dealloc {
-    if (browsersUpdatesSerialQueue) {
-        dispatch_release(browsersUpdatesSerialQueue);
-    }
-    if (servicesUpdatesSerialQueue) {
-        dispatch_release(servicesUpdatesSerialQueue);
-    }
-}
-
 - (NSString *)name {
 	return @"Bonjour";
 }

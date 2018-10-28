@@ -32,18 +32,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[hostname release];
-
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
 
-	[dict setObject:[[hostname copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[hostname copy] forKey:@"parameter"];
 
 	return dict;
 }
@@ -110,7 +103,6 @@
 - (id)initWithOption:(NSString *)option
 {
 	self = [super init];
-	[hostname autorelease];
 	hostname = [option copy];
 	return self;
 }

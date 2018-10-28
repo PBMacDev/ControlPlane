@@ -32,9 +32,6 @@
     return self;
 }
 
-- (void)dealloc {
-}
-
 - (void)searchForServicesOfType:(NSString *)serviceType inDomain:(NSString *)searchDomain {
     networkBrowser.delegate = self;
     [networkBrowser searchForServicesOfType:serviceType inDomain:searchDomain];

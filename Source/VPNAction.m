@@ -33,18 +33,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[vpnType release];
-
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
 
-	[dict setObject:[[vpnType copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[vpnType copy] forKey:@"parameter"];
 
 	return dict;
 }
@@ -149,7 +142,6 @@
 - (id)initWithOption:(NSString *)option
 {
 	self = [super init];
-	[vpnType autorelease];
 	vpnType = [option copy];
 	return self;
 }

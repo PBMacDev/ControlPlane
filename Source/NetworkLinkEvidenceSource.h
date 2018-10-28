@@ -11,7 +11,6 @@
 @interface NetworkLinkEvidenceSource : GenericEvidenceSource
 
 - (id)init;
-- (void)dealloc;
 
 - (void)doFullUpdate:(id)sender;
 

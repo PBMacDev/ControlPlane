@@ -30,18 +30,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[time release];
-
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
 
-	[dict setObject:[[time copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[time copy] forKey:@"parameter"];
 
 	return dict;
 }
@@ -127,7 +120,6 @@
 	if (!(self = [super init]))
 		return nil;
 
-	[time autorelease];
 	time = [[NSNumber alloc] initWithInt:[option intValue]];
 
 	return self;

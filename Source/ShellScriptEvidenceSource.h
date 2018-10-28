@@ -22,8 +22,8 @@
 
 @interface ShellScriptEvidenceSource : EvidenceSource {
     
-    NSString *currentFileName;
-    NSString *scriptInterval;
+//    __unsafe_unretained NSString *currentFileName;
+//    __unsafe_unretained NSString *scriptInterval;
     NSArray *myTasks;
     NSTimer *ruleUpdateTimer;
     
@@ -43,13 +43,6 @@
  @result Returns an initialized ShellScriptEvidenceSource object
  */
 - (id)init;
-
-
-/*!
- @function dealloc
- @abstract Destroys the ShellScriptEvidenceSource object
- */
-- (void)dealloc;
 
 
 /*!

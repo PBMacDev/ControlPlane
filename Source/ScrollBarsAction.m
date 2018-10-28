@@ -33,10 +33,6 @@
   return [self initWithOption:dict[@"parameter"]];
 }
 
-- (void)dealloc {
-  self.setting = nil;
-  [super dealloc];
-}
 
 - (NSMutableDictionary *)dictionary {
   NSMutableDictionary *dict = [super dictionary];
@@ -51,11 +47,11 @@
 
 - (BOOL)execute:(NSString **)errorString {
   CFPreferencesSetValue(CFSTR("AppleShowScrollBars"), (CFStringRef)self.setting,
-			kCFPreferencesAnyApplication, kCFPreferencesCurrentUser,
-			kCFPreferencesAnyHost);
+            kCFPreferencesAnyApplication, kCFPreferencesCurrentUser,
+            kCFPreferencesAnyHost);
 
   CFPreferencesSynchronize(kCFPreferencesAnyApplication, kCFPreferencesCurrentUser,
-			   kCFPreferencesAnyHost);
+               kCFPreferencesAnyHost);
 
   [[NSDistributedNotificationCenter defaultCenter]
    postNotificationName:@"AppleShowScrollBarsSettingChanged"
@@ -66,8 +62,8 @@
 
 + (NSString *)helpText {
   return NSLocalizedString(@"Show scroll bars setting correlates to the option in"
-			   @" System Preferences.app.",
-			   @"");
+               @" System Preferences.app.",
+               @"");
 }
 
 + (NSString *)creationHelpText {
@@ -76,18 +72,18 @@
 
 + (NSArray *)limitedOptions {
   return @[
-	   @{ @"option" : @"Always",
-	      @"description" : NSLocalizedString(@"Always", @"") },
-	   @{
-	     @"option" : @"WhenScrolling",
-	     @"description" : NSLocalizedString(@"When scrolling", @"")
-	     },
-	   @{
-	     @"option" : @"Automatic",
-	     @"description" :
-	       NSLocalizedString(@"Automatically based on mouse or trackpad", @"")
-	     },
-	   ];
+       @{ @"option" : @"Always",
+          @"description" : NSLocalizedString(@"Always", @"") },
+       @{
+         @"option" : @"WhenScrolling",
+         @"description" : NSLocalizedString(@"When scrolling", @"")
+         },
+       @{
+         @"option" : @"Automatic",
+         @"description" :
+           NSLocalizedString(@"Automatically based on mouse or trackpad", @"")
+         },
+       ];
 }
 
 + (NSString *)friendlyName {

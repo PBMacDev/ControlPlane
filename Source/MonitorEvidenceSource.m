@@ -22,15 +22,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[lock release];
-	[monitors release];
-
-	[super dealloc];
-}
-
-
 - (NSString *) description {
     return NSLocalizedString(@"Create rules based on monitors attached to your Mac.", @"");
 }
@@ -55,7 +46,7 @@
 
 		NSString *display_name = NSLocalizedString(@"(Unnamed display)", "String for unnamed monitors");
 		io_service_t dev = CGDisplayIOServicePort(display_id);
-		NSDictionary *dict = (NSDictionary *) IODisplayCreateInfoDictionary(dev, kIODisplayOnlyPreferredName);
+        NSDictionary *dict = (__bridge NSDictionary *) IODisplayCreateInfoDictionary(dev, kIODisplayOnlyPreferredName);
 		if (!dict) {
 			NSLog(@"%@ >> Couldn't get info about display with ID 0x%08x!", [self class], display_id);
 			continue;
@@ -83,7 +74,6 @@
 		[display_array addObject:[NSDictionary dictionaryWithObjectsAndKeys:
 			[display_serial stringValue], @"serial", display_name, @"name", nil]];
 
-		[dict release];
 	}
 
 	[lock lock];

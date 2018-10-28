@@ -5,6 +5,8 @@
 //  Created by David Symonds on 3/04/07.
 //
 
+#import <Cocoa/Cocoa.h>
+
 @interface Action : NSObject {
 	NSString *type, *context, *when;
 	NSNumber *delay, *enabled;
@@ -24,7 +26,6 @@
 + (Action *)actionFromDictionary:(NSDictionary *)dict;
 - (id)init;
 - (id)initWithDictionary:(NSDictionary *)dict;
-- (void)dealloc;
 - (NSMutableDictionary *)dictionary;
 + (NSString *)helpTextForActionOfType:(NSString *)type;
 - (void) handleURL:(NSString *)url;

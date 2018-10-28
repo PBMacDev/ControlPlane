@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 @class Action;
 
@@ -60,7 +60,6 @@
 @property (assign) BOOL turnOn;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
-- (void)dealloc;
 - (NSMutableDictionary *)dictionary;
 
 + (NSArray *)limitedOptions;

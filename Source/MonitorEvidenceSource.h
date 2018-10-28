@@ -14,7 +14,6 @@
 }
 
 - (id)init;
-- (void)dealloc;
 
 - (void)doUpdate;
 - (void)clearCollectedData;

@@ -32,10 +32,7 @@
 
     if (serialQueue) {
         dispatch_sync(serialQueue, ^{});
-        dispatch_release(serialQueue);
     }
-
-	[super dealloc];
 }
 
 
@@ -55,7 +52,6 @@
     if (!serialQueue) {
         NSString *queueName = [[NSString alloc] initWithFormat:@"com.dustinrue.ControlPlane.%@",[self class]];
         serialQueue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_SERIAL);
-        [queueName release];
     }
 
     loopTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, serialQueue);
@@ -81,7 +77,6 @@
 - (void)doStop {
     if (loopTimer) {
         dispatch_source_cancel(loopTimer);
-        dispatch_release(loopTimer);
         loopTimer = NULL;
     }
 

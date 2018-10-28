@@ -15,7 +15,6 @@
 @interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate,WebFrameLoadDelegate>
 
 - (id)init;
-- (void)dealloc;
 - (void)start;
 - (void)stop;
 

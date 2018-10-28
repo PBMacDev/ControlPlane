@@ -5,6 +5,7 @@
 //  Created by David Symonds on 2/08/07.
 //
 
+#import <Cocoa/Cocoa.h>
 #import <WebKit/WebView.h>
 
 

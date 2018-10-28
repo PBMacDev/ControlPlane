@@ -15,7 +15,6 @@
 }
 
 - (id)init;	// can be extended by descendant classes to change loopInterval
-- (void)dealloc;
 
 - (void)start;
 - (void)stop;

@@ -15,7 +15,6 @@
 }
 
 - (id)initWithNibNamed:(NSString *)name;
-- (void)dealloc;
 
 - (void)start;
 - (void)stop;

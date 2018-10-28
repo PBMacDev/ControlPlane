@@ -15,7 +15,6 @@
 
 }
 - (id)initWithDictionary:(NSDictionary *)dict;
-- (void)dealloc;
 - (NSMutableDictionary *)dictionary;
 
 - (NSString *)description;

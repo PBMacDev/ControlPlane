@@ -11,7 +11,6 @@
 @interface LightEvidenceSource : LoopingEvidenceSource
 
 - (id)init;
-- (void)dealloc;
 
 - (void)doUpdate;
 - (void)clearCollectedData;

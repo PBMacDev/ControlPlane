@@ -25,7 +25,6 @@
 }
 
 - (id)init;
-- (void)dealloc;
 
 - (void)start;
 - (void)stop;

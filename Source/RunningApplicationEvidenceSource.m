@@ -21,14 +21,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[applications release];
-
-	[super dealloc];
-}
-
-
 - (NSString *) description {
     return NSLocalizedString(@"Create rules based on whether or not an application is running.", @"");
 }
@@ -60,8 +52,6 @@
         DSLog(@"Running apps:\n%@", applications);
     #endif
     }
-	
-	[apps release];
 }
 
 - (void)start {

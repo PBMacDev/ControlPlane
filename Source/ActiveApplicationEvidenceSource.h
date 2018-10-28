@@ -15,7 +15,6 @@
 @property (retain) NSString *activeApplication;
 
 - (id)init;
-- (void)dealloc;
 
 - (void)start;
 - (void)stop;

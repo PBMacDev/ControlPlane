@@ -5,6 +5,7 @@
 //  Created by David Symonds on 15/07/07.
 //
 
+#import <Cocoa/Cocoa.h>
 
 @interface ToolTipTextField : NSTextField {
 }

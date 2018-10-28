@@ -32,18 +32,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[status release];
-    
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
     
-	[dict setObject:[[status copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[status copy] forKey:@"parameter"];
     
 	return dict;
 }

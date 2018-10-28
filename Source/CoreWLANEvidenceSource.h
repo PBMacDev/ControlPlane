@@ -16,7 +16,6 @@
 @property BOOL currentNetworkIsSecure;
 
 - (id)init;
-- (void)dealloc;
 
 - (void)clearCollectedData;
 

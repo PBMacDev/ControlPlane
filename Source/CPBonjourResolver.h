@@ -8,7 +8,7 @@
 //  Rework and cleanup done by Vladimir Beloborodov (VladimirTechMan) on 22-23 Aug 2013.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
 @protocol CPBonjourResolverDelegate <NSObject>;

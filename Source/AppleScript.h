@@ -6,7 +6,7 @@
 //  Copyright 2011. All rights reserved.
 //
 
-#import <AppKit/AppKit.h>
+#import <Cocoa/Cocoa.h>
 
 @interface NSApplication (AppleScript)
 

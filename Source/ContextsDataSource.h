@@ -5,6 +5,7 @@
 //  Created by David Symonds on 3/07/07.
 //
 
+#import <Cocoa/Cocoa.h>
 
 @interface Context : NSObject
 

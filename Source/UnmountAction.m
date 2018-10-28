@@ -32,18 +32,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[path release];
-
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
 
-	[dict setObject:[[path copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[path copy] forKey:@"parameter"];
 
 	return dict;
 }
@@ -73,7 +66,7 @@
     }
     
 	if (!success) {
-		*errorString = [[[NSString alloc] initWithFormat:@"%@: %@", NSLocalizedString(@"Couldn't unmount that volume!", @"In UnmountAction"), [error localizedFailureReason]] autorelease];
+		*errorString = [[NSString alloc] initWithFormat:@"%@: %@", NSLocalizedString(@"Couldn't unmount that volume!", @"In UnmountAction"), [error localizedFailureReason]];
         
 		return NO;
 	}

@@ -54,10 +54,6 @@
 }
 
 
-- (void)dealloc {
-	[super dealloc];
-}
-
 - (void)start {
     // will be used to store a timer object for each
     // rule that has been configured
@@ -81,8 +77,6 @@
 
 - (void)stop {        
     [self stopAllTasks];
-    [myTasks         release];
-    [taskTimers      release];
 
     [self setDataCollected: NO];
     running = NO;
@@ -115,7 +109,6 @@
     
     // compare the tasks ControlPlane knows about to the currently configured rules
     if ([myTasks isEqualToArray:tmpRules]) {
-        [tmpRules release];
 
         return;
     }
@@ -124,10 +117,9 @@
         DSLog(@"rules list has changed");
 #endif
         [self stopAllTasks];
-        myTasks = [[tmpRules copy] retain];
-        [tmpRules release];
+        myTasks = [tmpRules copy];
         if ([scriptResults count] > 0) {
-            [scriptResults release];
+//            [scriptResults release];
         }
         
         
@@ -170,7 +162,7 @@
         NSInvocation *taskInvocation = [NSInvocation invocationWithMethodSignature:taskSignature];
         [taskInvocation setTarget:self];
         [taskInvocation setSelector:@selector(runScript:)];
-        NSString *taskArgument = [currentTask valueForKey:@"parameter"];
+        __unsafe_unretained NSString *taskArgument = [currentTask valueForKey:@"parameter"];
         [taskInvocation setArgument:&taskArgument atIndex:2];
         
         tmp = [NSTimer scheduledTimerWithTimeInterval:interval invocation:taskInvocation repeats:YES];
@@ -205,7 +197,7 @@
     NSMutableArray *shebangArgs = [scriptName interpreterFromFile];
 	if (shebangArgs && [shebangArgs count] > 0) {
 		// get interpreter
-		interpreter = [[[shebangArgs objectAtIndex: 0] retain] autorelease];
+		interpreter = [shebangArgs objectAtIndex: 0];
 		[shebangArgs removeObjectAtIndex: 0];
 		
 		// and it's parameters
@@ -228,8 +220,6 @@
         // can't determine how to run the script
         DSLog(@"Failed to execute '%@' because ControlPlane cannot determine how to do so.  Please use '#!/bin/bash' or similar in the script or rename the script with a file extension", scriptName);
         
-        [task release];
-        [args release];
         // we bail
         return;
         
@@ -271,19 +261,14 @@
         DSLog(@"script reported fail");
 #endif
         [scriptResults setObject: [NSNumber numberWithBool: NO] forKey:[args objectAtIndex:0]];
-        [task release];
-        [args release];
     }
     else {
 #if DEBUG_MODE
         DSLog(@"script reported success");
 #endif
         [scriptResults setValue: [NSNumber numberWithBool: YES] forKey:[args objectAtIndex:0]];
-        [task release];
-        [args release];
     }
     
-    [resultString release];
     //[result release];
 }
 

@@ -32,17 +32,11 @@
 	return self;
 }
 
-- (void)dealloc
-{
-    [destinationVolumePath release];
-	[super dealloc];
-}
-
 - (NSMutableDictionary *)dictionary
 {
 	NSMutableDictionary *dict = [super dictionary];
     
-	[dict setObject:[[destinationVolumePath copy] autorelease] forKey:@"parameter"];
+	[dict setObject:[destinationVolumePath copy] forKey:@"parameter"];
     
 	return dict;
 }
@@ -84,7 +78,7 @@
     NSString* TediumPath = [[NSWorkspace sharedWorkspace] 
                             absolutePathForAppBundleWithIdentifier:@"com.dustinrue.Tedium"];
     if (!TediumPath) {
-        [[[self new] autorelease] performSelectorOnMainThread:@selector(tediumNotInstalledAlert) withObject:self waitUntilDone:YES];
+        [[self new] performSelectorOnMainThread:@selector(tediumNotInstalledAlert) withObject:self waitUntilDone:YES];
         return nil;
     }
 	NSMutableArray *opts = nil;
@@ -95,7 +89,7 @@
 		"  get destinationVolumeName of every destination\n"
 		"end tell\n";
         
-        NSArray *list = [[[self new] autorelease] executeAppleScriptReturningListOfStrings:script];
+        NSArray *list = [[self new] executeAppleScriptReturningListOfStrings:script];
         if (!list)		// failure
             return [NSArray array];
 
@@ -120,7 +114,6 @@
 - (id)initWithOption:(NSString *)option
 {
 	self = [super init];
-	[destinationVolumePath autorelease];
 	destinationVolumePath = [option copy];
 	return self;
 }
@@ -139,7 +132,6 @@
         NSURL *downloadURL = [NSURL URLWithString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"TediumURL"]];
         [[NSWorkspace sharedWorkspace] openURL:downloadURL];
     }
-    [alert release];
 }
 
 + (NSString *) friendlyName {

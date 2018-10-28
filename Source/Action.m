@@ -14,133 +14,123 @@
 
 + (NSString *)typeForClass:(Class)klass
 {
-	// Hack "Action" off class name (6 chars)
-	// TODO: make this a bit more robust?
-	NSString *className = NSStringFromClass(klass);
-	return [className substringToIndex:([className length] - 6)];
+    // Hack "Action" off class name (6 chars)
+    // TODO: make this a bit more robust?
+    NSString *className = NSStringFromClass(klass);
+    return [className substringToIndex:([className length] - 6)];
 }
 
 + (Class)classForType:(NSString *)type
 {
-	NSString *classString = [NSString stringWithFormat:@"%@Action", type];
-	Class klass = NSClassFromString(classString);
-	if (!klass) {
-		NSLog(@"ERROR: No implementation class '%@'!", classString);
-		return nil;
-	}
-	return klass;
+    NSString *classString = [NSString stringWithFormat:@"%@Action", type];
+    Class klass = NSClassFromString(classString);
+    if (!klass) {
+        NSLog(@"ERROR: No implementation class '%@'!", classString);
+        return nil;
+    }
+    return klass;
 }
 
 + (Action *)actionFromDictionary:(NSDictionary *)dict
 {
-	NSString *type = [dict valueForKey:@"type"];
-	if (!type) {
-		NSLog(@"ERROR: Action doesn't have a type!");
-		return nil;
-	}
-	Action *obj = [[[Action classForType:type] alloc] initWithDictionary:dict];
-	return [obj autorelease];
+    NSString *type = [dict valueForKey:@"type"];
+    if (!type) {
+        NSLog(@"ERROR: Action doesn't have a type!");
+        return nil;
+    }
+    Action *obj = [[[Action classForType:type] alloc] initWithDictionary:dict];
+    return obj;
 }
 
 - (id)init
 {
-	if ([[self class] isEqualTo:[Action class]]) {
-		[NSException raise:@"Abstract Class Exception"
-			    format:@"Error, attempting to instantiate Action directly."];
-	}
+    if ([[self class] isEqualTo:[Action class]]) {
+        [NSException raise:@"Abstract Class Exception"
+                format:@"Error, attempting to instantiate Action directly."];
+    }
 
-	if (!(self = [super init]))
-		return nil;
-	
-	// Some sensible defaults
-	type = [[Action typeForClass:[self class]] retain];
-	context = [@"" retain];
-	when = [@"Arrival" retain];
-	delay = [[NSNumber alloc] initWithDouble:0];
-	enabled = [[NSNumber alloc] initWithBool:YES];
-	
-	return self;
+    if (!(self = [super init]))
+        return nil;
+    
+    // Some sensible defaults
+    type = [Action typeForClass:[self class]];
+    context = @"";
+    when = @"Arrival";
+    delay = [[NSNumber alloc] initWithDouble:0];
+    enabled = [[NSNumber alloc] initWithBool:YES];
+    
+    return self;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dict
 {
-	if ([[self class] isEqualTo:[Action class]]) {
-		[NSException raise:@"Abstract Class Exception"
-			    format:@"Error, attempting to instantiate Action directly."];
-	}
+    if ([[self class] isEqualTo:[Action class]]) {
+        [NSException raise:@"Abstract Class Exception"
+                format:@"Error, attempting to instantiate Action directly."];
+    }
 
-	if (!(self = [super init]))
-		return nil;
+    if (!(self = [super init]))
+        return nil;
 
-	type = [[Action typeForClass:[self class]] retain];
-	context = [[dict valueForKey:@"context"] copy];
-	when = [[dict valueForKey:@"when"] copy];
-	delay = [[dict valueForKey:@"delay"] copy];
-	enabled = [[dict valueForKey:@"enabled"] copy];
+    type = [Action typeForClass:[self class]];
+    context = [[dict valueForKey:@"context"] copy];
+    when = [[dict valueForKey:@"when"] copy];
+    delay = [[dict valueForKey:@"delay"] copy];
+    enabled = [[dict valueForKey:@"enabled"] copy];
 
-	return self;
+    return self;
 }
 
-- (void)dealloc
-{
-	[type release];
-	[context release];
-	[when release];
-	[delay release];
-	[enabled release];
-
-	[super dealloc];
-}
 
 - (NSMutableDictionary *)dictionary
 {
-	return [NSMutableDictionary dictionaryWithObjectsAndKeys:
-		[[type copy] autorelease], @"type",
-		[[context copy] autorelease], @"context",
-		[[when copy] autorelease], @"when",
-		[[delay copy] autorelease], @"delay",
-		[[enabled copy] autorelease], @"enabled",
-		nil];
+    return [NSMutableDictionary dictionaryWithObjectsAndKeys:
+        [type copy], @"type",
+        [context copy], @"context",
+        [when copy], @"when",
+        [delay copy], @"delay",
+        [enabled copy], @"enabled",
+        nil];
 }
 
 + (NSString *)helpTextForActionOfType:(NSString *)type
 {
-	return [[Action classForType:type] helpText];
+    return [[Action classForType:type] helpText];
 }
 
 - (NSComparisonResult)compareDelay:(Action *)other
 {
-	return [[self valueForKey:@"delay"] compare:[other valueForKey:@"delay"]];
+    return [[self valueForKey:@"delay"] compare:[other valueForKey:@"delay"]];
 }
 
 - (void)notImplemented:(NSString *)methodName
 {
-	[NSException raise:@"Abstract Class Exception"
-		    format:@"Error, -[%@ %@] not implemented.",
-			    [self class], methodName];
+    [NSException raise:@"Abstract Class Exception"
+            format:@"Error, -[%@ %@] not implemented.",
+                [self class], methodName];
 }
 
 - (NSString *)description
 {
-	[self notImplemented:@"description"];
-	return @"Not implemented!";
+    [self notImplemented:@"description"];
+    return @"Not implemented!";
 }
 
 - (BOOL)execute:(NSString **)errorString
 {
-	[self notImplemented:@"execute"];
-	*errorString = @"Not implemented!";
-	return NO;
+    [self notImplemented:@"execute"];
+    *errorString = @"Not implemented!";
+    return NO;
 }
 
 + (NSString *)helpText
 {
-	return @"Sorry, no help text written yet!";
+    return @"Sorry, no help text written yet!";
 }
 
 + (NSString *)creationHelpText
 {
-	return @"<Sorry, help text coming soon!>";
+    return @"<Sorry, help text coming soon!>";
 }
 
 + (NSString *)friendlyName {
@@ -165,56 +155,56 @@
 
 - (void)executeAppleScriptForReal:(NSString *)script
 {
-	appleScriptResult_ = nil;
+    appleScriptResult_ = nil;
     
-	NSAppleScript *as = [[[NSAppleScript alloc] initWithSource:script] autorelease];
-	if (!as) {
-		NSLog(@"AppleScript failed to construct! Script was:\n%@", script);
-		return;
-	}
-	NSDictionary *errorDict;
-	if (![as compileAndReturnError:&errorDict]) {
-		NSLog(@"AppleScript failed to compile! Script was:\n%@\nError dictionary: %@", script, errorDict);
-		return;
-	}
-	appleScriptResult_ = [as executeAndReturnError:&errorDict];
-	if (!appleScriptResult_)
-		NSLog(@"AppleScript failed to execute! Script was:\n%@\nError dictionary: %@", script, errorDict);
+    NSAppleScript *as = [[NSAppleScript alloc] initWithSource:script];
+    if (!as) {
+        NSLog(@"AppleScript failed to construct! Script was:\n%@", script);
+        return;
+    }
+    NSDictionary *errorDict;
+    if (![as compileAndReturnError:&errorDict]) {
+        NSLog(@"AppleScript failed to compile! Script was:\n%@\nError dictionary: %@", script, errorDict);
+        return;
+    }
+    appleScriptResult_ = [as executeAndReturnError:&errorDict];
+    if (!appleScriptResult_)
+        NSLog(@"AppleScript failed to execute! Script was:\n%@\nError dictionary: %@", script, errorDict);
 }
 
 - (BOOL)executeAppleScript:(NSString *)script
 {
-	// NSAppleScript is not thread-safe, so this needs to happen on the main thread. Ick.
-	[self performSelectorOnMainThread:@selector(executeAppleScriptForReal:)
+    // NSAppleScript is not thread-safe, so this needs to happen on the main thread. Ick.
+    [self performSelectorOnMainThread:@selector(executeAppleScriptForReal:)
                            withObject:script
                         waitUntilDone:YES];
-	return (appleScriptResult_ ? YES : NO);
+    return (appleScriptResult_ ? YES : NO);
 }
 
 - (NSArray *)executeAppleScriptReturningListOfStrings:(NSString *)script
 {
-	if (![self executeAppleScript:script])
-		return nil;
-	if ([appleScriptResult_ descriptorType] != typeAEList)
-		return nil;
+    if (![self executeAppleScript:script])
+        return nil;
+    if ([appleScriptResult_ descriptorType] != typeAEList)
+        return nil;
     
-	long count = [appleScriptResult_ numberOfItems], i;
-	NSMutableArray *list = [NSMutableArray arrayWithCapacity:count];
-	for (i = 1; i <= count; ++i) {		// Careful -- AppleScript lists are 1-based
-		NSAppleEventDescriptor *elt = [appleScriptResult_ descriptorAtIndex:i];
-		if (!elt) {
-			NSLog(@"Oops -- couldn't get descriptor at index %ld", i);
-			continue;
-		}
-		NSString *val = [elt stringValue];
-		if (!val) {
-			NSLog(@"Oops -- couldn't turn descriptor at index %ld into string", i);
-			continue;
-		}
-		[list addObject:val];
-	}
+    long count = [appleScriptResult_ numberOfItems], i;
+    NSMutableArray *list = [NSMutableArray arrayWithCapacity:count];
+    for (i = 1; i <= count; ++i) {        // Careful -- AppleScript lists are 1-based
+        NSAppleEventDescriptor *elt = [appleScriptResult_ descriptorAtIndex:i];
+        if (!elt) {
+            NSLog(@"Oops -- couldn't get descriptor at index %ld", i);
+            continue;
+        }
+        NSString *val = [elt stringValue];
+        if (!val) {
+            NSLog(@"Oops -- couldn't turn descriptor at index %ld into string", i);
+            continue;
+        }
+        [list addObject:val];
+    }
     
-	return list;
+    return list;
 }
 
 - (void) handleURL:(NSString *)url {
@@ -283,45 +273,45 @@
 
 - (id)init
 {
-	if (!(self = [super init]))
-		return nil;
+    if (!(self = [super init]))
+        return nil;
     
     // get system version
-	SInt32 major = 0, minor = 0;
-	Gestalt(gestaltSystemVersionMajor, &major);
+    SInt32 major = 0, minor = 0;
+    Gestalt(gestaltSystemVersionMajor, &major);
     Gestalt(gestaltSystemVersionMinor, &minor);
     
-	classes = [[NSMutableArray alloc] initWithObjects:
+    classes = [[NSMutableArray alloc] initWithObjects:
                [ConnectBluetoothDeviceAction class],
-			   [DefaultBrowserAction class],
+               [DefaultBrowserAction class],
                [DefaultPrinterAction class],
-			   [DesktopBackgroundAction class],
-			   [DisplayBrightnessAction class],
+               [DesktopBackgroundAction class],
+               [DisplayBrightnessAction class],
                [DisplaySleepTimeAction class],
-			   [ITunesPlaylistAction class],
-			   [LockKeychainAction class],
-			   [MailIMAPServerAction class],
-			   [MailSMTPServerAction class],
-			   [MailIntervalAction class],
+               [ITunesPlaylistAction class],
+               [LockKeychainAction class],
+               [MailIMAPServerAction class],
+               [MailSMTPServerAction class],
+               [MailIntervalAction class],
                [MessagesAction class],
-			   [MountAction class],
-			   [MuteAction class],
-			   [NetworkLocationAction class],
-			   [OpenAction class],
-			   [OpenAndHideAction class],
-			   [OpenURLAction class],
-			   [QuitApplicationAction class],
+               [MountAction class],
+               [MuteAction class],
+               [NetworkLocationAction class],
+               [OpenAction class],
+               [OpenAndHideAction class],
+               [OpenURLAction class],
+               [QuitApplicationAction class],
                [PreventDisplaySleepAction class],
                [PreventSystemSleepAction class],
-			   [ScreenSaverPasswordAction class],
-			   [ScreenSaverStartAction class],
-			   [ScreenSaverTimeAction class],
-			   [ScrollBarsAction class],
-			   [ShellScriptAction class],
-			   [SpeakAction class],
-			   [StartTimeMachineAction class],
+               [ScreenSaverPasswordAction class],
+               [ScreenSaverStartAction class],
+               [ScreenSaverTimeAction class],
+               [ScrollBarsAction class],
+               [ShellScriptAction class],
+               [SpeakAction class],
+               [StartTimeMachineAction class],
                [TimeMachineDestinationAction class],
-			   [ToggleBluetoothAction class],
+               [ToggleBluetoothAction class],
                [ToggleContextStickinessAction class],
                [ToggleFileSharingAction class],
                [ToggleFirewallAction class],
@@ -334,11 +324,11 @@
                [ToggleTFTPAction class],
                [ToggleTimeMachineAction class],
                [ToggleWebSharingAction class],
-			   [ToggleWiFiAction class],
-			   [UnmountAction class],
-			   //[VPNAction class],
-			nil];
-	
+               [ToggleWiFiAction class],
+               [UnmountAction class],
+               //[VPNAction class],
+            nil];
+    
     
     // Load any available plugins
 #ifdef DEBUG_MODE
@@ -377,35 +367,35 @@
      */
 #endif
     
-	if (NO) {
-		// Purely for the benefit of 'genstrings'
-		NSLocalizedString(@"DefaultBrowser", @"Action type");
+    if (NO) {
+        // Purely for the benefit of 'genstrings'
+        NSLocalizedString(@"DefaultBrowser", @"Action type");
         NSLocalizedString(@"DefaultPrinter", @"Action type");
-		NSLocalizedString(@"DesktopBackground", @"Action type");
-		NSLocalizedString(@"DisplayBrightness", @"Action type");
-		NSLocalizedString(@"iTunesPlaylist", @"Action type");
-		NSLocalizedString(@"LockKeychain", @"Action type");
-		NSLocalizedString(@"MailIMAPServer", @"Action type");
-		NSLocalizedString(@"MailSMTPServer", @"Action type");
-		NSLocalizedString(@"MailInterval", @"Action type");
+        NSLocalizedString(@"DesktopBackground", @"Action type");
+        NSLocalizedString(@"DisplayBrightness", @"Action type");
+        NSLocalizedString(@"iTunesPlaylist", @"Action type");
+        NSLocalizedString(@"LockKeychain", @"Action type");
+        NSLocalizedString(@"MailIMAPServer", @"Action type");
+        NSLocalizedString(@"MailSMTPServer", @"Action type");
+        NSLocalizedString(@"MailInterval", @"Action type");
         NSLocalizedString(@"Messages", @"Action type");
-		NSLocalizedString(@"Mount", @"Action type");
-		NSLocalizedString(@"Mute", @"Action type");
-		NSLocalizedString(@"NetworkLocation", @"Action type");
-		NSLocalizedString(@"Open", @"Action type");
-		NSLocalizedString(@"OpenAndHide", @"Action type");
-		NSLocalizedString(@"OpenURL", @"Action type");
+        NSLocalizedString(@"Mount", @"Action type");
+        NSLocalizedString(@"Mute", @"Action type");
+        NSLocalizedString(@"NetworkLocation", @"Action type");
+        NSLocalizedString(@"Open", @"Action type");
+        NSLocalizedString(@"OpenAndHide", @"Action type");
+        NSLocalizedString(@"OpenURL", @"Action type");
         NSLocalizedString(@"Prevent Display Sleep", @"Action type");
-		NSLocalizedString(@"QuitApplication", @"Action type");
-		NSLocalizedString(@"ScreenSaverPassword", @"Action type");
-		NSLocalizedString(@"ScreenSaverStart", @"Action type");
-		NSLocalizedString(@"ScreenSaverTime", @"Action type");
-		NSLocalizedString(@"ScrollBars", @"Action type");
-		NSLocalizedString(@"ShellScript", @"Action type");
-		NSLocalizedString(@"Speak", @"Action type");
-		NSLocalizedString(@"StartTimeMachine", @"Action type");
+        NSLocalizedString(@"QuitApplication", @"Action type");
+        NSLocalizedString(@"ScreenSaverPassword", @"Action type");
+        NSLocalizedString(@"ScreenSaverStart", @"Action type");
+        NSLocalizedString(@"ScreenSaverTime", @"Action type");
+        NSLocalizedString(@"ScrollBars", @"Action type");
+        NSLocalizedString(@"ShellScript", @"Action type");
+        NSLocalizedString(@"Speak", @"Action type");
+        NSLocalizedString(@"StartTimeMachine", @"Action type");
         NSLocalizedString(@"TimeMachineDestination", @"Action type");
-		NSLocalizedString(@"ToggleBluetooth", @"Action type");
+        NSLocalizedString(@"ToggleBluetooth", @"Action type");
         NSLocalizedString(@"ToggleContextStickiness", @"Action type");
         NSLocalizedString(@"ToggleFileSharing", @"Action type");
         NSLocalizedString(@"ToggleFirewall", @"Action type");
@@ -413,10 +403,10 @@
         NSLocalizedString(@"ToggleNaturalScrolling", @"Action type");
         NSLocalizedString(@"ToggleNotificationCenterAlertsAction", @"Action type");
         NSLocalizedString(@"TimeMachineAction",@"Action type");
-		NSLocalizedString(@"ToggleWiFi", @"Action type");
-		NSLocalizedString(@"Unmount", @"Action type");
-		NSLocalizedString(@"VPN", @"Action type");
-	}
+        NSLocalizedString(@"ToggleWiFi", @"Action type");
+        NSLocalizedString(@"Unmount", @"Action type");
+        NSLocalizedString(@"VPN", @"Action type");
+    }
     
     
     // build a list of menu categories
@@ -452,32 +442,25 @@
             
             [menuCategoryBuilder setObject:tmp forKey:[currentClass menuCategory]];
             
-            [tmp release];
         }
     }
     
     //NSLog(@"looks like %@", menuCategoryBuilder);
     
     menuCategories = [menuCategoryBuilder copy];
-	return self;
+    return self;
 }
 
-- (void)dealloc
-{
-	[classes release];
-    [menuCategories release];
-	[super dealloc];
-}
 
 - (NSArray *)types
 {
-	NSMutableArray *array = [NSMutableArray arrayWithCapacity:[classes count]];
-	NSEnumerator *en = [classes objectEnumerator];
-	Class klass;
-	while ((klass = [en nextObject])) {
-		[array addObject:[Action typeForClass:klass]];
-	}
-	return array;
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[classes count]];
+    NSEnumerator *en = [classes objectEnumerator];
+    Class klass;
+    while ((klass = [en nextObject])) {
+        [array addObject:[Action typeForClass:klass]];
+    }
+    return array;
 }
 
 /**
@@ -522,7 +505,7 @@
 
 - (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(int)index shouldCancel:(BOOL)shouldCancel
 {
-	//Class klass = [classes objectAtIndex:index];
+    //Class klass = [classes objectAtIndex:index];
     
 
     NSArray *menuCategoryList = [menuCategories allKeys];
@@ -532,7 +515,7 @@
     NSString *categoryName = [menuCategoryList objectAtIndex:index];
     //NSString *localisedType = NSLocalizedString(type, @"Action type");
     
-    NSMenu *newSubMenu = [[[NSMenu alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"%@ Actions", @""), friendlyName]] retain];
+    NSMenu *newSubMenu = [[NSMenu alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedString(@"%@ Actions", @""), friendlyName]];
     
     [newSubMenu setDelegate:[menuCategories objectForKey:categoryName]];
     
@@ -551,17 +534,17 @@
     //DSLog(@"menu category %@", [[classes objectAtIndex:index] menuCategory]);
     
 
-	//[item setTarget:prefsWindowController];
-	//[item setAction:@selector(addAction:)];
-	//[item setRepresentedObject:klass];
+    //[item setTarget:prefsWindowController];
+    //[item setAction:@selector(addAction:)];
+    //[item setRepresentedObject:klass];
 
-	return YES;
+    return YES;
 }
 
 - (BOOL)menuHasKeyEquivalent:(NSMenu *)menu forEvent:(NSEvent *)event target:(id *)target action:(SEL *)action
 {
-	// TODO: support keyboard menu jumping?
-	return NO;
+    // TODO: support keyboard menu jumping?
+    return NO;
 }
 
 - (NSUInteger)numberOfItemsInMenu:(NSMenu *)menu

@@ -23,13 +23,13 @@
 
 static void devAdded(void *ref, io_iterator_t iterator)
 {
-	FireWireEvidenceSource *mon = (FireWireEvidenceSource *) ref;
+    FireWireEvidenceSource *mon = (__bridge FireWireEvidenceSource *) ref;
 	[mon devAdded:iterator];
 }
 
 static void devRemoved(void *ref, io_iterator_t iterator)
 {
-	FireWireEvidenceSource *mon = (FireWireEvidenceSource *) ref;
+    FireWireEvidenceSource *mon = (__bridge FireWireEvidenceSource *) ref;
 	[mon devRemoved:iterator];
 }
 
@@ -48,15 +48,6 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 
 	return self;
 }
-
-- (void)dealloc
-{
-	[lock release];
-	[devices release];
-
-	[super dealloc];
-}
-
 
 - (NSString *) description {
     return NSLocalizedString(@"Create rules based on attached FireWire devices.", @"");
@@ -85,7 +76,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 	CFStringRef name = (CFStringRef) IORegistryEntryCreateCFProperty(*device, CFSTR("FireWire Product Name"),
 									 kCFAllocatorDefault, 0);
 	if (name) {
-		NSString *str = [NSString stringWithString:(NSString *) name];
+        NSString *str = [NSString stringWithString:(__bridge NSString *) name];
 		CFRelease(name);
 		return str;
 	}
@@ -99,7 +90,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 	CFStringRef name = (CFStringRef) IORegistryEntryCreateCFProperty(*device, CFSTR("FireWire Vendor Name"),
 									 kCFAllocatorDefault, 0);
 	if (name) {
-		NSString *str = [NSString stringWithString:(NSString *) name];
+        NSString *str = [NSString stringWithString:(__bridge NSString *) name];
 		CFRelease(name);
 		return str;
 	}
@@ -249,10 +240,10 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 	CFRetain(matchDict);	// we use it twice
 	
 	IOServiceAddMatchingNotification(notificationPort, kIOMatchedNotification,
-					 matchDict, devAdded, (void *) self,
+					 matchDict, devAdded, (__bridge void *) self,
 					 &addedIterator);
 	IOServiceAddMatchingNotification(notificationPort, kIOTerminatedNotification,
-					 matchDict, devRemoved, (void *) self,
+                                     matchDict, devRemoved, (__bridge void *) self,
 					 &removedIterator);
 
 	// Prime notifications
