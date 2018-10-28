@@ -15,7 +15,7 @@
 #import "CPNotifications.h"
 #import "SharedNumberFormatter.h"
 #import <libkern/OSAtomic.h>
-#import <HockeySDK/HockeySDK.h>
+//#import <HockeySDK/HockeySDK.h>
 
 
 
@@ -314,9 +314,9 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification *)notification {
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"fe18dcf4b5fd47a0bf75e0b49321ea93"];
-    // Do some additional configuration if needed here
-    [[BITHockeyManager sharedHockeyManager] startManager];
+//    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"fe18dcf4b5fd47a0bf75e0b49321ea93"];
+//    // Do some additional configuration if needed here
+//    [[BITHockeyManager sharedHockeyManager] startManager];
 
 }
 

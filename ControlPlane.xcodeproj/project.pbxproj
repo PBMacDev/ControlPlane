@@ -102,6 +102,7 @@
 		A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A42183B07F0061014D /* ShellScriptRule.xib */; };
 		A71CB2B52183B07F0061014D /* ServerAddressRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A62183B07F0061014D /* ServerAddressRule.xib */; };
 		A71CB2B62183B0800061014D /* LightRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A82183B07F0061014D /* LightRule.xib */; };
+		A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A021860E0900CA9C13 /* CoreWLAN.framework */; };
 		DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */; };
 		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
@@ -115,7 +116,6 @@
 		DA2B4381152161C800E94A1D /* ToggleTFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4380152161C800E94A1D /* ToggleTFTPAction.m */; };
 		DA2B4385152161D900E94A1D /* ToggleFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4384152161D900E94A1D /* ToggleFTPAction.m */; };
 		DA41954D151C17F000FF7BA0 /* ActionSubmenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA41954C151C17F000FF7BA0 /* ActionSubmenuItem.m */; };
-		DA4411A514EE03C9005E7B3B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4411A414EE03C9005E7B3B /* MapKit.framework */; };
 		DA461C0C14C33E3C0019594A /* NSString+ShellScriptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA461C0B14C33E3B0019594A /* NSString+ShellScriptHelper.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		DA49AF6C14C3E0AB00D03D6A /* TogglePrinterSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA49AF6B14C3E0AB00D03D6A /* TogglePrinterSharingAction.m */; };
 		DA4A629313E2546800CE976F /* ControlPlane Help in Resources */ = {isa = PBXBuildFile; fileRef = DA4A629213E2546800CE976F /* ControlPlane Help */; };
@@ -129,9 +129,7 @@
 		DA5B020C1412BDEF00E19C50 /* CPHelperToolCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */; };
 		DA5C34621BA478150023FF41 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B01F21412BAEC00E19C50 /* BetterAuthorizationSampleLib.c */; };
 		DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8274FA141177750098FA6E /* Security.framework */; };
-		DA648AF11412C19800532B2C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA648AEF1412C17A00532B2C /* CoreFoundation.framework */; };
 		DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */; };
-		DA72BF9413CD317B002D27DD /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA72BF9313CD317B002D27DD /* CoreWLAN.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */ = {isa = PBXBuildFile; fileRef = DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */; };
 		DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */ = {isa = PBXBuildFile; fileRef = DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */; };
@@ -143,7 +141,6 @@
 		DA83A22113D13C8300074503 /* cp-icon-inactive.icns in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22013D13C8300074503 /* cp-icon-inactive.icns */; };
 		DA83A22313D13DF300074503 /* cp-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22213D13DF300074503 /* cp-icon.icns */; };
 		DA83A22713D1430000074503 /* usb-vendors.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22613D1430000074503 /* usb-vendors.txt */; };
-		DA87D18014EE0E8300E46DFF /* MapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DA4411A414EE03C9005E7B3B /* MapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */; };
 		DA8E2833156B498A0040FC35 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E2832156B498A0040FC35 /* ApplicationServices.framework */; };
 		DA8E283F156BCAD50040FC35 /* ToggleRemoteLoginAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E283E156BCAD50040FC35 /* ToggleRemoteLoginAction.m */; };
@@ -161,8 +158,6 @@
 		DAC45F2014CDEC170007F5EF /* TimeMachineDestinationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC45F1F14CDEC170007F5EF /* TimeMachineDestinationAction.m */; };
 		DAC672FE152235E800F1C7A1 /* ToggleWebSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC672FD152235E800F1C7A1 /* ToggleWebSharingAction.m */; };
 		DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */; };
-		DACCA0A01DD7A309007F7373 /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACCA09F1DD7A309007F7373 /* HockeySDK.framework */; };
-		DACCA0A11DD7A48B007F7373 /* HockeySDK.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DACCA09F1DD7A309007F7373 /* HockeySDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */; };
 		DACE6D4B159BFC1D00FEE37E /* CPHelperTool-Launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */; };
 		DACE6D4E159C055C00FEE37E /* com.dustinrue.CPHelperTool in Copy Launch Services */ = {isa = PBXBuildFile; fileRef = DA5B01FB1412BB1700E19C50 /* com.dustinrue.CPHelperTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -234,9 +229,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DA2479AC1C6647E900063E8E /* Sparkle.framework in Copy Frameworks */,
-				DA87D18014EE0E8300E46DFF /* MapKit.framework in Copy Frameworks */,
 				DA1E59D41673A2F7002D256D /* Growl.framework in Copy Frameworks */,
-				DACCA0A11DD7A48B007F7373 /* HockeySDK.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +460,7 @@
 		A71CB2BF2183B0940061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ServerAddressRule.xib; sourceTree = "<group>"; };
 		A71CB2C02183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ShellScriptRule.xib; sourceTree = "<group>"; };
 		A71CB2C12183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/TimeOfDayRule.xib; sourceTree = "<group>"; };
+		A79414A021860E0900CA9C13 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		DA04D57015DC119E004B9E1C /* ToggleContextStickinessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleContextStickinessAction.h; path = Source/ToggleContextStickinessAction.h; sourceTree = "<group>"; };
 		DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleContextStickinessAction.m; path = Source/ToggleContextStickinessAction.m; sourceTree = "<group>"; };
 		DA07C10E18FE04A3008FE8B5 /* ContextEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextEvidenceSource.h; path = Source/ContextEvidenceSource.h; sourceTree = "<group>"; };
@@ -486,7 +480,6 @@
 		DA2B4384152161D900E94A1D /* ToggleFTPAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleFTPAction.m; path = Source/ToggleFTPAction.m; sourceTree = "<group>"; };
 		DA41954B151C17EF00FF7BA0 /* ActionSubmenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionSubmenuItem.h; path = Source/ActionSubmenuItem.h; sourceTree = "<group>"; };
 		DA41954C151C17F000FF7BA0 /* ActionSubmenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionSubmenuItem.m; path = Source/ActionSubmenuItem.m; sourceTree = "<group>"; };
-		DA4411A414EE03C9005E7B3B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		DA461C0A14C33E3B0019594A /* NSString+ShellScriptHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ShellScriptHelper.h"; path = "Source/NSString+ShellScriptHelper.h"; sourceTree = "<group>"; };
 		DA461C0B14C33E3B0019594A /* NSString+ShellScriptHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ShellScriptHelper.m"; path = "Source/NSString+ShellScriptHelper.m"; sourceTree = "<group>"; };
 		DA48F2E3140AD2FC00B000D3 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
@@ -506,10 +499,8 @@
 		DA5B02091412BBF200E19C50 /* CPHelperTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPHelperTool.c; sourceTree = "<group>"; };
 		DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPHelperToolCommon.c; sourceTree = "<group>"; };
 		DA5B020E1412BE4F00E19C50 /* CPHelperToolCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHelperToolCommon.h; sourceTree = "<group>"; };
-		DA648AEF1412C17A00532B2C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		DA69D7E017BD04C30062FBBC /* HostAvailabilityEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HostAvailabilityEvidenceSource.h; path = Source/HostAvailabilityEvidenceSource.h; sourceTree = "<group>"; };
 		DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostAvailabilityEvidenceSource.m; path = Source/HostAvailabilityEvidenceSource.m; sourceTree = "<group>"; };
-		DA72BF9313CD317B002D27DD /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreWLAN.framework; sourceTree = DEVELOPER_DIR; };
 		DA72BFF415019D8C003072C6 /* CPBonjourResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPBonjourResolver.h; path = Source/CPBonjourResolver.h; sourceTree = "<group>"; };
 		DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPBonjourResolver.m; path = Source/CPBonjourResolver.m; sourceTree = "<group>"; };
 		DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = enable_screensaver.sh; sourceTree = "<group>"; };
@@ -558,7 +549,6 @@
 		DAC672FC152235E800F1C7A1 /* ToggleWebSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleWebSharingAction.h; path = Source/ToggleWebSharingAction.h; sourceTree = "<group>"; };
 		DAC672FD152235E800F1C7A1 /* ToggleWebSharingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleWebSharingAction.m; path = Source/ToggleWebSharingAction.m; sourceTree = "<group>"; };
 		DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		DACCA09F1DD7A309007F7373 /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HockeySDK.framework; path = "HockeySDK-Mac/HockeySDK.framework"; sourceTree = "<group>"; };
 		DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPHelperTool-Info.plist"; sourceTree = "<group>"; };
 		DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPHelperTool-Launchd.plist"; sourceTree = "<group>"; };
 		DAD889A315D5F337009F30A3 /* NotificationCenterAction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NotificationCenterAction.xcodeproj; path = NotificationCenterAction/NotificationCenterAction.xcodeproj; sourceTree = "<group>"; };
@@ -612,6 +602,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */,
 				DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */,
 				DA8E2833156B498A0040FC35 /* ApplicationServices.framework in Frameworks */,
 				8D8C9BAB0BBB3ADB0074D5B3 /* Apple80211.framework in Frameworks */,
@@ -619,17 +610,14 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */,
 				DD6FCC691413EF6B0095E64F /* CoreLocation.framework in Frameworks */,
-				DA72BF9413CD317B002D27DD /* CoreWLAN.framework in Frameworks */,
 				DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */,
 				DA2479B21C664CEC00063E8E /* Sparkle.framework in Frameworks */,
 				DAFC0E4614788B0500DA6139 /* IOBluetooth.framework in Frameworks */,
-				DACCA0A01DD7A309007F7373 /* HockeySDK.framework in Frameworks */,
 				8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */,
 				DDAC3C55140D866200FBF29E /* ScriptingBridge.framework in Frameworks */,
 				DD8274FB141177750098FA6E /* Security.framework in Frameworks */,
 				8D82F06D0AA811CE009ADA44 /* SystemConfiguration.framework in Frameworks */,
 				8D3BFFB20C61CA5300B9B910 /* WebKit.framework in Frameworks */,
-				DA4411A514EE03C9005E7B3B /* MapKit.framework in Frameworks */,
 				DA1E59D21673A039002D256D /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,7 +635,6 @@
 			files = (
 				DD44B57E141417E40016BF6B /* CoreServices.framework in Frameworks */,
 				DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */,
-				DA648AF11412C19800532B2C /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,7 +682,6 @@
 			children = (
 				DA80EC4B17681C5000EAEBFF /* libcups.dylib */,
 				DA1E59D11673A039002D256D /* Growl.framework */,
-				DA4411A414EE03C9005E7B3B /* MapKit.framework */,
 				8D20720E0B86AB0000D61A9E /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
@@ -711,10 +697,8 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				8D57B1430C4457AB00EC620D /* CoreAudio.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				DA648AEF1412C17A00532B2C /* CoreFoundation.framework */,
 				DD6FCC681413EF6B0095E64F /* CoreLocation.framework */,
 				DD44B57D141417E40016BF6B /* CoreServices.framework */,
-				DA72BF9313CD317B002D27DD /* CoreWLAN.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */,
 				8D481B070B6098DD0097CF9C /* IOKit.framework */,
@@ -805,7 +789,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DACCA09F1DD7A309007F7373 /* HockeySDK.framework */,
+				A79414A021860E0900CA9C13 /* CoreWLAN.framework */,
 				DA7EAF5E19F2EB4600DF6F54 /* QuartzCore.framework */,
 				DA7EAF5A19F2EB2800DF6F54 /* CoreGraphics.framework */,
 				DAFC0E4014788A6000DA6139 /* Apple Private Frameworks */,
@@ -1173,7 +1157,6 @@
 				DACE6D4D159C053000FEE37E /* Copy Launch Services */,
 				DA0E9C1715C84D0100C53789 /* Copy Evidence Source Plugins */,
 				DA0E9C1815C84D3500C53789 /* Copy Action Plugins */,
-				DACCA09E1DD7A2D4007F7373 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1366,19 +1349,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "\nif [ ! -f ${PROJECT_DIR}/Resources/oui.txt ]; then\n\n    cd ${PROJECT_DIR}/Utilities\n    . ./update-oui.sh\n\nfi\n\nif [ ! -f ${PROJECT_DIR}/Resources/usb-vendors.txt ]; then\n\n    cd ${PROJECT_DIR}/Utilities\n    . ./update-usb-data.sh\n\nfi\n";
-		};
-		DACCA09E1DD7A2D4007F7373 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FILE=\"${SRCROOT}/HockeySDK-Mac/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi\n";
 		};
 		DD7CD9B0140EDBA90037463E /* Generate Script Bridge Headers */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1670,7 +1640,6 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Frameworks\"",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/HockeySDK-Mac",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
@@ -1699,7 +1668,6 @@
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/Frameworks/ApplicationServices.framework/Frameworks\"",
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/HockeySDK-Mac",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				LLVM_LTO = YES;
