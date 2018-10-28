@@ -136,7 +136,7 @@
                 </menuItem>
                 <menuItem title="About ControlPlaneX" id="468">
                     <connections>
-                        <action selector="runAbout:" target="320" id="889"/>
+                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="gnH-Oi-XxT"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="392">

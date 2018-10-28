@@ -4,7 +4,6 @@
 //  IMPORTANT: This code is intended to be compiled for the ARC mode
 //
 
-#import "AboutPanel.h"
 #import "Action.h"
 #import "DSLogger.h"
 #import "PrefsWindowController.h"
@@ -365,17 +364,6 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	if ([currentPrefsGroup isEqualToString:@"Advanced"]) {
         [self startLogBufferTimer];
 	}
-}
-
-- (IBAction)runAbout:(id)sender
-{
-	[NSApp activateIgnoringOtherApps:YES];
-#if 0
-	[NSApp orderFrontStandardAboutPanelWithOptions:@{ @"Version": @"" }];
-#else
-	AboutPanel *ctl = [[AboutPanel alloc] init];
-	[ctl runPanel];
-#endif
 }
 
 - (IBAction)runWebPage:(id)sender

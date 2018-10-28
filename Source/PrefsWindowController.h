@@ -42,7 +42,6 @@
 }
 
 - (IBAction)runPreferences:(id)sender;
-- (IBAction)runAbout:(id)sender;
 - (IBAction)runWebPage:(id)sender;
 - (IBAction)emailSupport:(id)sender;
 - (IBAction)donateToControlPlaneX:(id)sender;
