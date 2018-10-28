@@ -38,7 +38,6 @@
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
 		8D447DF90C3E65D000DAB17A /* ContextSelectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D447DF70C3E65CF00DAB17A /* ContextSelectionButton.m */; };
 		8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D481B070B6098DD0097CF9C /* IOKit.framework */; };
-		8D4DBDC30BE1E3C00024DEA0 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D4DBDC20BE1E3C00024DEA0 /* gear.png */; };
 		8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */; };
 		8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D57B1430C4457AB00EC620D /* CoreAudio.framework */; };
 		8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */; };
@@ -68,7 +67,6 @@
 		8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB8917B0BB89BD8005347C2 /* oui.txt */; };
 		8DBAFAFC0BDC3B7B00BE0747 /* ShellScriptAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAFAFA0BDC3B7B00BE0747 /* ShellScriptAction.m */; };
 		8DBB44980C530F7600064010 /* DSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB44960C530F7600064010 /* DSLogger.m */; };
-		8DC410FB0C64665E00393759 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC410FA0C64665E00393759 /* AboutPanel.xib */; };
 		8DC4E7FD0C178917007E7E41 /* MuteAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4E7F90C178917007E7E41 /* MuteAction.m */; };
 		8DC4E8000C17891D007E7E41 /* MailSMTPServerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD790C20BC28C4E00705346 /* MailSMTPServerAction.m */; };
 		8DCB43580C4DBABD00E71D28 /* FirewallRuleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCB43560C4DBABD00E71D28 /* FirewallRuleAction.m */; };
@@ -355,7 +353,6 @@
 		8D447DF60C3E65CF00DAB17A /* ContextSelectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextSelectionButton.h; path = Source/ContextSelectionButton.h; sourceTree = "<group>"; };
 		8D447DF70C3E65CF00DAB17A /* ContextSelectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContextSelectionButton.m; path = Source/ContextSelectionButton.m; sourceTree = "<group>"; };
 		8D481B070B6098DD0097CF9C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		8D4DBDC20BE1E3C00024DEA0 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = Resources/gear.png; sourceTree = "<group>"; };
 		8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ContextsPrefs.png; path = Resources/ContextsPrefs.png; sourceTree = "<group>"; };
 		8D5684B20C38711D00881E32 /* MonitorEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MonitorEvidenceSource.h; path = Source/MonitorEvidenceSource.h; sourceTree = "<group>"; };
 		8D5684B30C38711D00881E32 /* MonitorEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MonitorEvidenceSource.m; path = Source/MonitorEvidenceSource.m; sourceTree = "<group>"; };
@@ -409,7 +406,6 @@
 		8DBAFAFA0BDC3B7B00BE0747 /* ShellScriptAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ShellScriptAction.m; path = Source/ShellScriptAction.m; sourceTree = "<group>"; };
 		8DBB44950C530F7600064010 /* DSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLogger.h; path = Source/DSLogger.h; sourceTree = "<group>"; };
 		8DBB44960C530F7600064010 /* DSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLogger.m; path = Source/DSLogger.m; sourceTree = "<group>"; };
-		8DC410FA0C64665E00393759 /* AboutPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutPanel.xib; path = Resources/AboutPanel.xib; sourceTree = "<group>"; };
 		8DC4E7F80C178917007E7E41 /* MuteAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MuteAction.h; path = Source/MuteAction.h; sourceTree = "<group>"; };
 		8DC4E7F90C178917007E7E41 /* MuteAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MuteAction.m; path = Source/MuteAction.m; sourceTree = "<group>"; };
 		8DCB43550C4DBABD00E71D28 /* FirewallRuleAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = FirewallRuleAction.h; path = Source/FirewallRuleAction.h; sourceTree = "<group>"; };
@@ -763,7 +759,6 @@
 				DA16392513D4B14A00E3F421 /* dsa_pub.pem */,
 				8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */,
 				96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */,
-				8D4DBDC20BE1E3C00024DEA0 /* gear.png */,
 				8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */,
 				96454D3D18C3E6BE004F64E7 /* GeneralPrefs@2x.png */,
 				DDC3C2A11412A82000655F34 /* Growl Registration Ticket.growlRegDict */,
@@ -1130,7 +1125,6 @@
 				A71CB2A62183B07F0061014D /* ServerAddressRule.xib */,
 				A71CB2A42183B07F0061014D /* ShellScriptRule.xib */,
 				A71CB29E2183B07F0061014D /* TimeOfDayRule.xib */,
-				8DC410FA0C64665E00393759 /* AboutPanel.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1296,12 +1290,10 @@
 				A71CB2AD2183B07F0061014D /* GenericRule.xib in Resources */,
 				8D232FB60BD9D507006A3963 /* RulesPrefs.png in Resources */,
 				8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */,
-				8D4DBDC30BE1E3C00024DEA0 /* gear.png in Resources */,
 				8D185DC60BF428CF00A06B03 /* AdvancedPrefs.png in Resources */,
 				8D3A3D5F0C012565008EBF2A /* EvidenceSourcesPrefs.png in Resources */,
 				8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */,
 				8D88FE2A0C534737007A14D6 /* pause.png in Resources */,
-				8DC410FB0C64665E00393759 /* AboutPanel.xib in Resources */,
 				A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */,
 				DA83A22313D13DF300074503 /* cp-icon.icns in Resources */,
 				A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */,
