@@ -1,6 +1,6 @@
 //
 //  AboutPanel.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 2/08/07.
 //

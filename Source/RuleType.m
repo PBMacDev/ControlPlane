@@ -1,6 +1,6 @@
 //
 //  RuleType.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by VladimirTechMan on 03/03/2013.
 //

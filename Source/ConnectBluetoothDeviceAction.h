@@ -1,6 +1,6 @@
 //
 //  ConnectBluetoothDeviceAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Chris Lundie on 1/May/2014.
 //

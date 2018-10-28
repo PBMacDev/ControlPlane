@@ -1,6 +1,6 @@
 //
 //  ScreenLockEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Roman Shevtsov on 12/12/15.
 //

@@ -1,6 +1,6 @@
 //
 //  PowerEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 30/4/07.
 //  Tweaks by David Symonds on 30/4/07.

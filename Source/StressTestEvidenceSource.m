@@ -1,6 +1,6 @@
 //
 //  StressTestEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 9/21/12.
 //
@@ -20,7 +20,7 @@
 }
 
 - (NSString *) description {
-    return NSLocalizedString(@"Enable this evidence source to cause ControlPlane to assume a large number of evidence source changes are occuring.", @"");
+    return NSLocalizedString(@"Enable this evidence source to cause ControlPlaneX to assume a large number of evidence source changes are occuring.", @"");
 }
 
 

@@ -1,6 +1,6 @@
 //
 //  PreventDisplaySleepAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 2/7/13.
 //

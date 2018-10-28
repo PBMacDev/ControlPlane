@@ -1,6 +1,6 @@
 //
 //  USBEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 29/03/07.
 //

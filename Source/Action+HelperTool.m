@@ -1,6 +1,6 @@
 //
 //  Action+HelperTool.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Jennes on 05/09/11.
 //  Copyright 2011. All rights reserved.
@@ -96,7 +96,7 @@ BOOL blessHelperWithLabel(NSString* label, NSError** error);
     
     // create request
     // get the bundleID from the Info dictionary, it is the SMPrivilegedExcutable entry
-    // For ControlPlane there is just helper so this is essentially hard coded to returning the first
+    // For ControlPlaneX there is just helper so this is essentially hard coded to returning the first
     // entry in the dictionary.  If more were added then this would need to be able to specify the proper
     // helper tool to use based on the command to be run.
     bundleID = [[[[[NSBundle mainBundle] infoDictionary] objectForKey:@"SMPrivilegedExecutables"] allKeys] objectAtIndex:0];
@@ -298,8 +298,8 @@ BOOL blessHelperWithLabel(NSString* label, NSError** error) {
 }
 
 - (void) helperToolAlert: (NSMutableDictionary *) parameters {
-    NSInteger t = NSRunAlertPanel(NSLocalizedString(@"ControlPlane Helper Needed", @"Fix helper tool"),
-                                  NSLocalizedString(@"ControlPlane needs to install a helper app to enable and disable some items", @"Fix helper tool"),
+    NSInteger t = NSRunAlertPanel(NSLocalizedString(@"ControlPlaneX Helper Needed", @"Fix helper tool"),
+                                  NSLocalizedString(@"ControlPlaneX needs to install a helper app to enable and disable some items", @"Fix helper tool"),
                                   NSLocalizedString(@"Install", @"Fix helper tool"),
                                   NSLocalizedString(@"Cancel", @"Fix helper tool"),
                                   NULL);

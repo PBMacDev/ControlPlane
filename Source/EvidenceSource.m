@@ -1,6 +1,6 @@
 //
 //  EvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 29/03/07.
 //  Modified by Dustin Rue on 8/5/2011.
@@ -525,7 +525,7 @@
 - (NSArray *)getEvidenceSourcePlugins {
     NSMutableArray *searchPaths = [NSMutableArray array];
     NSMutableArray *bundles = [NSMutableArray array];
-    NSString *pluginPath = @"/Application Support/ControlPlane/PlugIns/Evidence Sources";
+    NSString *pluginPath = @"/Application Support/ControlPlaneX/PlugIns/Evidence Sources";
     
     
     for (NSString *path in NSSearchPathForDirectoriesInDomains(

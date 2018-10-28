@@ -1,6 +1,6 @@
 //
 //  DNSEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 08/03/2013.
 //

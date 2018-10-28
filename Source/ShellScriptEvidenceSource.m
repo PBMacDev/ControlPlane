@@ -1,6 +1,6 @@
 //
 //  ShellScriptEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue 8/5/2011.
 //  Updated 1/15/2012
@@ -107,7 +107,7 @@
     NSArray *tmpRules = [[NSArray alloc] initWithArray:[self myRules]];
     
     
-    // compare the tasks ControlPlane knows about to the currently configured rules
+    // compare the tasks ControlPlaneX knows about to the currently configured rules
     if ([myTasks isEqualToArray:tmpRules]) {
 
         return;
@@ -218,7 +218,7 @@
     // ensure that the discovered interpreter is valid and executable
     if ([interpreter isEqualToString: @""] || ![NSFileManager.defaultManager isExecutableFileAtPath:interpreter]) {
         // can't determine how to run the script
-        DSLog(@"Failed to execute '%@' because ControlPlane cannot determine how to do so.  Please use '#!/bin/bash' or similar in the script or rename the script with a file extension", scriptName);
+        DSLog(@"Failed to execute '%@' because ControlPlaneX cannot determine how to do so.  Please use '#!/bin/bash' or similar in the script or rename the script with a file extension", scriptName);
         
         // we bail
         return;

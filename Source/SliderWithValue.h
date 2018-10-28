@@ -1,6 +1,6 @@
 //
 //  SliderWithValue.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 15/07/07.
 //

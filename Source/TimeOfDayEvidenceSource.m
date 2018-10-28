@@ -1,6 +1,6 @@
 //
 //  TimeOfDayEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 20/07/07.
 //

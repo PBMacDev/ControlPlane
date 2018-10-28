@@ -1,6 +1,6 @@
 //
 //  CPBonjourResolver.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 3/2/12.
 //  Copyright (c) 2012 Dustin Rue. All rights reserved.

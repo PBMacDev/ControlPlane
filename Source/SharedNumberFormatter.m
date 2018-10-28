@@ -1,6 +1,6 @@
 //
 //  SharedNumberFormatter.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov (VladimirTechMan) on 03 August 2013.
 //

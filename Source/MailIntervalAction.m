@@ -1,6 +1,6 @@
 //
 //	MailIntervalAction.m
-//	ControlPlane
+//	ControlPlaneX
 //
 //	Created by David Jennes on 02/09/11.
 //	Copyright 2011. All rights reserved.

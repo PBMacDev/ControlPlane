@@ -1,6 +1,6 @@
 //
 //  OpenAndHideAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 2/07/2013.
 //

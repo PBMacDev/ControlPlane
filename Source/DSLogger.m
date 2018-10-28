@@ -1,6 +1,6 @@
 //
 //  DSLogger.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 22/07/07.
 //  Modified by Vladimir Beloborodov on 01 Apr 2013.
@@ -123,7 +123,7 @@ static DSLogger *sharedLogger = nil;
 	buffer = [[NSMutableArray alloc] initWithCapacity:DSLOGGER_CAPACITY];
 	startIndex = count = 0u;
 
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.DSLogger", DISPATCH_QUEUE_SERIAL);
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.DSLogger", DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         self = nil;
         return nil;

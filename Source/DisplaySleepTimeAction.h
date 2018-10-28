@@ -1,6 +1,6 @@
 //
 //  DisplaySleepTime.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 11/9/11.
 //  Copyright (c) 2011. All rights reserved.

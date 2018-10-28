@@ -1,6 +1,6 @@
 //
 //  ToggleInternetSharingAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 10/19/11.
 //  Copyright (c) 2011. All rights reserved.

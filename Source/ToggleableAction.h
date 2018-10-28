@@ -1,6 +1,6 @@
 //
 //  ToggleableAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 7/06/07.
 //

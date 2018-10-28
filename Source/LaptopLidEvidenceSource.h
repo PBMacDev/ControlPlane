@@ -1,6 +1,6 @@
 //
 //  LaptopLidEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on July 15, 2013.
 //  Modified by Vladimir Beloborodov on August 05, 2013.

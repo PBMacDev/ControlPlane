@@ -1,6 +1,6 @@
 //
 //  NSTimer+Invalidation.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Jennes on 17/12/11.
 //  Copyright (c) 2011. All rights reserved.

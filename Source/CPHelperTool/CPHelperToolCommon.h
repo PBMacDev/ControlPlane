@@ -1,13 +1,13 @@
 //
 //  CPHelperToolCommon.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 3/9/11.
 //  Copyright 2011. All rights reserved.
 //
 
-#ifndef ControlPlane_CPHelperToolCommon_h
-#define ControlPlane_CPHelperToolCommon_h
+#ifndef ControlPlaneX_CPHelperToolCommon_h
+#define ControlPlaneX_CPHelperToolCommon_h
 
 #import "BetterAuthorizationSampleLib.h"
 
@@ -67,29 +67,29 @@
 #define kCPHelperToolDisableRemoteLoginCommand      "DisableRemoteLogin"
 
 // Rights
-#define kCPHelperToolToggleTMRightName              "com.dustinrue.ControlPlane.ToggleTM"
-#define kCPHelperToolRunBackupTMRightName           "com.dustinrue.ControlPlane.RunBackupTM"
-#define kCPHelperToolToggleISRightName              "com.dustinrue.ControlPlane.ToggleIS"
-#define kCPHelperToolToggleFWRightName              "com.dustinrue.ControlPlane.ToggleFW"
-#define kCPHelperToolSetDisplaySleepTimeRightName   "com.dustinrue.ControlPlane.SetDisplaySleepTime"
-#define kCPHelperToolTogglePrinterSharingRightName  "com.dustinrue.ControlPlane.TogglePrinterSharing"
-#define kCPHelperToolFileSharingRightName           "com.dustinrue.ControlPlane.FileSharingRightName"
-#define kCPHelperToolTFTPRightName                  "com.dustinrue.ControlPlane.TFTPRightName"
-#define kCPHelperToolFTPRightName                   "com.dustinrue.ControlPlane.FTPRightName"
-#define kCPHelperToolWebSharingRightName            "com.dustinrue.ControlPlane.WebSharingRightName"
-#define kCPHelperToolRemoteLoginRightName           "com.dustinrue.ControlPlane.RemoteLoginRightName"
+#define kCPHelperToolToggleTMRightName              "ua.in.pboyko.ControlPlaneX.ToggleTM"
+#define kCPHelperToolRunBackupTMRightName           "ua.in.pboyko.ControlPlaneX.RunBackupTM"
+#define kCPHelperToolToggleISRightName              "ua.in.pboyko.ControlPlaneX.ToggleIS"
+#define kCPHelperToolToggleFWRightName              "ua.in.pboyko.ControlPlaneX.ToggleFW"
+#define kCPHelperToolSetDisplaySleepTimeRightName   "ua.in.pboyko.ControlPlaneX.SetDisplaySleepTime"
+#define kCPHelperToolTogglePrinterSharingRightName  "ua.in.pboyko.ControlPlaneX.TogglePrinterSharing"
+#define kCPHelperToolFileSharingRightName           "ua.in.pboyko.ControlPlaneX.FileSharingRightName"
+#define kCPHelperToolTFTPRightName                  "ua.in.pboyko.ControlPlaneX.TFTPRightName"
+#define kCPHelperToolFTPRightName                   "ua.in.pboyko.ControlPlaneX.FTPRightName"
+#define kCPHelperToolWebSharingRightName            "ua.in.pboyko.ControlPlaneX.WebSharingRightName"
+#define kCPHelperToolRemoteLoginRightName           "ua.in.pboyko.ControlPlaneX.RemoteLoginRightName"
 
 
 // Misc
 
-#define kPRIVILEGED_HELPER_LABEL @"com.dustinrue.CPHelperTool"
+#define kPRIVILEGED_HELPER_LABEL @"ua.in.pboyko.CPHelperTool"
 #define kSigningCertCommonName "3rd Party Mac Developer Application: Dustin Rue"
 
 #define kInstallCommandLineToolCommand      "InstallTool"
 #define kInstallCommandLineToolSrcPath      "srcPath"   // Parameter, CFString
 #define kInstallCommandLineToolName         "toolName"  // Parameter, CFString
 #define kInstallCommandLineToolResponse		"Success"   // Response, CFNumber
-#define	kInstallCommandLineToolRightName	"com.dustinrue.ControlPlane.InstallTool"
+#define	kInstallCommandLineToolRightName	"ua.in.pboyko.ControlPlaneX.InstallTool"
 
 
 // Commands array (keep in sync!)

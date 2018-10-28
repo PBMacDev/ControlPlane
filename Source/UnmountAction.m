@@ -1,6 +1,6 @@
 //
 //  UnmountAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 14/11/07.
 //  Updated by Dustin Rue - 08/01/2011

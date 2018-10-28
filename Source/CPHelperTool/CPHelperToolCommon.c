@@ -1,6 +1,6 @@
 //
 //	CPHelperToolCommon.c
-//	ControlPlane
+//	ControlPlaneX
 //
 //	Created by Dustin Rue on 3/9/11.
 //	Copyright 2011. All rights reserved.

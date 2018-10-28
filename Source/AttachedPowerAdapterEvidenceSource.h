@@ -1,6 +1,6 @@
 //
 //  AttachedPowerAdapterEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 8/27/12.
 //

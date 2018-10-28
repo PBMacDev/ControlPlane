@@ -1,6 +1,6 @@
 //
 //  NetworkLocationAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 4/07/07.
 //  Modified by Vladimir Beloborodov (VladimirTechMan) on 12 June 2013.
@@ -23,7 +23,7 @@
 + (NSDictionary *)getAllSets {
 	NSDictionary *dict = nil;
 
-    SCPreferencesRef prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlane"), NULL);
+    SCPreferencesRef prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlaneX"), NULL);
 	SCPreferencesLock(prefs, true);
 
 	CFPropertyListRef cfDict = (CFDictionaryRef) SCPreferencesGetValue(prefs, kSCPrefSets);
@@ -77,7 +77,7 @@
 - (BOOL)isRequiredNetworkLocationAlreadySet {
 	BOOL result = NO;
     
-    SCPreferencesRef prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlane"), NULL);
+    SCPreferencesRef prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlaneX"), NULL);
 	SCPreferencesLock(prefs, true);
     
     SCNetworkSetRef currentSet = SCNetworkSetCopyCurrent(prefs);

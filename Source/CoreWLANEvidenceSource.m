@@ -1,6 +1,6 @@
 //
 //  WiFiEvidenceSource2.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 7/10/11.
 //  Copyright 2011 Dustin Rue. All rights reserved.
@@ -67,7 +67,7 @@ static void linkDataChanged(SCDynamicStoreRef store, CFArrayRef changedKeys, voi
         return;
     }
     
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.CoreWLANEvidenceSource",
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.CoreWLANEvidenceSource",
                                         DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         [self doStop];
@@ -379,7 +379,7 @@ static void linkDataChanged(SCDynamicStoreRef store, CFArrayRef changedKeys, voi
 
 - (BOOL)registerForAsyncNotifications {
     SCDynamicStoreContext ctxt = {0, (__bridge void * _Nullable)(self), NULL, NULL, NULL}; // {version, info, retain, release, copyDescription}
-	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), linkDataChanged, &ctxt);
+	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlaneX"), linkDataChanged, &ctxt);
     if (!store) {
         return NO;
     }

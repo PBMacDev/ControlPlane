@@ -1,6 +1,6 @@
 //
 //  CPController.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 1/02/07.
 //  Major rework by Vladimir Beloborodov (VladimirTechMan) in Q2-Q3 2013.
@@ -717,7 +717,7 @@ static NSSet *sharedActiveContexts = nil;
         [sbItem setImage:image];
     }
     @catch (NSException *exception) {
-        DSLog(@"failed to set the menubar icon to %@ with error %@. Please alert ControlPlane Developers!",
+        DSLog(@"failed to set the menubar icon to %@ with error %@. Please alert ControlPlaneX Developers!",
               [image name], [exception reason]);
         [self setStatusTitle:@"Failed to set icon"];
     }
@@ -1110,10 +1110,10 @@ static NSSet *sharedActiveContexts = nil;
             Action *action = [Action actionFromDictionary:actionParams];
             if (!action) {
                 DSLog(@"ERROR: %@",
-                      NSLocalizedString(@"ControlPlane attempted to perform action it doesn't know about,"
+                      NSLocalizedString(@"ControlPlaneX attempted to perform action it doesn't know about,"
                                         " you probably have a configured action that is no longer (or not yet)"
-                                        " supported by ControlPlane",
-                                        "ControlPlane was told to run an action that doesn't actually exist"));
+                                        " supported by ControlPlaneX",
+                                        "ControlPlaneX was told to run an action that doesn't actually exist"));
                 return;
             }
 
@@ -1131,10 +1131,10 @@ static NSSet *sharedActiveContexts = nil;
             Action *action = [Action actionFromDictionary:actionParams];
             if (!action) {
                 DSLog(@"ERROR: %@",
-                      NSLocalizedString(@"ControlPlane attempted to perform action it doesn't know about,"
+                      NSLocalizedString(@"ControlPlaneX attempted to perform action it doesn't know about,"
                                         " you probably have a configured action that is no longer (or not yet)"
-                                        " supported by ControlPlane",
-                                        "ControlPlane was told to run an action that doesn't actually exist"));
+                                        " supported by ControlPlaneX",
+                                        "ControlPlaneX was told to run an action that doesn't actually exist"));
                 return;
             }
 
@@ -1408,7 +1408,7 @@ static NSSet *sharedActiveContexts = nil;
 #pragma mark -
 #pragma mark Updating queue stuff
 
-// this method is the meat of ControlPlane, it is the engine that
+// this method is the meat of ControlPlaneX, it is the engine that
 // determines if matching rules add up to the required confidence level
 // and initiates a switch from one context to another
 
@@ -1733,7 +1733,7 @@ static NSSet *sharedActiveContexts = nil;
 	}
     
 
-    // the smoothing feature is designed to prevent ControlPlane from flapping between contexts
+    // the smoothing feature is designed to prevent ControlPlaneX from flapping between contexts
 	if ([standardUserDefaults boolForKey:@"EnableSwitchSmoothing"]) {
 		if ((smoothCounter > 0) && [self.candidateContextUUID isEqualToString:guessUUID]) {
             --smoothCounter;
@@ -1764,7 +1764,7 @@ static NSSet *sharedActiveContexts = nil;
 
 - (void)goingToSleep:(id)arg {
     if (self.goingToSleep) {
-        DSLog(@"WARNING: ControlPlane has received more than one notification in row about system sleep.");
+        DSLog(@"WARNING: ControlPlaneX has received more than one notification in row about system sleep.");
         return;
     }
     [self setGoingToSleep:YES];
@@ -1783,7 +1783,7 @@ static NSSet *sharedActiveContexts = nil;
 
 - (void)wakeFromSleep:(id)arg {
     if (!self.goingToSleep) {
-        DSLog(@"WARNING: ControlPlane has received more than one notification in row about system wake-up.");
+        DSLog(@"WARNING: ControlPlaneX has received more than one notification in row about system wake-up.");
         return;
     }
     [self setGoingToSleep:NO];
@@ -1880,12 +1880,12 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
 }
 
 - (BOOL)doInitUpdatingQueue {
-    updatingQueue = dispatch_queue_create("com.dustinrue.ControlPlane.UpdateQueue", DISPATCH_QUEUE_SERIAL);
+    updatingQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.UpdateQueue", DISPATCH_QUEUE_SERIAL);
     if (!updatingQueue) {
         DSLog(@"Failed to create a GCD queue");
         return NO;
     }
-    concurrentActionQueue = dispatch_queue_create("com.dustinrue.ControlPlane.ActionQueue", DISPATCH_QUEUE_CONCURRENT);
+    concurrentActionQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.ActionQueue", DISPATCH_QUEUE_CONCURRENT);
     if (!concurrentActionQueue) {
         DSLog(@"Failed to create a GCD queue");
         return NO;

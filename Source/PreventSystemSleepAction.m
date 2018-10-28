@@ -1,6 +1,6 @@
 //
 //  PreventSystemSleepAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 6/19/14.
 //
@@ -29,7 +29,7 @@ static IOPMAssertionID preventSystemSleepActionAssertionID = 0;
         
         //  NOTE: IOPMAssertionCreateWithName limits the string to 128 characters.
         ioReturn = IOPMAssertionCreateWithName(kIOPMAssertionTypePreventUserIdleSystemSleep,
-                                              kIOPMAssertionLevelOn, CFSTR("ControlPlane is preventing system sleep"), &preventSystemSleepActionAssertionID);
+                                              kIOPMAssertionLevelOn, CFSTR("ControlPlaneX is preventing system sleep"), &preventSystemSleepActionAssertionID);
     }
     else if (!turnOn && (preventSystemSleepActionAssertionID != 0)) {
         ioReturn = IOPMAssertionRelease(preventSystemSleepActionAssertionID);

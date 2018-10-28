@@ -256,7 +256,7 @@
 				GCC_PREFIX_HEADER = "NotificationCenterAction/NotificationCenterAction-Prefix.pch";
 				INFOPLIST_FILE = "NotificationCenterAction/NotificationCenterAction-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dustinrue.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = bundle;
@@ -271,7 +271,7 @@
 				GCC_PREFIX_HEADER = "NotificationCenterAction/NotificationCenterAction-Prefix.pch";
 				INFOPLIST_FILE = "NotificationCenterAction/NotificationCenterAction-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dustinrue.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = bundle;

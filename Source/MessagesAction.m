@@ -1,6 +1,6 @@
 //
 //  MessagesAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 6/23/12.
 //

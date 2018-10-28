@@ -1,6 +1,6 @@
 //
 //  RunningApplicationEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 23/5/07.
 //

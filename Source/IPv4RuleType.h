@@ -1,6 +1,6 @@
 //
 //  IPv4RuleType.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by VladimirTechMan on 18 Apr 2013.
 //

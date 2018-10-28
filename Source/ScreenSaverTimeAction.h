@@ -1,6 +1,6 @@
 //
 //  ScreenSaverTimeAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 7/16/07.
 //

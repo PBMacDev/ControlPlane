@@ -1,6 +1,6 @@
 //
 //  PreventSystemSleepAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 6/19/14.
 //

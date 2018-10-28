@@ -390,7 +390,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
-- (IBAction)donateToControlPlane:(id)sender {
+- (IBAction)donateToControlPlaneX:(id)sender {
     NSURL *url = [NSURL URLWithString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CPDonationURL"]];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
@@ -483,7 +483,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
     
 	NSView *blankPrefsView = [[NSView alloc] init];
 	[prefsWindow setContentView:blankPrefsView];
-	[prefsWindow setTitle:[@"ControlPlane - " stringByAppendingString:group[@"display_name"]]];
+	[prefsWindow setTitle:[@"ControlPlaneX - " stringByAppendingString:group[@"display_name"]]];
     
 	BOOL resizeableWidth  = [group[@"resizeableWidth"]  boolValue];
     BOOL resizeableHeight = [group[@"resizeableHeight"] boolValue];
@@ -785,7 +785,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
     LSSharedFileListRef loginItemList = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
     if (loginItemList != NULL) {
 #ifdef DEBUG_MODE
-        DSLog(@"Adding ControlPlane to startup items");
+        DSLog(@"Adding ControlPlaneX to startup items");
 #endif
         
         LSSharedFileListItemRef newItem = LSSharedFileListInsertItemURL(loginItemList,
@@ -860,8 +860,8 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
         return NO;
     }
     
-    // check to see if ControlPlane is already listed in Start Up Items
-    BOOL isControlPlaneListed = NO;
+    // check to see if ControlPlaneX is already listed in Start Up Items
+    BOOL isControlPlaneXListed = NO;
     
     // take a snapshot of the list creating an array out of it
     UInt32 seedValue = 0;
@@ -876,14 +876,14 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
             
             CFURLRef pathOfCurrentItem = NULL;
             if (LSSharedFileListItemResolve(itemToCheck, resolveFlags, &pathOfCurrentItem, NULL) == noErr) {
-                isControlPlaneListed = ((pathOfCurrentItem != NULL)
+                isControlPlaneXListed = ((pathOfCurrentItem != NULL)
                                         && CFEqual(pathOfCurrentItem, (__bridge CFURLRef)appPath));
             }
             if (pathOfCurrentItem != NULL) {
                 CFRelease(pathOfCurrentItem);
             }
             
-            if (isControlPlaneListed) {
+            if (isControlPlaneXListed) {
                 break;
             }
         }
@@ -893,7 +893,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
     
     CFRelease(loginItemList);
 	
-    return isControlPlaneListed;
+    return isControlPlaneXListed;
 }
 
 - (IBAction)toggleStartAtLoginAction:(id)sender

@@ -1,6 +1,6 @@
 //
 //  QuitApplicationAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 15/10/07.
 //

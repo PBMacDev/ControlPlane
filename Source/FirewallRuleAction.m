@@ -1,6 +1,6 @@
 //
 //  FirewallRuleAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 17/07/07.
 //  Tweaks by David Symonds on 18/07/07.

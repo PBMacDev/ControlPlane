@@ -1,6 +1,6 @@
 //
 //  PreventDisplaySleepAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 2/7/13.
 //
@@ -29,7 +29,7 @@ static IOPMAssertionID preventDisplaySleepActionAssertionID = 0;
     if (turnOn && (preventDisplaySleepActionAssertionID == 0)) {
         //  NOTE: IOPMAssertionCreateWithName limits the string to 128 characters.
         ioReturn = IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep,
-                                                       kIOPMAssertionLevelOn, CFSTR("ControlPlane is preventing display sleep"), &preventDisplaySleepActionAssertionID);
+                                                       kIOPMAssertionLevelOn, CFSTR("ControlPlaneX is preventing display sleep"), &preventDisplaySleepActionAssertionID);
         
     }
     else if (!turnOn && (preventDisplaySleepActionAssertionID != 0)) {

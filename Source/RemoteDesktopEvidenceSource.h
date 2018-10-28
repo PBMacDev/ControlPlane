@@ -1,6 +1,6 @@
 //
 //  RemoteDesktopEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 4/19/15.
 //

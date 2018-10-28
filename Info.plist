@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BuildMachineOSBuild</key>
-	<string>11A511</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDocumentTypes</key>
@@ -23,7 +21,7 @@
 			<string>Viewer</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.dustinrue.ControlPlane</string>
+				<string>ua.in.pboyko.ControlPlane</string>
 			</array>
 			<key>NSDocumentClass</key>
 			<string>NSDocument</string>
@@ -34,7 +32,7 @@
 	<key>CFBundleHelpBookFolder</key>
 	<string>ControlPlane Help</string>
 	<key>CFBundleHelpBookName</key>
-	<string>ControlPlane Help</string>
+	<string>ControlPlaneX Help</string>
 	<key>CFBundleIconFile</key>
 	<string>controlplane.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -46,7 +44,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.6.6</string>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -55,7 +53,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>com.dustinrue.ControlPlane</string>
+			<string>ua.in.pboyko.ControlPlane</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>http</string>
@@ -65,7 +63,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>com.dustinrue.ControlPlane</string>
+			<string>ua.in.pboyko.ControlPlane</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>https</string>
@@ -73,29 +71,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>79</string>
+	<string>80</string>
 	<key>CPCrashReportURL</key>
 	<string>http://crashreport.controlplaneapp.com/crash_v200.php</string>
-	<key>CPDonationURL</key>
-	<string>https://www.controlplaneapp.com/support-controlplane/</string>
-	<key>CPSupportURL</key>
-	<string>http://groups.google.com/group/controlplane-support/topics</string>
-	<key>CPWebPageURL</key>
-	<string>https://www.controlplaneapp.com/</string>
-	<key>DTCompiler</key>
-	<string></string>
-	<key>DTPlatformBuild</key>
-	<string>4B110</string>
-	<key>DTPlatformVersion</key>
-	<string>GM</string>
-	<key>DTSDKBuild</key>
-	<string>10J567</string>
-	<key>DTSDKName</key>
-	<string>macosx10.6</string>
-	<key>DTXcode</key>
-	<string>0410</string>
-	<key>DTXcodeBuild</key>
-	<string>4B110</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -119,16 +97,12 @@
 	<string>ControlPlane.sdef</string>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
-		<key>com.dustinrue.CPHelperTool</key>
-		<string>identifier com.dustinrue.CPHelperTool and certificate leaf[subject.CN] = "Developer ID Application: Dustin Rue"</string>
+		<key>ua.in.pboyko.CPHelperTool</key>
+		<string>identifier ua.in.pboyko.CPHelperTool and certificate leaf[subject.CN] = &quot;Developer ID Application: Dustin Rue&quot;</string>
 	</dict>
-	<key>SUFeedURL</key>
-	<string>https://www.controlplaneapp.com/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>86400</integer>
-	<key>TediumURL</key>
-	<string>http://www.tediumapp.com/get-tedium/</string>
 </dict>
 </plist>

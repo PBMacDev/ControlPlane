@@ -1,6 +1,6 @@
 //
 //  GenericLoopingEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 19/07/07.
 //  Updated by Vladimir Beloborodov (VladimirTechMan) on 03 May 2013.
@@ -50,7 +50,7 @@
     }
 
     if (!serialQueue) {
-        NSString *queueName = [[NSString alloc] initWithFormat:@"com.dustinrue.ControlPlane.%@",[self class]];
+        NSString *queueName = [[NSString alloc] initWithFormat:@"ua.in.pboyko.ControlPlaneX.%@",[self class]];
         serialQueue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_SERIAL);
     }
 

@@ -1,6 +1,6 @@
 //
 //  ShellScriptAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 23/04/07.
 //  Improved by Vladimir Beloborodov (VladimirTechMan) on 20 Aug 2013.
@@ -65,7 +65,7 @@
 	[args insertObject:@"--" atIndex:0];
 	NSString *scriptPath = args[1];
     
-    // ControlPlane is going to attempt to peek inside the script to figure out
+    // ControlPlaneX is going to attempt to peek inside the script to figure out
 	// what interpreter needs to be called
     NSMutableArray *shebangArgs = [scriptPath interpreterFromFile];
 	if (shebangArgs && ([shebangArgs count] > 0)) {
@@ -88,7 +88,7 @@
     // ensure that the discovered interpreter is valid and executable
     if ([interpreter isEqualToString: @""] || ![NSFileManager.defaultManager isExecutableFileAtPath:interpreter]) {
         // can't determine how to run the script
-        DSLog(@"Failed to execute '%@' because ControlPlane cannot determine how to do so."
+        DSLog(@"Failed to execute '%@' because ControlPlaneX cannot determine how to do so."
               " Please use '#!/bin/bash' or similar in the script or rename the script with a file extension", path);
         *errorString = NSLocalizedString(@"Unable to determine interpreter for shell script!"
                                          " (see log for details)", @"");

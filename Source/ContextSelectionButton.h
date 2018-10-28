@@ -1,6 +1,6 @@
 //
 //  ContextSelectionButton.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 6/07/07.
 //

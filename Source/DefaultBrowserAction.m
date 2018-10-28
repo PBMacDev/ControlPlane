@@ -1,6 +1,6 @@
 //
 //	DefaultBrowserAction.m
-//	ControlPlane
+//	ControlPlaneX
 //
 //	Created by David Jennes on 03/09/11.
 //	Copyright 2011. All rights reserved.
@@ -22,7 +22,7 @@
 		return nil;
 	
 	app = [[NSString alloc] init];
-    [self setControlPlaneAsURLHandler];
+    [self setControlPlaneXAsURLHandler];
 	
 	return self;
 }
@@ -33,7 +33,7 @@
 		return nil;
 	
 	app = [[dict valueForKey: @"parameter"] copy];
-    [self setControlPlaneAsURLHandler];
+    [self setControlPlaneXAsURLHandler];
 
 	
 	return self;
@@ -45,17 +45,17 @@
 		return nil;
 	
 	app = [option copy];
-    [self setControlPlaneAsURLHandler];
+    [self setControlPlaneXAsURLHandler];
 	
 	return self;
 }
 
-- (void) setControlPlaneAsURLHandler {
+- (void) setControlPlaneXAsURLHandler {
     NSString *currentSystemBrowser = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef) @"http");
     
     if (![[currentSystemBrowser lowercaseString] isEqualToString:[[[NSBundle mainBundle] bundleIdentifier] lowercaseString]]) {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert setMessageText:NSLocalizedString(@"You are adding or have triggered a Default Browser Action but ControlPlane is not currently set as the system wide default web browser. For the Default Browser Action feature to work properly ControlPlane must be set as the system's default web browser. ControlPlane will take the URL and then pass it to the browser of your choice. You may be asked to confirm this choice if you are using OS X 10.10 (Yosemite) or higher. Please select 'Use ControlPlane' if prompted." , @"")];
+        [alert setMessageText:NSLocalizedString(@"You are adding or have triggered a Default Browser Action but ControlPlaneX is not currently set as the system wide default web browser. For the Default Browser Action feature to work properly ControlPlaneX must be set as the system's default web browser. ControlPlaneX will take the URL and then pass it to the browser of your choice. You may be asked to confirm this choice if you are using OS X 10.10 (Yosemite) or higher. Please select 'Use ControlPlaneX' if prompted." , @"")];
         [alert runModal];
         
         LSSetDefaultHandlerForURLScheme((CFStringRef) @"https", (__bridge CFStringRef) [[NSBundle mainBundle] bundleIdentifier]);

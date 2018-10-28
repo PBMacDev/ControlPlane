@@ -1,6 +1,6 @@
 //
 //	CPController+SleepMonitor.m (former CPController+SleepThread.m)
-//	ControlPlane
+//	ControlPlaneX
 //
 //	Created by David Jennes on 05/09/11.
 //	Copyright 2011. All rights reserved.
@@ -91,7 +91,7 @@ static void powerAdapterChangedCallBack() {
 static void sleepCallBack(void *refCon, io_service_t service, natural_t messageType, void *argument) {
 	switch (messageType) {
 		case kIOMessageCanSystemSleep:
-            // ControlPlane does not veto an idle system sleep. But any other app may still cancel it.
+            // ControlPlaneX does not veto an idle system sleep. But any other app may still cancel it.
             IOAllowPowerChange(rootPort, (long)argument);
             break;
             

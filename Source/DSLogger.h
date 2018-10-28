@@ -1,6 +1,6 @@
 //
 //  DSLogger.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 22/07/07.
 //  Modified by Vladimir Beloborodov on 01 Apr 2013.

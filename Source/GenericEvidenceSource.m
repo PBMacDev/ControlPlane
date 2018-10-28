@@ -1,6 +1,6 @@
 //
 //  GenericEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 19/07/07.
 //

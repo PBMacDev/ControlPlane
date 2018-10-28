@@ -1,28 +1,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/sgml/loosedtd.html">
 <html>
 <head>
-	<title>Setting up ControlPlane's rules</title>
+	<title>Setting up ControlPlaneX's rules</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="config configuration">
-	<meta name="description" content="Overall settings for ControlPlane.">
+	<meta name="description" content="Overall settings for ControlPlaneX.">
 	<link media="all" rel="stylesheet" href="../css/topicPage.css" />
 </head>
 <body>
 	<div id="mainbox">
 		<div id="caticon">
-			<img class="icon" src="../gfx/icon.png" alt="ControlPlane Icon" />
+			<img class="icon" src="../gfx/icon.png" alt="ControlPlaneX Icon" />
 		</div>
 		<div id="pagetitle">
-			<h1>Configuring ControlPlane</h1>
+			<h1>Configuring ControlPlaneX</h1>
 		</div>
 		<p>This section deals with the overall configuration of
-		ControlPlane; it doesn't cover <a href="rules.html">rules</a> or
+		ControlPlaneX; it doesn't cover <a href="rules.html">rules</a> or
 		<a href="actions.html">actions</a>.
 		</p>
-		<p>ControlPlane runs from the <em>status bar</em> (the right-hand
+		<p>ControlPlaneX runs from the <em>status bar</em> (the right-hand
 		portion of the menu bar containing icons), and does not show in
-		the Dock. You can access ControlPlane's preferences and other
-		features through the ControlPlane icon.
+		the Dock. You can access ControlPlaneX's preferences and other
+		features through the ControlPlaneX icon.
 		</p>
 
 		<h2>Enabling automatic switching</h2>
@@ -32,8 +32,8 @@
 		this option is unchecked.
 		</p>
         
-        <h2>Start ControlPlane at Login</h2>
-        <p>Enable the 'Start ControlPlane' at login option to force ControlPlane to 
+        <h2>Start ControlPlaneX at Login</h2>
+        <p>Enable the 'Start ControlPlaneX' at login option to force ControlPlaneX to 
         start when you login.</p>
         
         <h2>Use Growl</h2>
@@ -42,10 +42,10 @@
 
 		<h2>Hiding from status bar</h2>
 		<p>If the 'Hide from status bar' option is checked in the
-		General preferences, the ControlPlane icon in the status bar will
+		General preferences, the ControlPlaneX icon in the status bar will
 		disappear about 10 seconds after launching (or after enabling
 		this option). To restore the icon to access preferences,
-		simply relaunch ControlPlane, and the icon will be visible again
+		simply relaunch ControlPlaneX, and the icon will be visible again
 		for another 10 seconds.
 		</p>
         
@@ -55,47 +55,47 @@
         needs.</p>
 
 		<h2>Switch Smoothing</h2>
-		<p>Some evidence sources in ControlPlane can occasionally return
+		<p>Some evidence sources in ControlPlaneX can occasionally return
 		spurious data, either due to bad hardware (such as USB), or
 		fundamentally unreliable physical circumstances (such as WiFi).
-		This can sometimes cause ControlPlane to momentarily switch away
+		This can sometimes cause ControlPlaneX to momentarily switch away
 		from the current (correct) context, and then switch back once
 		the evidence source corrects itself.
 		</p>
 		<p>If you check the 'Use switch smoothing' option in the
-		General preferences, ControlPlane will delay all context
+		General preferences, ControlPlaneX will delay all context
 		switching until two consecutive rule evaluations both yield the
 		same guess. The interval between rule evaluations defaults to
 		five seconds, so using switch smoothing will delay legitimate
 		context changes by this length of time.
 		</p>
 
-                <h2>Restore previous context when ControlPlane starts</h2>
-                <p>If option is checked, ControlPlane will assume it is in the same 
+                <h2>Restore previous context when ControlPlaneX starts</h2>
+                <p>If option is checked, ControlPlaneX will assume it is in the same 
                 context when it starts as it was in when it was shutdown.  This will
-                prevent ControlPlane from running any actions for that context again.  
-                Unchecking this option will force ControlPlane to start from an unknown
+                prevent ControlPlaneX from running any actions for that context again.  
+                Unchecking this option will force ControlPlaneX to start from an unknown
                 context at start time.  Unchecking this option is useful if you want to 
                 rerun your actions after a reboot, particularly useful on a Mac that isn't 
                 mobile.</p>
 
 		<h2>Default Context</h2>
-		<p>Sometimes ControlPlane doesn't have enough evidence to make a
+		<p>Sometimes ControlPlaneX doesn't have enough evidence to make a
 		confident enough guess as to your correct context. You can
 		specify a <em>default context</em> to be used in these
 		situations.
 		</p>
 
 		<h2>Confidence required</h2>
-		<p>After ControlPlane has combined all the matching rules, it
+		<p>After ControlPlaneX has combined all the matching rules, it
 		arrives at a confidence for each possible context. The
 		minimum confidence threshold is configurable via this slider.
 		</p>
 
 		<h2 class="seealso">See also</h2>
 		<p class="seealso">
-			<a href="rules.html">Setting up ControlPlane's rules</a><br />
-			<a href="actions.html">Setting up ControlPlane's actions</a><br />
+			<a href="rules.html">Setting up ControlPlaneX's rules</a><br />
+			<a href="actions.html">Setting up ControlPlaneX's actions</a><br />
 			<a href="advanced.html">Advanced settings</a><br />
 		</p>
 	</div>

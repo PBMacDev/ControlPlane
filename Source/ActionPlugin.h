@@ -1,6 +1,6 @@
 //
 //  ActionPlugin.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 8/10/12.
 //

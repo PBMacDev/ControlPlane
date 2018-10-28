@@ -1,6 +1,6 @@
 //
 //  LightEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Rodrigo Damazio on 09/07/07.
 //  Some optimizations and refactoring by Vladimir Beloborodov (VladimirTechMan) on 05 August 2013.

@@ -1,6 +1,6 @@
 //
 //  VPNAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 18/07/07.
 //

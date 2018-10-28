@@ -1,6 +1,6 @@
 //
 //  CPController+SleepMonitor.h (former CPController+SleepThread.h)
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Jennes on 05/09/11.
 //  Copyright 2011. All rights reserved.

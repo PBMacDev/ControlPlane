@@ -1,6 +1,6 @@
 //
 //  TogglePrinterSharing.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 1/15/12.
 //  Copyright (c) 2012. All rights reserved.

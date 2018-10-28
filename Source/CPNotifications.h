@@ -1,6 +1,6 @@
 //
 //  CPNotifications.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 7/27/12.
 //

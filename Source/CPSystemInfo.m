@@ -1,6 +1,6 @@
 //
 //  CPSystemInfo.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 7/12/13.
 //

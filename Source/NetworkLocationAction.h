@@ -1,6 +1,6 @@
 //
 //  NetworkLocationAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 4/07/07.
 //  Modified by Vladimir Beloborodov (VladimirTechMan) on 12 June 2013.

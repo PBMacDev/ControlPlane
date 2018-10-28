@@ -1,6 +1,6 @@
 //
 //  PopButton.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 26/04/07.
 //

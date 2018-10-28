@@ -1,6 +1,6 @@
 //
 //  FireWireEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 30/04/07.
 //

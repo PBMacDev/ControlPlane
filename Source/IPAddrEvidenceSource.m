@@ -1,6 +1,6 @@
 //
 //  IPAddrEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 18 Apr 2013.
 //
@@ -234,7 +234,7 @@ static NSComparator descendingSorter = ^NSComparisonResult(id obj1, id obj2) {
 		return;
     }
 
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.IPAddrEvidenceSource",
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.IPAddrEvidenceSource",
                                         DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         [self doStop];
@@ -245,7 +245,7 @@ static NSComparator descendingSorter = ^NSComparisonResult(id obj1, id obj2) {
     // {version, info, retain, release, copyDescription}
 	SCDynamicStoreContext ctxt = {0, (__bridge void *)(self), NULL, NULL, NULL};
 
-	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), ipAddrChange, &ctxt);
+	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlaneX"), ipAddrChange, &ctxt);
     if (!store) {
         [self doStop];
         return;

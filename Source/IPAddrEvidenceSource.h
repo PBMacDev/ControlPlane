@@ -1,6 +1,6 @@
 //
 //  IPAddrEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 18 Apr 2013.
 //

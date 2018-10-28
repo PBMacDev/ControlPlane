@@ -1,9 +1,9 @@
 //
 //  TimeMachineDestinationAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 1/23/12.
-//  Copyright (c) 2012 ControlPlane. All rights reserved.
+//  Copyright (c) 2012 ControlPlaneX. All rights reserved.
 //
 
 #import "TimeMachineDestinationAction.h"

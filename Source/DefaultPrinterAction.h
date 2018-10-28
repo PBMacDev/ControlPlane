@@ -1,6 +1,6 @@
 //
 //  DefaultPrinterAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 3/04/07.
 //  Reworked by Vladimir Beloborodov (VladimirTechMan) on 20-21 Aug 2013.

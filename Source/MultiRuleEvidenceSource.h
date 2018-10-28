@@ -1,6 +1,6 @@
 //
 //  MultiRuleEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 03/03/2013.
 //

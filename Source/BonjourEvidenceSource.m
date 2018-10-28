@@ -1,6 +1,6 @@
 //
 //  BonjourEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 27/08/07.
 //  Major rework and cleanup done by Vladimir Beloborodov (VladimirTechMan) on 22-23 Aug 2013.
@@ -50,7 +50,7 @@
 
 #pragma mark -
 
-#define ES_QUEUE_PREFIX "com.dustinrue.ControlPlane.BonjourEvidenceSource"
+#define ES_QUEUE_PREFIX "ua.in.pboyko.ControlPlaneX.BonjourEvidenceSource"
 #define NET_SERVICE_RESOLVE_TIMEOUT_SECS 2
 
 @implementation BonjourEvidenceSource
@@ -196,7 +196,7 @@
 #pragma mark CPBonjourResolver delegates
 
 - (void)foundNewServiceFrom:(id)netServiceBrowser withService:(NSNetService *)service {
-    // if the sender is our top level network browser then ControlPlane
+    // if the sender is our top level network browser then ControlPlaneX
     // needs to take all of the found services and create new instances
     // of CPBonjourResolver for each one.
     if (netServiceBrowser == self.topLevelNetworkBrowser) {

@@ -1,6 +1,6 @@
 //
 //  ContextsDataSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 3/07/07.
 //
@@ -182,33 +182,33 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
      IBOutlet SliderWithValue *generalPreferencesConfidenceSlider;
      */
     NSButton *strongGeneralPreferencesEnableSwitching = generalPreferencesEnableSwitching;
-    [strongGeneralPreferencesEnableSwitching setToolTip:NSLocalizedString(@"Check this option if you want ControlPlane to automatically switch to the context it is most confident about as configured by the 'Confidence required to switch' slider.", @"")];
+    [strongGeneralPreferencesEnableSwitching setToolTip:NSLocalizedString(@"Check this option if you want ControlPlaneX to automatically switch to the context it is most confident about as configured by the 'Confidence required to switch' slider.", @"")];
     
     NSButton *strongGeneralPreferencesStartAtLogin = generalPreferencesStartAtLogin;
-    [strongGeneralPreferencesStartAtLogin setToolTip:NSLocalizedString(@"Check this option if you want ControlPlane to start when you login.", @"")];
+    [strongGeneralPreferencesStartAtLogin setToolTip:NSLocalizedString(@"Check this option if you want ControlPlaneX to start when you login.", @"")];
     
     NSButton *strongGeneralPreferencesUseNotifications = generalPreferencesUseNotifications;
-    [strongGeneralPreferencesUseNotifications setToolTip:NSLocalizedString(@"Check this option if you want to ControlPlane to issue notifications.  If checked, Growl will be used on system's older than 10.8 and Notification Center will be used on systems 10.8 or newer.", @"")];
+    [strongGeneralPreferencesUseNotifications setToolTip:NSLocalizedString(@"Check this option if you want to ControlPlaneX to issue notifications.  If checked, Growl will be used on system's older than 10.8 and Notification Center will be used on systems 10.8 or newer.", @"")];
     
     NSButton *strongGeneralPreferencesCheckForUpdates = generalPreferencesCheckForUpdates;
-    [strongGeneralPreferencesCheckForUpdates setToolTip:NSLocalizedString(@"If checked, ControlPlane will check for updates when it starts.", @"")];
+    [strongGeneralPreferencesCheckForUpdates setToolTip:NSLocalizedString(@"If checked, ControlPlaneX will check for updates when it starts.", @"")];
     
     NSButton *strongGeneralPreferencesHideFromStatusBar = generalPreferencesHideFromStatusBar;
-    [strongGeneralPreferencesHideFromStatusBar setToolTip:NSLocalizedString(@"If enabled ControlPlane's menu bar icon will be hidden after a period of time.  To make the icon visible again relaunch ControlPlane.", @"")];
+    [strongGeneralPreferencesHideFromStatusBar setToolTip:NSLocalizedString(@"If enabled ControlPlaneX's menu bar icon will be hidden after a period of time.  To make the icon visible again relaunch ControlPlaneX.", @"")];
     
     NSPopUpButton *strongGeneralPreferencesShowInStatusBar = generalPreferencesShowInStatusBar;
     [strongGeneralPreferencesShowInStatusBar setToolTip:NSLocalizedString(@"Select the information you want shown in the menu bar", @"")];
     
     NSButton *strongGeneralPreferencesSwitchSmoothing = generalPreferencesSwitchSmoothing;
-    [strongGeneralPreferencesSwitchSmoothing setToolTip:NSLocalizedString(@"If enabled ControlPlane will allow two rule check cycles to be performed before switching to the most confident context.  Use this option if ControlPlane switches contexts too often or too quickly.", @"")];
+    [strongGeneralPreferencesSwitchSmoothing setToolTip:NSLocalizedString(@"If enabled ControlPlaneX will allow two rule check cycles to be performed before switching to the most confident context.  Use this option if ControlPlaneX switches contexts too often or too quickly.", @"")];
     
     NSButton *strongGeneralPreferencesRestorePreviousContext = generalPreferencesRestorePreviousContext;
-    [strongGeneralPreferencesRestorePreviousContext setToolTip:NSLocalizedString(@"Enable this option if you want ControlPlane to move to context it was at before it was last quit.  This only affects ControlPlane's behavior when the app is started and it wasn't previously running.  To perform actions on sleep or wake use the Sleep/Wake Evidence Source.", @"")];
+    [strongGeneralPreferencesRestorePreviousContext setToolTip:NSLocalizedString(@"Enable this option if you want ControlPlaneX to move to context it was at before it was last quit.  This only affects ControlPlaneX's behavior when the app is started and it wasn't previously running.  To perform actions on sleep or wake use the Sleep/Wake Evidence Source.", @"")];
     
     NSButton *strongGeneralPreferencesUseDefaultContextTextField = generalPreferencesUseDefaultContextTextField;
-    [strongGeneralPreferencesUseDefaultContextTextField setToolTip:NSLocalizedString(@"Enable this option to cause ControlPlane to move to the selected context when it is unable to determine a better context.", @"")];
+    [strongGeneralPreferencesUseDefaultContextTextField setToolTip:NSLocalizedString(@"Enable this option to cause ControlPlaneX to move to the selected context when it is unable to determine a better context.", @"")];
     
-    NSString *confidenceToolTip = NSLocalizedString(@"Based on the rules you configure, ControlPlane will calculate how confident it is that a given set of rules match the context they are configured for.  This slider defines how confident ControlPlane needs to be to switch to that context.",@"");
+    NSString *confidenceToolTip = NSLocalizedString(@"Based on the rules you configure, ControlPlaneX will calculate how confident it is that a given set of rules match the context they are configured for.  This slider defines how confident ControlPlaneX needs to be to switch to that context.",@"");
     
     SliderWithValue *strongGeneralPreferencesConfidenceSlider = generalPreferencesConfidenceSlider;
     [strongGeneralPreferencesConfidenceSlider setToolTip:confidenceToolTip];
@@ -602,7 +602,7 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 // Private
 - (NSMutableArray *)walkToRoot:(NSString *)uuid {
 	// NOTE: There's no reason why this is limited, except for loop-avoidance.
-	// If you're using more than 20-deep nested contexts, perhaps ControlPlane isn't for you?
+	// If you're using more than 20-deep nested contexts, perhaps ControlPlaneX isn't for you?
 	int limit = 20;
 
 	NSMutableArray *walk = [NSMutableArray array];

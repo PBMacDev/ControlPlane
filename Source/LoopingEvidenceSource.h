@@ -1,6 +1,6 @@
 //
 //  LoopingEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 19/07/07.
 //  Updated by Vladimir Beloborodov (VladimirTechMan) on 03 May 2013.

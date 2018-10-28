@@ -1,6 +1,6 @@
 //
 //  AppleScript.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Jennes on 24/08/11.
 //  Copyright 2011. All rights reserved.

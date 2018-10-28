@@ -4,26 +4,26 @@
 	<title>Configuring Actions</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="actions triggers">
-	<meta name="description" content="Learn how to set up ControlPlane's actions.">
+	<meta name="description" content="Learn how to set up ControlPlaneX's actions.">
 	<link media="all" rel="stylesheet" href="../css/topicPage.css" />
 </head>
 <body>
 	<div id="mainbox">
 		<div id="caticon">
-			<img class="icon" src="../gfx/icon.png" alt="ControlPlane Icon" />
+			<img class="icon" src="../gfx/icon.png" alt="ControlPlaneX Icon" />
 		</div>
 		<div id="pagetitle">
 			<h1>Configuring Actions</h1>
 		</div>
-		<p><i>Actions</i> are triggered when ControlPlane decides to
+		<p><i>Actions</i> are triggered when ControlPlaneX decides to
 		change your context. They can be performed when you arrive at 
                 a context, leave a context or both and individual actions can
                 be delayed for a period of time.
 		</p>
 		<p>Most actions will be Arrival actions; that is, they will be
-		triggered when ControlPlane switches <em>to</em> that context.
+		triggered when ControlPlaneX switches <em>to</em> that context.
 		The alternative is a Departure action, which is triggered when
-		ControlPlane switches <em>away</em> from that action's context.
+		ControlPlaneX switches <em>away</em> from that action's context.
 		In this case, the <i>delay</i> parameter will be the length of
 		time from the action being triggered until the context is
 		switched.
@@ -98,7 +98,7 @@
 
 	<h2><em>Open</em> actions</h2>
 	<p>Actions of type <em>Open</em> are the most general actions.
-	Upon triggering, ControlPlane will open that file: if it
+	Upon triggering, ControlPlaneX will open that file: if it
 	is an application, it will be launched; if it is an
 	AppleScript, it will be executed; otherwise, it will be opened
 	with that file's default application. This is roughly
@@ -117,7 +117,7 @@
         <p>Enter the name of the app you wish to close.  For example, if you wish to close
         Adium you would enter Adium.app.  To get the name of an app you wish to close, start
         Activity Monitor and find the Process Name of the app you wish to quit.  Enter
-        the value into ControlPlane.</p>
+        the value into ControlPlaneX.</p>
         
 
 	<h2><em>Screen Saver Password</em> actions</h2>
@@ -161,7 +161,7 @@
 	your computer's built-in Bluetooth and WiFi controllers.
 	</p>
 
-	<h2><em>Toggle ControlPlane Context is Sticky</em>
+	<h2><em>Toggle ControlPlaneX Context is Sticky</em>
 	<p>Allows you to toggle if a guesses (or forced) context is sticky.  This is useful if you want to stay at a guessed or forced context
 	until you manually select a different one.  If you only want a single context to be sticky, remember to set an associated "untoggle" on departure.</p>
 	

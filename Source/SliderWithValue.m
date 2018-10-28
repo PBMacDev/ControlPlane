@@ -1,6 +1,6 @@
 //
 //  SliderWithValue.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 15/07/07.
 //  Large chunks from http://www.cocoadev.com/index.pl?ToolTip

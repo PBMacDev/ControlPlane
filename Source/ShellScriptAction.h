@@ -1,6 +1,6 @@
 //
 //  ShellScriptAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 23/04/07.
 //

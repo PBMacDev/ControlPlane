@@ -1,6 +1,6 @@
 //
 //  NSString+ShellScriptHelper.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 1/15/12.
 //  Shamelessly refactored from David Jennes's work

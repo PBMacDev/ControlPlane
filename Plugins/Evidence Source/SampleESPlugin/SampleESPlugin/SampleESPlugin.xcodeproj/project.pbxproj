@@ -242,7 +242,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SampleESPlugin/SampleESPlugin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dustinrue.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../../../../Protocols;
 				WRAPPER_EXTENSION = bundle;
@@ -259,7 +259,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "SampleESPlugin/SampleESPlugin-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dustinrue.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = ../../../../Protocols;
 				WRAPPER_EXTENSION = bundle;

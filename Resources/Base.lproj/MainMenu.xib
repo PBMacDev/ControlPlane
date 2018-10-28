@@ -97,20 +97,20 @@
                 <menuItem isSeparatorItem="YES" title=" " id="528">
                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                 </menuItem>
-                <menuItem title="ControlPlane Website..." id="1690">
+                <menuItem title="ControlPlaneX Website..." id="1690">
                     <connections>
                         <action selector="runWebPage:" target="320" id="1692"/>
                     </connections>
                 </menuItem>
-                <menuItem title="ControlPlane Support..." id="1913">
+                <menuItem title="ControlPlaneX Support..." id="1913">
                     <connections>
                         <action selector="emailSupport:" target="320" id="1915"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Support ControlPlane..." id="2035">
+                <menuItem title="Support ControlPlaneX..." id="2035">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="donateToControlPlane:" target="320" id="2037"/>
+                        <action selector="donateToControlPlaneX:" target="320" id="2037"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="1718">
@@ -129,12 +129,12 @@
                 <menuItem isSeparatorItem="YES" id="394">
                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                 </menuItem>
-                <menuItem title="ControlPlane Help" id="692">
+                <menuItem title="ControlPlaneX Help" id="692">
                     <connections>
                         <action selector="showHelp:" target="-2" id="693"/>
                     </connections>
                 </menuItem>
-                <menuItem title="About ControlPlane" id="468">
+                <menuItem title="About ControlPlaneX" id="468">
                     <connections>
                         <action selector="runAbout:" target="320" id="889"/>
                     </connections>
@@ -218,7 +218,7 @@
                         <binding destination="288" name="enabled" keyPath="values.UseDefaultContext" id="1700"/>
                     </connections>
                 </popUpButton>
-                <button toolTip="If ControlPlan is unable to determine the correct context based on your rules, ControlPlane will use this context." id="937">
+                <button toolTip="If ControlPlan is unable to determine the correct context based on your rules, ControlPlaneX will use this context." id="937">
                     <rect key="frame" x="18" y="77" width="161" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use a default context:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1842">
@@ -331,7 +331,7 @@
                 <button id="2028">
                     <rect key="frame" x="18" y="243" width="188" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Start ControlPlane at login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2029">
+                    <buttonCell key="cell" type="check" title="Start ControlPlaneX at login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2029">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -366,8 +366,8 @@
                 <button id="2048">
                     <rect key="frame" x="18" y="102" width="341" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <string key="toolTip">If disabled, ControlPlane will always try to determine what context to be in at start.  This allows rules to be rerun if you are still at the same location as before.  If enabled, ControlPlane will simply start in the same context it was in when it was quit.</string>
-                    <buttonCell key="cell" type="check" title="Restore previous context when ControlPlane starts" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2049">
+                    <string key="toolTip">If disabled, ControlPlaneX will always try to determine what context to be in at start.  This allows rules to be rerun if you are still at the same location as before.  If enabled,ControlPlaneX will simply start in the same context it was in when it was quit.</string>
+                    <buttonCell key="cell" type="check" title="Restore previous context when ControlPlaneX starts" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2049">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -761,7 +761,7 @@ IA
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="QbV-gX-XLS">
                         <rect key="frame" x="1" y="0.0" width="456" height="143"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="Preferences/Actions" headerView="1899" id="1007">
                                 <rect key="frame" x="0.0" y="0.0" width="456" height="126"/>
@@ -946,7 +946,7 @@ IA
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" id="MYX-4y-5BU">
                         <rect key="frame" x="1" y="1" width="423" height="192"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="1736">
                                 <rect key="frame" x="0.0" y="0.0" width="423" height="192"/>
@@ -959,12 +959,12 @@ IA
                             </textView>
                         </subviews>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1901">
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1901">
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1900">
-                        <rect key="frame" x="409" y="1" width="15" height="192"/>
+                        <rect key="frame" x="408" y="1" width="16" height="192"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -1101,7 +1101,7 @@ IA
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" id="l0O-vw-T0w">
                         <rect key="frame" x="1" y="0.0" width="347" height="260"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="1904" id="1546">
                                 <rect key="frame" x="0.0" y="0.0" width="347" height="243"/>
@@ -1472,10 +1472,10 @@ Gw
         </window>
         <menu title="MainMenu" systemMenu="main" id="1744" userLabel="*MainMenu*">
             <items>
-                <menuItem title="ControlPlane" id="1773">
-                    <menu key="submenu" title="ControlPlane" systemMenu="apple" id="1774">
+                <menuItem title="ControlPlaneX" id="1773">
+                    <menu key="submenu" title="ControlPlaneX" systemMenu="apple" id="1774">
                         <items>
-                            <menuItem title="About ControlPlane" id="1777">
+                            <menuItem title="About ControlPlaneX" id="1777">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem title="Check for Updates" id="1779"/>
@@ -1650,9 +1650,9 @@ Gw
                             <font key="font" metaFont="system"/>
                             <string key="title">You can now enable the multiple active contexts option in Advanced Preferences!
 
-Multiple active contexts greatly simplifies your ControlPlane configuration by allowing you to create any number of independent contexts, rules and actions without the need for duplicate nested contexts and actions. Want to perform an action when a USB mouse is attached while at work or at home? A single context, rule and action will take care of it at any location!
+Multiple active contexts greatly simplifies your ControlPlaneX configuration by allowing you to create any number of independent contexts, rules and actions without the need for duplicate nested contexts and actions. Want to perform an action when a USB mouse is attached while at work or at home? A single context, rule and action will take care of it at any location!
 
-Multiple active contexts will become the default mode in a future release of ControlPlane but you can go ahead and switch to it right away if you'd like. Keep in mind you may need to modify your ControlPlane configuration, particularly if you have nested contexts, in order to get the most out of this new mode. Remember to report any issues or just provide feedback via the ControlPlane Support menu option.</string>
+Multiple active contexts will become the default mode in a future release ofControlPlaneX but you can go ahead and switch to it right away if you'd like. Keep in mind you may need to modify yourControlPlaneX configuration, particularly if you have nested contexts, in order to get the most out of this new mode. Remember to report any issues or just provide feedback via theControlPlaneX Support menu option.</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

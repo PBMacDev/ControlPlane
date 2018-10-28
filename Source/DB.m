@@ -1,6 +1,6 @@
 //
 //  DB.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 29/03/07.
 //  Code improvements by VladimirTechMan (Vladimir Beloborodov) on 06 Nov 2014.

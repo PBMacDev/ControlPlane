@@ -1,6 +1,6 @@
 //
 //  LaptopLidEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on July 15, 2013.
 //  Modified by Vladimir Beloborodov on August 05, 2013.
@@ -97,7 +97,7 @@ static void onPMrootDomainChange(void *refcon, io_service_t service, uint32_t me
 }
 
 - (BOOL)setupLidStateNotification {
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.LaptopLidEvidenceSource", DISPATCH_QUEUE_SERIAL);
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.LaptopLidEvidenceSource", DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         return NO;
     }

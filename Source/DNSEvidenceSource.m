@@ -1,6 +1,6 @@
 //
 //  DNSEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Vladimir Beloborodov on 08/03/2013.
 //
@@ -179,7 +179,7 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
 		return;
     }
 
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.DNSEvidenceSource", DISPATCH_QUEUE_SERIAL);
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.DNSEvidenceSource", DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         [self doStop];
         return;
@@ -188,7 +188,7 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
 	// Register for asynchronous notifications
     // {version, info, retain, release, copyDescription}
 	SCDynamicStoreContext ctxt = {0, (__bridge void *)(self), NULL, NULL, NULL};
-	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), dnsChange, &ctxt);
+	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlaneX"), dnsChange, &ctxt);
     if (!store) {
         [self doStop];
         return;

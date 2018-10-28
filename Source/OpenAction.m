@@ -1,6 +1,6 @@
 //
 //  OpenAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 3/04/07.
 //  Updated by Dustin Rue on 8/28/2012 

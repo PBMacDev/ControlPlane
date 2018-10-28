@@ -1,6 +1,6 @@
 //
 //  NetworkLinkEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 25/07/07.
 //  Tweaks by David Symonds on 25/07/07.
@@ -111,7 +111,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 		return;
     }
 
-    serialQueue = dispatch_queue_create("com.dustinrue.ControlPlane.NetworkLink", DISPATCH_QUEUE_SERIAL);
+    serialQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.NetworkLink", DISPATCH_QUEUE_SERIAL);
     if (!serialQueue) {
         [self doStop];
         return;
@@ -119,7 +119,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 
 	// Register for asynchronous notifications
     SCDynamicStoreContext ctxt = {0, (__bridge void * _Nullable)(self), NULL, NULL, NULL}; // {version, info, retain, release, copyDescription}
-	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), linkChange, &ctxt);
+	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlaneX"), linkChange, &ctxt);
     if (!store) {
         [self doStop];
         return;
@@ -138,7 +138,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
     }
 
     // For retrieving network services later
-    prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlane"), NULL);
+    prefs = SCPreferencesCreate(NULL, CFSTR("ControlPlaneX"), NULL);
     if (!prefs) {
         [self doStop];
         return;

@@ -1,6 +1,6 @@
 //
 //  FirewallRuleAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 17/07/07.
 //

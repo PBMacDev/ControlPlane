@@ -1,6 +1,6 @@
 //
 //  CPController.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 1/02/07.
 //  Major rework by Vladimir Beloborodov (VladimirTechMan) in Q2-Q3 2013.

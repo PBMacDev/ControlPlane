@@ -1,6 +1,6 @@
 //
 //  ToggleTFTPAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 3/26/12.
 //  Copyright (c) 2012. All rights reserved.

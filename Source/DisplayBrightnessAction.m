@@ -1,6 +1,6 @@
 //
 //    DisplayBrightnessAction.m
-//    ControlPlane
+//    ControlPlaneX
 //
 //    Created by David Jennes on 02/09/11.
 //  Modifiedy by Dustin Rue on 19/11/11.

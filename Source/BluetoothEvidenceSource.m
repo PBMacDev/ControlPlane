@@ -1,6 +1,6 @@
 //
 //  BluetoothEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 29/03/07.
 //  Modified by Dustin Rue 8/5/2011.
@@ -169,7 +169,7 @@
 	
 }
 
-#pragma mark ControlPlane related routines
+#pragma mark ControlPlaneX related routines
 
 - (NSString *)name
 {
@@ -186,7 +186,7 @@
     // TODO: fix this issue, we shouldn't be here if inquiryStatus
     // and registeredForNotifications are both false.  This indicates
     // we're not supposed to be running but for some reason 
-    // ControlPlane will continue to fire the inquiryDidComplete selector
+    // ControlPlaneX will continue to fire the inquiryDidComplete selector
     // until bluetooth is disabled, the program is closed or the computer
     // goes through a sleep/wake cycle
     if (![self registeredForNotifications]) 

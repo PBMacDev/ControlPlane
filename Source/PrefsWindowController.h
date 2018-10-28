@@ -38,14 +38,14 @@
 	IBOutlet NSTextView *logBufferView;
 	NSNumber *logBufferPaused;
 	NSTimer *logBufferTimer;
-    NSMenuItem *donateToControlPlane;
+    NSMenuItem *donateToControlPlaneX;
 }
 
 - (IBAction)runPreferences:(id)sender;
 - (IBAction)runAbout:(id)sender;
 - (IBAction)runWebPage:(id)sender;
 - (IBAction)emailSupport:(id)sender;
-- (IBAction)donateToControlPlane:(id)sender;
+- (IBAction)donateToControlPlaneX:(id)sender;
 - (IBAction)menuBarDisplayOptionChanged:(id)sender;
 - (IBAction)enableMultipleActiveContexts:(id)sender;
 - (IBAction)closeMultipleActiveContextsAlert:(id)sender;

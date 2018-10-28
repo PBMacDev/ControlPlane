@@ -1,6 +1,6 @@
 //
 //  DesktopBackgroundAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 12/11/07.
 //

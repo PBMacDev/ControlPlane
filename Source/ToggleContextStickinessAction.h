@@ -1,6 +1,6 @@
 //
 //  ToggleContextStickinessAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 8/15/12.
 //

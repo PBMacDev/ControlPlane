@@ -1,6 +1,6 @@
 //
 //  PowerEvidenceSource.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Mark Wallis on 30/4/07.
 //  Minor updates done by Vladimir Beloborodov (VladimirTechMan) on 25 Aug 2013.

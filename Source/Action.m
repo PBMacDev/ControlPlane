@@ -1,6 +1,6 @@
 //
 //  Action.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 3/04/07.
 //
@@ -469,7 +469,7 @@
 - (NSArray *)getActionPlugins {
     NSMutableArray *searchPaths = [NSMutableArray array];
     NSMutableArray *bundles = [NSMutableArray array];
-    NSString *pluginPath = @"/Application Support/ControlPlane/PlugIns/Actions";
+    NSString *pluginPath = @"/Application Support/ControlPlaneX/PlugIns/Actions";
     
     
     for (NSString *path in NSSearchPathForDirectoriesInDomains(

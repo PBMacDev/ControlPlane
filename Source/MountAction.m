@@ -1,6 +1,6 @@
 //
 //  MountAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 9/06/07.
 //

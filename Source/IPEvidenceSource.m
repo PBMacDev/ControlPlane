@@ -1,6 +1,6 @@
 //
 //  IPEvidenceSource.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 29/03/07.
 //  Modified by Dustin Rue on 27/08/11.
@@ -115,7 +115,7 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 	// Register for asynchronous notifications
 	SCDynamicStoreContext ctxt = {0, self, NULL, NULL, NULL}; // {version, info, retain, release, copyDescription}
 
-	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlane"), ipChange, &ctxt);
+	store = SCDynamicStoreCreate(NULL, CFSTR("ControlPlaneX"), ipChange, &ctxt);
 	runLoop = SCDynamicStoreCreateRunLoopSource(NULL, store, 0);
 	CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoop, kCFRunLoopCommonModes);
 	NSArray *keys = [NSArray arrayWithObjects:
@@ -210,7 +210,7 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
     
 	[lock lock];
     
-    // now ControlPlane will determine if the IP address fits in the
+    // now ControlPlaneX will determine if the IP address fits in the
     // network range provided in the rule
     
     [addresses enumerateObjectsUsingBlock:^(NSString *ip, NSUInteger idx, BOOL *stop) {

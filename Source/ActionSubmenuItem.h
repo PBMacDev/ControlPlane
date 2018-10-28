@@ -1,6 +1,6 @@
 //
 //  ActionSubmenuItem.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Dustin Rue on 3/22/12.
 //  Copyright (c) 2012. All rights reserved.

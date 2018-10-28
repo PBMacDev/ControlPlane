@@ -1,6 +1,6 @@
 //
 //  ScreenSaverStartAction.h
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by David Symonds on 4/11/07.
 //

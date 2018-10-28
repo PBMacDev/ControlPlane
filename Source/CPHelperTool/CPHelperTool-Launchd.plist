@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.dustinrue.CPHelperTool</string>
+	<string>ua.in.pboyko.CPHelperTool</string>
 	<key>OnDemand</key>
 	<true/>
 	<key>Disabled</key>
@@ -19,7 +19,7 @@
 			<key>SockPathMode</key>
 			<integer>438</integer>
 			<key>SockPathName</key>
-			<string>/var/run/com.dustinrue.CPHelperTool.socket</string>
+			<string>/var/run/ua.in.pboyko.CPHelperTool.socket</string>
 			<key>SockType</key>
 			<string>Stream</string>
 		</dict>

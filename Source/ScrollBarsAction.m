@@ -1,6 +1,6 @@
 //
 //  ScrollBarsAction.m
-//  ControlPlane
+//  ControlPlaneX
 //
 //  Created by Brandon LeBlanc on 3/24/16.
 //
