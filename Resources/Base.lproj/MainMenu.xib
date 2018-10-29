@@ -116,11 +116,6 @@
                 <menuItem isSeparatorItem="YES" id="1718">
                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                 </menuItem>
-                <menuItem title="Check For Updates..." id="477">
-                    <connections>
-                        <action selector="checkForUpdates:" target="476" id="478"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="Preferences..." id="391">
                     <connections>
                         <action selector="runPreferences:" target="320" id="821"/>
@@ -146,7 +141,6 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="476" userLabel="SUUpdater" customClass="SUUpdater"/>
         <arrayController avoidsEmptySelection="NO" id="513" userLabel="ActionsController" customClass="DNDArrayController">
             <declaredKeys>
                 <string>type</string>
@@ -190,17 +184,6 @@
                         </binding>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" id="1362">
-                    <rect key="frame" x="313" y="198" width="81" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Check now..." bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="1844">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="miniSystem"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="checkForUpdates:" target="476" id="1363"/>
-                    </connections>
-                </button>
                 <popUpButton verticalHuggingPriority="750" id="938" customClass="ContextSelectionButton">
                     <rect key="frame" x="182" y="72" width="214" height="26"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -227,17 +210,6 @@
                     </buttonCell>
                     <connections>
                         <binding destination="288" name="value" keyPath="values.UseDefaultContext" id="1701"/>
-                    </connections>
-                </button>
-                <button id="933">
-                    <rect key="frame" x="18" y="201" width="207" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Check for updates on startup" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1840">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="288" name="value" keyPath="values.SUCheckAtStartup" id="958"/>
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" id="932">
@@ -421,7 +393,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="yTn-13-PHg">
                         <rect key="frame" x="1" y="0.0" width="452" height="215"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveName="Preferences/Rules" headerView="1896" id="977">
                                 <rect key="frame" x="0.0" y="0.0" width="452" height="198"/>
@@ -761,7 +733,7 @@ IA
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <clipView key="contentView" id="QbV-gX-XLS">
                         <rect key="frame" x="1" y="0.0" width="456" height="143"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveName="Preferences/Actions" headerView="1899" id="1007">
                                 <rect key="frame" x="0.0" y="0.0" width="456" height="126"/>
@@ -946,7 +918,7 @@ IA
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" drawsBackground="NO" id="MYX-4y-5BU">
                         <rect key="frame" x="1" y="1" width="423" height="192"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="1736">
                                 <rect key="frame" x="0.0" y="0.0" width="423" height="192"/>
@@ -1101,7 +1073,7 @@ IA
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" id="l0O-vw-T0w">
                         <rect key="frame" x="1" y="0.0" width="347" height="260"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="1904" id="1546">
                                 <rect key="frame" x="0.0" y="0.0" width="347" height="243"/>
@@ -1292,7 +1264,7 @@ Gw
                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                     <clipView key="contentView" id="UdS-Kz-HGd">
                         <rect key="frame" x="1" y="1" width="351" height="245"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="1631" id="1629">
                                 <rect key="frame" x="0.0" y="0.0" width="351" height="245"/>
@@ -1365,7 +1337,6 @@ Gw
         <customObject id="1635" userLabel="ContextsDataSource" customClass="ContextsDataSource">
             <connections>
                 <outlet property="generalPreferencesCRtSTextField" destination="930" id="2162"/>
-                <outlet property="generalPreferencesCheckForUpdates" destination="933" id="2169"/>
                 <outlet property="generalPreferencesConfidenceSlider" destination="929" id="2161"/>
                 <outlet property="generalPreferencesEnableSwitching" destination="928" id="2166"/>
                 <outlet property="generalPreferencesHideFromStatusBar" destination="2044" id="2170"/>

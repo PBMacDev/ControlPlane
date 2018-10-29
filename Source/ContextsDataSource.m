@@ -188,7 +188,7 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     [strongGeneralPreferencesStartAtLogin setToolTip:NSLocalizedString(@"Check this option if you want ControlPlaneX to start when you login.", @"")];
     
     NSButton *strongGeneralPreferencesUseNotifications = generalPreferencesUseNotifications;
-    [strongGeneralPreferencesUseNotifications setToolTip:NSLocalizedString(@"Check this option if you want to ControlPlaneX to issue notifications.  If checked, Growl will be used on system's older than 10.8 and Notification Center will be used on systems 10.8 or newer.", @"")];
+    [strongGeneralPreferencesUseNotifications setToolTip:NSLocalizedString(@"Check this option if you want to ControlPlaneX to issue notifications.", @"")];
     
     NSButton *strongGeneralPreferencesCheckForUpdates = generalPreferencesCheckForUpdates;
     [strongGeneralPreferencesCheckForUpdates setToolTip:NSLocalizedString(@"If checked, ControlPlaneX will check for updates when it starts.", @"")];

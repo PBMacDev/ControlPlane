@@ -65,7 +65,7 @@
             if (terminationStatus != 0) {
                 DSLog(@"Failed to toggle screensaver password. (script terminated with a non-zero status '%d')",
                       terminationStatus);
-                NSString *title = NSLocalizedString(@"Failure", @"Growl message title");
+                NSString *title = NSLocalizedString(@"Failure", @"User Notification message title");
                 NSString *errorMsg = NSLocalizedString(@"Failed executing shell script! (see log for details)", @"");
                 [CPNotifications postUserNotification:title withMessage:errorMsg];
                 return;

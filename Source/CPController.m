@@ -144,7 +144,7 @@ static NSSet *sharedActiveContexts = nil;
 	[appDefaults setValue:[NSNumber numberWithDouble:0.75] forKey:@"MinimumConfidenceRequired"];
 	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"EnableSwitchSmoothing"];
 	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"HideStatusBarIcon"];
-    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableGrowl"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableUserNotification"];
     [appDefaults setValue:[NSNumber numberWithInt:CP_DISPLAY_ICON] forKey:@"menuBarOption"];
 
     
@@ -186,7 +186,7 @@ static NSSet *sharedActiveContexts = nil;
 	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug USBParanoia"];
 
 	// Sparkle (TODO: make update time configurable?)
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"SUCheckAtStartup"];
+//    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"SUCheckAtStartup"];
     
     [appDefaults setValue:[NSNumber numberWithInt:1] forKey:@"SmoothSwitchCount"];
 
@@ -958,7 +958,7 @@ static NSSet *sharedActiveContexts = nil;
         [self decreaseActionsInProgress];
 
         if (!success) {
-            NSString *title = NSLocalizedString(@"Failure", @"Growl message title");
+            NSString *title = NSLocalizedString(@"Failure", @"User Notification message title");
             [CPNotifications postUserNotification:title withMessage:errorString];
         }
     }
@@ -971,9 +971,9 @@ static NSSet *sharedActiveContexts = nil;
         // Aggregate notification messages for all actions
         NSString *title, *msg = [actions componentsAtIndexes:indexes joinedByString:@"\n* "];
         if ([indexes count] == 1) {
-            title = NSLocalizedString(@"Performing Action", @"Growl message title");
+            title = NSLocalizedString(@"Performing Action", @"User Notification message title");
         } else {
-            title = NSLocalizedString(@"Performing Actions", @"Growl message title");
+            title = NSLocalizedString(@"Performing Actions", @"User Notification message title");
             msg = [@"* " stringByAppendingString:msg];
         }
 
@@ -1309,9 +1309,9 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void)postNotificationsOnContextTransitionWhenForcedByUserIs:(BOOL)isManuallyTriggered {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"EnableGrowl"]) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"EnableUserNotification"]) {
         NSString *msg = [self getMesssageForChangingToContextWhenForcedByUserIs:isManuallyTriggered];
-        [CPNotifications postUserNotification:NSLocalizedString(@"Activating Context", @"Growl message title")
+        [CPNotifications postUserNotification:NSLocalizedString(@"Activating Context", @"User Notification message title")
                                   withMessage:msg];
     }
     

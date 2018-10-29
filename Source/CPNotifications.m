@@ -8,7 +8,7 @@
 //
 
 #import "CPNotifications.h"
-#import <Growl/Growl.h>
+//#import <Growl/Growl.h>
 
 @implementation CPNotifications
 
@@ -21,34 +21,14 @@
 
 + (void)postNotification:(NSString *)title withMessage:(NSString *)message
 {
-    // use Notification Center if it is available
-    if (NSClassFromString(@"NSUserNotification") != nil) {
-        NSUserNotification *notificationMessage = [[NSUserNotification alloc] init];
-        
-        notificationMessage.title = title;
-        notificationMessage.informativeText = message;
-        
-        NSUserNotificationCenter *unc = [NSUserNotificationCenter defaultUserNotificationCenter];
-        
-        [unc scheduleNotification:notificationMessage];
-    } else {
-        // use Growl otherwise
-        signed int pri = [title isEqualToString:@"Failure"] ? (1) : (0);
+    NSUserNotification *notificationMessage = [[NSUserNotification alloc] init];
     
-        @try {
-            [GrowlApplicationBridge notifyWithTitle:title
-                                        description:message
-                                   notificationName:title
-                                           iconData:nil
-                                           priority:pri
-                                           isSticky:NO
-                                       clickContext:nil];
-        }
-        @catch (NSException *exception) {
-            // something went wrong and we're going to simply throw the message away
-            NSLog(@"derp %@", exception);
-        }
-    }
+    notificationMessage.title = title;
+    notificationMessage.informativeText = message;
+    
+    NSUserNotificationCenter *unc = [NSUserNotificationCenter defaultUserNotificationCenter];
+    
+    [unc scheduleNotification:notificationMessage];
 }
 
 @end

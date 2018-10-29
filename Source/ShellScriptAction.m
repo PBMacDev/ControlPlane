@@ -109,7 +109,7 @@
     task.terminationHandler = ^(NSTask *terminatedTask) {
         if (terminatedTask.terminationReason == NSTaskTerminationReasonUncaughtSignal) {
             DSLog(@"Failed to execute '%@' (script terminated due to an uncaught signal)", pathCopy);
-            NSString *title = NSLocalizedString(@"Failure", @"Growl message title");
+            NSString *title = NSLocalizedString(@"Failure", @"UserNotification message title");
             NSString *errorMsg = NSLocalizedString(@"Failed executing shell script! (see log for details)", @"");
             [CPNotifications postUserNotification:title withMessage:errorMsg];
             return;
@@ -119,7 +119,7 @@
         if (terminationStatus != 0) {
             DSLog(@"Failed to execute '%@' (script terminated with a non-zero status '%d')",
                   pathCopy, terminationStatus);
-            NSString *title = NSLocalizedString(@"Failure", @"Growl message title");
+            NSString *title = NSLocalizedString(@"Failure", @"UserNotification message title");
             NSString *errorMsg = NSLocalizedString(@"Failed executing shell script! (see log for details)", @"");
             [CPNotifications postUserNotification:title withMessage:errorMsg];
             return;

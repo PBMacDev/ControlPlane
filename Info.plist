@@ -72,8 +72,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>80</string>
-	<key>CPCrashReportURL</key>
-	<string>http://crashreport.controlplaneapp.com/crash_v200.php</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -98,11 +96,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>ua.in.pboyko.CPHelperTool</key>
-		<string>identifier ua.in.pboyko.CPHelperTool and certificate leaf[subject.CN] = &quot;Developer ID Application: Dustin Rue&quot;</string>
+		<string>identifier ua.in.pboyko.CPHelperTool and certificate leaf[subject.CN] = "Developer ID Application: Dustin Rue"</string>
 	</dict>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
-	<key>SUScheduledCheckInterval</key>
-	<integer>86400</integer>
 </dict>
 </plist>
