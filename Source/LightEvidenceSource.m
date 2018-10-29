@@ -9,7 +9,6 @@
 #import <mach/mach.h>
 #import <IOKit/IOKitLib.h>
 #import "LightEvidenceSource.h"
-#import "SharedNumberFormatter.h"
 
 
 enum {
@@ -113,7 +112,7 @@ enum {
         self.level  = level;
         [self setDataCollected:(kr == KERN_SUCCESS)];
 
-        NSString *perc = [[SharedNumberFormatter percentStyleFormatter] stringFromNumber:@(level)];
+        NSString *perc = [NSNumberFormatter localizedStringFromNumber:@(level) numberStyle:NSNumberFormatterPercentStyle];
         [self setValue:perc forKey:@"currentLevel"];
     }
 }
@@ -135,7 +134,7 @@ enum {
         } else {
             fmt = NSLocalizedString(@"Below %@", @"Parameter is a percentage threshold");
         }
-        NSString *perc = [[SharedNumberFormatter percentStyleFormatter] stringFromNumber:@(level)];
+        NSString *perc = [NSNumberFormatter localizedStringFromNumber:@(level) numberStyle:NSNumberFormatterPercentStyle];
         NSString *desc = [NSString stringWithFormat:fmt, perc];
 		dict[@"description"] = desc;
     }

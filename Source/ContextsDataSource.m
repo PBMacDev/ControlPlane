@@ -13,7 +13,6 @@
 #import "CPController.h"
 #import "DSLogger.h"
 #import "SliderWithValue.h"
-#import "SharedNumberFormatter.h"
 
 @interface Context ()
 
@@ -707,7 +706,7 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
         if ([confidence doubleValue] == 0.0) {
             return @"";
         }
-		return [[SharedNumberFormatter percentStyleFormatter] stringFromNumber:confidence];
+        return [NSNumberFormatter localizedStringFromNumber:confidence numberStyle:NSNumberFormatterPercentStyle];
     }
 	return nil;
 }

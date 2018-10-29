@@ -17,7 +17,6 @@
 		7C4855C0174941C500D8EB84 /* IPv6RuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4855BF174941C500D8EB84 /* IPv6RuleType.m */; };
 		7C6D94591747A1BE00D5B9C7 /* IPAddrEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D94581747A1BE00D5B9C7 /* IPAddrEvidenceSource.m */; };
 		7C6D945C1747A1F300D5B9C7 /* IPv4RuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D945B1747A1F300D5B9C7 /* IPv4RuleType.m */; };
-		7C73BDE217D09A4100EBFB80 /* SharedNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C73BDE117D09A4100EBFB80 /* SharedNumberFormatter.m */; };
 		7C8574EC16FB52AF0081659A /* DNSEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8574EB16FB52AF0081659A /* DNSEvidenceSource.m */; };
 		7C8574F116FB53180081659A /* ServerAddressRuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8574F016FB53180081659A /* ServerAddressRuleType.m */; };
 		7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6847617947E2200563601 /* LaptopLidEvidenceSource.m */; };
@@ -312,8 +311,6 @@
 		7C6D94581747A1BE00D5B9C7 /* IPAddrEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPAddrEvidenceSource.m; path = Source/IPAddrEvidenceSource.m; sourceTree = "<group>"; };
 		7C6D945A1747A1E400D5B9C7 /* IPv4RuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IPv4RuleType.h; path = Source/IPv4RuleType.h; sourceTree = "<group>"; };
 		7C6D945B1747A1F300D5B9C7 /* IPv4RuleType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPv4RuleType.m; path = Source/IPv4RuleType.m; sourceTree = "<group>"; };
-		7C73BDE017D09A4100EBFB80 /* SharedNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedNumberFormatter.h; path = Source/SharedNumberFormatter.h; sourceTree = "<group>"; };
-		7C73BDE117D09A4100EBFB80 /* SharedNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedNumberFormatter.m; path = Source/SharedNumberFormatter.m; sourceTree = "<group>"; };
 		7C8574EA16FB52AF0081659A /* DNSEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNSEvidenceSource.h; path = Source/DNSEvidenceSource.h; sourceTree = "<group>"; };
 		7C8574EB16FB52AF0081659A /* DNSEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSEvidenceSource.m; path = Source/DNSEvidenceSource.m; sourceTree = "<group>"; };
 		7C8574EF16FB53180081659A /* ServerAddressRuleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerAddressRuleType.h; path = Source/ServerAddressRuleType.h; sourceTree = "<group>"; };
@@ -654,8 +651,6 @@
 				DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */,
 				8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */,
 				8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */,
-				7C73BDE017D09A4100EBFB80 /* SharedNumberFormatter.h */,
-				7C73BDE117D09A4100EBFB80 /* SharedNumberFormatter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1456,7 +1451,6 @@
 				DABF656617910AB600AA5B86 /* CPSystemInfo.m in Sources */,
 				7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */,
 				DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */,
-				7C73BDE217D09A4100EBFB80 /* SharedNumberFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

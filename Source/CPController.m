@@ -13,7 +13,6 @@
 #import "NetworkLocationAction.h"
 #import "NSTimer+Invalidation.h"
 #import "CPNotifications.h"
-#import "SharedNumberFormatter.h"
 #import <libkern/OSAtomic.h>
 //#import <HockeySDK/HockeySDK.h>
 
@@ -1330,7 +1329,7 @@ static NSSet *sharedActiveContexts = nil;
         msgSuffix = NSLocalizedString(@"(forced)", @"Used when force-switching to a context");
     } else {
         NSNumber *confidence = self.currentContext.confidence;
-        NSString *percentage = [[SharedNumberFormatter percentStyleFormatter] stringFromNumber:confidence];
+        NSString *percentage = [NSNumberFormatter localizedStringFromNumber:confidence numberStyle:NSNumberFormatterPercentStyle];
 
         NSString *suffixFmt = NSLocalizedString(@"with confidence %@", @"Appended to a context-change notification");
         msgSuffix = [NSString stringWithFormat:suffixFmt, percentage];
