@@ -8,27 +8,28 @@
 //
 
 #import "CPNotifications.h"
-//#import <Growl/Growl.h>
+#import <UserNotifications/UserNotifications.h>
 
 @implementation CPNotifications
 
 + (void)postUserNotification:(NSString *)title withMessage:(NSString *)message
 {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"EnableGrowl"]) {
-        [CPNotifications postNotification:[title copy] withMessage:[message copy]];
-    }
-}
+    UNUserNotificationCenter *currentCenter = [UNUserNotificationCenter currentNotificationCenter];
+    [currentCenter getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        if ([settings alertSetting] == UNNotificationSettingEnabled) {
+            
+            UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+            content.title = title;
+            content.body = message;
 
-+ (void)postNotification:(NSString *)title withMessage:(NSString *)message
-{
-    NSUserNotification *notificationMessage = [[NSUserNotification alloc] init];
-    
-    notificationMessage.title = title;
-    notificationMessage.informativeText = message;
-    
-    NSUserNotificationCenter *unc = [NSUserNotificationCenter defaultUserNotificationCenter];
-    
-    [unc scheduleNotification:notificationMessage];
+            UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"ua.in.pboyko.UNNotificationRequestID" content:content trigger:nil];
+
+            [currentCenter addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+                ;
+            }];
+        }
+    }];
+
 }
 
 @end

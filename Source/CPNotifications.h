@@ -7,11 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <Foundation/Foundation.h>
 
 @interface CPNotifications : NSObject
 
-+ (void)postNotification:(NSString *)title withMessage:(NSString *)message;
 + (void)postUserNotification:(NSString *)title withMessage:(NSString *)message;
 
 @end

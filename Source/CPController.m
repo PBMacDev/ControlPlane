@@ -14,7 +14,7 @@
 #import "NSTimer+Invalidation.h"
 #import "CPNotifications.h"
 #import <libkern/OSAtomic.h>
-//#import <HockeySDK/HockeySDK.h>
+#import <UserNotifications/UserNotifications.h>
 
 
 
@@ -310,13 +310,6 @@ static NSSet *sharedActiveContexts = nil;
 
 - (BOOL)stickyContext {
 	return forcedContextIsSticky;
-}
-
-- (void) applicationDidFinishLaunching:(NSNotification *)notification {
-//    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"fe18dcf4b5fd47a0bf75e0b49321ea93"];
-//    // Do some additional configuration if needed here
-//    [[BITHockeyManager sharedHockeyManager] startManager];
-
 }
 
 - (void)importVersion1Settings {
@@ -1796,6 +1789,19 @@ static NSSet *sharedActiveContexts = nil;
 
 #pragma mark -
 #pragma mark NSApplication delegates
+
+- (void) applicationDidFinishLaunching:(NSNotification *)notification {
+    
+    UNUserNotificationCenter *currentCenter = [UNUserNotificationCenter currentNotificationCenter];
+    [currentCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        // Enable or disable features based on authorization.
+        if (granted) {
+            ;
+        }
+    }];
+}
+
+
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
     [self showInStatusBar:self];
