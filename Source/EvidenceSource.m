@@ -409,8 +409,6 @@
 #import "HostAvailabilityEvidenceSource.h"
 #import "RemoteDesktopEvidenceSource.h"
 
-#import "CPSystemInfo.h"
-
 #ifdef DEBUG_MODE
 #import "StressTestEvidenceSource.h"
 #endif

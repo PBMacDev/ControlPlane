@@ -7,7 +7,6 @@
 //
 
 #import "ToggleNotificationCenterAlertsAction.h"
-#import "CPSystemInfo.h"
 
 @implementation ToggleNotificationCenterAlertsAction
 
@@ -120,14 +119,7 @@
 
 + (BOOL) isActionApplicableToSystem {
 
-    NSLog(@"%d", (int)[CPSystemInfo getOSVersion]);
-    if ([CPSystemInfo getOSVersion] >= MAC_OS_X_VERSION_10_8) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
-
+    return YES;
 }
 
 @end

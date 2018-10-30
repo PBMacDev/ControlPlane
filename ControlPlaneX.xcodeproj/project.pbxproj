@@ -175,7 +175,6 @@
 		DDAC3C55140D866200FBF29E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDAC3C54140D866200FBF29E /* ScriptingBridge.framework */; };
 		DDAE0017141474DC00FDADE8 /* CPController+SleepMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */; };
 		DDAEFFFB1414714F00FDADE8 /* Action+HelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAEFFFA1414714F00FDADE8 /* Action+HelperTool.m */; };
-		DDC3C2A21412A82000655F34 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = DDC3C2A11412A82000655F34 /* Growl Registration Ticket.growlRegDict */; };
 		DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */; };
 		DDDF1C2F1411E08000DB0018 /* ITunesPlaylistAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2E1411E07F00DB0018 /* ITunesPlaylistAction.m */; };
 		DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */ = {isa = PBXBuildFile; fileRef = DDE1B067140438DB006564A6 /* ControlPlane.sdef */; };
@@ -573,7 +572,6 @@
 		DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreLocationSource.m; path = Source/CoreLocationSource.m; sourceTree = "<group>"; };
 		DDAEFFF91414714F00FDADE8 /* Action+HelperTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Action+HelperTool.h"; path = "Source/Action+HelperTool.h"; sourceTree = "<group>"; };
 		DDAEFFFA1414714F00FDADE8 /* Action+HelperTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Action+HelperTool.m"; path = "Source/Action+HelperTool.m"; sourceTree = "<group>"; };
-		DDC3C2A11412A82000655F34 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Growl Registration Ticket.growlRegDict"; path = "Resources/Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		DDDF1C291411D49300DB0018 /* DefaultBrowserAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultBrowserAction.h; path = Source/DefaultBrowserAction.h; sourceTree = "<group>"; };
 		DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultBrowserAction.m; path = Source/DefaultBrowserAction.m; sourceTree = "<group>"; };
 		DDDF1C2D1411E07F00DB0018 /* ITunesPlaylistAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITunesPlaylistAction.h; path = Source/ITunesPlaylistAction.h; sourceTree = "<group>"; };
@@ -751,7 +749,6 @@
 				96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */,
 				8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */,
 				96454D3D18C3E6BE004F64E7 /* GeneralPrefs@2x.png */,
-				DDC3C2A11412A82000655F34 /* Growl Registration Ticket.growlRegDict */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				DDFF423014156B0A0047D311 /* location.png */,
 				8D1A45590BA00DE2004A6BC4 /* minus-8.png */,
@@ -1291,7 +1288,6 @@
 				A71CB2AE2183B07F0061014D /* CPHelperToolAuthorizationPrompts.strings in Resources */,
 				DD8274E6141147BB0098FA6E /* controlplane.icns in Resources */,
 				DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */,
-				DDC3C2A21412A82000655F34 /* Growl Registration Ticket.growlRegDict in Resources */,
 				DDFF423114156B0A0047D311 /* location.png in Resources */,
 				DDF4E595141588E80028DF4A /* CoreLocationMap.html in Resources */,
 				A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */,

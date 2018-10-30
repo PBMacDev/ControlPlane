@@ -8,7 +8,6 @@
 #import "ScreenSaverPasswordAction.h"
 #import "DSLogger.h"
 #import "CPNotifications.h"
-#import "CPSystemInfo.h"
 
 
 @implementation ScreenSaverPasswordAction
@@ -22,57 +21,29 @@
 }
 
 - (BOOL)execute:(NSString **)errorString {
-    SInt32 version = [CPSystemInfo getOSVersion];
+
+    BOOL success;
     
-    if (version > 1100) {
+    NSNumber *val = [NSNumber numberWithBool:turnOn];
+    CFPreferencesSetValue(CFSTR("askForPassword"), (CFPropertyListRef) val,
+                  CFSTR("com.apple.screensaver"),
+                  kCFPreferencesCurrentUser, kCFPreferencesCurrentHost);
+    success = CFPreferencesSynchronize(CFSTR("com.apple.screensaver"),
+                 kCFPreferencesCurrentUser, kCFPreferencesCurrentHost);
 
-        BOOL success;
-        
-        NSNumber *val = [NSNumber numberWithBool:turnOn];
-        CFPreferencesSetValue(CFSTR("askForPassword"), (CFPropertyListRef) val,
-                      CFSTR("com.apple.screensaver"),
-                      kCFPreferencesCurrentUser, kCFPreferencesCurrentHost);
-        success = CFPreferencesSynchronize(CFSTR("com.apple.screensaver"),
-                     kCFPreferencesCurrentUser, kCFPreferencesCurrentHost);
-
-        // Notify login process
-        // not sure this does or why it must be called...anyone? (DBR)
-        if (success) {
-            CFMessagePortRef port = CFMessagePortCreateRemote(NULL, CFSTR("com.apple.loginwindow.notify"));
-            if (port) {
-                success = (CFMessagePortSendRequest(port, 500, 0, 0, 0, 0, 0) == kCFMessagePortSuccess);
-                CFRelease(port);
-            }
-        }
-        
-        if (!success) {
-            *errorString = NSLocalizedString(@"Failed toggling screen saver password!", @"");
-            return NO;
+    // Notify login process
+    // not sure this does or why it must be called...anyone? (DBR)
+    if (success) {
+        CFMessagePortRef port = CFMessagePortCreateRemote(NULL, CFSTR("com.apple.loginwindow.notify"));
+        if (port) {
+            success = (CFMessagePortSendRequest(port, 500, 0, 0, 0, 0, 0) == kCFMessagePortSuccess);
+            CFRelease(port);
         }
     }
-    else {
-        NSTask *task = [[NSTask alloc] init];
-        if (turnOn)
-            [task setLaunchPath:[[NSBundle mainBundle] pathForResource:@"enable_screensaver" ofType:@"sh"]];
-        else
-            [task setLaunchPath:[[NSBundle mainBundle] pathForResource:@"disable_screensaver" ofType:@"sh"]];
-        
-        [task setStandardOutput:[NSPipe pipe]];
-        [task setStandardInput:[NSPipe pipe]];
-        
-        task.terminationHandler = ^(NSTask *terminatedTask) {
-            int terminationStatus = terminatedTask.terminationStatus;
-            if (terminationStatus != 0) {
-                DSLog(@"Failed to toggle screensaver password. (script terminated with a non-zero status '%d')",
-                      terminationStatus);
-                NSString *title = NSLocalizedString(@"Failure", @"User Notification message title");
-                NSString *errorMsg = NSLocalizedString(@"Failed executing shell script! (see log for details)", @"");
-                [CPNotifications postUserNotification:title withMessage:errorMsg];
-                return;
-            }
-        };
-        
-        [task launch];
+    
+    if (!success) {
+        *errorString = NSLocalizedString(@"Failed toggling screen saver password!", @"");
+        return NO;
     }
 
 	return YES;
