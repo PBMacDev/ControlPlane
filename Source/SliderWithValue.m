@@ -61,7 +61,7 @@ static ToolTip *sharedToolTip = nil;
 	NSRect textFieldFrame = { { 0, 0 }, { 100, 20 } };
     
 	window = [[NSWindow alloc] initWithContentRect:contentRect
-                                         styleMask:NSBorderlessWindowMask
+                                         styleMask:NSWindowStyleMaskBorderless
                                            backing:NSBackingStoreBuffered
                                              defer:YES];
     
@@ -79,7 +79,7 @@ static ToolTip *sharedToolTip = nil;
 	[textField setBezeled:NO];
 	[textField setBordered:NO];
 	[textField setDrawsBackground:NO];
-	[textField setAlignment:NSCenterTextAlignment];
+	[textField setAlignment:NSTextAlignmentCenter];
 	[textField setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 	[textField setFont:[NSFont toolTipsFontOfSize:[NSFont systemFontSize]]];
 	[[window contentView] addSubview:textField];
@@ -147,9 +147,9 @@ static NSTimer *hideToolTipTimer;
 	NSEventType eventType = [[NSApp currentEvent] type];
 
 	BOOL draw = NO;
-	if ((eventType == NSLeftMouseDown) && (sharedToolTip == nil)) {
+	if ((eventType == NSEventTypeLeftMouseDown) && (sharedToolTip == nil)) {
 		draw = YES;
-    } else if ((eventType == NSLeftMouseUp) && (sharedToolTip != nil)) {
+    } else if ((eventType == NSEventTypeLeftMouseUp) && (sharedToolTip != nil)) {
 		draw = NO;
     } else if (sharedToolTip != nil) {
 		draw = YES;
@@ -220,7 +220,7 @@ static NSTimer *hideToolTipTimer;
 
 	NSPoint point = [[theEvent window] convertRectToScreen:r1].origin;
 
-	if ([theEvent type] == NSLeftMouseUp) {
+	if ([theEvent type] == NSEventTypeLeftMouseUp) {
 		[ToolTip releaseToolTip];
     } else {
 		[ToolTip setString:[SliderCellWithValue toolTipTextForValue:[self doubleValue]] atPoint:point];

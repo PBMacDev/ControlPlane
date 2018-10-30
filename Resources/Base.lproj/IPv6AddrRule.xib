@@ -120,7 +120,7 @@ Gw
                         </comboBoxCell>
                     </comboBox>
                     <textField verticalHuggingPriority="750" id="130">
-                        <rect key="frame" x="174" y="156" width="45" height="21"/>
+                        <rect key="frame" x="174" y="155" width="52" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="131">
                             <font key="font" metaFont="system"/>
@@ -147,6 +147,7 @@ Gw
                     </textField>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="138.5" y="147"/>
         </window>
     </objects>
 </document>

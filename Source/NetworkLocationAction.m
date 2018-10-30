@@ -109,7 +109,7 @@
             id userDefinedName = subdict[(NSString *)kSCPropUserDefinedName];
             if ( (userDefinedName != nil)
                 && [userDefinedName isKindOfClass:[NSString class]]
-                && [userDefinedName isEqualToString:networkLocation] )
+                && [userDefinedName isEqualToString:self->networkLocation] )
             {
                 networkSetId = key;
                 *stop = YES;

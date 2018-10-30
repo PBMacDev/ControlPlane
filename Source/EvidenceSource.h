@@ -47,8 +47,6 @@
 - (void)setThreadNameFromClassName;
 
 - (void)setContextMenu:(NSMenu *)menu;
-- (void)runPanelAsSheetOfWindow:(NSWindow *)window withParameter:(NSDictionary *)parameter
-         callbackObject:(NSObject *)callbackObject selector:(SEL)selector;
 - (IBAction)closeSheetWithOK:(id)sender;
 - (IBAction)closeSheetWithCancel:(id)sender;
 

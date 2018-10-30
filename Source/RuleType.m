@@ -75,14 +75,14 @@
 - (IBAction)closeSheetWithOK:(id)sender
 {
     if ([self validatePanelParams]) {
-        [NSApp endSheet:self.panel returnCode:NSOKButton];
+        [NSApp endSheet:self.panel returnCode:NSModalResponseOK];
         [self.panel orderOut:nil];
     }
 }
 
 - (IBAction)closeSheetWithCancel:(id)sender
 {
-	[NSApp endSheet:self.panel returnCode:NSCancelButton];
+    [NSApp endSheet:self.panel returnCode:NSModalResponseCancel];
 	[self.panel orderOut:nil];
 }
 

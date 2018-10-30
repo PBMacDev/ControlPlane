@@ -260,17 +260,6 @@
                         <binding destination="288" name="value" keyPath="values.Enabled" id="954"/>
                     </connections>
                 </button>
-                <button id="1907">
-                    <rect key="frame" x="18" y="223" width="129" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Use Notifications" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1908">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <binding destination="288" name="value" keyPath="values.EnableGrowl" id="1912"/>
-                    </connections>
-                </button>
                 <popUpButton verticalHuggingPriority="750" id="1916">
                     <rect key="frame" x="57" y="151" width="100" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -301,7 +290,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="2028">
-                    <rect key="frame" x="18" y="243" width="188" height="18"/>
+                    <rect key="frame" x="18" y="243" width="195" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Start ControlPlaneX at login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2029">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -348,6 +337,7 @@
                     </connections>
                 </button>
             </subviews>
+            <point key="canvasLocation" x="138.5" y="153.5"/>
         </customView>
         <customView id="902" userLabel="RulesPrefs">
             <rect key="frame" x="0.0" y="0.0" width="494" height="284"/>
@@ -1345,7 +1335,6 @@ Gw
                 <outlet property="generalPreferencesStartAtLogin" destination="2028" id="2167"/>
                 <outlet property="generalPreferencesSwitchSmoothing" destination="1366" id="2165"/>
                 <outlet property="generalPreferencesUseDefaultContextTextField" destination="937" id="2163"/>
-                <outlet property="generalPreferencesUseNotifications" destination="1907" id="2168"/>
                 <outlet property="newContextSheet" destination="1679" id="1681"/>
                 <outlet property="newContextSheetColor" destination="2107" id="2134"/>
                 <outlet property="newContextSheetColorPreviewEnabled" destination="2132" id="2135"/>

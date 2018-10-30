@@ -275,7 +275,7 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 
 	// Check consistency of parent UUIDs; drop the parent UUID if it is invalid
     [contexts enumerateKeysAndObjectsUsingBlock:^(id key, Context *ctxt, BOOL *stop) {
-		if (![ctxt isRoot] && ![contexts objectForKey:[ctxt parentUUID]]) {
+        if (![ctxt isRoot] && ![self->contexts objectForKey:[ctxt parentUUID]]) {
 			NSLog(@"%s correcting broken parent UUID for context '%@'", __PRETTY_FUNCTION__, [ctxt name]);
 			[ctxt setParentUUID:@""];
 		}
@@ -362,41 +362,29 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     NSButton *strongNewContextSheetColorPreviewEnabled = newContextSheetColorPreviewEnabled;
     [strongNewContextSheetColorPreviewEnabled setIntValue:0];
 
-	[NSApp beginSheet:newContextSheet
-	   modalForWindow:prefsWindow
-	    modalDelegate:self
-	   didEndSelector:@selector(newContextSheetDidEnd:returnCode:contextInfo:)
-	      contextInfo:nil];
+    [prefsWindow beginSheet:newContextSheet completionHandler:^(NSModalResponse returnCode) {
+        if ([strongNewContextSheetColorPreviewEnabled intValue] > 0) {
+            [strongNewContextSheetColorPreviewEnabled setIntValue:0];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"iconColorPreviewFinished" object:nil];
+        }
+        if (returnCode == NSModalResponseOK) {
+            [self createContextWithName:[self->newContextSheetName stringValue] fromUI:YES];
+        }
+    }];
 }
 
 // Triggered by OK button
 - (IBAction)newContextSheetAccepted:(id)sender {
 	NSPanel *strongNewContextSheet = newContextSheet;
-    [NSApp endSheet:strongNewContextSheet returnCode:NSOKButton];
+    [NSApp endSheet:strongNewContextSheet returnCode:NSModalResponseOK];
 	[strongNewContextSheet orderOut:nil];
 }
 
 // Triggered by cancel button
 - (IBAction)newContextSheetRejected:(id)sender {
 	NSPanel *strongNewContextSheet = newContextSheet;
-	[NSApp endSheet:strongNewContextSheet returnCode:NSCancelButton];
+    [NSApp endSheet:strongNewContextSheet returnCode:NSModalResponseCancel];
 	[strongNewContextSheet orderOut:nil];
-}
-
-- (void)newContextSheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
-{
-    NSButton *strongNewContextSheetColorPreviewEnabled = newContextSheetColorPreviewEnabled;
-    if ([strongNewContextSheetColorPreviewEnabled intValue]) {
-        [strongNewContextSheetColorPreviewEnabled setIntValue:0];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"iconColorPreviewFinished" object:nil];
-    }
-    
-	if (returnCode != NSOKButton) {
-		return;
-    }
-    
-    NSTextField *strongNewContextSheetName = newContextSheetName;
-	[self createContextWithName:[strongNewContextSheetName stringValue] fromUI:YES];
 }
 
 - (IBAction)editSelectedContext:(id)sender
@@ -420,40 +408,21 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     NSButton *strongNewContextSheetColorPreviewEnabled = newContextSheetColorPreviewEnabled;
     [strongNewContextSheetColorPreviewEnabled setIntValue:0];
     
-	[NSApp beginSheet:newContextSheet
-	   modalForWindow:prefsWindow
-	    modalDelegate:self
-	   didEndSelector:@selector(editContextSheetDidEnd:returnCode:contextInfo:)
-	      contextInfo:nil];
-}
+    [prefsWindow beginSheet:newContextSheet completionHandler:^(NSModalResponse returnCode) {
 
-- (void)editContextSheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
-{
-    NSOutlineView *strongOutlineView = outlineView;
-    NSButton *strongNewContextSheetColorPreviewEnabled = newContextSheetColorPreviewEnabled;
-    if ([strongNewContextSheetColorPreviewEnabled intValue]) {
-        [strongNewContextSheetColorPreviewEnabled setIntValue:0];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"iconColorPreviewFinished" object:nil];
-    }
-    
-	if (returnCode != NSOKButton) {
-		return;
-    }
-    
-	NSInteger row = [strongOutlineView selectedRow];
-	if (row < 0) {
-		return;
-    }
-    
-	Context *ctxt = (Context *)[strongOutlineView itemAtRow:row];
-    
-    NSTextField *strongNewContextSheetName = newContextSheetName;
-    ctxt.name = [strongNewContextSheetName stringValue];
-    
-    NSColorWell *strongNewContextSheetColor = newContextSheetColor;
-    ctxt.iconColor = [strongNewContextSheetColor color];
-    
-	[self postContextsChangedNotification];
+        if ([strongNewContextSheetColorPreviewEnabled intValue] > 0) {
+            [strongNewContextSheetColorPreviewEnabled setIntValue:0];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"iconColorPreviewFinished" object:nil];
+        }
+
+        if (returnCode == NSModalResponseOK) {
+            
+            ctxt.name = [strongNewContextSheetName stringValue];
+            ctxt.iconColor = [strongNewContextSheetColor color];
+            
+            [self postContextsChangedNotification];
+        }
+    }];
 }
 
 #pragma mark -
@@ -482,20 +451,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     }
 
 	[contexts removeObjectForKey:uuid];
-}
-
-- (void)removeContextAfterAlert:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo {
-	Context *ctxt = (__bridge Context *)contextInfo;
-
-	if (returnCode != NSAlertFirstButtonReturn) {
-		return;		// cancelled
-    }
-
-	[self removeContextRecursively:[ctxt uuid]];
-
-	[self recomputeTransientData];
-	[self postContextsChangedNotification];
-	[self outlineViewSelectionDidChange:nil];
 }
 
 - (IBAction)onIconColorChange:(id)sender {
@@ -533,16 +488,22 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 	if ([[self childrenOfContext:[ctxt uuid]] count] > 0) {
 		// Warn about destroying child contexts
 		NSAlert *alert = [[NSAlert alloc] init];
-		[alert setAlertStyle:NSWarningAlertStyle];
+        [alert setAlertStyle:NSAlertStyleWarning];
 		[alert setMessageText:NSLocalizedString(@"Removing this context will also remove its child contexts!", "")];
 		[alert setInformativeText:NSLocalizedString(@"This action is not undoable!", @"")];
 		[alert addButtonWithTitle:NSLocalizedString(@"OK", @"")];
 		[alert addButtonWithTitle:NSLocalizedString(@"Cancel", @"")];
 
-		[alert beginSheetModalForWindow:prefsWindow
-				  modalDelegate:self
-				 didEndSelector:@selector(removeContextAfterAlert:returnCode:contextInfo:)
-				    contextInfo:(__bridge void *)ctxt];
+        [alert beginSheetModalForWindow:prefsWindow completionHandler:^(NSModalResponse returnCode) {
+            if (returnCode == NSAlertFirstButtonReturn) {
+                [self removeContextRecursively:[ctxt uuid]];
+                
+                [self recomputeTransientData];
+                [self postContextsChangedNotification];
+                [self outlineViewSelectionDidChange:nil];
+            }
+        }];
+        
 		return;
 	}
 

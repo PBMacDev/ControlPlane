@@ -508,7 +508,7 @@ static NSSet *sharedActiveContexts = nil;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         // Start up evidence sources that should be started
-        [evidenceSources startEnabledEvidenceSources];
+        [self->evidenceSources startEnabledEvidenceSources];
         [self resumeRegularUpdatesWithDelay:(2 * NSEC_PER_SEC)];
     });
     
@@ -528,7 +528,7 @@ static NSSet *sharedActiveContexts = nil;
 
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Debug OpenPrefsAtStartup"]) {
             [NSApp activateIgnoringOtherApps:YES];
-            [prefsWindow makeKeyAndOrderFront:self];
+            [self->prefsWindow makeKeyAndOrderFront:self];
         }
         [self updateActiveContextsMenuTitle];
         [self updateActiveContextsMenuList];
@@ -982,12 +982,12 @@ static NSSet *sharedActiveContexts = nil;
     NSMutableIndexSet *indexes = [NSMutableIndexSet indexSet];
 
     [actions enumerateObjectsUsingBlock:^(Action *action, NSUInteger idx, BOOL *stop) {
-        if (screenLocked && [[action class] shouldWaitForScreenUnlock]) {
-            [screenLockActionQueue addObject:action];
+        if (self->screenLocked && [[action class] shouldWaitForScreenUnlock]) {
+            [self->screenLockActionQueue addObject:action];
             return;
         }
-        if (screenSaverRunning && [[action class] shouldWaitForScreensaverExit]) {
-            [screenSaverActionQueue addObject:action];
+        if (self->screenSaverRunning && [[action class] shouldWaitForScreensaverExit]) {
+            [self->screenSaverActionQueue addObject:action];
             return;
         }
         [indexes addIndex:idx];
@@ -1157,9 +1157,9 @@ static NSSet *sharedActiveContexts = nil;
     DSLog(@"Screen saver is not running");
 
     dispatch_async(updatingQueue, ^{
-        if ([screenSaverActionQueue count] > 0) {
-            NSArray *queue = screenSaverActionQueue;
-            screenSaverActionQueue = [[NSMutableArray alloc] init];
+        if ([self->screenSaverActionQueue count] > 0) {
+            NSArray *queue = self->screenSaverActionQueue;
+            self->screenSaverActionQueue = [[NSMutableArray alloc] init];
             [self executeOrQueueActions:queue];
         }
     });
@@ -1178,9 +1178,9 @@ static NSSet *sharedActiveContexts = nil;
     DSLog(@"Screen lock becoming inactive");
 
     dispatch_async(updatingQueue, ^{
-        if ([screenLockActionQueue count] > 0) {
-            NSArray *queue = screenLockActionQueue;
-            screenLockActionQueue = [[NSMutableArray alloc] init];
+        if ([self->screenLockActionQueue count] > 0) {
+            NSArray *queue = self->screenLockActionQueue;
+            self->screenLockActionQueue = [[NSMutableArray alloc] init];
             [self executeOrQueueActions:queue];
         }
     });
@@ -1351,14 +1351,14 @@ static NSSet *sharedActiveContexts = nil;
 
 	// Selecting any context in the force-context menu deselects the 'stick forced contexts' item,
 	// so we force it to be correct here.
-	int state = forcedContextIsSticky ? NSOnState : NSOffState;
+    int state = forcedContextIsSticky ? NSControlStateValueOn : NSControlStateValueOff;
     [self.stickForcedContextMenuItem setState:state];
 
     [self increaseActionsInProgress];
     dispatch_async(updatingQueue, ^{
         [self performTransitionToContext:ctxt triggeredManually:YES];
         
-        if (!forcedContextIsSticky) {
+        if (!self->forcedContextIsSticky) {
             self.forceOneFullUpdate = YES;
             [self restartSwitchSmoothing];
         }
@@ -1468,12 +1468,12 @@ static NSSet *sharedActiveContexts = nil;
     [guesses enumerateKeysAndObjectsUsingBlock:^(id key, NSNumber *confidence, BOOL *stop) {
         if ([confidence doubleValue] < minConfidence) {
 #ifdef DEBUG_MODE
-            DSLog(@"%@ does not meet requirements", [contextsDataSource contextByUUID:key].name);
+            DSLog(@"%@ does not meet requirements", [self->contextsDataSource contextByUUID:key].name);
 #endif
             return;
         }
         
-        Context *context = [contextsDataSource contextByUUID:key];
+        Context *context = [self->contextsDataSource contextByUUID:key];
 #ifdef DEBUG_MODE
         DSLog(@"%@ meets requirements", context.name);
 #endif
@@ -1768,8 +1768,8 @@ static NSSet *sharedActiveContexts = nil;
     // was never exited or the screen was never unlocked
     // but then the machine went back to sleep
     dispatch_async(updatingQueue, ^{
-        [screenSaverActionQueue removeAllObjects];
-        [screenLockActionQueue removeAllObjects];
+        [self->screenSaverActionQueue removeAllObjects];
+        [self->screenLockActionQueue removeAllObjects];
     });
 }
 
@@ -1937,7 +1937,7 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
 - (void)resumeRegularUpdatesWithDelay:(int64_t)nanoseconds {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, nanoseconds), dispatch_get_main_queue(), ^{
         DSLog(@"Resuming regular updates.");
-        dispatch_resume(updatingTimer);
+        dispatch_resume(self->updatingTimer);
     });
 }
 

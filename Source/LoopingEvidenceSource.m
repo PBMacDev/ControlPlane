@@ -60,7 +60,7 @@
     loopTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, serialQueue);
     dispatch_source_set_event_handler(loopTimer, ^{
         @autoreleasepool {
-            [self performSelector:doUpdateSelector];
+            [self performSelector:self->doUpdateSelector];
         }
     });
     dispatch_source_set_timer(loopTimer, DISPATCH_TIME_NOW,

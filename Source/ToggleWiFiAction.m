@@ -25,7 +25,7 @@
 {
     
     NSError *error = nil;
-    CWInterface *wif = [CWInterface interface];
+    CWInterface *wif = [[CWWiFiClient sharedWiFiClient] interface];
     BOOL setPowerSuccess = [wif setPower:turnOn ? YES : NO error:&error];
     if (! setPowerSuccess)
     {

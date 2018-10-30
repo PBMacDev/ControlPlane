@@ -704,7 +704,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 		NSOpenPanel *panel = [NSOpenPanel openPanel];
 		[panel setAllowsMultipleSelection:NO];
 		[panel setCanChooseDirectories:NO];
-		if ([panel runModal] != NSOKButton)
+        if ([panel runModal] != NSModalResponseOK)
 			return;
 		NSString *filename = [[panel URL] path];
 		Action *action = [[klass alloc] initWithFile:filename];
