@@ -15,7 +15,7 @@
     BOOL goingToSleep;
 
     // Sheet hooks
-    __unsafe_unretained NSPanel *panel;
+//    NSPanel *panel;
     IBOutlet NSPopUpButton *ruleContext;
     IBOutlet NSSlider *ruleConfidenceSlider;
     NSString *oldDescription;
@@ -26,6 +26,7 @@
 
 @property (weak) IBOutlet NSButton *negateRule;
 @property (readwrite) BOOL screenIsLocked;
+@property (strong, nonatomic) NSPanel *panel;
 
 + (NSPanel *)getPanelFromNibNamed:(NSString *)name instantiatedWithOwner:(id)owner;
 

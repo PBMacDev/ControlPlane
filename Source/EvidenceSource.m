@@ -40,7 +40,7 @@
     
     oldDescription = nil;
 
-    panel = initPanel;
+    self.panel = initPanel;
 
     // Get notified when we go to sleep, and wake from sleep
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -89,16 +89,9 @@
     }
 
     NSArray *topLevelObjects = nil;
-    if ([nib respondsToSelector:@selector(instantiateWithOwner:topLevelObjects:)]) {
-        if (![nib instantiateWithOwner:owner topLevelObjects:&topLevelObjects]) {
-            NSLog(@"%@ >> failed instantiating nib (named '%@')!", [self class], name);
-            return nil;
-        }
-    } else {
-        if (![nib instantiateNibWithOwner:owner topLevelObjects:&topLevelObjects]) {
-            NSLog(@"%@ >> failed instantiating nib (named '%@')!", [self class], name);
-            return nil;
-        }
+    if (![nib instantiateWithOwner:owner topLevelObjects:&topLevelObjects]) {
+        NSLog(@"%@ >> failed instantiating nib (named '%@')!", [self class], name);
+        return nil;
     }
     
     // Look for an NSPanel
@@ -117,8 +110,8 @@
         return nil;
     }
     
-    panel = [[self class] getPanelFromNibNamed:name instantiatedWithOwner:self];
-    if (!panel) {
+    self.panel = [[self class] getPanelFromNibNamed:name instantiatedWithOwner:self];
+    if (!self.panel) {
         return nil;
     }
 
@@ -188,49 +181,14 @@
     [ruleContext setMenu:menu];
 }
 
-- (void)runPanelAsSheetOfWindow:(NSWindow *)window withParameter:(NSDictionary *)parameter
-         callbackObject:(NSObject *)callbackObject selector:(SEL)selector
-{
-    NSString *typeToUse = [[self typesOfRulesMatched] objectAtIndex:0];
-    if ([parameter objectForKey:@"type"])
-        typeToUse = [parameter valueForKey:@"type"];
-    [self writeToPanel:parameter usingType:typeToUse];
-
-    NSMethodSignature *sig = [callbackObject methodSignatureForSelector:selector];
-    NSInvocation *contextInfo = [NSInvocation invocationWithMethodSignature:sig];
-    [contextInfo setSelector:selector];
-    [contextInfo setTarget:callbackObject];
-
-    [NSApp beginSheet:panel
-       modalForWindow:window
-        modalDelegate:self
-       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-          contextInfo:CFBridgingRetain(contextInfo)];
-}
-
 - (IBAction)closeSheetWithOK:(id)sender
 {
-    [NSApp endSheet:panel returnCode:NSOKButton];
-    [panel orderOut:nil];
+    [NSApp endSheet:self.panel returnCode:NSModalResponseOK];
 }
 
 - (IBAction)closeSheetWithCancel:(id)sender
 {
-    [NSApp endSheet:panel returnCode:NSCancelButton];
-    [panel orderOut:nil];
-}
-
-// Private
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
-{
-    NSInvocation *inv = (__bridge NSInvocation *) contextInfo;
-
-    if (returnCode == NSOKButton) {
-        __unsafe_unretained NSDictionary *dict = [self readFromPanel];
-        [inv setArgument:&dict atIndex:2];
-        [inv invoke];
-    }
-
+    [NSApp endSheet:self.panel returnCode:NSModalResponseCancel];
 }
 
 - (NSMutableDictionary *)readFromPanel

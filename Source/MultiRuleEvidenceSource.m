@@ -122,7 +122,7 @@
     panelRuleType = ruleType;
     [ruleType setContextMenu:self.panelRuleContextMenu];
 
-    panel = ruleType.panel;
+    self.panel = ruleType.panel;
     [super writeToPanel:rule usingType:type];
     [ruleType writeToPanel:rule];
 

@@ -584,13 +584,19 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 
 	[NSApp activateIgnoringOtherApps:YES];
 	NSDictionary *proto = [NSDictionary dictionaryWithObject:type forKey:@"type"];
-	[src runPanelAsSheetOfWindow:prefsWindow
-		       withParameter:proto
-		      callbackObject:self
-			    selector:@selector(doAddRule:)];
+	
+    NSPanel *sourcePanel = src.panel;
+    if (sourcePanel) {
+        [src writeToPanel:proto usingType:type];
+        [prefsWindow beginSheet:sourcePanel completionHandler:^(NSModalResponse returnCode) {
+            if (returnCode == NSModalResponseOK) {
+                NSMutableDictionary *readFromPanel = [src readFromPanel];
+                [self doAddRule:readFromPanel];
+            }
+        }];
+    }
 }
 
-// Private: called by -[EvidenceSource runPanelAsSheetOfWindow:...]
 - (void)doAddRule:(NSDictionary *)dict
 {
 	[rulesController addObject:dict];
@@ -630,13 +636,19 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	[src setContextMenu:[contextsDataSource hierarchicalMenu]];
 
 	[NSApp activateIgnoringOtherApps:YES];
-	[src runPanelAsSheetOfWindow:prefsWindow
-		       withParameter:sel
-		      callbackObject:self
-			    selector:@selector(doEditRule:)];
+    
+    NSPanel *sourcePanel = src.panel;
+    if (sourcePanel) {
+        [src writeToPanel:sel usingType:type];
+        [prefsWindow beginSheet:sourcePanel completionHandler:^(NSModalResponse returnCode) {
+            if (returnCode == NSModalResponseOK) {
+                NSMutableDictionary *readFromPanel = [src readFromPanel];
+                [self doEditRule:readFromPanel];
+            }
+        }];
+    }
 }
 
-// Private: called by -[EvidenceSource runPanelAsSheetOfWindow:...]
 - (void)doEditRule:(NSDictionary *)dict
 {
 	NSUInteger index = [rulesController selectionIndex];
