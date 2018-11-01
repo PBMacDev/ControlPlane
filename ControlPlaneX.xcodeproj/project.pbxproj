@@ -35,7 +35,6 @@
 		8D3A3D5F0C012565008EBF2A /* EvidenceSourcesPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */; };
 		8D3BFFB20C61CA5300B9B910 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3BFFB10C61CA5300B9B910 /* WebKit.framework */; };
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
-		8D447DF90C3E65D000DAB17A /* ContextSelectionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D447DF70C3E65CF00DAB17A /* ContextSelectionButton.m */; };
 		8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D481B070B6098DD0097CF9C /* IOKit.framework */; };
 		8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */; };
 		8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D57B1430C4457AB00EC620D /* CoreAudio.framework */; };
@@ -104,7 +103,6 @@
 		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
 		DA0E648615EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0E648515EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m */; };
-		DA16392613D4B14A00E3F421 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = DA16392513D4B14A00E3F421 /* dsa_pub.pem */; };
 		DA2523BD1968601400F717FC /* ConnectBluetoothDeviceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2523BC1968601400F717FC /* ConnectBluetoothDeviceAction.m */; };
 		DA2B4381152161C800E94A1D /* ToggleTFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4380152161C800E94A1D /* ToggleTFTPAction.m */; };
 		DA2B4385152161D900E94A1D /* ToggleFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4384152161D900E94A1D /* ToggleFTPAction.m */; };
@@ -341,8 +339,6 @@
 		8D3BFFB10C61CA5300B9B910 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		8D3C85120CDD8546009DBCD9 /* ScreenSaverStartAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ScreenSaverStartAction.h; path = Source/ScreenSaverStartAction.h; sourceTree = "<group>"; };
 		8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ScreenSaverStartAction.m; path = Source/ScreenSaverStartAction.m; sourceTree = "<group>"; };
-		8D447DF60C3E65CF00DAB17A /* ContextSelectionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextSelectionButton.h; path = Source/ContextSelectionButton.h; sourceTree = "<group>"; };
-		8D447DF70C3E65CF00DAB17A /* ContextSelectionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContextSelectionButton.m; path = Source/ContextSelectionButton.m; sourceTree = "<group>"; };
 		8D481B070B6098DD0097CF9C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ContextsPrefs.png; path = Resources/ContextsPrefs.png; sourceTree = "<group>"; };
 		8D5684B20C38711D00881E32 /* MonitorEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MonitorEvidenceSource.h; path = Source/MonitorEvidenceSource.h; sourceTree = "<group>"; };
@@ -455,7 +451,6 @@
 		DA0E648515EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachedPowerAdapterEvidenceSource.m; path = Source/AttachedPowerAdapterEvidenceSource.m; sourceTree = "<group>"; };
 		DA0E648715EC707300E77ABF /* AttachedPowerAdapterEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachedPowerAdapterEvidenceSource.h; path = Source/AttachedPowerAdapterEvidenceSource.h; sourceTree = "<group>"; };
 		DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlPlaneX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA16392513D4B14A00E3F421 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Resources/dsa_pub.pem; sourceTree = "<group>"; };
 		DA1E59D11673A039002D256D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		DA2523BB1968601400F717FC /* ConnectBluetoothDeviceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectBluetoothDeviceAction.h; path = Source/ConnectBluetoothDeviceAction.h; sourceTree = "<group>"; };
 		DA2523BC1968601400F717FC /* ConnectBluetoothDeviceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectBluetoothDeviceAction.m; path = Source/ConnectBluetoothDeviceAction.m; sourceTree = "<group>"; };
@@ -744,7 +739,6 @@
 				DA83A22013D13C8300074503 /* cp-icon-inactive.icns */,
 				DA83A22213D13DF300074503 /* cp-icon.icns */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
-				DA16392513D4B14A00E3F421 /* dsa_pub.pem */,
 				8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */,
 				96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */,
 				8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */,
@@ -818,8 +812,6 @@
 		8D0164850C02AB08004AD8DB /* UI Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8D447DF60C3E65CF00DAB17A /* ContextSelectionButton.h */,
-				8D447DF70C3E65CF00DAB17A /* ContextSelectionButton.m */,
 				8D9AE3A30BE0DA7E00D4D4E4 /* PopButton.h */,
 				8D9AE3A40BE0DA7E00D4D4E4 /* PopButton.m */,
 				8D38B6690C49D50200290F47 /* SliderWithValue.h */,
@@ -1100,6 +1092,7 @@
 		DDFF422F14153F650047D311 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A71CB2922183B07E0061014D /* MainMenu.xib */,
 				A71CB29A2183B07F0061014D /* CoreLocationRule.xib */,
 				A71CB2982183B07E0061014D /* CPHelperToolAuthorizationPrompts.strings */,
 				A71CB2962183B07E0061014D /* GenericRule.xib */,
@@ -1108,7 +1101,6 @@
 				A71CB29C2183B07F0061014D /* IPv6AddrRule.xib */,
 				A71CB2A82183B07F0061014D /* LightRule.xib */,
 				A71CB2A02183B07F0061014D /* Localizable.strings */,
-				A71CB2922183B07E0061014D /* MainMenu.xib */,
 				A71CB2942183B07E0061014D /* SearchDomainRule.xib */,
 				A71CB2A62183B07F0061014D /* ServerAddressRule.xib */,
 				A71CB2A42183B07F0061014D /* ShellScriptRule.xib */,
@@ -1254,7 +1246,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4A629513E25C9D00CE976F /* Credits.html in Resources */,
-				DA16392613D4B14A00E3F421 /* dsa_pub.pem in Resources */,
 				A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */,
 				DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */,
 				DA83A22113D13C8300074503 /* cp-icon-inactive.icns in Resources */,
@@ -1370,7 +1361,6 @@
 				8DCBE96C0C1A7ECE008260EF /* MountAction.m in Sources */,
 				8D8155D00C3A304E00228463 /* ContextsDataSource.m in Sources */,
 				8D6762170C3B8D8D000B63EC /* NetworkLocationAction.m in Sources */,
-				8D447DF90C3E65D000DAB17A /* ContextSelectionButton.m in Sources */,
 				8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */,
 				8DE13F0E0C460E1700AEC949 /* FireWireEvidenceSource.m in Sources */,
 				8D73CB8D0C46FD5200DF839E /* MonitorEvidenceSource.m in Sources */,

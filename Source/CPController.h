@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ContextsDataSource.h"
-#import "EvidenceSource.h"
 
+extern NSString* const kCPUserDefaultsEnabledKey;
 
 @interface CPController : NSObject <NSApplicationDelegate>
 

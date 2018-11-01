@@ -1,8 +1,8 @@
 /* PrefsWindowController */
 
 #import <Cocoa/Cocoa.h>
-#import "ContextSelectionButton.h"
 #import "CPController.h"
+#import "EvidenceSource.h"
 
 @interface PrefsWindowController : NSWindowController<NSToolbarDelegate>
 {
@@ -20,10 +20,6 @@
 	IBOutlet NSArrayController *whenActionController;
     IBOutlet NSArrayController *menuBarDisplayOptionsController;
 
-	// Selection controls for rules/actions
-	IBOutlet ContextSelectionButton *defaultContextButton;
-	IBOutlet ContextSelectionButton *editActionContextButton;
-
 	// New action creation hooks
 	IBOutlet NSWindow *newActionWindow;
 	NSString *newActionType, *newActionTypeString;
@@ -39,17 +35,14 @@
 	NSNumber *logBufferPaused;
 	NSTimer *logBufferTimer;
     NSMenuItem *donateToControlPlaneX;
+    
+    IBOutlet NSPopUpButton *defaultContextPopUpButton;
+    IBOutlet NSPopUpButton *editActionContextButton;
+
 }
 
 - (IBAction)runPreferences:(id)sender;
-- (IBAction)runWebPage:(id)sender;
-- (IBAction)emailSupport:(id)sender;
-- (IBAction)donateToControlPlaneX:(id)sender;
 - (IBAction)menuBarDisplayOptionChanged:(id)sender;
-- (IBAction)enableMultipleActiveContexts:(id)sender;
-- (IBAction)closeMultipleActiveContextsAlert:(id)sender;
-
-@property (nonatomic,assign) IBOutlet NSWindow *multipleActiveContextsNotification;
 
 - (void)switchToViewFromToolbar:(NSToolbarItem *)item;
 - (void)switchToView:(NSString *)identifier;

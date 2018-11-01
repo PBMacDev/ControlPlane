@@ -90,7 +90,7 @@
     }
 
     NSNumber *isWildcard = rule[@"parameter.isWildcard"];
-    if (!isWildcard) {
+    if (isWildcard == nil) {
         isWildcard = @NO;
     }
 

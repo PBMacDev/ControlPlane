@@ -60,7 +60,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 {
 	CFNumberRef guid = (CFNumberRef) IORegistryEntryCreateCFProperty(*device, CFSTR("GUID"),
 									 kCFAllocatorDefault, 0);
-	if (guid) {
+	if (guid != NULL) {
 		UInt64 res;
 		CFNumberGetValue(guid, kCFNumberLongLongType, &res);	// XXX: lose precision with signedness?
 		CFRelease(guid);
@@ -109,7 +109,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 
 		// Get device details
 		NSNumber *guid = [[self class] guidForDevice:&device];
-		if (!guid) {
+		if (guid == nil) {
 			NSLog(@"FireWire >> failed getting GUID.");
 			IOObjectRelease(device);
 			continue;

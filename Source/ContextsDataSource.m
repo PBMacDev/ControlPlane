@@ -55,7 +55,7 @@
 
     NSData *colorData = dict[@"iconColor"];
     if (colorData != nil) {
-        _iconColor = [(NSColor *) [NSUnarchiver unarchiveObjectWithData:colorData] copy];
+        _iconColor = [(NSColor *) [NSKeyedUnarchiver unarchivedObjectOfClass:[NSColor class] fromData:colorData error:nil] copy];
     }
 
 	return self;
@@ -82,7 +82,8 @@
         return @{ @"uuid": self.uuid, @"parent": self.parentUUID, @"name": self.name };
     }
 
-    NSData *colorData = [NSArchiver archivedDataWithRootObject:(_iconColor)];
+    NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject:(_iconColor) requiringSecureCoding:NO error:nil];
+
     return @{ @"uuid": self.uuid, @"parent": self.parentUUID, @"name": self.name, @"iconColor": colorData };
 }
 
@@ -109,8 +110,6 @@
     // so we use __unsafe_unretained instead
     __unsafe_unretained IBOutlet NSButton *generalPreferencesEnableSwitching;
     __unsafe_unretained IBOutlet NSButton *generalPreferencesStartAtLogin;
-    __unsafe_unretained IBOutlet NSButton *generalPreferencesUseNotifications;
-    __unsafe_unretained IBOutlet NSButton *generalPreferencesCheckForUpdates;
     __unsafe_unretained IBOutlet NSButton *generalPreferencesHideFromStatusBar;
     __unsafe_unretained IBOutlet NSPopUpButton *generalPreferencesShowInStatusBar;
     __unsafe_unretained IBOutlet NSButton *generalPreferencesSwitchSmoothing;
@@ -170,8 +169,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     /*
      IBOutlet NSButton *generalPreferencesEnableSwitching;
      IBOutlet NSButton *generalPreferencesStartAtLogin;
-     IBOutlet NSButton *generalPreferencesUseNotifications;
-     IBOutlet NSButton *generalPreferencesCheckForUpdates;
      IBOutlet NSButton *generalPreferencesHideFromStatusBar;
      IBOutlet NSPopUpButton *generalPreferencesShowInStatusBar;
      IBOutlet NSButton *generalPreferencesSwitchSmoothing;
@@ -185,12 +182,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     
     NSButton *strongGeneralPreferencesStartAtLogin = generalPreferencesStartAtLogin;
     [strongGeneralPreferencesStartAtLogin setToolTip:NSLocalizedString(@"Check this option if you want ControlPlaneX to start when you login.", @"")];
-    
-    NSButton *strongGeneralPreferencesUseNotifications = generalPreferencesUseNotifications;
-    [strongGeneralPreferencesUseNotifications setToolTip:NSLocalizedString(@"Check this option if you want to ControlPlaneX to issue notifications.", @"")];
-    
-    NSButton *strongGeneralPreferencesCheckForUpdates = generalPreferencesCheckForUpdates;
-    [strongGeneralPreferencesCheckForUpdates setToolTip:NSLocalizedString(@"If checked, ControlPlaneX will check for updates when it starts.", @"")];
     
     NSButton *strongGeneralPreferencesHideFromStatusBar = generalPreferencesHideFromStatusBar;
     [strongGeneralPreferencesHideFromStatusBar setToolTip:NSLocalizedString(@"If enabled ControlPlaneX's menu bar icon will be hidden after a period of time.  To make the icon visible again relaunch ControlPlaneX.", @"")];

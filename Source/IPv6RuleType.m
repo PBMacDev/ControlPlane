@@ -47,7 +47,7 @@
     }
 
     NSNumber *rulePrefixLenght = rule[@"parameter.prefixLength"];
-    *prefixLength = (rulePrefixLenght) ? ([rulePrefixLenght unsignedIntValue]) : (128u);
+    *prefixLength = (rulePrefixLenght != nil) ? ([rulePrefixLenght unsignedIntValue]) : (128u);
 
     return YES;
 }

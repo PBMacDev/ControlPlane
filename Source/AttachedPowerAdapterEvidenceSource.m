@@ -67,7 +67,7 @@
     }
     
     NSNumber *attachedPowerAdapter = self.attachedPowerAdapter;
-    if (!attachedPowerAdapter || ![serialNumber isEqualToNumber:attachedPowerAdapter]) {
+    if ((attachedPowerAdapter == nil) || ![serialNumber isEqualToNumber:attachedPowerAdapter]) {
         self.attachedPowerAdapter = serialNumber;
         [self setDataCollected:(serialNumber != nil)];
         if (notification) {

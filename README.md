@@ -23,8 +23,8 @@ Building ControlPlaneX from Source
 
 ControlPlaneX is free, open source software hosted at <https://github.com/dustinrue/ControlPlaneX>.  Before you can build ControlPlaneX you will need the following:
 
-1. Xcode 4.4+.
+1. Xcode 10.0+.
 2. A git client if you don't wish to use Xcode itself, the command line tools for Xcode include the Git command line client.
-3. OS X version 10.8.
+3. OS X version 10.14.
 
 If you wish to build ControlPlaneX yourself you can do so by cloning the ControlPlaneX code to your computer using Xcode or your preferred git client.  Once cloned, open the project file in Xcode and edit the Action.h file to enable or disable the building of the iChat action.

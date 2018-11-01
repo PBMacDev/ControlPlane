@@ -15,8 +15,9 @@
 #import "CPNotifications.h"
 #import <libkern/OSAtomic.h>
 #import <UserNotifications/UserNotifications.h>
+#import "EvidenceSource.h"
 
-
+NSString* const kCPUserDefaultsEnabledKey = @"Enabled";
 
 #pragma mark -
 #pragma mark NSArray Extensions
@@ -136,63 +137,6 @@ static NSSet *sharedActiveContexts = nil;
 @synthesize screenLocked;
 @synthesize goingToSleep;
 
-+ (void)initialize {
-	NSMutableDictionary *appDefaults = [NSMutableDictionary dictionary];
-
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"Enabled"];
-	[appDefaults setValue:[NSNumber numberWithDouble:0.75] forKey:@"MinimumConfidenceRequired"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"EnableSwitchSmoothing"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"HideStatusBarIcon"];
-    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableUserNotification"];
-    [appDefaults setValue:[NSNumber numberWithInt:CP_DISPLAY_ICON] forKey:@"menuBarOption"];
-
-    
-    // use CP_DISPLAY_BOTH if the option to ShowGuess is set to ensure compatiblity
-    // with older preference setting
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ShowGuess"]) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ShowGuess"];
-        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:CP_DISPLAY_BOTH] forKey:@"menuBarOption"];
-    }
-	
-	// TODO: spin these into the EvidenceSourceSetController?
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableAudioOutputEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableBluetoothEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableDNSEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableFireWireEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableIPAddrEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableLightEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableMonitorEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnablePowerEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableRunningApplicationEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableTimeOfDayEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableUSBEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableCoreWLANEvidenceSource"];
-    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableSleep/WakeEvidenceSource"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableCoreLocationSource"];
-
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"UseDefaultContext"];
-	[appDefaults setValue:@"" forKey:@"DefaultContext"];
-	[appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnablePersistentContext"];
-	[appDefaults setValue:@"" forKey:@"PersistentContext"];
-
-	// Advanced
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"ShowAdvancedPreferences"];
-	[appDefaults setValue:[NSNumber numberWithFloat:5.0] forKey:@"UpdateInterval"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"WiFiAlwaysScans"];
-
-	// Debugging
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug OpenPrefsAtStartup"];
-	[appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug USBParanoia"];
-
-	// Sparkle (TODO: make update time configurable?)
-//    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"SUCheckAtStartup"];
-    
-    [appDefaults setValue:[NSNumber numberWithInt:1] forKey:@"SmoothSwitchCount"];
-
-	[[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-    
-}
-
 + (NSSet *) sharedActiveContexts {
 
     
@@ -310,235 +254,6 @@ static NSSet *sharedActiveContexts = nil;
 
 - (BOOL)stickyContext {
 	return forcedContextIsSticky;
-}
-
-- (void)importVersion1Settings {
-	CFStringRef oldDomain = CFSTR("au.id.symonds.MarcoPolo");
-	BOOL rulesImported = NO, actionsImported = NO;
-	BOOL ipActionsFound = NO;
-	Context *ctxt = nil;
-
-	// Create contexts, populated from network locations
-	NSEnumerator *en = [[NetworkLocationAction limitedOptions] objectEnumerator];
-	NSDictionary *dict;
-	NSMutableDictionary *lookup = [NSMutableDictionary dictionary];	// map location name -> (Context *)
-	int cnt = 0;
-	while ((dict = [en nextObject])) {
-		ctxt = [contextsDataSource createContextWithName:[dict valueForKey:@"option"] fromUI:NO];
-		[lookup setObject:ctxt forKey:[ctxt name]];
-		++cnt;
-	}
-	NSLog(@"Quickstart: Created %d contexts", cnt);
-
-	// Set "Automatic", or the first created context, as the default context
-	if (!(ctxt = [lookup objectForKey:@"Automatic"]))
-		ctxt = [contextsDataSource contextByUUID:[[contextsDataSource arrayOfUUIDs] objectAtIndex:0]];
-	[[NSUserDefaults standardUserDefaults] setValue:[ctxt uuid] forKey:@"DefaultContext"];
-
-	// See if there are old rules and actions to import
-    NSArray *oldRules = (NSArray *) CFBridgingRelease(CFPreferencesCopyAppValue(CFSTR("Rules"), oldDomain));
-    NSArray *oldActions = (NSArray *) CFBridgingRelease(CFPreferencesCopyAppValue(CFSTR("Actions"), oldDomain));
-	if (!oldRules || !oldActions) {
-		if (oldRules)
-            CFRelease((__bridge CFTypeRef)(oldRules));
-		else if (oldActions)
-            CFRelease((__bridge CFTypeRef)(oldActions));
-		
-		[self importVersion1SettingsFinish:rulesImported withActions:actionsImported andIPActions:ipActionsFound];
-		return;
-	}
-	
-	// Replicate (some) rules
-	NSMutableArray *newRules = [NSMutableArray array];
-	en = [oldRules objectEnumerator];
-	while ((dict = [en nextObject])) {
-		if ([[dict valueForKey:@"type"] isEqualToString:@"IP"]) {
-#if 1
-			ipActionsFound = YES;
-#else
-			// Warn!
-			NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-			[alert setAlertStyle:NSWarningAlertStyle];
-			[alert setMessageText:@"Couldn't import MarcoPolo 1.x IP rule"];
-			[alert setInformativeText:
-				[NSString stringWithFormat:@"A rule with description \"%@\" was not imported!",
-					[dict valueForKey:@"description"]]];
-			[alert runModal];
-#endif
-			continue;
-		}
-
-		NSMutableDictionary *rule = [NSMutableDictionary dictionaryWithDictionary:dict];
-		ctxt = [lookup objectForKey:[rule valueForKey:@"location"]];
-		if (ctxt)
-			[rule setValue:[ctxt uuid] forKey:@"context"];
-		[rule removeObjectForKey:@"location"];
-		[newRules addObject:rule];
-	}
-	[[NSUserDefaults standardUserDefaults] setObject:newRules forKey:@"Rules"];
-	NSLog(@"Quickstart: Imported %ld rules from MarcoPolo 1.x", (long) [newRules count]);
-	rulesImported = YES;
-
-	// Replicate actions
-	NSMutableArray *newActions = [NSMutableArray array];
-	en = [oldActions objectEnumerator];
-	while ((dict = [en nextObject])) {
-		NSMutableDictionary *action = [NSMutableDictionary dictionaryWithDictionary:dict];
-		ctxt = [lookup objectForKey:[action valueForKey:@"location"]];
-		if (ctxt)
-			[action setValue:[ctxt uuid] forKey:@"context"];
-		[action removeObjectForKey:@"location"];
-		if ([[action valueForKey:@"parameter"] isEqual:@"on"])
-			[action setValue:[NSNumber numberWithBool:YES] forKey:@"parameter"];
-		else if ([[action valueForKey:@"parameter"] isEqual:@"off"])
-				[action setValue:[NSNumber numberWithBool:NO] forKey:@"parameter"];
-		[action setValue:[NSNumber numberWithBool:YES] forKey:@"enabled"];
-		[newActions addObject:action];
-	}
-	[[NSUserDefaults standardUserDefaults] setObject:newActions forKey:@"Actions"];
-	NSLog(@"Quickstart: Imported %ld actions from MarcoPolo 1.x", (long) [newActions count]);
-	actionsImported = YES;
-
-	// Create NetworkLocation actions
-	newActions = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"Actions"]];
-	en = [lookup objectEnumerator];
-	cnt = 0;
-	while ((ctxt = [en nextObject])) {
-		Action *act = [[NetworkLocationAction alloc] initWithOption:[ctxt name]];
-		NSMutableDictionary *act_dict = [act dictionary];
-		[act_dict setValue:[ctxt uuid] forKey:@"context"];
-		[act_dict setValue:NSLocalizedString(@"Set Network Location", @"") forKey:@"description"];
-		[newActions addObject:act_dict];
-		++cnt;
-	}
-	[[NSUserDefaults standardUserDefaults] setObject:newActions forKey:@"Actions"];
-	NSLog(@"Quickstart: Created %d new NetworkLocation actions", cnt);
-	
-	[self importVersion1SettingsFinish:rulesImported withActions:actionsImported andIPActions:ipActionsFound];
-}
-
-- (void)importVersion1SettingsFinish: (BOOL)rulesImported withActions: (BOOL)actionsImported andIPActions: (BOOL)ipActionsFound {
-	NSAlert *alert = [[NSAlert alloc] init];
-	[alert setAlertStyle:NSInformationalAlertStyle];
-	if (!rulesImported && !actionsImported)
-		[alert setMessageText:NSLocalizedString(@"Quick Start", @"")];
-	else
-		[alert setMessageText:NSLocalizedString(@"Quick Start and MarcoPolo 1.x Import", @"")];
-
-	NSString *info = NSLocalizedString(@"Contexts have been made for you, named after your network locations.", @"");
-	if (rulesImported) {
-		if (!ipActionsFound)
-			info = [info stringByAppendingFormat:@"\n\n%@",
-				NSLocalizedString(@"All your rules have been imported.", @"")];
-		else
-			info = [info stringByAppendingFormat:@"\n\n%@",
-				NSLocalizedString(@"All your rules (except IP rules) have been imported.", @"")];
-	}
-	if (actionsImported)
-		info = [info stringByAppendingFormat:@"\n\n%@",
-			NSLocalizedString(@"All your actions have been imported.", @"")];
-
-	info = [info stringByAppendingFormat:@"\n\n%@",
-		NSLocalizedString(@"We strongly recommend that you review your preferences.", @"")];
-
-	[alert setInformativeText:info];
-
-	[alert addButtonWithTitle:NSLocalizedString(@"OK", @"Button title")];
-	[alert addButtonWithTitle:NSLocalizedString(@"Open Preferences", @"Button title")];
-	[NSApp activateIgnoringOtherApps:YES];
-	NSInteger rc = [alert runModal];
-	if (rc == NSAlertSecondButtonReturn) {
-		[NSApp activateIgnoringOtherApps:YES];
-		[prefsWindow makeKeyAndOrderFront:self];
-	}
-}
-
-/**
- * Copy over settings from the late MarcoPolo app, they should be compatible
- *
- * \return YES when settings have been imported
- */
-- (BOOL)importMarcoPoloSettings {
-	NSString *oldDomain = @"au.id.symonds.MarcoPolo2";
-	NSDictionary *oldPrefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName: oldDomain];
-	
-	if (oldPrefs) {
-		DSLog(@"Importing settings from MarcoPolo 2.x");
-		[[NSUserDefaults standardUserDefaults] setPersistentDomain: oldPrefs forName: [[NSBundle mainBundle] bundleIdentifier]];
-		[[NSUserDefaults standardUserDefaults] removePersistentDomainForName: oldDomain];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-		
-		[contextsDataSource loadContexts];
-		
-	}
-	
-	return (oldPrefs ? YES : NO);
-}
-
-- (void)awakeFromNib {
-#ifdef DEBUG_MODE
-	NSLog(@"did super awake from nib");
-#endif
-
-	
-	// If there aren't any contexts defined, nor rules, nor actions, import settings
-	if (([[[NSUserDefaults standardUserDefaults] arrayForKey:@"Contexts"] count] == 0) &&
-	    ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"Rules"] count] == 0) &&
-	    ([[[NSUserDefaults standardUserDefaults] arrayForKey:@"Actions"] count] == 0)) {
-		
-		// first try importing from MarcoPolo 2.x
-		if (![self importMarcoPoloSettings])
-			// otherwise import from the old 1.x version
-			[self importVersion1Settings];
-	}
-    
-    [self sanitizeUserDefaults];
-
-    // set default screen saver and screen lock status
-    [self setScreenLocked:NO];
-    [self setScreenSaverRunning:NO];
-
-    [self startMonitoringSleepAndPowerNotifications];
-    [self registerForNotifications];
-    self.activeContexts = [NSMutableSet setWithCapacity:0];
-    self.stickyActiveContexts = [NSMutableSet setWithCapacity:0];
-    
-    self.candidateContextsToActivate   = [NSMutableSet set];
-    self.candidateContextsToDeactivate = [NSMutableSet set];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        // Start up evidence sources that should be started
-        [self->evidenceSources startEnabledEvidenceSources];
-        [self resumeRegularUpdatesWithDelay:(2 * NSEC_PER_SEC)];
-    });
-    
-    [self rebuildForceContextMenu];
-    
-	// Set the persistent context, if any
-    [self changeCurrentContextTo:[self getPersistentContext]];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
-        
-        // Set up status bar.
-        [self showInStatusBar:self];
-        [self startOrStopHidingFromStatusBar];
-
-        [NSApp unhideWithoutActivation];
-
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Debug OpenPrefsAtStartup"]) {
-            [NSApp activateIgnoringOtherApps:YES];
-            [self->prefsWindow makeKeyAndOrderFront:self];
-        }
-        [self updateActiveContextsMenuTitle];
-        [self updateActiveContextsMenuList];
-    });
-    
-    // hide the current context menu item for now
-    [self.currentContextNameMenuItem setHidden:YES];
-    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"AllowMultipleActiveContexts" options:NSKeyValueObservingOptionNew context:nil];
-    
-    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
 - (void)sanitizeUserDefaults
@@ -791,7 +506,7 @@ static NSSet *sharedActiveContexts = nil;
         NSString *rep = [item representedObject];
         if (rep && [contextsDataSource contextByUUID:rep]) {
             BOOL ticked = ([rep isEqualToString:self.currentContext.uuid]);
-            [item setState:(ticked ? NSOnState : NSOffState)];
+            [item setState:(ticked ? NSControlStateValueOn : NSControlStateValueOff)];
         }
     }
 }
@@ -876,7 +591,7 @@ static NSSet *sharedActiveContexts = nil;
 
 - (void)contextsChanged:(NSNotification *)notification {
 #ifdef DEBUG_MODE
-    DSLog(@"in contextChanged");
+    DSLog(@"in contextsChanged");
 #endif
 
     [self rebuildForceContextMenu];
@@ -920,7 +635,7 @@ static NSSet *sharedActiveContexts = nil;
         }
 
         NSNumber *recentStatus = rule[@"cachedStatus"];
-        RuleMatchStatusType wasMatching = (recentStatus) ? ([recentStatus intValue]) : (RuleMatchStatusIsUnknown);
+        RuleMatchStatusType wasMatching = (recentStatus != nil) ? ([recentStatus intValue]) : (RuleMatchStatusIsUnknown);
         if (wasMatching != isMatching) {
             rule[@"cachedStatus"] = @(isMatching);
             changed = YES;
@@ -1601,7 +1316,7 @@ static NSSet *sharedActiveContexts = nil;
         const double minConfidence = (double) [[NSUserDefaults standardUserDefaults] floatForKey:@"MinimumConfidenceRequired"];
         
         NSNumber *guessConfidence = guesses[uuid];
-        if (!guessConfidence || ([guessConfidence doubleValue] < minConfidence)) {
+        if ((guessConfidence == nil) || ([guessConfidence doubleValue] < minConfidence)) {
             guesses[uuid] = @(minConfidence);
         }
     }
@@ -1643,7 +1358,7 @@ static NSSet *sharedActiveContexts = nil;
 			NSNumber *unconfidenceValue = guesses[uuidOfCurrentContext];
 
             // if the unconfidenceValue isn't set initilialize it to a sane default
-            if (!unconfidenceValue) {
+            if (unconfidenceValue == nil) {
 				unconfidenceValue = @1.0;
             }
 
@@ -1790,7 +1505,110 @@ static NSSet *sharedActiveContexts = nil;
 #pragma mark -
 #pragma mark NSApplication delegates
 
+- (void) registerUserDefaults
+{
+    NSMutableDictionary *appDefaults = [NSMutableDictionary dictionary];
+    
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:kCPUserDefaultsEnabledKey];
+    [appDefaults setValue:[NSNumber numberWithDouble:0.75] forKey:@"MinimumConfidenceRequired"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"EnableSwitchSmoothing"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"HideStatusBarIcon"];
+    [appDefaults setValue:[NSNumber numberWithInt:CP_DISPLAY_ICON] forKey:@"menuBarOption"];
+    
+    
+    // use CP_DISPLAY_BOTH if the option to ShowGuess is set to ensure compatiblity
+    // with older preference setting
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"ShowGuess"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ShowGuess"];
+        [[NSUserDefaults standardUserDefaults] setValue:[NSNumber numberWithInt:CP_DISPLAY_BOTH] forKey:@"menuBarOption"];
+    }
+    
+    // TODO: spin these into the EvidenceSourceSetController?
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableAudioOutputEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableBluetoothEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableDNSEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableFireWireEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableIPAddrEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableLightEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableMonitorEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnablePowerEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableRunningApplicationEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableTimeOfDayEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnableUSBEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableCoreWLANEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableSleep/WakeEvidenceSource"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO]  forKey:@"EnableCoreLocationSource"];
+    
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"UseDefaultContext"];
+    [appDefaults setValue:@"" forKey:@"DefaultContext"];
+    [appDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"EnablePersistentContext"];
+    [appDefaults setValue:@"" forKey:@"PersistentContext"];
+    
+    // Advanced
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"ShowAdvancedPreferences"];
+    [appDefaults setValue:[NSNumber numberWithFloat:5.0] forKey:@"UpdateInterval"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"WiFiAlwaysScans"];
+    
+    // Debugging
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug OpenPrefsAtStartup"];
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug USBParanoia"];
+    
+    [appDefaults setValue:[NSNumber numberWithInt:1] forKey:@"SmoothSwitchCount"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+}
+
+// TODO: refactor
+- (void)initWhatWasInAwakeFromNib {
+    
+    [self sanitizeUserDefaults];
+    
+    // set default screen saver and screen lock status
+    [self setScreenLocked:NO];
+    [self setScreenSaverRunning:NO];
+    
+    [self startMonitoringSleepAndPowerNotifications];
+    [self registerForNotifications];
+    self.activeContexts = [NSMutableSet setWithCapacity:0];
+    self.stickyActiveContexts = [NSMutableSet setWithCapacity:0];
+    
+    self.candidateContextsToActivate   = [NSMutableSet set];
+    self.candidateContextsToDeactivate = [NSMutableSet set];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // Start up evidence sources that should be started
+        [self->evidenceSources startEnabledEvidenceSources];
+        [self resumeRegularUpdatesWithDelay:(2 * NSEC_PER_SEC)];
+    });
+    
+    [self rebuildForceContextMenu];
+    
+    // Set the persistent context, if any
+    [self changeCurrentContextTo:[self getPersistentContext]];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
+        
+        // Set up status bar.
+        [self showInStatusBar:self];
+        [self startOrStopHidingFromStatusBar];
+        
+        [NSApp unhideWithoutActivation];
+        
+        [self updateActiveContextsMenuTitle];
+        [self updateActiveContextsMenuList];
+    });
+    
+    // hide the current context menu item for now
+    [self.currentContextNameMenuItem setHidden:YES];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"AllowMultipleActiveContexts" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+}
+
 - (void) applicationDidFinishLaunching:(NSNotification *)notification {
+    
+    [self registerUserDefaults];
     
     UNUserNotificationCenter *currentCenter = [UNUserNotificationCenter currentNotificationCenter];
     [currentCenter requestAuthorizationWithOptions:UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -1799,6 +1617,30 @@ static NSSet *sharedActiveContexts = nil;
             ;
         }
     }];
+    
+    // TODO: refactor this
+    [self initWhatWasInAwakeFromNib];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"Debug OpenPrefsAtStartup"]) {
+        [NSApp activateIgnoringOtherApps:YES];
+        [self->prefsWindow makeKeyAndOrderFront:self];
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"userHasSeenMultipleActiveContextsNotification"]) {
+        NSAlert *multipleActiveContextsAlert = [[NSAlert alloc] init];
+        [multipleActiveContextsAlert setAlertStyle:NSAlertStyleWarning];
+        [multipleActiveContextsAlert setMessageText:NSLocalizedString(@"Would you like to enable the multiple active contexts option now?", "multiple active contexts warning message")];
+        [multipleActiveContextsAlert setInformativeText:NSLocalizedString(@"You can now enable the multiple active contexts option in Advanced Preferences!", "multiple active contexts warning message informative text")];
+        [multipleActiveContextsAlert addButtonWithTitle:NSLocalizedString(@"Yes", "")];
+        [multipleActiveContextsAlert addButtonWithTitle:NSLocalizedString(@"No", "")];
+
+        if ([multipleActiveContextsAlert runModal] == NSAlertFirstButtonReturn) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AllowMultipleActiveContexts"];
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userHasSeenMultipleActiveContextsNotification"];
+    }
+
 }
 
 

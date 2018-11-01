@@ -42,11 +42,12 @@ static ToolTip *sharedToolTip = nil;
     }
 
 	[sharedToolTip setString:string atPoint:point];
+    [sharedToolTip->window orderFront:nil];
 }
 
 + (void)releaseToolTip
 {
-    sharedToolTip = nil;
+    [sharedToolTip->window orderOut:nil];
 }
 
 - (id)init

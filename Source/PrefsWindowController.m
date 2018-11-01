@@ -198,6 +198,19 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)rebuildDefaultContextPopUpButtonMenu {
+    [defaultContextPopUpButton setMenu:[contextsDataSource hierarchicalMenu]];
+}
+
+- (void)rebuildEditActionContextPopUpButtonMenu {
+    [editActionContextButton setMenu:[contextsDataSource hierarchicalMenu]];
+}
+
+- (void)contextsChanged:(NSNotification *)notification {
+    [self rebuildDefaultContextPopUpButtonMenu];
+    [self rebuildEditActionContextPopUpButtonMenu];
+}
+
 - (void)awakeFromNib
 {
 	// Evil!
@@ -288,12 +301,8 @@
  //   [menuBarDisplayOptionsController setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"menuBarOption"] forKey:@"selectedObject"];
    
 	// Contexts
-	[defaultContextButton setContextsDataSource:contextsDataSource];
-	[editActionContextButton setContextsDataSource:contextsDataSource];
-
-	// Make sure it gets loaded okay
-	[defaultContextButton setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"DefaultContext"]
-				forKey:@"selectedObject"];
+    [self rebuildDefaultContextPopUpButtonMenu];
+    [self rebuildEditActionContextPopUpButtonMenu];
 
 	// Load up correct localisations
 	[whenActionController addObject:
@@ -318,11 +327,12 @@
                                              selector:@selector(onPrefsWindowClose:)
                                                  name:NSWindowWillCloseNotification
                                                object:prefsWindow];
-    
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"userHasSeenMultipleActiveContextsNotification"]) {
-        NSWindow *multipleActiveContextsNotification = self.multipleActiveContextsNotification;
-        [multipleActiveContextsNotification makeKeyAndOrderFront:self];
-    }
+        
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contextsChanged:)
+                                                 name:@"ContextsChangedNotification"
+                                               object:contextsDataSource];
+
 }
 
 static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
@@ -366,42 +376,8 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	}
 }
 
-- (IBAction)runWebPage:(id)sender
-{
-	NSURL *url = [NSURL URLWithString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CPWebPageURL"]];
-	[[NSWorkspace sharedWorkspace] openURL:url];
-}
-
-- (IBAction)emailSupport:(id)sender 
-{
-    NSURL *url = [NSURL URLWithString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CPSupportURL"]];
-    [[NSWorkspace sharedWorkspace] openURL:url];
-}
-
-- (IBAction)donateToControlPlaneX:(id)sender {
-    NSURL *url = [NSURL URLWithString:[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CPDonationURL"]];
-    [[NSWorkspace sharedWorkspace] openURL:url];
-}
-
 - (IBAction)menuBarDisplayOptionChanged:(id)sender {
 }
-
-- (IBAction)enableMultipleActiveContexts:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AllowMultipleActiveContexts"];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userHasSeenMultipleActiveContextsNotification"];
-    
-    NSWindow *multipleActiveContextsNotification = self.multipleActiveContextsNotification;
-    [multipleActiveContextsNotification close];
-}
-
-- (IBAction)closeMultipleActiveContextsAlert:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userHasSeenMultipleActiveContextsNotification"];
-    
-    NSWindow *multipleActiveContextsNotification = self.multipleActiveContextsNotification;
-    [multipleActiveContextsNotification close];
-}
-
-
 
 #pragma mark Prefs group switching
 
@@ -947,4 +923,14 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	}
 }
 
+//- (void)menuNeedsUpdate:(NSMenu *)menu
+//{
+//    if ([[menu identifier] isEqualToString:defaultContextMenuIdentifier]) {
+//        ;
+//    }
+//}
+
+
 @end
+
+
