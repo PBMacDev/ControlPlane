@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "idiom" : "mac",
+      "filename" : "cp-icon-128.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "mac",
+      "filename" : "cp-icon.png",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template",
+    "auto-scaling" : "auto"
+  }
+}

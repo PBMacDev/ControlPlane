@@ -98,7 +98,6 @@ NSString* const kCPUserDefaultsEnabledKey = @"Enabled";
 - (void)showInStatusBar:(id)sender;
 - (void)hideFromStatusBar:(NSTimer *)theTimer;
 - (void)doHideFromStatusBar:(BOOL)forced;
-- (void)setMenuBarImage:(NSImage *)imageName;
 
 - (void)contextsChanged:(NSNotification *)notification;
 
@@ -152,28 +151,14 @@ static NSSet *sharedActiveContexts = nil;
     return;
 }
 
-// Helper: Load a named image, and scale it to be suitable for menu bar use.
-- (NSImage *)prepareImageForMenubar:(NSString *)name {
-	NSImage *img = [NSImage imageNamed:name];
-    // TODO: provide images for retina displays
-	[img setSize:NSMakeSize(18, 18)];
-
-	return img;
-}
-
-- (void) interfaceThemeDidChange {
-    //[self changeActiveIconImageColorTo:self.currentContext.iconColor];
-    //[self changeInActiveIconImageColorTo:[[NSColor darkGrayColor] colorUsingColorSpaceName:NSCalibratedRGBColorSpace]];
-}
-
 - (NSImage *)tintedIconImage:(NSImage *)image withTint:(NSColor *)color {
     if ((image != nil) && [image isTemplate]) {
         if ((color != nil) && ([color alphaComponent] > 0.0) && ![color isEqualTo:[NSColor blackColor]]) {
             NSImage *tintedImage = [image copy];
             [tintedImage setTemplate:NO];
             [tintedImage lockFocus];
-            [[color colorUsingColorSpaceName:NSCalibratedRGBColorSpace] set];
-            NSRectFillUsingOperation((NSRect) {NSZeroPoint, tintedImage.size}, NSCompositeSourceIn);
+            [[color colorUsingColorSpace:[NSColorSpace deviceRGBColorSpace]] set];
+            NSRectFillUsingOperation((NSRect) {NSZeroPoint, tintedImage.size}, NSCompositingOperationSourceIn);
             [tintedImage unlockFocus];
             return tintedImage;
         }
@@ -183,14 +168,16 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (id)init {
+    
 	if (!(self = [super init])) {
 		return nil;
     }
 
-	sbImageTemplate = [self prepareImageForMenubar:@"cp-icon"];
-    [sbImageTemplate setTemplate:YES];
+    sbImageTemplate = [NSImage imageNamed:@"CPStatusBarIcon"];
+    [sbImageTemplate setSize:NSMakeSize(18, 18)];
 
-	sbItem = nil;
+    sbItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [sbItem.button setImagePosition:NSImageLeft];
 	sbHideTimer = nil;
 
 	[self restartSwitchSmoothing];
@@ -213,15 +200,9 @@ static NSSet *sharedActiveContexts = nil;
 	return self;
 }
 
-- (void)dealloc {
-    [self stopMonitoringSleepAndPowerNotifications];
-    [self doReleaseUpdatingQueue];
-}
-
 - (ContextsDataSource *)contextsDataSource {
 	return contextsDataSource;
 }
-
 
 - (NSArray *)activeRules {
     return [self.rules deepMutableCopy];
@@ -343,12 +324,6 @@ static NSSet *sharedActiveContexts = nil;
                                              selector:@selector(updateMenuBarImageOnIconColorPreviewNotification:)
                                                  name:@"iconColorPreviewFinished"
                                                object:nil];
-    
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(interfaceThemeDidChange)
-                                                 name:@"AppleInterfaceThemeChangedNotification"
-                                               object:nil];
-    
 }
 
 
@@ -356,18 +331,13 @@ static NSSet *sharedActiveContexts = nil;
 
 
 - (void)setStatusTitle:(NSString *)title {
-	if (!sbItem) {
-		return;
-    }
-	if (!title) {
-		[sbItem setTitle:nil];
+	
+    if (title == nil) {
+        sbItem.button.title = @"";
 		return;
 	}
-
-	// Smaller font
-	NSDictionary *attrs = @{ NSFontAttributeName: [NSFont menuBarFontOfSize:0] };
-	NSAttributedString *as = [[NSAttributedString alloc] initWithString:title attributes:attrs];
-	[sbItem setAttributedTitle:as];
+    
+    sbItem.button.title = title;
 }
 
 - (void)updateMenuBarImageOnIconColorPreviewNotification:(NSNotification *)notification {
@@ -375,16 +345,13 @@ static NSSet *sharedActiveContexts = nil;
     if (userInfo != nil) {
         NSColor *color = userInfo[@"color"];
         NSImage *barImage = [self tintedIconImage:sbImageTemplate withTint:color];
-        [self setMenuBarImage:barImage];
+        sbItem.button.image = barImage;
     } else {
         [self updateMenuBarImage];
     }
 }
 
 - (void)updateMenuBarImage {
-    if (sbItem == nil) {
-		return;
-    }
     
     NSImage *barImage = nil;
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"menuBarOption"] != CP_DISPLAY_CONTEXT) {
@@ -410,34 +377,14 @@ static NSSet *sharedActiveContexts = nil;
         barImage = [self tintedIconImage:sbImageTemplate withTint:iconColor];
     }
     
-    [self setMenuBarImage:barImage];
-}
-
-- (void)setMenuBarImage:(NSImage *)image {
-    // if the menu bar item has been hidden sbItem will have been released
-    // and we should not attempt to update the image
-    if (sbItem == nil) {
-        return;
-    }
-    
-    @try {
-        [sbItem setImage:image];
-    }
-    @catch (NSException *exception) {
-        DSLog(@"failed to set the menubar icon to %@ with error %@. Please alert ControlPlaneX Developers!",
-              [image name], [exception reason]);
-        [self setStatusTitle:@"Failed to set icon"];
-    }
+    sbItem.button.image = barImage;
 }
 
 - (void)showInStatusBar:(id)sender {
-	if (sbItem) {
-		// Already there? Rebuild it anyway.
+	
+    if ([sbItem isVisible]) {
         [self doHideFromStatusBar:YES];
 	}
-
-	sbItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	[sbItem setHighlightMode:YES];
 
     [self updateMenuBarImage];
 
@@ -453,21 +400,22 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void)doHideFromStatusBar:(BOOL)forced {
+    
     if (sbHideTimer) {
         sbHideTimer = [sbHideTimer checkAndInvalidate];
     }
     
     if (forced || [[NSUserDefaults standardUserDefaults] boolForKey:@"HideStatusBarIcon"]) {
-        if (sbItem) {
+        if ([sbItem isVisible]) {
             [[NSStatusBar systemStatusBar] removeStatusItem:sbItem];
-            sbItem = nil;
         }
     }
 }
 
 - (void)startOrStopHidingFromStatusBar {
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HideStatusBarIcon"]) {
-        if (!sbHideTimer && sbItem) {
+        if ((sbHideTimer == nil) && [sbItem isVisible]) {
             sbHideTimer = [NSTimer scheduledTimerWithTimeInterval: (NSTimeInterval)STATUS_BAR_LINGER
                                                             target: self
                                                           selector: @selector(hideFromStatusBar:)
@@ -475,26 +423,22 @@ static NSSet *sharedActiveContexts = nil;
                                                            repeats: NO];
         }
     } else {
+        
 		if (sbHideTimer) {
             sbHideTimer = [sbHideTimer checkAndInvalidate];
         }
-        if (!sbItem) {
+        
+        if (![sbItem isVisible]) {
             [self showInStatusBar:self];
         }
     }
 }
 
 - (void)updateMenuBarAndContextMenu {
+    
     [self updateMenuBarImage];
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"menuBarOption"] != CP_DISPLAY_ICON) {
         if ([self useMultipleActiveContexts]) {
-            /*int x=0;
-             NSMutableString *_joinedContextPaths = [NSMutableString string]; //..shortcut for:  [[[NSMutableString alloc] initWithString:@""] autorelease];
-             for (Context *context in self.activeContexts) {
-                if (x++!=0) [_joinedContextPaths appendString: @" + "];
-                [_joinedContextPaths appendString:context.name]; //[contextsDataSource pathFromRootTo:context.uuid]];
-             }
-             self.currentContextPath=_joinedContextPaths;*/
             self.currentContextPath=[self currentContextAsString];
         }
         [self setStatusTitle:[self currentContextPath]];
@@ -531,7 +475,7 @@ static NSSet *sharedActiveContexts = nil;
         
 		item = [item copy];
 		[item setTitle:[NSString stringWithFormat:@"%@ (*)", [item title]]];
-		[item setKeyEquivalentModifierMask:NSAlternateKeyMask];
+        [item setKeyEquivalentModifierMask:NSEventModifierFlagOption];
 		[item setAlternate:YES];
 		[item setAction:@selector(forceSwitchAndToggleSticky:)];
 		[submenu addItem:item];
@@ -590,9 +534,6 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void)contextsChanged:(NSNotification *)notification {
-#ifdef DEBUG_MODE
-    DSLog(@"in contextsChanged");
-#endif
 
     [self rebuildForceContextMenu];
 
@@ -607,8 +548,6 @@ static NSSet *sharedActiveContexts = nil;
     });
 
     self.forceOneFullUpdate = YES;
-
-	// update other stuff?
 }
 
 #pragma mark Rule matching and Action triggering
@@ -653,7 +592,6 @@ static NSSet *sharedActiveContexts = nil;
 
 	return matchingRules;
 }
-
 
 // (Private) in a new thread, execute Action immediately, growling upon failure
 // performs an individual action called by an executeAction* method and on
@@ -924,10 +862,10 @@ static NSSet *sharedActiveContexts = nil;
     [self updateActiveContextsMenuTitle];
     [self updateActiveContextsMenuList];
     [CPController setSharedActiveContexts:self.activeContexts];
-    
 }
 
 - (void) deactivateContext:(Context *) context {
+    
     if (context != nil) {
         [self.activeContexts removeObject:context];
         DSLog(@"Triggering departure actions, if any, for '%@'", context.name);
@@ -937,11 +875,9 @@ static NSSet *sharedActiveContexts = nil;
     [self updateActiveContextsMenuList];
 
     [CPController setSharedActiveContexts:self.activeContexts];
-
 }
 
 - (void) activateContextByMenuClick:(NSMenuItem *) sender {
-    //[self triggerArrivalActionsOnWalk:[NSArray arrayWithObject:[contextsDataSource contextByName:sender.title]]];
     
     if (forcedContextIsSticky)
         [self.stickyActiveContexts addObject:sender.representedObject];
@@ -957,8 +893,6 @@ static NSSet *sharedActiveContexts = nil;
         [self.stickyActiveContexts removeObject:sender.representedObject];
     
     [self deactivateContext:sender.representedObject];
-    
-    
 }
 
 - (void)changeCurrentContextTo:(Context *)context {
@@ -979,8 +913,6 @@ static NSSet *sharedActiveContexts = nil;
 
 - (void)performTransitionToContext:(Context *)context
                  triggeredManually:(BOOL)isManuallyTriggered {
-
-
     
     if (self.currentContext != nil) {
         [self.activeContexts removeObject:[contextsDataSource contextByUUID:self.currentContext.uuid]];
@@ -1097,7 +1029,7 @@ static NSSet *sharedActiveContexts = nil;
 	BOOL oldValue = forcedContextIsSticky;
 	forcedContextIsSticky = !oldValue;
 
-  	[sender setState:(forcedContextIsSticky ? NSOnState : NSOffState)];
+    [sender setState:(forcedContextIsSticky ? NSControlStateValueOn : NSControlStateValueOff)];
 
     if (!forcedContextIsSticky) {
         [self setForceOneFullUpdate:YES];
@@ -1643,8 +1575,6 @@ static NSSet *sharedActiveContexts = nil;
 
 }
 
-
-
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
     [self showInStatusBar:self];
     [self startOrStopHidingFromStatusBar];
@@ -1653,6 +1583,7 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
+ 
     [self suspendRegularUpdates];
     
 	NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
@@ -1661,10 +1592,9 @@ static NSSet *sharedActiveContexts = nil;
 	}
     
     [evidenceSources stopAllRunningEvidenceSources];
-}
-
-- (void) showMainApplicationWindow {
-	[prefsWindow makeFirstResponder:nil];
+    
+    [self stopMonitoringSleepAndPowerNotifications];
+    [self doReleaseUpdatingQueue];
 }
 
 #pragma mark NSUserDefaults notifications
@@ -1678,11 +1608,6 @@ static NSSet *sharedActiveContexts = nil;
     } else {
         [self setStatusTitle:[self currentContextPath]];
     }
-
-#ifndef DEBUG_MODE
-    // Force write of preferences
-    [[NSUserDefaults standardUserDefaults] synchronize];
-#endif
 
     self.forceOneFullUpdate = YES; // force updating (e.g. the default context settings could change)
 
@@ -1698,18 +1623,14 @@ static NSSet *sharedActiveContexts = nil;
 #pragma mark -
 #pragma mark Evidence source change handling
 - (void)evidenceSourceDataDidChange:(NSNotification *)notification {
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    if (dispatch_get_current_queue() != mainQueue) {
-        dispatch_async(mainQueue, ^{
-            [self evidenceSourceDataDidChange:notification];
-        });
-        return;
-    }
-    
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+
 #ifdef DEBUG_MODE
-    DSLog(@"**** TRIGGERING UPDATE BECAUSE EVIDENCE SOURCE DATA CHANGED ****");
+        DSLog(@"**** TRIGGERING UPDATE BECAUSE EVIDENCE SOURCE DATA CHANGED ****");
 #endif
-    [self shiftRegularUpdatesToStartAt:dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC)];
+        [self shiftRegularUpdatesToStartAt:dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC)];
+    });
 }
 
 
@@ -1727,11 +1648,13 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
 }
 
 - (BOOL)doInitUpdatingQueue {
+    
     updatingQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.UpdateQueue", DISPATCH_QUEUE_SERIAL);
     if (!updatingQueue) {
         DSLog(@"Failed to create a GCD queue");
         return NO;
     }
+    
     concurrentActionQueue = dispatch_queue_create("ua.in.pboyko.ControlPlaneX.ActionQueue", DISPATCH_QUEUE_CONCURRENT);
     if (!concurrentActionQueue) {
         DSLog(@"Failed to create a GCD queue");
@@ -1743,6 +1666,7 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
         DSLog(@"Failed to create a GCD timer source");
         return NO;
     }
+    
     dispatch_source_set_event_handler(updatingTimer, ^{
 #ifdef DEBUG_MODE
         DSLog(@"**** DOING UPDATE LOOP BY TIMER ****");

@@ -99,6 +99,7 @@
 		A71CB2B62183B0800061014D /* LightRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A82183B07F0061014D /* LightRule.xib */; };
 		A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A021860E0900CA9C13 /* CoreWLAN.framework */; };
 		A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A821872EB600CA9C13 /* UserNotifications.framework */; };
+		A7A49E28218B56C900775312 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A49E27218B56C900775312 /* Images.xcassets */; };
 		DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */; };
 		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
@@ -128,9 +129,6 @@
 		DA7EAF4715D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */; };
 		DA812E83140681D2006869F7 /* AppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = DA812E82140681D2006869F7 /* AppleScript.m */; };
 		DA83A21D13D0FE8F00074503 /* CoreWLANEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */; };
-		DA83A21F13D12A3200074503 /* cp-icon-active.icns in Resources */ = {isa = PBXBuildFile; fileRef = DA83A21E13D12A3200074503 /* cp-icon-active.icns */; };
-		DA83A22113D13C8300074503 /* cp-icon-inactive.icns in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22013D13C8300074503 /* cp-icon-inactive.icns */; };
-		DA83A22313D13DF300074503 /* cp-icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22213D13DF300074503 /* cp-icon.icns */; };
 		DA83A22713D1430000074503 /* usb-vendors.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22613D1430000074503 /* usb-vendors.txt */; };
 		DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */; };
 		DA8E2833156B498A0040FC35 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E2832156B498A0040FC35 /* ApplicationServices.framework */; };
@@ -442,6 +440,7 @@
 		A71CB2C12183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/TimeOfDayRule.xib; sourceTree = "<group>"; };
 		A79414A021860E0900CA9C13 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		A79414A821872EB600CA9C13 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		A7A49E27218B56C900775312 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ControlPlaneX/Images.xcassets; sourceTree = "<group>"; };
 		DA04D57015DC119E004B9E1C /* ToggleContextStickinessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleContextStickinessAction.h; path = Source/ToggleContextStickinessAction.h; sourceTree = "<group>"; };
 		DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleContextStickinessAction.m; path = Source/ToggleContextStickinessAction.m; sourceTree = "<group>"; };
 		DA07C10E18FE04A3008FE8B5 /* ContextEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextEvidenceSource.h; path = Source/ContextEvidenceSource.h; sourceTree = "<group>"; };
@@ -496,9 +495,6 @@
 		DA812E82140681D2006869F7 /* AppleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleScript.m; path = Source/AppleScript.m; sourceTree = "<group>"; };
 		DA83A21B13D0FE8F00074503 /* CoreWLANEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreWLANEvidenceSource.h; path = Source/CoreWLANEvidenceSource.h; sourceTree = "<group>"; };
 		DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreWLANEvidenceSource.m; path = Source/CoreWLANEvidenceSource.m; sourceTree = "<group>"; };
-		DA83A21E13D12A3200074503 /* cp-icon-active.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cp-icon-active.icns"; path = "Resources/cp-icon-active.icns"; sourceTree = "<group>"; };
-		DA83A22013D13C8300074503 /* cp-icon-inactive.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cp-icon-inactive.icns"; path = "Resources/cp-icon-inactive.icns"; sourceTree = "<group>"; };
-		DA83A22213D13DF300074503 /* cp-icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cp-icon.icns"; path = "Resources/cp-icon.icns"; sourceTree = "<group>"; };
 		DA83A22613D1430000074503 /* usb-vendors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "usb-vendors.txt"; path = "Resources/usb-vendors.txt"; sourceTree = "<group>"; };
 		DA8E2832156B498A0040FC35 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		DA8E283D156BCAD50040FC35 /* ToggleRemoteLoginAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleRemoteLoginAction.h; path = Source/ToggleRemoteLoginAction.h; sourceTree = "<group>"; };
@@ -722,6 +718,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7A49E27218B56C900775312 /* Images.xcassets */,
 				DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */,
 				DAA9ABFE1595FDE700B84B05 /* README.md */,
 				8D232FB30BD9D507006A3963 /* ActionsPrefs.png */,
@@ -735,9 +732,6 @@
 				DD8274E5141147BB0098FA6E /* controlplane.icns */,
 				DDE1B067140438DB006564A6 /* ControlPlane.sdef */,
 				DDF4E594141588E80028DF4A /* CoreLocationMap.html */,
-				DA83A21E13D12A3200074503 /* cp-icon-active.icns */,
-				DA83A22013D13C8300074503 /* cp-icon-inactive.icns */,
-				DA83A22213D13DF300074503 /* cp-icon.icns */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
 				8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */,
 				96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */,
@@ -1246,11 +1240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4A629513E25C9D00CE976F /* Credits.html in Resources */,
+				A7A49E28218B56C900775312 /* Images.xcassets in Resources */,
 				A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */,
 				DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */,
-				DA83A22113D13C8300074503 /* cp-icon-inactive.icns in Resources */,
 				A71CB2B62183B0800061014D /* LightRule.xib in Resources */,
-				DA83A21F13D12A3200074503 /* cp-icon-active.icns in Resources */,
 				8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */,
 				96454D4418C3E6BE004F64E7 /* RulesPrefs@2x.png in Resources */,
 				8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */,
@@ -1269,7 +1262,6 @@
 				8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */,
 				8D88FE2A0C534737007A14D6 /* pause.png in Resources */,
 				A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */,
-				DA83A22313D13DF300074503 /* cp-icon.icns in Resources */,
 				A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */,
 				DA83A22713D1430000074503 /* usb-vendors.txt in Resources */,
 				DA4A629313E2546800CE976F /* ControlPlane Help in Resources */,
@@ -1583,6 +1575,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1608,6 +1601,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
