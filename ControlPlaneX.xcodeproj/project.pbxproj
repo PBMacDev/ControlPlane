@@ -23,20 +23,14 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8D1493F70C824B6D00D29FE8 /* BonjourEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */; };
-		8D185DC60BF428CF00A06B03 /* AdvancedPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D185DC50BF428CF00A06B03 /* AdvancedPrefs.png */; };
 		8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A45590BA00DE2004A6BC4 /* minus-8.png */; };
 		8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A455A0BA00DE2004A6BC4 /* plus-8.png */; };
-		8D232F800BD9D228006A3963 /* GeneralPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */; };
-		8D232FB50BD9D507006A3963 /* ActionsPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D232FB30BD9D507006A3963 /* ActionsPrefs.png */; };
-		8D232FB60BD9D507006A3963 /* RulesPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D232FB40BD9D507006A3963 /* RulesPrefs.png */; };
 		8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */; };
 		8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAAAB0C56E26100A50777 /* NetworkLinkEvidenceSource.m */; };
 		8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D38B66A0C49D50200290F47 /* SliderWithValue.m */; };
-		8D3A3D5F0C012565008EBF2A /* EvidenceSourcesPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */; };
 		8D3BFFB20C61CA5300B9B910 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3BFFB10C61CA5300B9B910 /* WebKit.framework */; };
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
 		8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D481B070B6098DD0097CF9C /* IOKit.framework */; };
-		8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */; };
 		8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D57B1430C4457AB00EC620D /* CoreAudio.framework */; };
 		8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */; };
 		8D643CDD0C4EF6FD006D8ECC /* LoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643CDB0C4EF6FD006D8ECC /* LoopingEvidenceSource.m */; };
@@ -78,12 +72,6 @@
 		8DF5A4610BC239B100CBEB4B /* DefaultPrinterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5A45F0BC239B100CBEB4B /* DefaultPrinterAction.m */; };
 		8DFA46170CC33E46003EAC16 /* QuitApplicationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA46150CC33E46003EAC16 /* QuitApplicationAction.m */; };
 		8DFD0DA60CEBBC8A00E79049 /* UnmountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD0DA40CEBBC8A00E79049 /* UnmountAction.m */; };
-		96454D3F18C3E6BE004F64E7 /* ActionsPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3918C3E6BE004F64E7 /* ActionsPrefs@2x.png */; };
-		96454D4018C3E6BE004F64E7 /* AdvancedPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3A18C3E6BE004F64E7 /* AdvancedPrefs@2x.png */; };
-		96454D4118C3E6BE004F64E7 /* ContextsPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3B18C3E6BE004F64E7 /* ContextsPrefs@2x.png */; };
-		96454D4218C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */; };
-		96454D4318C3E6BE004F64E7 /* GeneralPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3D18C3E6BE004F64E7 /* GeneralPrefs@2x.png */; };
-		96454D4418C3E6BE004F64E7 /* RulesPrefs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96454D3E18C3E6BE004F64E7 /* RulesPrefs@2x.png */; };
 		A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2902183B07E0061014D /* HostAvailability.xib */; };
 		A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2922183B07E0061014D /* MainMenu.xib */; };
 		A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2942183B07E0061014D /* SearchDomainRule.xib */; };
@@ -316,13 +304,9 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1493F40C824B6D00D29FE8 /* BonjourEvidenceSource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BonjourEvidenceSource.h; path = Source/BonjourEvidenceSource.h; sourceTree = "<group>"; };
 		8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = BonjourEvidenceSource.m; path = Source/BonjourEvidenceSource.m; sourceTree = "<group>"; };
-		8D185DC50BF428CF00A06B03 /* AdvancedPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AdvancedPrefs.png; path = Resources/AdvancedPrefs.png; sourceTree = "<group>"; };
 		8D1A45590BA00DE2004A6BC4 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minus-8.png"; path = "Resources/minus-8.png"; sourceTree = "<group>"; };
 		8D1A455A0BA00DE2004A6BC4 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-8.png"; path = "Resources/plus-8.png"; sourceTree = "<group>"; };
 		8D20720E0B86AB0000D61A9E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
-		8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GeneralPrefs.png; path = Resources/GeneralPrefs.png; sourceTree = "<group>"; };
-		8D232FB30BD9D507006A3963 /* ActionsPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ActionsPrefs.png; path = Resources/ActionsPrefs.png; sourceTree = "<group>"; };
-		8D232FB40BD9D507006A3963 /* RulesPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RulesPrefs.png; path = Resources/RulesPrefs.png; sourceTree = "<group>"; };
 		8D27ECAD0C4456A300AE1929 /* AudioOutputEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AudioOutputEvidenceSource.h; path = Source/AudioOutputEvidenceSource.h; sourceTree = "<group>"; };
 		8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AudioOutputEvidenceSource.m; path = Source/AudioOutputEvidenceSource.m; sourceTree = "<group>"; };
 		8D2BAAAA0C56E26100A50777 /* NetworkLinkEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NetworkLinkEvidenceSource.h; path = Source/NetworkLinkEvidenceSource.h; sourceTree = "<group>"; };
@@ -333,12 +317,10 @@
 		8D35A34D0BBBA0CB006ACBB0 /* USBEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = USBEvidenceSource.m; path = Source/USBEvidenceSource.m; sourceTree = "<group>"; };
 		8D38B6690C49D50200290F47 /* SliderWithValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SliderWithValue.h; path = Source/SliderWithValue.h; sourceTree = "<group>"; };
 		8D38B66A0C49D50200290F47 /* SliderWithValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SliderWithValue.m; path = Source/SliderWithValue.m; sourceTree = "<group>"; };
-		8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EvidenceSourcesPrefs.png; path = Resources/EvidenceSourcesPrefs.png; sourceTree = "<group>"; };
 		8D3BFFB10C61CA5300B9B910 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		8D3C85120CDD8546009DBCD9 /* ScreenSaverStartAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ScreenSaverStartAction.h; path = Source/ScreenSaverStartAction.h; sourceTree = "<group>"; };
 		8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ScreenSaverStartAction.m; path = Source/ScreenSaverStartAction.m; sourceTree = "<group>"; };
 		8D481B070B6098DD0097CF9C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ContextsPrefs.png; path = Resources/ContextsPrefs.png; sourceTree = "<group>"; };
 		8D5684B20C38711D00881E32 /* MonitorEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MonitorEvidenceSource.h; path = Source/MonitorEvidenceSource.h; sourceTree = "<group>"; };
 		8D5684B30C38711D00881E32 /* MonitorEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MonitorEvidenceSource.m; path = Source/MonitorEvidenceSource.m; sourceTree = "<group>"; };
 		8D57B1430C4457AB00EC620D /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
@@ -419,12 +401,6 @@
 		8DFA46150CC33E46003EAC16 /* QuitApplicationAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = QuitApplicationAction.m; path = Source/QuitApplicationAction.m; sourceTree = "<group>"; };
 		8DFD0DA30CEBBC8A00E79049 /* UnmountAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UnmountAction.h; path = Source/UnmountAction.h; sourceTree = "<group>"; };
 		8DFD0DA40CEBBC8A00E79049 /* UnmountAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UnmountAction.m; path = Source/UnmountAction.m; sourceTree = "<group>"; };
-		96454D3918C3E6BE004F64E7 /* ActionsPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ActionsPrefs@2x.png"; path = "Resources/ActionsPrefs@2x.png"; sourceTree = "<group>"; };
-		96454D3A18C3E6BE004F64E7 /* AdvancedPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AdvancedPrefs@2x.png"; path = "Resources/AdvancedPrefs@2x.png"; sourceTree = "<group>"; };
-		96454D3B18C3E6BE004F64E7 /* ContextsPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ContextsPrefs@2x.png"; path = "Resources/ContextsPrefs@2x.png"; sourceTree = "<group>"; };
-		96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "EvidenceSourcesPrefs@2x.png"; path = "Resources/EvidenceSourcesPrefs@2x.png"; sourceTree = "<group>"; };
-		96454D3D18C3E6BE004F64E7 /* GeneralPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GeneralPrefs@2x.png"; path = "Resources/GeneralPrefs@2x.png"; sourceTree = "<group>"; };
-		96454D3E18C3E6BE004F64E7 /* RulesPrefs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RulesPrefs@2x.png"; path = "Resources/RulesPrefs@2x.png"; sourceTree = "<group>"; };
 		A71CB2992183B07E0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/CPHelperToolAuthorizationPrompts.strings; sourceTree = "<group>"; };
 		A71CB2A12183B07F0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A71CB2B72183B0900061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/CoreLocationRule.xib; sourceTree = "<group>"; };
@@ -721,22 +697,12 @@
 				A7A49E27218B56C900775312 /* Images.xcassets */,
 				DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */,
 				DAA9ABFE1595FDE700B84B05 /* README.md */,
-				8D232FB30BD9D507006A3963 /* ActionsPrefs.png */,
-				96454D3918C3E6BE004F64E7 /* ActionsPrefs@2x.png */,
-				8D185DC50BF428CF00A06B03 /* AdvancedPrefs.png */,
-				96454D3A18C3E6BE004F64E7 /* AdvancedPrefs@2x.png */,
 				DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */,
-				8D4E5CB20C48AE9F0054A67C /* ContextsPrefs.png */,
-				96454D3B18C3E6BE004F64E7 /* ContextsPrefs@2x.png */,
 				DA4A629213E2546800CE976F /* ControlPlane Help */,
 				DD8274E5141147BB0098FA6E /* controlplane.icns */,
 				DDE1B067140438DB006564A6 /* ControlPlane.sdef */,
 				DDF4E594141588E80028DF4A /* CoreLocationMap.html */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
-				8D3A3D5E0C012564008EBF2A /* EvidenceSourcesPrefs.png */,
-				96454D3C18C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png */,
-				8D232F7F0BD9D228006A3963 /* GeneralPrefs.png */,
-				96454D3D18C3E6BE004F64E7 /* GeneralPrefs@2x.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				DDFF423014156B0A0047D311 /* location.png */,
 				8D1A45590BA00DE2004A6BC4 /* minus-8.png */,
@@ -744,8 +710,6 @@
 				8D88FE290C534737007A14D6 /* pause.png */,
 				8D1A455A0BA00DE2004A6BC4 /* plus-8.png */,
 				8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */,
-				8D232FB40BD9D507006A3963 /* RulesPrefs.png */,
-				96454D3E18C3E6BE004F64E7 /* RulesPrefs@2x.png */,
 				DA83A22613D1430000074503 /* usb-vendors.txt */,
 			);
 			name = Resources;
@@ -1245,21 +1209,13 @@
 				DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */,
 				A71CB2B62183B0800061014D /* LightRule.xib in Resources */,
 				8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */,
-				96454D4418C3E6BE004F64E7 /* RulesPrefs@2x.png in Resources */,
 				8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */,
 				A71CB2AF2183B07F0061014D /* CoreLocationRule.xib in Resources */,
 				8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */,
-				96454D4218C3E6BE004F64E7 /* EvidenceSourcesPrefs@2x.png in Resources */,
 				A71CB2B32183B07F0061014D /* IPRule.xib in Resources */,
-				8D232F800BD9D228006A3963 /* GeneralPrefs.png in Resources */,
-				8D232FB50BD9D507006A3963 /* ActionsPrefs.png in Resources */,
 				A71CB2B02183B07F0061014D /* IPv6AddrRule.xib in Resources */,
 				A71CB2AD2183B07F0061014D /* GenericRule.xib in Resources */,
-				8D232FB60BD9D507006A3963 /* RulesPrefs.png in Resources */,
 				8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */,
-				8D185DC60BF428CF00A06B03 /* AdvancedPrefs.png in Resources */,
-				8D3A3D5F0C012565008EBF2A /* EvidenceSourcesPrefs.png in Resources */,
-				8D4E5CB30C48AE9F0054A67C /* ContextsPrefs.png in Resources */,
 				8D88FE2A0C534737007A14D6 /* pause.png in Resources */,
 				A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */,
 				A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */,
@@ -1267,21 +1223,17 @@
 				DA4A629313E2546800CE976F /* ControlPlane Help in Resources */,
 				A71CB2B12183B07F0061014D /* TimeOfDayRule.xib in Resources */,
 				DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */,
-				96454D4018C3E6BE004F64E7 /* AdvancedPrefs@2x.png in Resources */,
 				A71CB2AE2183B07F0061014D /* CPHelperToolAuthorizationPrompts.strings in Resources */,
 				DD8274E6141147BB0098FA6E /* controlplane.icns in Resources */,
 				DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */,
 				DDFF423114156B0A0047D311 /* location.png in Resources */,
 				DDF4E595141588E80028DF4A /* CoreLocationMap.html in Resources */,
 				A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */,
-				96454D3F18C3E6BE004F64E7 /* ActionsPrefs@2x.png in Resources */,
 				DAA9ABFF1595FDE700B84B05 /* README.md in Resources */,
 				A71CB2B22183B07F0061014D /* Localizable.strings in Resources */,
 				A71CB2B52183B07F0061014D /* ServerAddressRule.xib in Resources */,
 				DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */,
-				96454D4118C3E6BE004F64E7 /* ContextsPrefs@2x.png in Resources */,
 				DACE6D4B159BFC1D00FEE37E /* CPHelperTool-Launchd.plist in Resources */,
-				96454D4318C3E6BE004F64E7 /* GeneralPrefs@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
