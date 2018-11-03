@@ -162,10 +162,10 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
     NSOutlineView *strongOutlineView = outlineView;
 	[strongOutlineView registerForDraggedTypes:[NSArray arrayWithObject:MovedRowsType]];
     
-	[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(triggerOutlineViewReloadData:)
-                                                 name:@"ContextsChangedNotification"
-                                               object:self];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"ContextsChangedNotification" object:self queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [self->outlineView reloadData];
+    }];
+    
     /*
      IBOutlet NSButton *generalPreferencesEnableSwitching;
      IBOutlet NSButton *generalPreferencesStartAtLogin;
@@ -212,13 +212,7 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 {
 	[self saveContexts:self];		// make sure they're saved
     
-    @try {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"ContextsChangedNotification" object:self];    
-    }
-    @catch (NSException * exception) {
-        DSLog(@"unable to post ContextsChangedNotification because: %@", [exception reason]);
-    }
-	
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ContextsChangedNotification" object:self];
 }
 
 #pragma mark -
@@ -249,8 +243,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 			[self recomputeDepthOf:ctxt];
         }
     }];
-
-	// XXX: any other data to recompute?
 }
 
 #pragma mark -
@@ -288,17 +280,13 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 }
 
 - (void)updateConfidencesFromGuesses:(NSDictionary *)guesses {
+    
     [contexts enumerateKeysAndObjectsUsingBlock:^(NSString *uuid, Context *ctxt, BOOL *stop) {
 		NSNumber *conf = guesses[uuid];
         ctxt.confidence = (conf != nil) ? (conf) : (@0);
     }];
 
-	// XXX: hackish -- but will be enough until 3.0
-    // don't force data update if we're editing a context name
-	NSOutlineView *olv = [self valueForKey:@"outlineView"];
-	if ([olv currentEditor] == nil) {
-        [self triggerOutlineViewReloadData:nil];
-    }
+    [self triggerOutlineViewReloadData:nil];
 }
 
 #pragma mark -
@@ -361,6 +349,8 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
         if (returnCode == NSModalResponseOK) {
             [self createContextWithName:[self->newContextSheetName stringValue] fromUI:YES];
         }
+        
+//        [newContextSheetColor deactivate];
     }];
 }
 
@@ -610,8 +600,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 		[item setTitle:ctxt.name];
 		[item setIndentationLevel:[ctxt.depth intValue]];
 		[item setRepresentedObject:ctxt.uuid];
-		//[item setTarget:self];
-		//[item setAction:@selector(forceSwitch:)];
 		[menu addItem:item];
 	}
 
@@ -621,15 +609,11 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 #pragma mark NSOutlineViewDataSource general methods
 
 - (id)outlineView:(NSOutlineView *)olv child:(int)index ofItem:(id)item {
-	// TODO: optimise!
-
 	NSArray *children = [self childrenOfContext:(item ? [item uuid] : @"")];
 	return [children objectAtIndex:index];
 }
 
 - (NSInteger)outlineView:(NSOutlineView *)olv numberOfChildrenOfItem:(id)item {
-	// TODO: optimise!
-	
 	NSArray *children = [self childrenOfContext:(item ? [item uuid] : @"")];
 	return [children count];
 }
@@ -674,7 +658,6 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 	Context *ctxt = (Context *) item;
 	[ctxt setName:object];
 
-	//[self recomputeTransientData];
 	[self postContextsChangedNotification];
 }
 
@@ -734,11 +717,12 @@ static NSString *MovedRowsType = @"MOVED_ROWS_TYPE";
 #pragma mark NSOutlineView delegate methods
 
 - (void)triggerOutlineViewReloadData:(NSNotification *)notification {
-    NSOutlineView *strongOutlineView = outlineView;
-	[strongOutlineView reloadData];
+    
+    [outlineView performSelectorOnMainThread:NSSelectorFromString(@"reloadData") withObject:nil waitUntilDone:NO];
 }
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification {
+    
 	Context *ctxt = nil;
     NSOutlineView *strongOutlineView = outlineView;
 	NSInteger row = [strongOutlineView selectedRow];
