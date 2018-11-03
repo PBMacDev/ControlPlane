@@ -37,7 +37,7 @@
 	NSDate *startDate;
 	
 	// for custom panel
-	IBOutlet WebView *webView;
+    IBOutlet MKMapView *mapView;
 	NSString *address;
 	NSString *coordinates;
 	NSString *accuracy;
@@ -74,9 +74,6 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     
 	startDate = [NSDate date];
     
-    [webView setMaintainsBackForwardList:NO];
-    webView.frameLoadDelegate = self;
-    
 	locationManager = [[CLLocationManager alloc] init];
 	locationManager.delegate = self;
 	locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
@@ -104,10 +101,6 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     
 	[self setDataCollected:NO];
 	running = NO;
-    
-    webView.frameLoadDelegate = nil;
-    [webView.windowScriptObject setValue:nil forKey:@"cocoa"];
-	[webView.mainFrame loadHTMLString:@"" baseURL:nil];
 }
 
 - (NSMutableDictionary *)readFromPanel {
@@ -229,12 +222,6 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	[self setValue:add forKey:@"address"];
 }
 
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
-	if (running && (frame == [frame findFrameNamed:@"_top"])) {
-		[sender.windowScriptObject setValue:self forKey:@"cocoa"];
-	}
-}
-
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
 	if (selector == @selector(updateSelectedWithLatitude:andLongitude:)) {
 		return NO;
@@ -305,23 +292,19 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     }
     
 	// Get coordinates and replace placeholders with these
-    NSString *htmlPath = [NSBundle.mainBundle pathForResource:@"CoreLocationMap" ofType:@"html"];
-	NSString *htmlTemplate = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:NULL];
+//    NSString *htmlPath = [NSBundle.mainBundle pathForResource:@"CoreLocationMap" ofType:@"html"];
+//    NSString *htmlTemplate = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:NULL];
     
-#ifdef DEBUG_MODE
-    NSLog(@"htmlTemplate %@", htmlTemplate);
-#endif
-	NSString *htmlString = [NSString stringWithFormat:htmlTemplate,
-							(current ? current.coordinate.latitude : 0.0),
-							(current ? current.coordinate.longitude : 0.0),
-							(selectedRule ? selectedRule.coordinate.latitude : 0.0),
-							(selectedRule ? selectedRule.coordinate.longitude : 0.0),
-							(current ? current.horizontalAccuracy : 0.0)];
-#ifdef DEBUG_MODE
-	NSLog(@"htmlString is %@", htmlString);
-#endif
-	// Load the HTML in the WebView
-	[webView.mainFrame loadHTMLString:htmlString baseURL:nil];
+//    NSString *htmlString = [NSString stringWithFormat:htmlTemplate,
+//                            (current ? current.coordinate.latitude : 0.0),
+//                            (current ? current.coordinate.longitude : 0.0),
+//                            (selectedRule ? selectedRule.coordinate.latitude : 0.0),
+//                            (selectedRule ? selectedRule.coordinate.longitude : 0.0),
+//                            (current ? current.horizontalAccuracy : 0.0)];
+
+//    // Load the HTML in the WebView
+//    [webView.mainFrame loadHTMLString:htmlString baseURL:nil];
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(current.coordinate.latitude, current.coordinate.longitude)];
 }
 
 

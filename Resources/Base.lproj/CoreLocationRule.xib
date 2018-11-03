@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CoreLocationSource">
             <connections>
+                <outlet property="mapView" destination="ca5-6L-8xZ" id="2t9-k6-aOk"/>
                 <outlet property="negateRule" destination="aBx-kp-LAt" id="wg8-v2-MFo"/>
                 <outlet property="ruleConfidenceSlider" destination="24" id="27"/>
                 <outlet property="ruleContext" destination="35" id="49"/>
-                <outlet property="webView" destination="9" id="10"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -53,13 +53,6 @@ Gw
                             <action selector="closeSheetWithCancel:" target="-2" id="8"/>
                         </connections>
                     </button>
-                    <webView maintainsBackForwardList="NO" id="9">
-                        <rect key="frame" x="20" y="130" width="413" height="277"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                    </webView>
                     <textField verticalHuggingPriority="750" id="11">
                         <rect key="frame" x="17" y="418" width="85" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -197,6 +190,10 @@ Gw
                             <action selector="showCoreLocation:" target="-2" id="56"/>
                         </connections>
                     </button>
+                    <mapView mapType="standard" id="ca5-6L-8xZ">
+                        <rect key="frame" x="20" y="136" width="413" height="271"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </mapView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="138.5" y="147"/>

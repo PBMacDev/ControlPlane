@@ -10,9 +10,9 @@
 
 #import "EvidenceSource.h"
 #import <CoreLocation/CoreLocation.h>
-#import <WebKit/WebKit.h>
+#import <MapKit/MapKit.h>
 
-@interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate,WebFrameLoadDelegate>
+@interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate>
 
 - (id)init;
 - (void)start;
