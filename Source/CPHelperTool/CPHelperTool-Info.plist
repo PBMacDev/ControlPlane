@@ -9,10 +9,10 @@
 	<key>CFBundleName</key>
 	<string>CPHelperTool</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9.0</string>
 	<key>SMAuthorizedClients</key>
 	<array>
-		<string>identifier ua.in.pboyko.ControlPlaneX and certificate leaf[subject.CN] = &quot;Developer ID Application: Dustin Rue&quot;</string>
+		<string>identifier "ua.in.pboyko.ControlPlaneX" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: Pavel Boyko (EV62L6XKAV)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</array>
 </dict>
 </plist>

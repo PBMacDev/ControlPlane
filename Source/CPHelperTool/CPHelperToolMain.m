@@ -1,6 +1,6 @@
 /*
-     File: Common.h
- Abstract: Code shared between app and helper tool.
+     File: main.m
+ Abstract: Privileged helper tool main.
   Version: 1.0
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
@@ -45,16 +45,24 @@
  
  */
 
-#include <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
-// Common implements some code that's needed by both the app and the helper tool.
+#import "CPHelperTool.h"
 
-@interface CPHelperToolCommon : NSObject
+int main(int argc, char **argv)
+{
+    #pragma unused(argc)
+    #pragma unused(argv)
 
-+ (NSString *)authorizationRightForCommand:(SEL)command;
-    // For a given command selector, return the associated authorization right name.
-
-+ (void)setupAuthorizationRights:(AuthorizationRef)authRef;
-    // Set up the default authorization rights in the authorization database.
-
-@end
+    // We just create and start an instance of the main helper tool object and then 
+    // have it run the run loop forever.
+    
+    @autoreleasepool {
+        CPHelperTool *  m;
+        
+        m = [[CPHelperTool alloc] init];
+        [m run];                // This never comes back...
+    }
+    
+	return EXIT_FAILURE;        // ... so this should never be hit.
+}

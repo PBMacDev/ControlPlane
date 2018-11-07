@@ -94,7 +94,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>ua.in.pboyko.CPHelperTool</key>
-		<string>identifier ua.in.pboyko.CPHelperTool and certificate leaf[subject.CN] = "Developer ID Application: Dustin Rue"</string>
+		<string>identifier "ua.in.pboyko.CPHelperTool" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: Pavel Boyko (EV62L6XKAV)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</dict>
 </dict>
 </plist>

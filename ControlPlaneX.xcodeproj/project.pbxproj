@@ -21,17 +21,14 @@
 		7C8574F116FB53180081659A /* ServerAddressRuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8574F016FB53180081659A /* ServerAddressRuleType.m */; };
 		7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6847617947E2200563601 /* LaptopLidEvidenceSource.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8D1493F70C824B6D00D29FE8 /* BonjourEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */; };
 		8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A45590BA00DE2004A6BC4 /* minus-8.png */; };
 		8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A455A0BA00DE2004A6BC4 /* plus-8.png */; };
 		8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */; };
 		8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAAAB0C56E26100A50777 /* NetworkLinkEvidenceSource.m */; };
 		8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D38B66A0C49D50200290F47 /* SliderWithValue.m */; };
-		8D3BFFB20C61CA5300B9B910 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D3BFFB10C61CA5300B9B910 /* WebKit.framework */; };
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
 		8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D481B070B6098DD0097CF9C /* IOKit.framework */; };
-		8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D57B1430C4457AB00EC620D /* CoreAudio.framework */; };
 		8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */; };
 		8D643CDD0C4EF6FD006D8ECC /* LoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643CDB0C4EF6FD006D8ECC /* LoopingEvidenceSource.m */; };
 		8D649BA50BE8033A00716059 /* ToggleWiFiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D649BA30BE8033A00716059 /* ToggleWiFiAction.m */; };
@@ -46,7 +43,6 @@
 		8D82F06D0AA811CE009ADA44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D82F05B0AA811CE009ADA44 /* SystemConfiguration.framework */; };
 		8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */; };
 		8D88FE2A0C534737007A14D6 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D88FE290C534737007A14D6 /* pause.png */; };
-		8D8C9BAB0BBB3ADB0074D5B3 /* Apple80211.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8C9BA90BBB3ADB0074D5B3 /* Apple80211.framework */; };
 		8D8C9CA60BBB74E70074D5B3 /* EvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */; };
 		8D8C9CE70BBB7BE00074D5B3 /* BluetoothEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CE50BBB7BE00074D5B3 /* BluetoothEvidenceSource.m */; };
 		8D8C9E350BBB89320074D5B3 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9E330BBB89320074D5B3 /* DB.m */; };
@@ -88,6 +84,15 @@
 		A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A021860E0900CA9C13 /* CoreWLAN.framework */; };
 		A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A821872EB600CA9C13 /* UserNotifications.framework */; };
 		A7A49E28218B56C900775312 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A49E27218B56C900775312 /* Images.xcassets */; };
+		A7A49E2D218D93EA00775312 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E2C218D93EA00775312 /* AppKit.framework */; };
+		A7A49E2F218E35D600775312 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E2E218E35D600775312 /* AudioToolbox.framework */; };
+		A7A49E31218E35EF00775312 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E30218E35EF00775312 /* CoreAudio.framework */; };
+		A7A49E34218E362700775312 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E33218E362700775312 /* CoreLocation.framework */; };
+		A7A49E3E218EDC6200775312 /* CPHelperToolCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E3D218EDC6200775312 /* CPHelperToolCommon.m */; };
+		A7A49E3F218EDD1A00775312 /* CPHelperToolCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E3D218EDC6200775312 /* CPHelperToolCommon.m */; };
+		A7A49E43218EDDCB00775312 /* CPHelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E40218EDDCB00775312 /* CPHelperTool.m */; };
+		A7A49E44218EDDCB00775312 /* CPHelperToolMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */; };
+		A7A49E46218FA14800775312 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E45218FA14800775312 /* Foundation.framework */; };
 		DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */; };
 		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
@@ -102,12 +107,6 @@
 		DA4A629513E25C9D00CE976F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = DA4A629413E25C9D00CE976F /* Credits.html */; };
 		DA4ED9C41520055100E6A8CE /* ToggleNaturalScrollingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ED9C31520055100E6A8CE /* ToggleNaturalScrollingAction.m */; };
 		DA571B71151587B80074CE22 /* ToggleFileSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA571B70151587B80074CE22 /* ToggleFileSharingAction.m */; };
-		DA5B01E61412B86400E19C50 /* CPHelperInstallTool in CopyFiles */ = {isa = PBXBuildFile; fileRef = DA5B01D71412B6A700E19C50 /* CPHelperInstallTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		DA5B01F31412BAEC00E19C50 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B01F21412BAEC00E19C50 /* BetterAuthorizationSampleLib.c */; };
-		DA5B01F61412BB0D00E19C50 /* BetterAuthorizationSampleLibInstallTool.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B01F41412BAF400E19C50 /* BetterAuthorizationSampleLibInstallTool.c */; };
-		DA5B020A1412BBF200E19C50 /* CPHelperTool.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B02091412BBF200E19C50 /* CPHelperTool.c */; };
-		DA5B020C1412BDEF00E19C50 /* CPHelperToolCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */; };
-		DA5C34621BA478150023FF41 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B01F21412BAEC00E19C50 /* BetterAuthorizationSampleLib.c */; };
 		DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8274FA141177750098FA6E /* Security.framework */; };
 		DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */; };
 		DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */; };
@@ -119,7 +118,6 @@
 		DA83A21D13D0FE8F00074503 /* CoreWLANEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */; };
 		DA83A22713D1430000074503 /* usb-vendors.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22613D1430000074503 /* usb-vendors.txt */; };
 		DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */; };
-		DA8E2833156B498A0040FC35 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8E2832156B498A0040FC35 /* ApplicationServices.framework */; };
 		DA8E283F156BCAD50040FC35 /* ToggleRemoteLoginAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E283E156BCAD50040FC35 /* ToggleRemoteLoginAction.m */; };
 		DA922E9D144FC95200920B40 /* ToggleInternetSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922E9C144FC95200920B40 /* ToggleInternetSharingAction.m */; };
 		DA9957EA160D4BA300AB3C7A /* StressTestEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */; };
@@ -128,7 +126,6 @@
 		DAAA7FAB1953DE0500C06DBB /* PreventSystemSleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FA91953DE0500C06DBB /* PreventSystemSleepAction.m */; };
 		DAAA7FAE1953E2C500C06DBB /* MountedVolumeEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FAD1953E2C500C06DBB /* MountedVolumeEvidenceSource.m */; };
 		DAAF16B61413174400F5D915 /* ToggleTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF16B51413174400F5D915 /* ToggleTimeMachineAction.m */; };
-		DAAF16B714131CDE00F5D915 /* CPHelperToolCommon.c in Sources */ = {isa = PBXBuildFile; fileRef = DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */; };
 		DAB1A7E215C3776D00CF65E8 /* CPNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1A7E115C3776D00CF65E8 /* CPNotifications.m */; };
 		DABE3F6A16C44236004F5E63 /* OpenAndHideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DABE3F6916C44236004F5E63 /* OpenAndHideAction.m */; };
 		DABF656617910AB600AA5B86 /* CPSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF656517910AB600AA5B86 /* CPSystemInfo.m */; };
@@ -137,18 +134,14 @@
 		DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */; };
 		DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */; };
 		DACE6D4B159BFC1D00FEE37E /* CPHelperTool-Launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */; };
-		DACE6D4E159C055C00FEE37E /* com.dustinrue.CPHelperTool in Copy Launch Services */ = {isa = PBXBuildFile; fileRef = DA5B01FB1412BB1700E19C50 /* com.dustinrue.CPHelperTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		DACE6D4E159C055C00FEE37E /* ua.in.pboyko.CPHelperTool in Copy Launch Services */ = {isa = PBXBuildFile; fileRef = DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		DADFF79715D96CBC00DEF412 /* ToggleNotificationCenterAlertsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DADFF79615D96CBC00DEF412 /* ToggleNotificationCenterAlertsAction.m */; };
 		DAE893EE1454FFFB005FA13C /* ToggleFirewallAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE893E514546897005FA13C /* ToggleFirewallAction.m */; };
 		DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD827506141188880098FA6E /* DisplayBrightnessAction.m */; };
 		DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */; };
 		DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DAFC0E4614788B0500DA6139 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */; };
-		DD06E811140C661700059764 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD06E810140C661600059764 /* AudioToolbox.framework */; };
-		DD44B57E141417E40016BF6B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD44B57D141417E40016BF6B /* CoreServices.framework */; };
-		DD6FCC691413EF6B0095E64F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6FCC681413EF6B0095E64F /* CoreLocation.framework */; };
 		DD7D2539149C338300BE7C8B /* NSTimer+Invalidation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */; };
-		DD8274E6141147BB0098FA6E /* controlplane.icns in Resources */ = {isa = PBXBuildFile; fileRef = DD8274E5141147BB0098FA6E /* controlplane.icns */; };
 		DD8274F0141154780098FA6E /* MailIntervalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274EF141154780098FA6E /* MailIntervalAction.m */; };
 		DD8274F314115EE50098FA6E /* StartTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F214115EE40098FA6E /* StartTimeMachineAction.m */; };
 		DD8274F614116CC90098FA6E /* OpenURLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F514116CC80098FA6E /* OpenURLAction.m */; };
@@ -162,18 +155,10 @@
 		DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */; };
 		DDDF1C2F1411E08000DB0018 /* ITunesPlaylistAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2E1411E07F00DB0018 /* ITunesPlaylistAction.m */; };
 		DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */ = {isa = PBXBuildFile; fileRef = DDE1B067140438DB006564A6 /* ControlPlane.sdef */; };
-		DDF4E595141588E80028DF4A /* CoreLocationMap.html in Resources */ = {isa = PBXBuildFile; fileRef = DDF4E594141588E80028DF4A /* CoreLocationMap.html */; };
 		DDFF423114156B0A0047D311 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = DDFF423014156B0A0047D311 /* location.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DA5B01E21412B78900E19C50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA5B01D61412B6A700E19C50;
-			remoteInfo = CPHelperInstallTool;
-		};
 		DA5B02061412BB3A00E19C50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -228,22 +213,12 @@
 			name = "Copy Action Plugins";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA5B01D51412B6A700E19C50 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		DA5B01E51412B85600E19C50 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				DA5B01E61412B86400E19C50 /* CPHelperInstallTool in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +237,7 @@
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				DACE6D4E159C055C00FEE37E /* com.dustinrue.CPHelperTool in Copy Launch Services */,
+				DACE6D4E159C055C00FEE37E /* ua.in.pboyko.CPHelperTool in Copy Launch Services */,
 			);
 			name = "Copy Launch Services";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,11 +245,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
-		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		5DCCE0B91CA4870100FACF9F /* ScrollBarsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollBarsAction.h; path = Source/ScrollBarsAction.h; sourceTree = "<group>"; };
 		5DCCE0BA1CA4870100FACF9F /* ScrollBarsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollBarsAction.m; path = Source/ScrollBarsAction.m; sourceTree = "<group>"; };
 		640E7DBE1C1C983400045672 /* ScreenLockEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenLockEvidenceSource.h; path = Source/ScreenLockEvidenceSource.h; sourceTree = "<group>"; };
@@ -306,7 +277,6 @@
 		8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = BonjourEvidenceSource.m; path = Source/BonjourEvidenceSource.m; sourceTree = "<group>"; };
 		8D1A45590BA00DE2004A6BC4 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minus-8.png"; path = "Resources/minus-8.png"; sourceTree = "<group>"; };
 		8D1A455A0BA00DE2004A6BC4 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-8.png"; path = "Resources/plus-8.png"; sourceTree = "<group>"; };
-		8D20720E0B86AB0000D61A9E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		8D27ECAD0C4456A300AE1929 /* AudioOutputEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AudioOutputEvidenceSource.h; path = Source/AudioOutputEvidenceSource.h; sourceTree = "<group>"; };
 		8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AudioOutputEvidenceSource.m; path = Source/AudioOutputEvidenceSource.m; sourceTree = "<group>"; };
 		8D2BAAAA0C56E26100A50777 /* NetworkLinkEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NetworkLinkEvidenceSource.h; path = Source/NetworkLinkEvidenceSource.h; sourceTree = "<group>"; };
@@ -317,13 +287,11 @@
 		8D35A34D0BBBA0CB006ACBB0 /* USBEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = USBEvidenceSource.m; path = Source/USBEvidenceSource.m; sourceTree = "<group>"; };
 		8D38B6690C49D50200290F47 /* SliderWithValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SliderWithValue.h; path = Source/SliderWithValue.h; sourceTree = "<group>"; };
 		8D38B66A0C49D50200290F47 /* SliderWithValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SliderWithValue.m; path = Source/SliderWithValue.m; sourceTree = "<group>"; };
-		8D3BFFB10C61CA5300B9B910 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		8D3C85120CDD8546009DBCD9 /* ScreenSaverStartAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ScreenSaverStartAction.h; path = Source/ScreenSaverStartAction.h; sourceTree = "<group>"; };
 		8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ScreenSaverStartAction.m; path = Source/ScreenSaverStartAction.m; sourceTree = "<group>"; };
 		8D481B070B6098DD0097CF9C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		8D5684B20C38711D00881E32 /* MonitorEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MonitorEvidenceSource.h; path = Source/MonitorEvidenceSource.h; sourceTree = "<group>"; };
 		8D5684B30C38711D00881E32 /* MonitorEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MonitorEvidenceSource.m; path = Source/MonitorEvidenceSource.m; sourceTree = "<group>"; };
-		8D57B1430C4457AB00EC620D /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
 		8D643C650C4EF197006D8ECC /* GenericLoopingEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericLoopingEvidenceSource.h; path = Source/GenericLoopingEvidenceSource.h; sourceTree = "<group>"; };
 		8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericLoopingEvidenceSource.m; path = Source/GenericLoopingEvidenceSource.m; sourceTree = "<group>"; };
 		8D643CDA0C4EF6FD006D8ECC /* LoopingEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = LoopingEvidenceSource.h; path = Source/LoopingEvidenceSource.h; sourceTree = "<group>"; };
@@ -347,7 +315,6 @@
 		8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PrefsWindowController.m; path = Source/PrefsWindowController.m; sourceTree = "<group>"; };
 		8D88FE290C534737007A14D6 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		8D8C9BA70BBB3AAC0074D5B3 /* Apple80211.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Apple80211.h; path = Source/Apple80211.h; sourceTree = "<group>"; };
-		8D8C9BA90BBB3ADB0074D5B3 /* Apple80211.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apple80211.framework; path = /System/Library/PrivateFrameworks/Apple80211.framework; sourceTree = "<absolute>"; };
 		8D8C9CA30BBB74E70074D5B3 /* EvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvidenceSource.h; path = Source/EvidenceSource.h; sourceTree = "<group>"; };
 		8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvidenceSource.m; path = Source/EvidenceSource.m; sourceTree = "<group>"; };
 		8D8C9CE40BBB7BE00074D5B3 /* BluetoothEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BluetoothEvidenceSource.h; path = Source/BluetoothEvidenceSource.h; sourceTree = "<group>"; };
@@ -417,6 +384,17 @@
 		A79414A021860E0900CA9C13 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		A79414A821872EB600CA9C13 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A7A49E27218B56C900775312 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ControlPlaneX/Images.xcassets; sourceTree = "<group>"; };
+		A7A49E2C218D93EA00775312 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A7A49E2E218E35D600775312 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A7A49E30218E35EF00775312 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A7A49E33218E362700775312 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A7A49E35218E36AA00775312 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		A7A49E3C218EDC6200775312 /* CPHelperToolCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHelperToolCommon.h; sourceTree = "<group>"; };
+		A7A49E3D218EDC6200775312 /* CPHelperToolCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHelperToolCommon.m; sourceTree = "<group>"; };
+		A7A49E40218EDDCB00775312 /* CPHelperTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHelperTool.m; sourceTree = "<group>"; };
+		A7A49E41218EDDCB00775312 /* CPHelperTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHelperTool.h; sourceTree = "<group>"; };
+		A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHelperToolMain.m; sourceTree = "<group>"; };
+		A7A49E45218FA14800775312 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA04D57015DC119E004B9E1C /* ToggleContextStickinessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleContextStickinessAction.h; path = Source/ToggleContextStickinessAction.h; sourceTree = "<group>"; };
 		DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleContextStickinessAction.m; path = Source/ToggleContextStickinessAction.m; sourceTree = "<group>"; };
 		DA07C10E18FE04A3008FE8B5 /* ContextEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextEvidenceSource.h; path = Source/ContextEvidenceSource.h; sourceTree = "<group>"; };
@@ -426,7 +404,6 @@
 		DA0E648515EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachedPowerAdapterEvidenceSource.m; path = Source/AttachedPowerAdapterEvidenceSource.m; sourceTree = "<group>"; };
 		DA0E648715EC707300E77ABF /* AttachedPowerAdapterEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachedPowerAdapterEvidenceSource.h; path = Source/AttachedPowerAdapterEvidenceSource.h; sourceTree = "<group>"; };
 		DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ControlPlaneX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA1E59D11673A039002D256D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		DA2523BB1968601400F717FC /* ConnectBluetoothDeviceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectBluetoothDeviceAction.h; path = Source/ConnectBluetoothDeviceAction.h; sourceTree = "<group>"; };
 		DA2523BC1968601400F717FC /* ConnectBluetoothDeviceAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConnectBluetoothDeviceAction.m; path = Source/ConnectBluetoothDeviceAction.m; sourceTree = "<group>"; };
 		DA2B437F152161C800E94A1D /* ToggleTFTPAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleTFTPAction.h; path = Source/ToggleTFTPAction.h; sourceTree = "<group>"; };
@@ -446,14 +423,10 @@
 		DA4ED9C31520055100E6A8CE /* ToggleNaturalScrollingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleNaturalScrollingAction.m; path = Source/ToggleNaturalScrollingAction.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		DA571B6F151587B80074CE22 /* ToggleFileSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleFileSharingAction.h; path = Source/ToggleFileSharingAction.h; sourceTree = "<group>"; };
 		DA571B70151587B80074CE22 /* ToggleFileSharingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleFileSharingAction.m; path = Source/ToggleFileSharingAction.m; sourceTree = "<group>"; };
-		DA5B01D71412B6A700E19C50 /* CPHelperInstallTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPHelperInstallTool; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA5B01EB1412BA6700E19C50 /* BetterAuthorizationSampleLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetterAuthorizationSampleLib.h; sourceTree = "<group>"; };
-		DA5B01F21412BAEC00E19C50 /* BetterAuthorizationSampleLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BetterAuthorizationSampleLib.c; sourceTree = "<group>"; };
-		DA5B01F41412BAF400E19C50 /* BetterAuthorizationSampleLibInstallTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BetterAuthorizationSampleLibInstallTool.c; sourceTree = "<group>"; };
-		DA5B01FB1412BB1700E19C50 /* com.dustinrue.CPHelperTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.dustinrue.CPHelperTool; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA5B02091412BBF200E19C50 /* CPHelperTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPHelperTool.c; sourceTree = "<group>"; };
-		DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CPHelperToolCommon.c; sourceTree = "<group>"; };
-		DA5B020E1412BE4F00E19C50 /* CPHelperToolCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHelperToolCommon.h; sourceTree = "<group>"; };
+		DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ua.in.pboyko.CPHelperTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5B02091412BBF200E19C50 /* CPHelperTool(Old).c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "CPHelperTool(Old).c"; sourceTree = "<group>"; };
+		DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon(Old).c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "CPHelperToolCommon(Old).c"; sourceTree = "<group>"; };
+		DA5B020E1412BE4F00E19C50 /* CPHelperToolCommon(Old).h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPHelperToolCommon(Old).h"; sourceTree = "<group>"; };
 		DA69D7E017BD04C30062FBBC /* HostAvailabilityEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HostAvailabilityEvidenceSource.h; path = Source/HostAvailabilityEvidenceSource.h; sourceTree = "<group>"; };
 		DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostAvailabilityEvidenceSource.m; path = Source/HostAvailabilityEvidenceSource.m; sourceTree = "<group>"; };
 		DA72BFF415019D8C003072C6 /* CPBonjourResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPBonjourResolver.h; path = Source/CPBonjourResolver.h; sourceTree = "<group>"; };
@@ -465,14 +438,11 @@
 		DA7EAF4515D9F7F2008DF67C /* ActiveApplicationEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveApplicationEvidenceSource.h; path = Source/ActiveApplicationEvidenceSource.h; sourceTree = "<group>"; };
 		DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveApplicationEvidenceSource.m; path = Source/ActiveApplicationEvidenceSource.m; sourceTree = "<group>"; };
 		DA7EAF5A19F2EB2800DF6F54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DA7EAF5E19F2EB4600DF6F54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		DA80EC4B17681C5000EAEBFF /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		DA812E81140681D2006869F7 /* AppleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleScript.h; path = Source/AppleScript.h; sourceTree = "<group>"; };
 		DA812E82140681D2006869F7 /* AppleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleScript.m; path = Source/AppleScript.m; sourceTree = "<group>"; };
 		DA83A21B13D0FE8F00074503 /* CoreWLANEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreWLANEvidenceSource.h; path = Source/CoreWLANEvidenceSource.h; sourceTree = "<group>"; };
 		DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreWLANEvidenceSource.m; path = Source/CoreWLANEvidenceSource.m; sourceTree = "<group>"; };
 		DA83A22613D1430000074503 /* usb-vendors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "usb-vendors.txt"; path = "Resources/usb-vendors.txt"; sourceTree = "<group>"; };
-		DA8E2832156B498A0040FC35 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		DA8E283D156BCAD50040FC35 /* ToggleRemoteLoginAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleRemoteLoginAction.h; path = Source/ToggleRemoteLoginAction.h; sourceTree = "<group>"; };
 		DA8E283E156BCAD50040FC35 /* ToggleRemoteLoginAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleRemoteLoginAction.m; path = Source/ToggleRemoteLoginAction.m; sourceTree = "<group>"; };
 		DA922E9B144FC95200920B40 /* ToggleInternetSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleInternetSharingAction.h; path = Source/ToggleInternetSharingAction.h; sourceTree = "<group>"; };
@@ -511,12 +481,8 @@
 		DAF7F83E1749BB6A002BB402 /* EvidenceSourcePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvidenceSourcePlugin.h; path = Source/EvidenceSourcePlugin.h; sourceTree = "<group>"; };
 		DAF7F83F1749BB90002BB402 /* ActionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionPlugin.h; path = Source/ActionPlugin.h; sourceTree = "<group>"; };
 		DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DisplayServices.framework; path = /System/Library/PrivateFrameworks/DisplayServices.framework; sourceTree = "<absolute>"; };
-		DD06E810140C661600059764 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		DD44B57D141417E40016BF6B /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		DD6FCC681413EF6B0095E64F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DD7D2537149C338200BE7C8B /* NSTimer+Invalidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Invalidation.h"; path = "Source/NSTimer+Invalidation.h"; sourceTree = "<group>"; };
 		DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Invalidation.m"; path = "Source/NSTimer+Invalidation.m"; sourceTree = "<group>"; };
-		DD8274E5141147BB0098FA6E /* controlplane.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = controlplane.icns; path = Resources/controlplane.icns; sourceTree = "<group>"; };
 		DD8274EE141154780098FA6E /* MailIntervalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailIntervalAction.h; path = Source/MailIntervalAction.h; sourceTree = "<group>"; };
 		DD8274EF141154780098FA6E /* MailIntervalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailIntervalAction.m; path = Source/MailIntervalAction.m; sourceTree = "<group>"; };
 		DD8274F114115EE40098FA6E /* StartTimeMachineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartTimeMachineAction.h; path = Source/StartTimeMachineAction.h; sourceTree = "<group>"; };
@@ -544,7 +510,6 @@
 		DDDF1C2D1411E07F00DB0018 /* ITunesPlaylistAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITunesPlaylistAction.h; path = Source/ITunesPlaylistAction.h; sourceTree = "<group>"; };
 		DDDF1C2E1411E07F00DB0018 /* ITunesPlaylistAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITunesPlaylistAction.m; path = Source/ITunesPlaylistAction.m; sourceTree = "<group>"; };
 		DDE1B067140438DB006564A6 /* ControlPlane.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ControlPlane.sdef; path = Resources/ControlPlane.sdef; sourceTree = "<group>"; };
-		DDF4E594141588E80028DF4A /* CoreLocationMap.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = CoreLocationMap.html; path = Resources/CoreLocationMap.html; sourceTree = "<group>"; };
 		DDFF423014156B0A0047D311 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = Resources/location.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -553,29 +518,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A49E34218E362700775312 /* CoreLocation.framework in Frameworks */,
+				A7A49E31218E35EF00775312 /* CoreAudio.framework in Frameworks */,
+				A7A49E2F218E35D600775312 /* AudioToolbox.framework in Frameworks */,
+				A7A49E2D218D93EA00775312 /* AppKit.framework in Frameworks */,
 				A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */,
 				A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */,
 				DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */,
-				DA8E2833156B498A0040FC35 /* ApplicationServices.framework in Frameworks */,
-				8D8C9BAB0BBB3ADB0074D5B3 /* Apple80211.framework in Frameworks */,
-				DD06E811140C661700059764 /* AudioToolbox.framework in Frameworks */,
-				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				8D57B1440C4457AB00EC620D /* CoreAudio.framework in Frameworks */,
-				DD6FCC691413EF6B0095E64F /* CoreLocation.framework in Frameworks */,
 				DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */,
 				DAFC0E4614788B0500DA6139 /* IOBluetooth.framework in Frameworks */,
 				8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */,
 				DDAC3C55140D866200FBF29E /* ScriptingBridge.framework in Frameworks */,
 				DD8274FB141177750098FA6E /* Security.framework in Frameworks */,
 				8D82F06D0AA811CE009ADA44 /* SystemConfiguration.framework in Frameworks */,
-				8D3BFFB20C61CA5300B9B910 /* WebKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DA5B01D41412B6A700E19C50 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +538,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD44B57E141417E40016BF6B /* CoreServices.framework in Frameworks */,
+				A7A49E46218FA14800775312 /* Foundation.framework in Frameworks */,
 				DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,29 +578,9 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DA80EC4B17681C5000EAEBFF /* libcups.dylib */,
-				DA1E59D11673A039002D256D /* Growl.framework */,
-				8D20720E0B86AB0000D61A9E /* Sparkle.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
 		1058C7A2FEA54F0111CA2CBB /* Apple Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				8D8C9BA90BBB3ADB0074D5B3 /* Apple80211.framework */,
-				DA8E2832156B498A0040FC35 /* ApplicationServices.framework */,
-				DD06E810140C661600059764 /* AudioToolbox.framework */,
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				8D57B1430C4457AB00EC620D /* CoreAudio.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				DD6FCC681413EF6B0095E64F /* CoreLocation.framework */,
-				DD44B57D141417E40016BF6B /* CoreServices.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */,
 				8D481B070B6098DD0097CF9C /* IOKit.framework */,
 				DA48F2E3140AD2FC00B000D3 /* Kernel.framework */,
@@ -653,7 +588,6 @@
 				DD8274FA141177750098FA6E /* Security.framework */,
 				DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */,
 				8D82F05B0AA811CE009ADA44 /* SystemConfiguration.framework */,
-				8D3BFFB10C61CA5300B9B910 /* WebKit.framework */,
 			);
 			name = "Apple Frameworks";
 			sourceTree = "<group>";
@@ -662,8 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */,
-				DA5B01D71412B6A700E19C50 /* CPHelperInstallTool */,
-				DA5B01FB1412BB1700E19C50 /* com.dustinrue.CPHelperTool */,
+				DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -699,9 +632,7 @@
 				DAA9ABFE1595FDE700B84B05 /* README.md */,
 				DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */,
 				DA4A629213E2546800CE976F /* ControlPlane Help */,
-				DD8274E5141147BB0098FA6E /* controlplane.icns */,
 				DDE1B067140438DB006564A6 /* ControlPlane.sdef */,
-				DDF4E594141588E80028DF4A /* CoreLocationMap.html */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				DDFF423014156B0A0047D311 /* location.png */,
@@ -718,14 +649,18 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A79414A821872EB600CA9C13 /* UserNotifications.framework */,
-				A79414A021860E0900CA9C13 /* CoreWLAN.framework */,
-				DA7EAF5E19F2EB4600DF6F54 /* QuartzCore.framework */,
-				DA7EAF5A19F2EB2800DF6F54 /* CoreGraphics.framework */,
-				DAFC0E4014788A6000DA6139 /* Apple Private Frameworks */,
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Apple Frameworks */,
+				A7A49E45218FA14800775312 /* Foundation.framework */,
+				A7A49E2E218E35D600775312 /* AudioToolbox.framework */,
+				A7A49E2C218D93EA00775312 /* AppKit.framework */,
 				DA94BE8E15CA1B6E00ED2AB2 /* CoreFoundation.framework */,
+				DA7EAF5A19F2EB2800DF6F54 /* CoreGraphics.framework */,
+				A7A49E35218E36AA00775312 /* CoreServices.framework */,
+				A7A49E33218E362700775312 /* CoreLocation.framework */,
+				A7A49E30218E35EF00775312 /* CoreAudio.framework */,
+				A79414A021860E0900CA9C13 /* CoreWLAN.framework */,
+				A79414A821872EB600CA9C13 /* UserNotifications.framework */,
+				DAFC0E4014788A6000DA6139 /* Apple Private Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Apple Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -890,23 +825,17 @@
 			children = (
 				DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */,
 				DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */,
-				DA5B01EA1412BA6700E19C50 /* AuthorizationLib */,
-				DA5B01F41412BAF400E19C50 /* BetterAuthorizationSampleLibInstallTool.c */,
-				DA5B02091412BBF200E19C50 /* CPHelperTool.c */,
-				DA5B020E1412BE4F00E19C50 /* CPHelperToolCommon.h */,
-				DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon.c */,
+				DA5B02091412BBF200E19C50 /* CPHelperTool(Old).c */,
+				DA5B020E1412BE4F00E19C50 /* CPHelperToolCommon(Old).h */,
+				DA5B020B1412BDEF00E19C50 /* CPHelperToolCommon(Old).c */,
+				A7A49E3C218EDC6200775312 /* CPHelperToolCommon.h */,
+				A7A49E3D218EDC6200775312 /* CPHelperToolCommon.m */,
+				A7A49E41218EDDCB00775312 /* CPHelperTool.h */,
+				A7A49E40218EDDCB00775312 /* CPHelperTool.m */,
+				A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */,
 			);
 			name = HelperTool;
 			path = Source/CPHelperTool;
-			sourceTree = "<group>";
-		};
-		DA5B01EA1412BA6700E19C50 /* AuthorizationLib */ = {
-			isa = PBXGroup;
-			children = (
-				DA5B01F21412BAEC00E19C50 /* BetterAuthorizationSampleLib.c */,
-				DA5B01EB1412BA6700E19C50 /* BetterAuthorizationSampleLib.h */,
-			);
-			path = AuthorizationLib;
 			sourceTree = "<group>";
 		};
 		DA94BE8815CA1B0300ED2AB2 /* Plugins */ = {
@@ -1089,7 +1018,6 @@
 			);
 			dependencies = (
 				DA5B02071412BB3A00E19C50 /* PBXTargetDependency */,
-				DA5B01E31412B78900E19C50 /* PBXTargetDependency */,
 			);
 			name = ControlPlaneX;
 			productInstallPath = "$(HOME)/Applications";
@@ -1097,26 +1025,9 @@
 			productReference = DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DA5B01D61412B6A700E19C50 /* CPHelperInstallTool */ = {
+		DA5B01FA1412BB1700E19C50 /* CPHelperTool */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA5B01DE1412B6A700E19C50 /* Build configuration list for PBXNativeTarget "CPHelperInstallTool" */;
-			buildPhases = (
-				DA5B01D31412B6A700E19C50 /* Sources */,
-				DA5B01D41412B6A700E19C50 /* Frameworks */,
-				DA5B01D51412B6A700E19C50 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CPHelperInstallTool;
-			productName = CPHelperInstallTool;
-			productReference = DA5B01D71412B6A700E19C50 /* CPHelperInstallTool */;
-			productType = "com.apple.product-type.tool";
-		};
-		DA5B01FA1412BB1700E19C50 /* com.dustinrue.CPHelperTool */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA5B02021412BB1800E19C50 /* Build configuration list for PBXNativeTarget "com.dustinrue.CPHelperTool" */;
+			buildConfigurationList = DA5B02021412BB1800E19C50 /* Build configuration list for PBXNativeTarget "CPHelperTool" */;
 			buildPhases = (
 				DA5B01F71412BB1700E19C50 /* Sources */,
 				DA5B01F81412BB1700E19C50 /* Frameworks */,
@@ -1126,9 +1037,9 @@
 			);
 			dependencies = (
 			);
-			name = com.dustinrue.CPHelperTool;
+			name = CPHelperTool;
 			productName = CPHelperTool;
-			productReference = DA5B01FB1412BB1700E19C50 /* com.dustinrue.CPHelperTool */;
+			productReference = DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -1175,8 +1086,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* ControlPlaneX */,
-				DA5B01D61412B6A700E19C50 /* CPHelperInstallTool */,
-				DA5B01FA1412BB1700E19C50 /* com.dustinrue.CPHelperTool */,
+				DA5B01FA1412BB1700E19C50 /* CPHelperTool */,
 			);
 		};
 /* End PBXProject section */
@@ -1224,10 +1134,8 @@
 				A71CB2B12183B07F0061014D /* TimeOfDayRule.xib in Resources */,
 				DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */,
 				A71CB2AE2183B07F0061014D /* CPHelperToolAuthorizationPrompts.strings in Resources */,
-				DD8274E6141147BB0098FA6E /* controlplane.icns in Resources */,
 				DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */,
 				DDFF423114156B0A0047D311 /* location.png in Resources */,
-				DDF4E595141588E80028DF4A /* CoreLocationMap.html in Resources */,
 				A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */,
 				DAA9ABFF1595FDE700B84B05 /* README.md in Resources */,
 				A71CB2B22183B07F0061014D /* Localizable.strings in Resources */,
@@ -1278,10 +1186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A49E3F218EDD1A00775312 /* CPHelperToolCommon.m in Sources */,
 				DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */,
 				DAE893EE1454FFFB005FA13C /* ToggleFirewallAction.m in Sources */,
 				DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */,
-				DAAF16B714131CDE00F5D915 /* CPHelperToolCommon.c in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */,
 				8D90E51F0B71C4C9007D39FD /* CPController.m in Sources */,
@@ -1340,7 +1248,6 @@
 				DD8274FE14117C590098FA6E /* SpeakAction.m in Sources */,
 				DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */,
 				DDDF1C2F1411E08000DB0018 /* ITunesPlaylistAction.m in Sources */,
-				DA5B01F31412BAEC00E19C50 /* BetterAuthorizationSampleLib.c in Sources */,
 				DAAF16B61413174400F5D915 /* ToggleTimeMachineAction.m in Sources */,
 				DDAEFFFB1414714F00FDADE8 /* Action+HelperTool.m in Sources */,
 				DDAE0017141474DC00FDADE8 /* CPController+SleepMonitor.m in Sources */,
@@ -1383,35 +1290,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA5B01D31412B6A700E19C50 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA5B01F61412BB0D00E19C50 /* BetterAuthorizationSampleLibInstallTool.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DA5B01F71412BB1700E19C50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5C34621BA478150023FF41 /* BetterAuthorizationSampleLib.c in Sources */,
-				DA5B020A1412BBF200E19C50 /* CPHelperTool.c in Sources */,
-				DA5B020C1412BDEF00E19C50 /* CPHelperToolCommon.c in Sources */,
+				A7A49E43218EDDCB00775312 /* CPHelperTool.m in Sources */,
+				A7A49E3E218EDC6200775312 /* CPHelperToolCommon.m in Sources */,
+				A7A49E44218EDDCB00775312 /* CPHelperToolMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DA5B01E31412B78900E19C50 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA5B01D61412B6A700E19C50 /* CPHelperInstallTool */;
-			targetProxy = DA5B01E21412B78900E19C50 /* PBXContainerItemProxy */;
-		};
 		DA5B02071412BB3A00E19C50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DA5B01FA1412BB1700E19C50 /* com.dustinrue.CPHelperTool */;
+			target = DA5B01FA1412BB1700E19C50 /* CPHelperTool */;
 			targetProxy = DA5B02061412BB3A00E19C50 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1530,9 +1424,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GZLM3UYMNJ;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1545,7 +1439,7 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControlPlaneX;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1556,9 +1450,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GZLM3UYMNJ;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1572,7 +1466,7 @@
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControlPlaneX;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
 				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = YES;
 			};
@@ -1707,37 +1601,15 @@
 			};
 			name = Release;
 		};
-		DA5B01DF1412B6A700E19C50 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		DA5B01E01412B6A700E19C50 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		DA5B02031412BB1800E19C50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = "CPHelperTool-Info.plist";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/CPHelperTool/CPHelperTool-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -1749,8 +1621,9 @@
 					__launchd_plist,
 					"Source/CPHelperTool/CPHelperTool-Launchd.plist",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ua.in.pboyko.CPHelperTool;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -1759,8 +1632,10 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = "CPHelperTool-Info.plist";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/CPHelperTool/CPHelperTool-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -1772,8 +1647,9 @@
 					__launchd_plist,
 					"Source/CPHelperTool/CPHelperTool-Launchd.plist",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ua.in.pboyko.CPHelperTool;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1798,16 +1674,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA5B01DE1412B6A700E19C50 /* Build configuration list for PBXNativeTarget "CPHelperInstallTool" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA5B01DF1412B6A700E19C50 /* Debug */,
-				DA5B01E01412B6A700E19C50 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DA5B02021412BB1800E19C50 /* Build configuration list for PBXNativeTarget "com.dustinrue.CPHelperTool" */ = {
+		DA5B02021412BB1800E19C50 /* Build configuration list for PBXNativeTarget "CPHelperTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA5B02031412BB1800E19C50 /* Debug */,

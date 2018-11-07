@@ -4,25 +4,15 @@
 <dict>
 	<key>Label</key>
 	<string>ua.in.pboyko.CPHelperTool</string>
-	<key>OnDemand</key>
-	<true/>
-	<key>Disabled</key>
-	<true/>
-	<key>ServiceIPC</key>
-	<true/>
+	<key>MachServices</key>
+	<dict>
+		<key>ua.in.pboyko.CPHelperTool</key>
+		<true/>
+	</dict>
 	<key>Sockets</key>
 	<dict>
-		<key>MasterSocket</key>
-		<dict>
-			<key>SockFamily</key>
-			<string>Unix</string>
-			<key>SockPathMode</key>
-			<integer>438</integer>
-			<key>SockPathName</key>
-			<string>/var/run/ua.in.pboyko.CPHelperTool.socket</string>
-			<key>SockType</key>
-			<string>Stream</string>
-		</dict>
+		<key>ua.in.pboyko.CPHelperTool</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

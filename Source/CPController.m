@@ -7,6 +7,7 @@
 //
 
 #import "Action.h"
+#import "Action+HelperTool.h"
 #import "DSLogger.h"
 #import "CPController.h"
 #import "CPController+SleepMonitor.h"
@@ -1572,6 +1573,8 @@ static NSSet *sharedActiveContexts = nil;
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"userHasSeenMultipleActiveContextsNotification"];
     }
+    
+    [Action setupHelperTool];
 
 }
 

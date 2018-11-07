@@ -7,10 +7,13 @@
 //
 
 #import "Action.h"
-#import "CPHelperToolCommon.h"
+#import "CPHelperTool.h"
 
-@interface Action (HelperTool)
+@interface Action (HelperTool) {
+    
+}
 
++ (void)setupHelperTool;
 - (BOOL) helperToolPerformAction: (NSString *) action;
 - (BOOL) helperToolPerformAction: (NSString *) action withParameter: (id) parameter;
 
