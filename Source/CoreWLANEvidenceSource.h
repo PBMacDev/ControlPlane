@@ -12,19 +12,10 @@
 
 @interface WiFiEvidenceSourceCoreWLAN : GenericEvidenceSource
 
-
-@property BOOL currentNetworkIsSecure;
-
-- (id)init;
-
-- (void)clearCollectedData;
-
 - (NSString *)name;
 - (NSArray *)typesOfRulesMatched;
 - (BOOL)doesRuleMatch:(NSDictionary *)rule;
 - (NSString *)getSuggestionLeadText:(NSString *)type;
 - (NSArray *)getSuggestions;
-- (void) getInterfaceStateInfo;
-
 
 @end

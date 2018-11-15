@@ -632,7 +632,7 @@
     }
 
     // Bindings
-    [item bind:@"enabled" toObject:src withKeyPath:@"dataCollected" options:nil];
+//    [item bind:@"enabled" toObject:src withKeyPath:@"dataCollected" options:nil];
     // TODO?: enabled2 -> NSUserDefaults.values.Enable%@EvidenceSource
 
     [item setHidden:![src isRunning]];
