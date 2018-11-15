@@ -59,7 +59,7 @@ static void linkDataChanged(SCDynamicStoreRef store, CFArrayRef changedKeys, voi
 }
 
 + (BOOL) isEvidenceSourceApplicableToSystem {
-    return ([[CWInterface interfaceNames] count] > 0);
+    return ([[CWWiFiClient interfaceNames] count] > 0);
 }
 
 - (void)start {
