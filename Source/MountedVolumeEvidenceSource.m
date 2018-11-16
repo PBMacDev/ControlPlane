@@ -41,12 +41,11 @@
 - (void) volumeListDidChange:(NSNotification *)notification {
     NSMutableDictionary *volumeList = [NSMutableDictionary dictionaryWithCapacity:0];
     
-    NSArray *mountedVolumes = [[NSWorkspace sharedWorkspace] mountedLocalVolumePaths];
+    NSArray *mountedVolumes = [[NSFileManager defaultManager] mountedVolumeURLsIncludingResourceValuesForKeys:nil options:0];
     
-    for (NSString *mountedVolume in mountedVolumes) {
-        [volumeList setValue:mountedVolume forKey:mountedVolume];
+    for (NSURL *mountedVolume in mountedVolumes) {
+        [volumeList setValue:mountedVolume forKey:[mountedVolume path]];
     }
-    
     
     self.mountedVolumes = volumeList;
 
@@ -82,7 +81,6 @@
 }
 
 - (NSArray *)getSuggestions {
-
 
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[self.mountedVolumes count]];
     

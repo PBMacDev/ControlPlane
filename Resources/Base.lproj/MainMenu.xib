@@ -52,7 +52,6 @@
                 <outlet property="prefsWindow" destination="910" id="1077"/>
                 <outlet property="rulesController" destination="231" id="380"/>
                 <outlet property="rulesPrefsView" destination="902" id="924"/>
-                <outlet property="startAtLoginStatus" destination="2028" id="2031"/>
                 <outlet property="whenActionController" destination="1488" id="1489"/>
             </connections>
         </customObject>
@@ -261,6 +260,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="toggleStartAtLoginAction:" target="320" id="2034"/>
+                        <binding destination="288" name="value" keyPath="values.LaunchAtLogin" id="Zbi-mJ-9mL"/>
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" id="2038">
@@ -1317,7 +1317,6 @@ Gw
                 <outlet property="generalPreferencesHideFromStatusBar" destination="2044" id="2170"/>
                 <outlet property="generalPreferencesRestorePreviousContext" destination="2048" id="2164"/>
                 <outlet property="generalPreferencesShowInStatusBar" destination="1916" id="2171"/>
-                <outlet property="generalPreferencesStartAtLogin" destination="2028" id="2167"/>
                 <outlet property="generalPreferencesSwitchSmoothing" destination="1366" id="2165"/>
                 <outlet property="generalPreferencesUseDefaultContextTextField" destination="937" id="2163"/>
                 <outlet property="newContextSheet" destination="1679" id="1681"/>

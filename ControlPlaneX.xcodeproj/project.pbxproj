@@ -68,6 +68,11 @@
 		8DF5A4610BC239B100CBEB4B /* DefaultPrinterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5A45F0BC239B100CBEB4B /* DefaultPrinterAction.m */; };
 		8DFA46170CC33E46003EAC16 /* QuitApplicationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA46150CC33E46003EAC16 /* QuitApplicationAction.m */; };
 		8DFD0DA60CEBBC8A00E79049 /* UnmountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFD0DA40CEBBC8A00E79049 /* UnmountAction.m */; };
+		A7170BB6219EA22700EE1A30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7170BB5219EA22700EE1A30 /* AppDelegate.m */; };
+		A7170BB8219EA22B00EE1A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7170BB7219EA22B00EE1A30 /* Assets.xcassets */; };
+		A7170BBB219EA22B00EE1A30 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7170BB9219EA22B00EE1A30 /* MainMenu.xib */; };
+		A7170BBE219EA22B00EE1A30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7170BBD219EA22B00EE1A30 /* main.m */; };
+		A7170BC8219EAEB700EE1A30 /* ControlPlaneX Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7170BB2219EA22700EE1A30 /* ControlPlaneX Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2902183B07E0061014D /* HostAvailability.xib */; };
 		A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2922183B07E0061014D /* MainMenu.xib */; };
 		A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2942183B07E0061014D /* SearchDomainRule.xib */; };
@@ -159,6 +164,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A7170BC5219EAE3D00EE1A30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7170BB1219EA22700EE1A30;
+			remoteInfo = "ControlPlaneX Launcher";
+		};
 		DA5B02061412BB3A00E19C50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -216,9 +228,10 @@
 		DA5B01E51412B85600E19C50 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = Contents/Library/LaunchServices;
+			dstPath = Contents/Library/LoginItems;
 			dstSubfolderSpec = 1;
 			files = (
+				A7170BC8219EAEB700EE1A30 /* ControlPlaneX Launcher.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +381,14 @@
 		8DFA46150CC33E46003EAC16 /* QuitApplicationAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = QuitApplicationAction.m; path = Source/QuitApplicationAction.m; sourceTree = "<group>"; };
 		8DFD0DA30CEBBC8A00E79049 /* UnmountAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = UnmountAction.h; path = Source/UnmountAction.h; sourceTree = "<group>"; };
 		8DFD0DA40CEBBC8A00E79049 /* UnmountAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = UnmountAction.m; path = Source/UnmountAction.m; sourceTree = "<group>"; };
+		A7170BB2219EA22700EE1A30 /* ControlPlaneX Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ControlPlaneX Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7170BB4219EA22700EE1A30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A7170BB5219EA22700EE1A30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A7170BB7219EA22B00EE1A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7170BBA219EA22B00EE1A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A7170BBC219EA22B00EE1A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7170BBD219EA22B00EE1A30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A7170BBF219EA22B00EE1A30 /* ControlPlaneX_Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlPlaneX_Launcher.entitlements; sourceTree = "<group>"; };
 		A71CB2992183B07E0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/CPHelperToolAuthorizationPrompts.strings; sourceTree = "<group>"; };
 		A71CB2A12183B07F0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A71CB2B72183B0900061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/CoreLocationRule.xib; sourceTree = "<group>"; };
@@ -534,6 +555,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7170BAF219EA22700EE1A30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA5B01F81412BB1700E19C50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,6 +625,7 @@
 			children = (
 				DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */,
 				DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */,
+				A7170BB2219EA22700EE1A30 /* ControlPlaneX Launcher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -609,6 +638,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				DDFF422F14153F650047D311 /* UI */,
+				A7170BB3219EA22700EE1A30 /* ControlPlaneX Launcher */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -810,6 +840,20 @@
 				8D71CAED0C17BA7900E56526 /* ToggleableAction.m */,
 			);
 			name = Actions;
+			sourceTree = "<group>";
+		};
+		A7170BB3219EA22700EE1A30 /* ControlPlaneX Launcher */ = {
+			isa = PBXGroup;
+			children = (
+				A7170BB4219EA22700EE1A30 /* AppDelegate.h */,
+				A7170BB5219EA22700EE1A30 /* AppDelegate.m */,
+				A7170BB7219EA22B00EE1A30 /* Assets.xcassets */,
+				A7170BB9219EA22B00EE1A30 /* MainMenu.xib */,
+				A7170BBC219EA22B00EE1A30 /* Info.plist */,
+				A7170BBD219EA22B00EE1A30 /* main.m */,
+				A7170BBF219EA22B00EE1A30 /* ControlPlaneX_Launcher.entitlements */,
+			);
+			path = "ControlPlaneX Launcher";
 			sourceTree = "<group>";
 		};
 		DA008D1C15D4B73C0091CC54 /* Plugins */ = {
@@ -1017,12 +1061,30 @@
 			buildRules = (
 			);
 			dependencies = (
+				A7170BC6219EAE3D00EE1A30 /* PBXTargetDependency */,
 				DA5B02071412BB3A00E19C50 /* PBXTargetDependency */,
 			);
 			name = ControlPlaneX;
 			productInstallPath = "$(HOME)/Applications";
 			productName = ControlPlane;
 			productReference = DA1204DA13D0E5C800CDA091 /* ControlPlaneX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7170BB1219EA22700EE1A30 /* ControlPlaneX Launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7170BC4219EA22B00EE1A30 /* Build configuration list for PBXNativeTarget "ControlPlaneX Launcher" */;
+			buildPhases = (
+				A7170BAE219EA22700EE1A30 /* Sources */,
+				A7170BAF219EA22700EE1A30 /* Frameworks */,
+				A7170BB0219EA22700EE1A30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ControlPlaneX Launcher";
+			productName = "ControlPlaneX Launcher";
+			productReference = A7170BB2219EA22700EE1A30 /* ControlPlaneX Launcher.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DA5B01FA1412BB1700E19C50 /* CPHelperTool */ = {
@@ -1050,6 +1112,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1010;
+				TargetAttributes = {
+					A7170BB1219EA22700EE1A30 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ControlPlaneX" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -1087,6 +1154,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* ControlPlaneX */,
 				DA5B01FA1412BB1700E19C50 /* CPHelperTool */,
+				A7170BB1219EA22700EE1A30 /* ControlPlaneX Launcher */,
 			);
 		};
 /* End PBXProject section */
@@ -1142,6 +1210,15 @@
 				A71CB2B52183B07F0061014D /* ServerAddressRule.xib in Resources */,
 				DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */,
 				DACE6D4B159BFC1D00FEE37E /* CPHelperTool-Launchd.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7170BB0219EA22700EE1A30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7170BB8219EA22B00EE1A30 /* Assets.xcassets in Resources */,
+				A7170BBB219EA22B00EE1A30 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1367,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7170BAE219EA22700EE1A30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7170BBE219EA22B00EE1A30 /* main.m in Sources */,
+				A7170BB6219EA22700EE1A30 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA5B01F71412BB1700E19C50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1303,6 +1389,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A7170BC6219EAE3D00EE1A30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7170BB1219EA22700EE1A30 /* ControlPlaneX Launcher */;
+			targetProxy = A7170BC5219EAE3D00EE1A30 /* PBXContainerItemProxy */;
+		};
 		DA5B02071412BB3A00E19C50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DA5B01FA1412BB1700E19C50 /* CPHelperTool */;
@@ -1311,6 +1402,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A7170BB9219EA22B00EE1A30 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7170BBA219EA22B00EE1A30 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		A71CB2902183B07E0061014D /* HostAvailability.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1418,6 +1517,73 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A7170BC0219EA22B00EE1A30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "ControlPlaneX Launcher/ControlPlaneX_Launcher.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "ControlPlaneX Launcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.ControlPlaneX-Launcher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
+			};
+			name = Debug;
+		};
+		A7170BC1219EA22B00EE1A30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "ControlPlaneX Launcher/ControlPlaneX_Launcher.entitlements";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = X75PQ8DR5A;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "ControlPlaneX Launcher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.ControlPlaneX-Launcher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1656,6 +1822,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A7170BC4219EA22B00EE1A30 /* Build configuration list for PBXNativeTarget "ControlPlaneX Launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7170BC0219EA22B00EE1A30 /* Debug */,
+				A7170BC1219EA22B00EE1A30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ControlPlaneX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

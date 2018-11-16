@@ -557,14 +557,14 @@ static NSSet *sharedActiveContexts = nil;
 	NSArray *rules = self.rules;
 
 #ifdef DEBUG_MODE
-    DSLog(@"Rules list (%ld rules):\n%@", [rules count], rules);
+//    DSLog(@"Rules list (%ld rules):\n%@", [rules count], rules);
 #endif
 	NSMutableArray *matchingRules = [NSMutableArray array];
     BOOL changed = NO;
 
 	for (NSMutableDictionary *rule in rules) {
 #ifdef DEBUG_MODE
-        DSLog(@"checking rule %@", rule);
+//        DSLog(@"checking rule %@", rule);
 #endif
         RuleMatchStatusType isMatching = [evidenceSources ruleMatches:rule];
         if (([rule[@"negate"] integerValue] == 1) && (isMatching != RuleMatchStatusIsUnknown)) {
@@ -1061,7 +1061,7 @@ static NSSet *sharedActiveContexts = nil;
     
     if (!changed && (smoothCounter == 0) && !self.forceOneFullUpdate) {
 #ifdef DEBUG_MODE
-        DSLog(@"Same rule are matching as on previous update. No further actions required.");
+//        DSLog(@"Same rule are matching as on previous update. No further actions required.");
 #endif
         return;
     }
@@ -1486,6 +1486,8 @@ static NSSet *sharedActiveContexts = nil;
     [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"Debug USBParanoia"];
     
     [appDefaults setValue:[NSNumber numberWithInt:1] forKey:@"SmoothSwitchCount"];
+
+    [appDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"LaunchAtLogin"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 }

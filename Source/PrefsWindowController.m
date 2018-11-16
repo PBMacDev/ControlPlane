@@ -8,6 +8,7 @@
 #import "DSLogger.h"
 #import "PrefsWindowController.h"
 #import "RuleType.h"
+#import <ServiceManagement/ServiceManagement.h>
 
 // This is here to avoid IB's problem with unknown base classes
 @interface ActionTypeHelpTransformer : NSValueTransformer {}
@@ -278,8 +279,6 @@
 
     // display options for the menu bar
 
-
-    [startAtLoginStatus setState:[self willStartAtLogin:[self appPath]] ? 1:0];
     [menuBarDisplayOptionsController addObject:
         [NSMutableDictionary dictionaryWithObjectsAndKeys:
             @"Icon",@"option", 
@@ -345,7 +344,8 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 		NSSize size  = [prefsWindow frame].size;
         if ((size.width > minSize.width) || (size.height > minSize.height)) {
             size.height -= [self toolbarHeight] + [self titleBarHeight];
-            NSData *persistedSize = [NSArchiver archivedDataWithRootObject:[NSValue valueWithSize:size]];
+            NSData *persistedSize = [NSKeyedArchiver archivedDataWithRootObject:[NSValue valueWithSize:size] requiringSecureCoding:NO error:nil];
+                                     
             [[NSUserDefaults standardUserDefaults] setObject:persistedSize forKey:sizeParamName];
         } else {
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:sizeParamName];
@@ -360,7 +360,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
         return nil;
     }
 
-    return (NSValue *) [NSUnarchiver unarchiveObjectWithData:persistedSize];
+    return (NSValue *) [NSKeyedUnarchiver unarchivedObjectOfClass:[NSValue class] fromData:persistedSize error:nil];
 }
 
 - (void)onPrefsWindowClose:(NSNotification *)notification {
@@ -751,136 +751,10 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 
 #pragma mark Login Item Routines
 
-- (NSURL *)appPath
-{
-    return [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-}
-
-- (void)startAtLogin
-{
-    LSSharedFileListRef loginItemList = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    if (loginItemList != NULL) {
-#ifdef DEBUG_MODE
-        DSLog(@"Adding ControlPlaneX to startup items");
-#endif
-        
-        LSSharedFileListItemRef newItem = LSSharedFileListInsertItemURL(loginItemList,
-                                                                        kLSSharedFileListItemBeforeFirst,
-                                                                        NULL, NULL,
-                                                                        (__bridge CFURLRef)[self appPath],
-                                                                        NULL, NULL);
-        if (newItem != NULL) {
-            CFRelease(newItem);
-        }
-        CFRelease(loginItemList);
-    }
-}
-
-- (void) disableStartAtLogin
-{
-    NSURL *appPath = [self appPath];
-    
-    // Creates shared file list reference to be used for changing list and reading its various properties.
-    LSSharedFileListRef loginItemList = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    if (loginItemList == NULL) {
-        return;
-    }
-    
-    // take a snapshot of the list creating an array out of it
-    UInt32 seedValue = 0;
-    CFArrayRef currentLoginItems = LSSharedFileListCopySnapshot(loginItemList, &seedValue);
-    
-    if (currentLoginItems != NULL) {
-        const UInt32 resolveFlags = (kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes);
-        
-        // walk the array looking for an entry that belongs to us
-        for (id currentLoginItem in (__bridge NSArray *)currentLoginItems) {
-            LSSharedFileListItemRef itemToCheck = (__bridge LSSharedFileListItemRef)currentLoginItem;
-            
-            BOOL startupItemFound = NO;
-            CFURLRef pathOfCurrentItem = NULL;
-            if (LSSharedFileListItemResolve(itemToCheck, resolveFlags, &pathOfCurrentItem, NULL) == noErr) {
-                startupItemFound = ((pathOfCurrentItem != NULL)
-                                    && CFEqual(pathOfCurrentItem, (__bridge CFURLRef)appPath));
-            }
-            
-            if (pathOfCurrentItem != NULL) {
-                CFRelease(pathOfCurrentItem);
-            }
-            
-            if (startupItemFound) {
-#ifdef DEBUG_MODE
-                DSLog(@"Removing ControlPlan from startup items");
-#endif
-                
-                LSSharedFileListItemRemove(loginItemList, itemToCheck);
-                break;
-            }
-        }
-        
-        CFRelease(currentLoginItems);
-    }
-    
-    CFRelease(loginItemList);
-}
-
-- (BOOL)willStartAtLogin:(NSURL *)appPath
-{
-    if (appPath == NULL) {
-        return NO;
-    }
-    
-    // Creates shared file list reference to be used for changing list and reading its various properties.
-    LSSharedFileListRef loginItemList = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    if (loginItemList == NULL) {
-        return NO;
-    }
-    
-    // check to see if ControlPlaneX is already listed in Start Up Items
-    BOOL isControlPlaneXListed = NO;
-    
-    // take a snapshot of the list creating an array out of it
-    UInt32 seedValue = 0;
-    CFArrayRef currentLoginItems = LSSharedFileListCopySnapshot(loginItemList, &seedValue);
-    
-    if (currentLoginItems != NULL) {
-        const UInt32 resolveFlags = (kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes);
-        
-        // walk the array looking for an entry that belongs to us
-        for (id currentLoginItem in (__bridge NSArray *)currentLoginItems) {
-            LSSharedFileListItemRef itemToCheck = (__bridge LSSharedFileListItemRef)currentLoginItem;
-            
-            CFURLRef pathOfCurrentItem = NULL;
-            if (LSSharedFileListItemResolve(itemToCheck, resolveFlags, &pathOfCurrentItem, NULL) == noErr) {
-                isControlPlaneXListed = ((pathOfCurrentItem != NULL)
-                                        && CFEqual(pathOfCurrentItem, (__bridge CFURLRef)appPath));
-            }
-            if (pathOfCurrentItem != NULL) {
-                CFRelease(pathOfCurrentItem);
-            }
-            
-            if (isControlPlaneXListed) {
-                break;
-            }
-        }
-        
-        CFRelease(currentLoginItems);
-    }
-    
-    CFRelease(loginItemList);
-	
-    return isControlPlaneXListed;
-}
-
 - (IBAction)toggleStartAtLoginAction:(id)sender
 {
-    if ([self willStartAtLogin:[self appPath]]) {
-        [self disableStartAtLogin];
-    }
-    else {
-        [self startAtLogin];
-    }
-    [startAtLoginStatus setState:[self willStartAtLogin:[self appPath]] ? 1:0];
+    Boolean shoudlStartAtLogin = ([sender state] == NSControlStateValueOn) ? true : false;
+    SMLoginItemSetEnabled(CFSTR("ua.in.pboyko.ControlPlaneX-Launcher"), shoudlStartAtLogin);
 }
 
 

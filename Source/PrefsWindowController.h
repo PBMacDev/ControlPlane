@@ -60,10 +60,6 @@
 - (IBAction)doAddAction:(id)sender;
 
 // Login item stuff
-- (NSURL *)appPath;
-- (BOOL)willStartAtLogin:(NSURL *)appPath;
-- (void)startAtLogin;
-- (void)disableStartAtLogin;
 - (IBAction)toggleStartAtLoginAction:(id)sender;
 
 @end

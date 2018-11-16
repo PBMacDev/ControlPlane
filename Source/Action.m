@@ -275,12 +275,7 @@
 {
     if (!(self = [super init]))
         return nil;
-    
-    // get system version
-    SInt32 major = 0, minor = 0;
-    Gestalt(gestaltSystemVersionMajor, &major);
-    Gestalt(gestaltSystemVersionMinor, &minor);
-    
+        
     classes = [[NSMutableArray alloc] initWithObjects:
                [ConnectBluetoothDeviceAction class],
                [DefaultBrowserAction class],
