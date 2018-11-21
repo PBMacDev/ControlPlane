@@ -57,6 +57,7 @@
     CWInterface* defaultInterface = [[CWWiFiClient sharedWiFiClient] interface];
     self.interfaceBSDName = [defaultInterface interfaceName];
     NSSet *foundNetworks = [defaultInterface cachedScanResults];
+//    NSSet *foundNetworks = [defaultInterface scanForNetworksWithName:self.interfaceBSDName error:nil];
     [self updateCollectedDataFromScanResults:foundNetworks];
     [self updateCollectedSecurity];
 }
@@ -72,7 +73,11 @@
     NSMutableDictionary *ssids = [NSMutableDictionary dictionaryWithCapacity:([networks count] + 1)];
     
     [networks enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
-        [ssids setObject:[obj bssid] forKey:[obj ssid]];
+        NSString* bssid = [obj bssid];
+        NSString* ssid = [obj ssid];
+        if ((bssid != nil) && (ssid != nil)) {
+            [ssids setObject:bssid forKey:ssid];
+        }
     }];
     
     self.networkSSIDs = [NSDictionary dictionaryWithDictionary:ssids];
@@ -194,6 +199,11 @@
 - (void)clientConnectionInvalidated
 {
     [self clearCollectedData];
+}
+
+- (void)clientConnectionInterrupted
+{
+    [self collectDataIfNeeded];
 }
 
 - (void)linkDidChangeForWiFiInterfaceWithName:(NSString *)interfaceName
