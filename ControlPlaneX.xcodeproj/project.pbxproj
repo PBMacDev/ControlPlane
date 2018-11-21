@@ -28,7 +28,6 @@
 		8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAAAB0C56E26100A50777 /* NetworkLinkEvidenceSource.m */; };
 		8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D38B66A0C49D50200290F47 /* SliderWithValue.m */; };
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
-		8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D481B070B6098DD0097CF9C /* IOKit.framework */; };
 		8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */; };
 		8D643CDD0C4EF6FD006D8ECC /* LoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643CDB0C4EF6FD006D8ECC /* LoopingEvidenceSource.m */; };
 		8D649BA50BE8033A00716059 /* ToggleWiFiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D649BA30BE8033A00716059 /* ToggleWiFiAction.m */; };
@@ -40,7 +39,6 @@
 		8D73CC140C470FE000DF839E /* RunningApplicationEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D341CD10C0459D0008A7B4F /* RunningApplicationEvidenceSource.m */; };
 		8D75A6200BE6F68B0069DF3F /* ToggleBluetoothAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75A61E0BE6F68B0069DF3F /* ToggleBluetoothAction.m */; };
 		8D8155D00C3A304E00228463 /* ContextsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8155CE0C3A304E00228463 /* ContextsDataSource.m */; };
-		8D82F06D0AA811CE009ADA44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D82F05B0AA811CE009ADA44 /* SystemConfiguration.framework */; };
 		8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */; };
 		8D88FE2A0C534737007A14D6 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D88FE290C534737007A14D6 /* pause.png */; };
 		8D8C9CA60BBB74E70074D5B3 /* EvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */; };
@@ -73,6 +71,14 @@
 		A7170BBB219EA22B00EE1A30 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7170BB9219EA22B00EE1A30 /* MainMenu.xib */; };
 		A7170BBE219EA22B00EE1A30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7170BBD219EA22B00EE1A30 /* main.m */; };
 		A7170BC8219EAEB700EE1A30 /* ControlPlaneX Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A7170BB2219EA22700EE1A30 /* ControlPlaneX Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A7170BCA219EFB8800EE1A30 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BC9219EFB8800EE1A30 /* MapKit.framework */; };
+		A7170BCC219EFBA700EE1A30 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BCB219EFBA700EE1A30 /* IOBluetooth.framework */; };
+		A7170BCE219EFBB700EE1A30 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BCD219EFBB600EE1A30 /* IOKit.framework */; };
+		A7170BD0219EFBEE00EE1A30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BCF219EFBEE00EE1A30 /* SystemConfiguration.framework */; };
+		A7170BD2219EFC2900EE1A30 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BD1219EFC2900EE1A30 /* ServiceManagement.framework */; };
+		A7170BD4219EFC4A00EE1A30 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BD3219EFC4900EE1A30 /* ScriptingBridge.framework */; };
+		A7170BD6219EFC5900EE1A30 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BD5219EFC5900EE1A30 /* Security.framework */; };
+		A7170BD7219EFC6600EE1A30 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7170BD5219EFC5900EE1A30 /* Security.framework */; };
 		A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2902183B07E0061014D /* HostAvailability.xib */; };
 		A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2922183B07E0061014D /* MainMenu.xib */; };
 		A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2942183B07E0061014D /* SearchDomainRule.xib */; };
@@ -112,11 +118,8 @@
 		DA4A629513E25C9D00CE976F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = DA4A629413E25C9D00CE976F /* Credits.html */; };
 		DA4ED9C41520055100E6A8CE /* ToggleNaturalScrollingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ED9C31520055100E6A8CE /* ToggleNaturalScrollingAction.m */; };
 		DA571B71151587B80074CE22 /* ToggleFileSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA571B70151587B80074CE22 /* ToggleFileSharingAction.m */; };
-		DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8274FA141177750098FA6E /* Security.framework */; };
 		DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */; };
 		DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */; };
-		DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */ = {isa = PBXBuildFile; fileRef = DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */; };
-		DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */ = {isa = PBXBuildFile; fileRef = DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */; };
 		DA7A0C171AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7A0C161AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m */; };
 		DA7EAF4715D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */; };
 		DA812E83140681D2006869F7 /* AppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = DA812E82140681D2006869F7 /* AppleScript.m */; };
@@ -136,7 +139,6 @@
 		DABF656617910AB600AA5B86 /* CPSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF656517910AB600AA5B86 /* CPSystemInfo.m */; };
 		DAC45F2014CDEC170007F5EF /* TimeMachineDestinationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC45F1F14CDEC170007F5EF /* TimeMachineDestinationAction.m */; };
 		DAC672FE152235E800F1C7A1 /* ToggleWebSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC672FD152235E800F1C7A1 /* ToggleWebSharingAction.m */; };
-		DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */; };
 		DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */; };
 		DACE6D4B159BFC1D00FEE37E /* CPHelperTool-Launchd.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */; };
 		DACE6D4E159C055C00FEE37E /* ua.in.pboyko.CPHelperTool in Copy Launch Services */ = {isa = PBXBuildFile; fileRef = DA5B01FB1412BB1700E19C50 /* ua.in.pboyko.CPHelperTool */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -145,16 +147,13 @@
 		DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD827506141188880098FA6E /* DisplayBrightnessAction.m */; };
 		DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */; };
 		DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DAFC0E4614788B0500DA6139 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */; };
 		DD7D2539149C338300BE7C8B /* NSTimer+Invalidation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */; };
 		DD8274F0141154780098FA6E /* MailIntervalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274EF141154780098FA6E /* MailIntervalAction.m */; };
 		DD8274F314115EE50098FA6E /* StartTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F214115EE40098FA6E /* StartTimeMachineAction.m */; };
 		DD8274F614116CC90098FA6E /* OpenURLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F514116CC80098FA6E /* OpenURLAction.m */; };
 		DD8274F91411748C0098FA6E /* LockKeychainAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F81411748B0098FA6E /* LockKeychainAction.m */; };
-		DD8274FB141177750098FA6E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8274FA141177750098FA6E /* Security.framework */; };
 		DD8274FE14117C590098FA6E /* SpeakAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274FD14117C580098FA6E /* SpeakAction.m */; };
 		DDAA9A181402FAAD00D4757E /* SleepEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA9A171402FAAD00D4757E /* SleepEvidenceSource.m */; };
-		DDAC3C55140D866200FBF29E /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDAC3C54140D866200FBF29E /* ScriptingBridge.framework */; };
 		DDAE0017141474DC00FDADE8 /* CPController+SleepMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */; };
 		DDAEFFFB1414714F00FDADE8 /* Action+HelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAEFFFA1414714F00FDADE8 /* Action+HelperTool.m */; };
 		DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */; };
@@ -302,7 +301,6 @@
 		8D38B66A0C49D50200290F47 /* SliderWithValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SliderWithValue.m; path = Source/SliderWithValue.m; sourceTree = "<group>"; };
 		8D3C85120CDD8546009DBCD9 /* ScreenSaverStartAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ScreenSaverStartAction.h; path = Source/ScreenSaverStartAction.h; sourceTree = "<group>"; };
 		8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ScreenSaverStartAction.m; path = Source/ScreenSaverStartAction.m; sourceTree = "<group>"; };
-		8D481B070B6098DD0097CF9C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		8D5684B20C38711D00881E32 /* MonitorEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MonitorEvidenceSource.h; path = Source/MonitorEvidenceSource.h; sourceTree = "<group>"; };
 		8D5684B30C38711D00881E32 /* MonitorEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MonitorEvidenceSource.m; path = Source/MonitorEvidenceSource.m; sourceTree = "<group>"; };
 		8D643C650C4EF197006D8ECC /* GenericLoopingEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericLoopingEvidenceSource.h; path = Source/GenericLoopingEvidenceSource.h; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 		8D75A61E0BE6F68B0069DF3F /* ToggleBluetoothAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ToggleBluetoothAction.m; path = Source/ToggleBluetoothAction.m; sourceTree = "<group>"; };
 		8D8155CD0C3A304E00228463 /* ContextsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextsDataSource.h; path = Source/ContextsDataSource.h; sourceTree = "<group>"; };
 		8D8155CE0C3A304E00228463 /* ContextsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContextsDataSource.m; path = Source/ContextsDataSource.m; sourceTree = "<group>"; };
-		8D82F05B0AA811CE009ADA44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
 		8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PrefsWindowController.h; path = Source/PrefsWindowController.h; sourceTree = "<group>"; };
 		8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PrefsWindowController.m; path = Source/PrefsWindowController.m; sourceTree = "<group>"; };
 		8D88FE290C534737007A14D6 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
@@ -347,7 +344,6 @@
 		8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = DesktopBackgroundAction.m; path = Source/DesktopBackgroundAction.m; sourceTree = "<group>"; };
 		8DB1EF210C6C60A300586F84 /* MailIMAPServerAction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MailIMAPServerAction.h; path = Source/MailIMAPServerAction.h; sourceTree = "<group>"; };
 		8DB1EF220C6C60A300586F84 /* MailIMAPServerAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = MailIMAPServerAction.m; path = Source/MailIMAPServerAction.m; sourceTree = "<group>"; };
-		8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = /System/Library/Frameworks/IOBluetooth.framework; sourceTree = "<absolute>"; };
 		8DB8917B0BB89BD8005347C2 /* oui.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = oui.txt; path = Resources/oui.txt; sourceTree = "<group>"; };
 		8DBAFAF90BDC3B7B00BE0747 /* ShellScriptAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ShellScriptAction.h; path = Source/ShellScriptAction.h; sourceTree = "<group>"; };
 		8DBAFAFA0BDC3B7B00BE0747 /* ShellScriptAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = ShellScriptAction.m; path = Source/ShellScriptAction.m; sourceTree = "<group>"; };
@@ -389,6 +385,13 @@
 		A7170BBC219EA22B00EE1A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7170BBD219EA22B00EE1A30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7170BBF219EA22B00EE1A30 /* ControlPlaneX_Launcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ControlPlaneX_Launcher.entitlements; sourceTree = "<group>"; };
+		A7170BC9219EFB8800EE1A30 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A7170BCB219EFBA700EE1A30 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		A7170BCD219EFBB600EE1A30 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		A7170BCF219EFBEE00EE1A30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A7170BD1219EFC2900EE1A30 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		A7170BD3219EFC4900EE1A30 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		A7170BD5219EFC5900EE1A30 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A71CB2992183B07E0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/CPHelperToolAuthorizationPrompts.strings; sourceTree = "<group>"; };
 		A71CB2A12183B07F0061014D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A71CB2B72183B0900061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/CoreLocationRule.xib; sourceTree = "<group>"; };
@@ -435,7 +438,6 @@
 		DA41954C151C17F000FF7BA0 /* ActionSubmenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionSubmenuItem.m; path = Source/ActionSubmenuItem.m; sourceTree = "<group>"; };
 		DA461C0A14C33E3B0019594A /* NSString+ShellScriptHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+ShellScriptHelper.h"; path = "Source/NSString+ShellScriptHelper.h"; sourceTree = "<group>"; };
 		DA461C0B14C33E3B0019594A /* NSString+ShellScriptHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+ShellScriptHelper.m"; path = "Source/NSString+ShellScriptHelper.m"; sourceTree = "<group>"; };
-		DA48F2E3140AD2FC00B000D3 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
 		DA49AF6A14C3E0AB00D03D6A /* TogglePrinterSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TogglePrinterSharingAction.h; path = Source/TogglePrinterSharingAction.h; sourceTree = "<group>"; };
 		DA49AF6B14C3E0AB00D03D6A /* TogglePrinterSharingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TogglePrinterSharingAction.m; path = Source/TogglePrinterSharingAction.m; sourceTree = "<group>"; };
 		DA4A629213E2546800CE976F /* ControlPlane Help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ControlPlane Help"; path = "Resources/ControlPlane Help"; sourceTree = "<group>"; };
@@ -452,8 +454,6 @@
 		DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HostAvailabilityEvidenceSource.m; path = Source/HostAvailabilityEvidenceSource.m; sourceTree = "<group>"; };
 		DA72BFF415019D8C003072C6 /* CPBonjourResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPBonjourResolver.h; path = Source/CPBonjourResolver.h; sourceTree = "<group>"; };
 		DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPBonjourResolver.m; path = Source/CPBonjourResolver.m; sourceTree = "<group>"; };
-		DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = enable_screensaver.sh; sourceTree = "<group>"; };
-		DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = disable_screensaver.sh; sourceTree = "<group>"; };
 		DA7A0C151AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDesktopEvidenceSource.h; path = Source/RemoteDesktopEvidenceSource.h; sourceTree = "<group>"; };
 		DA7A0C161AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteDesktopEvidenceSource.m; path = Source/RemoteDesktopEvidenceSource.m; sourceTree = "<group>"; };
 		DA7EAF4515D9F7F2008DF67C /* ActiveApplicationEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveApplicationEvidenceSource.h; path = Source/ActiveApplicationEvidenceSource.h; sourceTree = "<group>"; };
@@ -491,7 +491,6 @@
 		DAC45F1F14CDEC170007F5EF /* TimeMachineDestinationAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeMachineDestinationAction.m; path = Source/TimeMachineDestinationAction.m; sourceTree = "<group>"; };
 		DAC672FC152235E800F1C7A1 /* ToggleWebSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleWebSharingAction.h; path = Source/ToggleWebSharingAction.h; sourceTree = "<group>"; };
 		DAC672FD152235E800F1C7A1 /* ToggleWebSharingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleWebSharingAction.m; path = Source/ToggleWebSharingAction.m; sourceTree = "<group>"; };
-		DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPHelperTool-Info.plist"; sourceTree = "<group>"; };
 		DACE6D49159BFC1D00FEE37E /* CPHelperTool-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPHelperTool-Launchd.plist"; sourceTree = "<group>"; };
 		DAD889A315D5F337009F30A3 /* NotificationCenterAction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NotificationCenterAction.xcodeproj; path = NotificationCenterAction/NotificationCenterAction.xcodeproj; sourceTree = "<group>"; };
@@ -512,14 +511,12 @@
 		DD8274F514116CC80098FA6E /* OpenURLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenURLAction.m; path = Source/OpenURLAction.m; sourceTree = "<group>"; };
 		DD8274F71411748B0098FA6E /* LockKeychainAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LockKeychainAction.h; path = Source/LockKeychainAction.h; sourceTree = "<group>"; };
 		DD8274F81411748B0098FA6E /* LockKeychainAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LockKeychainAction.m; path = Source/LockKeychainAction.m; sourceTree = "<group>"; };
-		DD8274FA141177750098FA6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DD8274FC14117C570098FA6E /* SpeakAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeakAction.h; path = Source/SpeakAction.h; sourceTree = "<group>"; };
 		DD8274FD14117C580098FA6E /* SpeakAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeakAction.m; path = Source/SpeakAction.m; sourceTree = "<group>"; };
 		DD827505141188880098FA6E /* DisplayBrightnessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayBrightnessAction.h; path = Source/DisplayBrightnessAction.h; sourceTree = "<group>"; };
 		DD827506141188880098FA6E /* DisplayBrightnessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisplayBrightnessAction.m; path = Source/DisplayBrightnessAction.m; sourceTree = "<group>"; };
 		DDAA9A161402FAAD00D4757E /* SleepEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SleepEvidenceSource.h; path = Source/SleepEvidenceSource.h; sourceTree = "<group>"; };
 		DDAA9A171402FAAD00D4757E /* SleepEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SleepEvidenceSource.m; path = Source/SleepEvidenceSource.m; sourceTree = "<group>"; };
-		DDAC3C54140D866200FBF29E /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		DDAE0015141474DC00FDADE8 /* CPController+SleepMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CPController+SleepMonitor.h"; path = "Source/CPController+SleepMonitor.h"; sourceTree = "<group>"; };
 		DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CPController+SleepMonitor.m"; path = "Source/CPController+SleepMonitor.m"; sourceTree = "<group>"; };
 		DDAE004B141521EF00FDADE8 /* CoreLocationSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationSource.h; path = Source/CoreLocationSource.h; sourceTree = "<group>"; };
@@ -539,19 +536,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7170BD6219EFC5900EE1A30 /* Security.framework in Frameworks */,
+				A7170BD4219EFC4A00EE1A30 /* ScriptingBridge.framework in Frameworks */,
+				A7170BD2219EFC2900EE1A30 /* ServiceManagement.framework in Frameworks */,
+				A7170BD0219EFBEE00EE1A30 /* SystemConfiguration.framework in Frameworks */,
+				A7170BCE219EFBB700EE1A30 /* IOKit.framework in Frameworks */,
+				A7170BCC219EFBA700EE1A30 /* IOBluetooth.framework in Frameworks */,
+				A7170BCA219EFB8800EE1A30 /* MapKit.framework in Frameworks */,
 				A7A49E34218E362700775312 /* CoreLocation.framework in Frameworks */,
 				A7A49E31218E35EF00775312 /* CoreAudio.framework in Frameworks */,
 				A7A49E2F218E35D600775312 /* AudioToolbox.framework in Frameworks */,
 				A7A49E2D218D93EA00775312 /* AppKit.framework in Frameworks */,
 				A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */,
 				A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */,
-				DAC817B1159BF95A0012ED43 /* ServiceManagement.framework in Frameworks */,
 				DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */,
-				DAFC0E4614788B0500DA6139 /* IOBluetooth.framework in Frameworks */,
-				8D481B0A0B6098DD0097CF9C /* IOKit.framework in Frameworks */,
-				DDAC3C55140D866200FBF29E /* ScriptingBridge.framework in Frameworks */,
-				DD8274FB141177750098FA6E /* Security.framework in Frameworks */,
-				8D82F06D0AA811CE009ADA44 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,8 +564,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7170BD7219EFC6600EE1A30 /* Security.framework in Frameworks */,
 				A7A49E46218FA14800775312 /* Foundation.framework in Frameworks */,
-				DA648AEE1412C15D00532B2C /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,20 +602,6 @@
 				8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Apple Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8DB8911C0BB88D0B005347C2 /* IOBluetooth.framework */,
-				8D481B070B6098DD0097CF9C /* IOKit.framework */,
-				DA48F2E3140AD2FC00B000D3 /* Kernel.framework */,
-				DDAC3C54140D866200FBF29E /* ScriptingBridge.framework */,
-				DD8274FA141177750098FA6E /* Security.framework */,
-				DAC817B0159BF95A0012ED43 /* ServiceManagement.framework */,
-				8D82F05B0AA811CE009ADA44 /* SystemConfiguration.framework */,
-			);
-			name = "Apple Frameworks";
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -658,9 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A49E27218B56C900775312 /* Images.xcassets */,
-				DA78A07C1C721FB100D4D0B2 /* enable_screensaver.sh */,
 				DAA9ABFE1595FDE700B84B05 /* README.md */,
-				DA78A0801C721FB900D4D0B2 /* disable_screensaver.sh */,
 				DA4A629213E2546800CE976F /* ControlPlane Help */,
 				DDE1B067140438DB006564A6 /* ControlPlane.sdef */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
@@ -679,6 +661,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7170BD5219EFC5900EE1A30 /* Security.framework */,
+				A7170BD3219EFC4900EE1A30 /* ScriptingBridge.framework */,
+				A7170BD1219EFC2900EE1A30 /* ServiceManagement.framework */,
+				A7170BCF219EFBEE00EE1A30 /* SystemConfiguration.framework */,
+				A7170BCD219EFBB600EE1A30 /* IOKit.framework */,
+				A7170BCB219EFBA700EE1A30 /* IOBluetooth.framework */,
+				A7170BC9219EFB8800EE1A30 /* MapKit.framework */,
 				A7A49E45218FA14800775312 /* Foundation.framework */,
 				A7A49E2E218E35D600775312 /* AudioToolbox.framework */,
 				A7A49E2C218D93EA00775312 /* AppKit.framework */,
@@ -690,7 +679,6 @@
 				A79414A021860E0900CA9C13 /* CoreWLAN.framework */,
 				A79414A821872EB600CA9C13 /* UserNotifications.framework */,
 				DAFC0E4014788A6000DA6139 /* Apple Private Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Apple Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -826,8 +814,8 @@
 		8DF5A4130BC2350000CBEB4B /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				DD8274EB14114CFF0098FA6E /* Application Actions */,
 				DA008D1C15D4B73C0091CC54 /* Plugins */,
+				DD8274EB14114CFF0098FA6E /* Application Actions */,
 				DD8274ED14114D620098FA6E /* System Actions */,
 				DDAEFFF91414714F00FDADE8 /* Action+HelperTool.h */,
 				DDAEFFFA1414714F00FDADE8 /* Action+HelperTool.m */,
@@ -1047,7 +1035,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ControlPlaneX" */;
 			buildPhases = (
-				7374BAE51528B83B00BEEFE0 /* Get out.txt and usb-vendors.txt if they don't exist */,
 				8D1107290486CEB800E47090 /* Resources */,
 				DD7CD9B0140EDBA90037463E /* Generate Script Bridge Headers */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -1184,7 +1171,6 @@
 				DA4A629513E25C9D00CE976F /* Credits.html in Resources */,
 				A7A49E28218B56C900775312 /* Images.xcassets in Resources */,
 				A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */,
-				DA78A07D1C721FB100D4D0B2 /* enable_screensaver.sh in Resources */,
 				A71CB2B62183B0800061014D /* LightRule.xib in Resources */,
 				8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */,
 				8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */,
@@ -1202,7 +1188,6 @@
 				A71CB2B12183B07F0061014D /* TimeOfDayRule.xib in Resources */,
 				DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */,
 				A71CB2AE2183B07F0061014D /* CPHelperToolAuthorizationPrompts.strings in Resources */,
-				DA78A0811C721FB900D4D0B2 /* disable_screensaver.sh in Resources */,
 				DDFF423114156B0A0047D311 /* location.png in Resources */,
 				A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */,
 				DAA9ABFF1595FDE700B84B05 /* README.md in Resources */,
@@ -1225,20 +1210,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7374BAE51528B83B00BEEFE0 /* Get out.txt and usb-vendors.txt if they don't exist */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Get out.txt and usb-vendors.txt if they don't exist";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "\nif [ ! -f ${PROJECT_DIR}/Resources/oui.txt ]; then\n\n    cd ${PROJECT_DIR}/Utilities\n    . ./update-oui.sh\n\nfi\n\nif [ ! -f ${PROJECT_DIR}/Resources/usb-vendors.txt ]; then\n\n    cd ${PROJECT_DIR}/Utilities\n    . ./update-usb-data.sh\n\nfi\n";
-		};
 		DD7CD9B0140EDBA90037463E /* Generate Script Bridge Headers */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
