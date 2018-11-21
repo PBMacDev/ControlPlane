@@ -9,12 +9,9 @@
 #import "GenericEvidenceSource.h"
 
 @interface ActiveApplicationEvidenceSource : GenericEvidenceSource {
-    NSLock *lock;
 }
 
 @property (retain) NSString *activeApplication;
-
-- (id)init;
 
 - (void)start;
 - (void)stop;

@@ -9,6 +9,7 @@
 #import "ActiveApplicationEvidenceSource.h"
 #import "DSLogger.h"
 
+static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidenceSourceContext;
 
 @implementation ActiveApplicationEvidenceSource
 
@@ -19,61 +20,41 @@
 	if (!(self = [super init]))
 		return nil;
     
-    activeApplication = nil;
-    
+    activeApplication = [[[NSWorkspace sharedWorkspace] frontmostApplication] bundleIdentifier];
+    [self setDataCollected:YES];
+
 	return self;
+}
+
+- (void)dealloc
+{
+    [self stop];
 }
 
 - (NSString *) description {
     return NSLocalizedString(@"Allows you to define rules based on the active or foreground application.", @"");
 }
-- (void)doFullUpdate:(NSNotification *) notification {
-    
-    @synchronized(self) {
-        [self setActiveApplication:[[[notification userInfo] objectForKey:@"NSWorkspaceApplicationKey"] bundleIdentifier]];
-        
-        // doFullUpdate is required, so just call it here
-        [self doFullUpdate];
-    }
- 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
-}
-
-- (void)doFullUpdate {
-    
-#if DEBUG_MODE
-    DSLog(@"active application %@", activeApplication);
-#endif
-    
-	[self setDataCollected:YES];
-	
-}
 
 - (void)start {
+    
 	if (running) {
 		return;
     }
     
-	// register for notifications
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(doFullUpdate:)
-                                                               name:NSWorkspaceDidActivateApplicationNotification
-                                                             object:nil];
+    NSWorkspace* sharedWS = [NSWorkspace sharedWorkspace];
+    [sharedWS addObserver:self forKeyPath:@"frontmostApplication" options:(NSKeyValueObservingOptionNew |NSKeyValueObservingOptionInitial) context:ActiveApplicationEvidenceSourceContext];
     
 	running = YES;
 }
 
 - (void)stop {
+    
 	if (!running) {
 		return;
     }
 
-	// remove notifications
-	[[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self
-                                                                  name:NSWorkspaceDidActivateApplicationNotification
-                                                                object:nil];
-    
-	[self setDataCollected:NO];
+    NSWorkspace* sharedWS = [NSWorkspace sharedWorkspace];
+    [sharedWS removeObserver:self forKeyPath:@"frontmostApplication" context:ActiveApplicationEvidenceSourceContext];
     
 	running = NO;
 }
@@ -81,6 +62,19 @@
 - (NSString *)name
 {
 	return @"ActiveApplication";
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    
+    if (context == ActiveApplicationEvidenceSourceContext) {
+        self.activeApplication = [[[NSWorkspace sharedWorkspace] frontmostApplication] bundleIdentifier];
+    } else {
+        // Any unrecognized context must belong to super
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (BOOL)doesRuleMatch:(NSDictionary *)rule
@@ -106,39 +100,16 @@
 {
     NSArray *runningApps = [[NSWorkspace sharedWorkspace] runningApplications];
     
-	NSMutableArray *apps = [[NSMutableArray alloc] initWithCapacity:[runningApps count]];
+	NSMutableArray *suggestions = [[NSMutableArray alloc] initWithCapacity:[runningApps count]];
+    [runningApps enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *identifier = [obj bundleIdentifier];
+        NSString *name = [obj localizedName];
+        if ((identifier != nil) && ([identifier length] > 0) && (name != nil)) {
+            [suggestions addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"ActiveApplication", @"type", identifier, @"parameter", [NSString stringWithFormat:@"%@ (%@)", name, identifier], @"description", nil]];
+        }
+    }];
     
-	for (NSRunningApplication *runningApp in runningApps) {
-		NSString *identifier = [runningApp bundleIdentifier];
-		NSString *name = [runningApp localizedName];
-        
-        // some programs, like mdworker, don't have a bundleIdentifier
-        if ([identifier length] == 0)
-            identifier = [runningApp localizedName];
-        
-        if ([identifier length] != 0)
-            [apps addObject:[NSDictionary dictionaryWithObjectsAndKeys:
-                             identifier, @"identifier", name, @"name", nil]];
-	}
-    
-	[lock lock];
-	NSMutableArray *array = [NSMutableArray arrayWithCapacity:[apps count]];
-    
-	NSEnumerator *en = [apps objectEnumerator];
-	NSDictionary *dict;
-	while ((dict = [en nextObject])) {
-		NSString *identifier = [dict valueForKey:@"identifier"];
-		NSString *desc = [NSString stringWithFormat:@"%@ (%@)", [dict valueForKey:@"name"], identifier];
-		[array addObject:
-         [NSDictionary dictionaryWithObjectsAndKeys:
-          @"ActiveApplication", @"type",
-          identifier, @"parameter",
-          desc, @"description", nil]];
-	}
-    //[apps release];
-	[lock unlock];
-    
-	return array;
+    return suggestions;
 }
 
 - (NSString *) friendlyName {
@@ -146,8 +117,10 @@
 }
 
 - (void) goingToSleep:(id)arg {
-    if (running)
-        activeApplication = nil;
+    
+    if (running) {
+        activeApplication = @"";
+    }
 }
 
 @end
