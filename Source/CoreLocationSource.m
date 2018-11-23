@@ -40,7 +40,7 @@
     IBOutlet MKMapView *mapView;
 	NSString *address;
 	NSString *coordinates;
-	NSString *accuracy;
+    NSString *accuracy;
 }
 
 static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api/geocode/json?";
@@ -54,7 +54,7 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	// for custom panel
 	address = @"";
 	coordinates = @"0.0, 0.0";
-	accuracy = @"0 m";
+//    accuracy = @"0 m";
 	
     return self;
 }
@@ -63,9 +63,9 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     return NSLocalizedString(@"Create rules based on your current location using OS X's Core Location framework.", @"");
 }
 
-- (void)dealloc {
-	[self stop];
-}
+//- (void)dealloc {
+//    [self stop];
+//}
 
 - (void)start {
 	if (running) {
@@ -82,9 +82,9 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	[self setDataCollected:YES];
 	running = YES;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self updateMap];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self updateMap];
+//    });
 }
 
 - (void)stop {
@@ -135,7 +135,7 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	// show values
 	[self setValue:[selectedRule convertToText] forKey:@"coordinates"];
 	[self setValue:add forKey:@"address"];
-    [self updateMap];
+//    [self updateMap];
 }
 
 - (NSString *)name {
@@ -165,28 +165,28 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	// show values
 	[self setValue:[selectedRule convertToText] forKey:@"coordinates"];
 	[self setValue:add forKey:@"address"];
-    [self updateMap];
+//    [self updateMap];
 }
 
 #pragma mark -
 #pragma mark UI Validation
 
-- (BOOL)validateAddress:(inout NSString **)newValue error:(out NSError **)outError {
-	// check address
-	CLLocation *loc = nil;
-	BOOL result = [CoreLocationSource geocodeAddress:newValue toLocation:&loc];
-	
-	// if correct, set coordinates
-	if (result) {
-		selectedRule = loc;
-		
-		[self setValue:[loc convertToText] forKey:@"coordinates"];
-		[self setValue:*newValue forKey:@"address"];
-        [self updateMap];
-	}
-	
-	return result;
-}
+//- (BOOL)validateAddress:(inout NSString **)newValue error:(out NSError **)outError {
+//    // check address
+//    CLLocation *loc = nil;
+//    BOOL result = [CoreLocationSource geocodeAddress:newValue toLocation:&loc];
+//
+//    // if correct, set coordinates
+//    if (result) {
+//        selectedRule = loc;
+//
+//        [self setValue:[loc convertToText] forKey:@"coordinates"];
+//        [self setValue:*newValue forKey:@"address"];
+////        [self updateMap];
+//    }
+//
+//    return result;
+//}
 
 - (BOOL)validateCoordinates:(inout NSString **)newValue error:(out NSError **)outError {
 	// check coordinates
@@ -201,39 +201,9 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     
     [self setValue:*newValue forKey:@"coordinates"];
     [self setValue:add forKey:@"address"];
-    [self updateMap];
+//    [self updateMap];
     
 	return YES;
-}
-
-#pragma mark -
-#pragma mark JavaScript stuff
-
-- (void)updateSelectedWithLatitude:(NSNumber *)latitude andLongitude:(NSNumber *)longitude {
-	selectedRule = [[CLLocation alloc] initWithLatitude:[latitude doubleValue] longitude:[longitude doubleValue]];
-    
-	NSString *add = nil;
-	if (![CoreLocationSource geocodeLocation:selectedRule toAddress:&add]) {
-		add = NSLocalizedString(@"Unknown address", @"CoreLocation");
-    }
-	
-	// show values
-	[self setValue:[selectedRule convertToText] forKey:@"coordinates"];
-	[self setValue:add forKey:@"address"];
-}
-
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
-	if (selector == @selector(updateSelectedWithLatitude:andLongitude:)) {
-		return NO;
-	}
-	return YES;
-}
-
-+ (NSString *)webScriptNameForSelector:(SEL)sel {
-	if (sel == @selector(updateSelectedWithLatitude:andLongitude:)) {
-		return @"updateSelected";
-    }
-	return nil;
 }
 
 #pragma mark -
@@ -279,18 +249,11 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 #pragma mark Helper functions
 
 - (void)updateMap {
-    if (!running) {
-        return;
-    }
     
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    if (dispatch_get_current_queue() != mainQueue) {
-        dispatch_async(mainQueue, ^{
-            [self updateMap];
-        });
-        return;
-    }
-    
+//    if (!running) {
+//        return;
+//    }
+//
 	// Get coordinates and replace placeholders with these
 //    NSString *htmlPath = [NSBundle.mainBundle pathForResource:@"CoreLocationMap" ofType:@"html"];
 //    NSString *htmlTemplate = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:NULL];
@@ -304,50 +267,10 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 
 //    // Load the HTML in the WebView
 //    [webView.mainFrame loadHTMLString:htmlString baseURL:nil];
+    
     [mapView setCenterCoordinate:CLLocationCoordinate2DMake(current.coordinate.latitude, current.coordinate.longitude)];
 }
 
-
-+ (BOOL)geocodeAddress:(NSString **)address toLocation:(CLLocation **)location {
-	NSString *param = [*address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	NSString *url = [NSString stringWithFormat:@"%@address=%@&sensor=false", kGoogleAPIPrefix, param];
-#ifdef DEBUG_MODE
-	DSLog(@"%@", url);
-#endif
-	
-	// fetch and parse response
-	NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-	if (!jsonData) {
-		return NO;
-    }
-	
-    NSError *error = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    if (!data) {
-        DSLog(@"Failed to decode JSON object: '%@'", [error localizedFailureReason]);
-        return NO;
-    }
-	
-	// check response status
-	if (![data[@"status"] isEqualToString:@"OK"]) {
-		return NO;
-    }
-	
-	// check number of results
-	if ([data[@"results"] count] == 0) {
-		return NO;
-    }
-	NSDictionary *result = data[@"results"][0];
-	
-	*address = [result[@"formatted_address"] copy];
-    
-    NSDictionary *resultLocation = result[@"geometry"][@"location"];
-	double lat = [resultLocation[@"lat"] doubleValue];
-	double lon = [resultLocation[@"lng"] doubleValue];
-	*location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
-	
-	return YES;
-}
 
 + (BOOL)geocodeLocation:(CLLocation *)location toAddress:(NSString **)address {
 	NSString *url = [NSString stringWithFormat:@"%@latlng=%f,%f&sensor=false",

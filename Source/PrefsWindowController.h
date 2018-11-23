@@ -16,19 +16,9 @@
 
 	IBOutlet EvidenceSourceSetController *evidenceSources;
 	IBOutlet ContextsDataSource *contextsDataSource;
-	IBOutlet NSArrayController *rulesController, *actionsController;
+    IBOutlet NSArrayController *rulesController;
 	IBOutlet NSArrayController *whenActionController;
     IBOutlet NSArrayController *menuBarDisplayOptionsController;
-
-	// New action creation hooks
-	IBOutlet NSWindow *newActionWindow;
-	NSString *newActionType, *newActionTypeString;
-	NSString *newActionWindowHelpText;
-	IBOutlet NSView *newActionWindowParameterView;
-	NSView *newActionWindowParameterViewCurrentControl;
-	IBOutlet NSArrayController *newActionLimitedOptionsController;
-	IBOutlet NSPopUpButton *newActionContext;
-	NSString *newActionWindowWhen;
 
     IBOutlet NSButton *startAtLoginStatus;
 	IBOutlet NSTextView *logBufferView;
@@ -38,7 +28,8 @@
     
     IBOutlet NSPopUpButton *defaultContextPopUpButton;
     IBOutlet NSPopUpButton *editActionContextButton;
-
+    
+    IBOutlet NSSegmentedControl* addNewRuleButton;
 }
 
 - (IBAction)runPreferences:(id)sender;
@@ -56,10 +47,9 @@
 - (void)addRule:(id)sender;
 - (IBAction)editRule:(id)sender;
 
-- (void)addAction:(id)sender;
-- (IBAction)doAddAction:(id)sender;
-
 // Login item stuff
 - (IBAction)toggleStartAtLoginAction:(id)sender;
+
+
 
 @end

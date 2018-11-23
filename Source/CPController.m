@@ -12,7 +12,6 @@
 #import "CPController.h"
 #import "CPController+SleepMonitor.h"
 #import "NetworkLocationAction.h"
-#import "NSTimer+Invalidation.h"
 #import "CPNotifications.h"
 #import <libkern/OSAtomic.h>
 #import <UserNotifications/UserNotifications.h>
@@ -403,7 +402,8 @@ static NSSet *sharedActiveContexts = nil;
 - (void)doHideFromStatusBar:(BOOL)forced {
     
     if (sbHideTimer) {
-        sbHideTimer = [sbHideTimer checkAndInvalidate];
+        [sbHideTimer invalidate];
+        sbHideTimer = nil;
     }
     
     if (forced || [[NSUserDefaults standardUserDefaults] boolForKey:@"HideStatusBarIcon"]) {
@@ -426,7 +426,8 @@ static NSSet *sharedActiveContexts = nil;
     } else {
         
 		if (sbHideTimer) {
-            sbHideTimer = [sbHideTimer checkAndInvalidate];
+            [sbHideTimer invalidate];
+            sbHideTimer = nil;
         }
         
         if (![sbItem isVisible]) {

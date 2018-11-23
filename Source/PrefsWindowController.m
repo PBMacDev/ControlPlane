@@ -184,7 +184,7 @@
 	if (!(self = [super init]))
 		return nil;
 
-	newActionWindowParameterViewCurrentControl = nil;
+//    newActionWindowParameterViewCurrentControl = nil;
 
 	[self setValue:@NO forKey:@"logBufferPaused"];
 	logBufferTimer = nil;
@@ -331,6 +331,10 @@
                                              selector:@selector(contextsChanged:)
                                                  name:@"ContextsChangedNotification"
                                                object:contextsDataSource];
+    
+    
+    [addNewRuleButton setMenu:[addNewRuleButton menu] forSegment:0];
+    [addNewRuleButton setShowsMenuIndicator:YES forSegment:0];
 
 }
 
@@ -633,122 +637,6 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	[rulesController setSelectionIndex:index];
 }
 
-#pragma mark Action creation
-
-- (void)addAction:(id)sender
-{
-	Class klass = [sender representedObject];
-	[self setValue:[Action typeForClass:klass] forKey:@"newActionType"];
-	[self setValue:NSLocalizedString([Action typeForClass:klass], @"Action type")
-		forKey:@"newActionTypeString"];
-
-	[self setValue:[klass creationHelpText] forKey:@"newActionWindowHelpText"];
-	[self setValue:@"Arrival" forKey:@"newActionWindowWhen"];
-
-	[newActionWindow setTitle:[NSString stringWithFormat:
-		NSLocalizedString(@"New %@ Action", @"Window title"), newActionTypeString]];
-
-	[newActionContext setMenu:[contextsDataSource hierarchicalMenu]];
-
-	if ([klass conformsToProtocol:@protocol(ActionWithLimitedOptions)]) {
-		NSArrayController *loC = newActionLimitedOptionsController;
-		[loC removeObjects:[loC arrangedObjects]];
-        NSArray *returnedOptions = [klass limitedOptions];
-        if (!returnedOptions) {
-            return;
-        }
-		[loC addObjects:[klass limitedOptions]];
-		[loC selectNext:self];
-
-		NSRect frame = [newActionWindowParameterView bounds];
-		frame.size.height = 26;		// HACK!
-		NSPopUpButton *pub = [[NSPopUpButton alloc] initWithFrame:frame pullsDown:NO];
-		// Bindings:
-		[pub bind:@"content" toObject:loC withKeyPath:@"arrangedObjects" options:nil];
-		[pub bind:@"contentValues" toObject:loC withKeyPath:@"arrangedObjects.description" options:nil];
-		[pub bind:@"selectedIndex" toObject:loC withKeyPath:@"selectionIndex" options:nil];
-
-		if (newActionWindowParameterViewCurrentControl)
-			[newActionWindowParameterViewCurrentControl removeFromSuperview];
-		[newActionWindowParameterView addSubview:pub];
-		newActionWindowParameterViewCurrentControl = pub;
-
-		[NSApp activateIgnoringOtherApps:YES];
-		[newActionWindow makeKeyAndOrderFront:self];
-		return;
-	} else if ([klass conformsToProtocol:@protocol(ActionWithFileParameter)]) {
-		NSOpenPanel *panel = [NSOpenPanel openPanel];
-		[panel setAllowsMultipleSelection:NO];
-		[panel setCanChooseDirectories:NO];
-        if ([panel runModal] != NSModalResponseOK)
-			return;
-		NSString *filename = [[panel URL] path];
-		Action *action = [[klass alloc] initWithFile:filename];
-
-		NSMutableDictionary *actionDictionary = [action dictionary];
-		[actionsController addObject:actionDictionary];
-		[actionsController setSelectedObjects:[NSArray arrayWithObject:actionDictionary]];
-		return;
-	} else if ([klass conformsToProtocol:@protocol(ActionWithString)]) {
-		NSRect frame = [newActionWindowParameterView bounds];
-		frame.size.height = 22;		// HACK!
-		NSTextField *tf = [[NSTextField alloc] initWithFrame:frame];
-		[tf setStringValue:@""];	// TODO: sensible initialisation?
-
-		if (newActionWindowParameterViewCurrentControl)
-			[newActionWindowParameterViewCurrentControl removeFromSuperview];
-		[newActionWindowParameterView addSubview:tf];
-		newActionWindowParameterViewCurrentControl = tf;
-
-		[NSApp activateIgnoringOtherApps:YES];
-		[newActionWindow makeKeyAndOrderFront:self];
-		return;
-	}
-
-	// Worst-case fallback: just make a new action, and select it:
-	Action *action = [[[sender representedObject] alloc] init];
-	NSMutableDictionary *actionDictionary = [action dictionary];
-
-	[actionsController addObject:actionDictionary];
-	[actionsController setSelectedObjects:[NSArray arrayWithObject:actionDictionary]];
-}
-
-- (IBAction)doAddAction:(id)sender
-{
-	Class klass = [Action classForType:newActionType];
-	Action *tmp_action = [[klass alloc] init];
-	NSMutableDictionary *dict = [tmp_action dictionary];
-
-	// Pull parameter out of the right type of UI control
-	NSString *param, *desc = nil;
-	if ([klass conformsToProtocol:@protocol(ActionWithLimitedOptions)]) {
-		NSDictionary *sel = [[newActionLimitedOptionsController selectedObjects] lastObject];
-        DSLog(@"doAddAction sees %@",sel);
-		param = [sel valueForKey:@"option"];
-		desc = [sel valueForKey:@"description"];
-	} else if ([klass conformsToProtocol:@protocol(ActionWithString)]) {
-		NSTextField *tf = (NSTextField *) newActionWindowParameterViewCurrentControl;
-		param = [tf stringValue];
-        desc = [tf stringValue];
-	} else {
-		NSLog(@"PANIC! Don't know how to get parameter!!!");
-		return;
-	}
-
-	// Finish creating dictionary
-	[dict setValue:param forKey:@"parameter"];
-	[dict setValue:[[newActionContext selectedItem] representedObject] forKey:@"context"];
-	[dict setValue:newActionWindowWhen forKey:@"when"];
-	if (desc)
-		[dict setValue:desc forKey:@"description"];
-
-	// Stick it in action collection, and select it
-	[actionsController addObject:dict];
-	[actionsController setSelectedObjects:[NSArray arrayWithObject:dict]];
-
-	[newActionWindow performClose:self];
-}
-
 #pragma mark Login Item Routines
 
 - (IBAction)toggleStartAtLoginAction:(id)sender
@@ -796,14 +684,6 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
         }
 	}
 }
-
-//- (void)menuNeedsUpdate:(NSMenu *)menu
-//{
-//    if ([[menu identifier] isEqualToString:defaultContextMenuIdentifier]) {
-//        ;
-//    }
-//}
-
 
 @end
 

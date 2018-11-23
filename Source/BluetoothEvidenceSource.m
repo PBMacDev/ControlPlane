@@ -9,7 +9,6 @@
 #import "BluetoothEvidenceSource.h"
 #import "DB.h"
 #import "DSLogger.h"
-#import "NSTimer+Invalidation.h"
 #import <IOBluetooth/objc/IOBluetoothHostController.h>
 
 #define EXPIRY_INTERVAL		((NSTimeInterval) 60)
@@ -66,15 +65,7 @@
 
 - (void)start
 {
-
-#ifdef DEBUG_MODE
-    DSLog(@"In bluetooth start");
-#endif
-    
-#ifdef DEBUG_MODE
-    DSLog(@"setting 7 second timer to start bluetooth inquiry");
-#endif
-    
+//    DSLog(@"setting 7 second timer to start bluetooth inquiry");
     holdTimer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval) 10
                                                  target:self
                                                selector:@selector(holdTimerPoll:)
@@ -98,9 +89,7 @@
     // need to register for bluetooth connect notifications, but we need to delay it
     // until everything is loaded or we'll dead lock, not sure why
     
-#ifdef DEBUG_MODE
-    DSLog(@"setting 5 second timer to register for bluetooth connection notifications");
-#endif
+//    DSLog(@"setting 5 second timer to register for bluetooth connection notifications");
     registerForNotificationsTimer = [NSTimer scheduledTimerWithTimeInterval: (NSTimeInterval) 5
 																	  target: self
 																	selector: @selector(registerForNotifications:)
@@ -109,20 +98,11 @@
 
     // we now mark the evidence source as running
 	running = YES;
-    
-	
 }
+
 - (void)stop
 {
-#ifdef DEBUG_MODE
-    DSLog(@"In stop");
-#endif
-    
-
-    
-    
     [self unregisterForConnectionNotifications];
-    
     
     // we registered for disconnect notifications, unregister now
     for (IOBluetoothUserNotification *currentDevice in devicesRegisteredForDisconnectNotices) {
@@ -149,7 +129,6 @@
 	}
     
     
-    
 	if (holdTimer != nil && [holdTimer isValid]) {
 		DSLog(@"stopping hold timer");
 		[holdTimer invalidate];		// XXX: -[NSTimer invalidate] has to happen from the timer's creation thread
@@ -165,7 +144,6 @@
     
     // mark evidence source as not running
     running = NO;
-    
 	
 }
 
@@ -307,7 +285,8 @@
 
 
 - (void)registerForNotifications:(NSTimer *)timer {
-	registerForNotificationsTimer = [registerForNotificationsTimer checkAndInvalidate];
+    
+	registerForNotificationsTimer = nil;
     
 #ifdef DEBUG_MODE
     DSLog(@"registering for notifications");

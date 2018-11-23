@@ -22,8 +22,6 @@
 		7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6847617947E2200563601 /* LaptopLidEvidenceSource.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D1493F70C824B6D00D29FE8 /* BonjourEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */; };
-		8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A45590BA00DE2004A6BC4 /* minus-8.png */; };
-		8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A455A0BA00DE2004A6BC4 /* plus-8.png */; };
 		8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */; };
 		8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAAAB0C56E26100A50777 /* NetworkLinkEvidenceSource.m */; };
 		8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D38B66A0C49D50200290F47 /* SliderWithValue.m */; };
@@ -40,14 +38,12 @@
 		8D75A6200BE6F68B0069DF3F /* ToggleBluetoothAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75A61E0BE6F68B0069DF3F /* ToggleBluetoothAction.m */; };
 		8D8155D00C3A304E00228463 /* ContextsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8155CE0C3A304E00228463 /* ContextsDataSource.m */; };
 		8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */; };
-		8D88FE2A0C534737007A14D6 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D88FE290C534737007A14D6 /* pause.png */; };
 		8D8C9CA60BBB74E70074D5B3 /* EvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */; };
 		8D8C9CE70BBB7BE00074D5B3 /* BluetoothEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CE50BBB7BE00074D5B3 /* BluetoothEvidenceSource.m */; };
 		8D8C9E350BBB89320074D5B3 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9E330BBB89320074D5B3 /* DB.m */; };
 		8D90E51F0B71C4C9007D39FD /* CPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E51E0B71C4C9007D39FD /* CPController.m */; };
 		8D91F17D0C47148200D9FC0F /* USBEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D35A34D0BBBA0CB006ACBB0 /* USBEvidenceSource.m */; };
 		8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */; };
-		8D9AE3A60BE0DA7E00D4D4E4 /* PopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9AE3A40BE0DA7E00D4D4E4 /* PopButton.m */; };
 		8DA2F4150CE8630200F92D4D /* DesktopBackgroundAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */; };
 		8DB1EF240C6C60A300586F84 /* MailIMAPServerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1EF220C6C60A300586F84 /* MailIMAPServerAction.m */; };
 		8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB8917B0BB89BD8005347C2 /* oui.txt */; };
@@ -92,6 +88,7 @@
 		A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A42183B07F0061014D /* ShellScriptRule.xib */; };
 		A71CB2B52183B07F0061014D /* ServerAddressRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A62183B07F0061014D /* ServerAddressRule.xib */; };
 		A71CB2B62183B0800061014D /* LightRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A82183B07F0061014D /* LightRule.xib */; };
+		A72CEE9E21A7E70300BC78DE /* ActionSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72CEE9D21A7E70300BC78DE /* ActionSetController.m */; };
 		A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A021860E0900CA9C13 /* CoreWLAN.framework */; };
 		A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A821872EB600CA9C13 /* UserNotifications.framework */; };
 		A7A49E28218B56C900775312 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A49E27218B56C900775312 /* Images.xcassets */; };
@@ -136,7 +133,6 @@
 		DAAF16B61413174400F5D915 /* ToggleTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF16B51413174400F5D915 /* ToggleTimeMachineAction.m */; };
 		DAB1A7E215C3776D00CF65E8 /* CPNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1A7E115C3776D00CF65E8 /* CPNotifications.m */; };
 		DABE3F6A16C44236004F5E63 /* OpenAndHideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DABE3F6916C44236004F5E63 /* OpenAndHideAction.m */; };
-		DABF656617910AB600AA5B86 /* CPSystemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF656517910AB600AA5B86 /* CPSystemInfo.m */; };
 		DAC45F2014CDEC170007F5EF /* TimeMachineDestinationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC45F1F14CDEC170007F5EF /* TimeMachineDestinationAction.m */; };
 		DAC672FE152235E800F1C7A1 /* ToggleWebSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC672FD152235E800F1C7A1 /* ToggleWebSharingAction.m */; };
 		DACE6D4A159BFC1D00FEE37E /* CPHelperTool-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DACE6D48159BFC1D00FEE37E /* CPHelperTool-Info.plist */; };
@@ -147,7 +143,6 @@
 		DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD827506141188880098FA6E /* DisplayBrightnessAction.m */; };
 		DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */; };
 		DAFC0E4514788ACB00DA6139 /* DisplayServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DD7D2539149C338300BE7C8B /* NSTimer+Invalidation.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */; };
 		DD8274F0141154780098FA6E /* MailIntervalAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274EF141154780098FA6E /* MailIntervalAction.m */; };
 		DD8274F314115EE50098FA6E /* StartTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F214115EE40098FA6E /* StartTimeMachineAction.m */; };
 		DD8274F614116CC90098FA6E /* OpenURLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F514116CC80098FA6E /* OpenURLAction.m */; };
@@ -159,7 +154,6 @@
 		DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */; };
 		DDDF1C2F1411E08000DB0018 /* ITunesPlaylistAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2E1411E07F00DB0018 /* ITunesPlaylistAction.m */; };
 		DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */ = {isa = PBXBuildFile; fileRef = DDE1B067140438DB006564A6 /* ControlPlane.sdef */; };
-		DDFF423114156B0A0047D311 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = DDFF423014156B0A0047D311 /* location.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,8 +281,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1493F40C824B6D00D29FE8 /* BonjourEvidenceSource.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BonjourEvidenceSource.h; path = Source/BonjourEvidenceSource.h; sourceTree = "<group>"; };
 		8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = BonjourEvidenceSource.m; path = Source/BonjourEvidenceSource.m; sourceTree = "<group>"; };
-		8D1A45590BA00DE2004A6BC4 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minus-8.png"; path = "Resources/minus-8.png"; sourceTree = "<group>"; };
-		8D1A455A0BA00DE2004A6BC4 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-8.png"; path = "Resources/plus-8.png"; sourceTree = "<group>"; };
 		8D27ECAD0C4456A300AE1929 /* AudioOutputEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = AudioOutputEvidenceSource.h; path = Source/AudioOutputEvidenceSource.h; sourceTree = "<group>"; };
 		8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = AudioOutputEvidenceSource.m; path = Source/AudioOutputEvidenceSource.m; sourceTree = "<group>"; };
 		8D2BAAAA0C56E26100A50777 /* NetworkLinkEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NetworkLinkEvidenceSource.h; path = Source/NetworkLinkEvidenceSource.h; sourceTree = "<group>"; };
@@ -323,7 +315,6 @@
 		8D8155CE0C3A304E00228463 /* ContextsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContextsDataSource.m; path = Source/ContextsDataSource.m; sourceTree = "<group>"; };
 		8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PrefsWindowController.h; path = Source/PrefsWindowController.h; sourceTree = "<group>"; };
 		8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PrefsWindowController.m; path = Source/PrefsWindowController.m; sourceTree = "<group>"; };
-		8D88FE290C534737007A14D6 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		8D8C9BA70BBB3AAC0074D5B3 /* Apple80211.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Apple80211.h; path = Source/Apple80211.h; sourceTree = "<group>"; };
 		8D8C9CA30BBB74E70074D5B3 /* EvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvidenceSource.h; path = Source/EvidenceSource.h; sourceTree = "<group>"; };
 		8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvidenceSource.m; path = Source/EvidenceSource.m; sourceTree = "<group>"; };
@@ -338,8 +329,6 @@
 		8D91F1F70C4772FF00D9FC0F /* LightEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = LightEvidenceSource.h; path = Source/LightEvidenceSource.h; sourceTree = "<group>"; };
 		8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = LightEvidenceSource.m; path = Source/LightEvidenceSource.m; sourceTree = "<group>"; };
 		8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-arrow.png"; path = "Resources/plus-arrow.png"; sourceTree = "<group>"; };
-		8D9AE3A30BE0DA7E00D4D4E4 /* PopButton.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = PopButton.h; path = Source/PopButton.h; sourceTree = "<group>"; };
-		8D9AE3A40BE0DA7E00D4D4E4 /* PopButton.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = PopButton.m; path = Source/PopButton.m; sourceTree = "<group>"; };
 		8DA2F4120CE8630200F92D4D /* DesktopBackgroundAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DesktopBackgroundAction.h; path = Source/DesktopBackgroundAction.h; sourceTree = "<group>"; };
 		8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = DesktopBackgroundAction.m; path = Source/DesktopBackgroundAction.m; sourceTree = "<group>"; };
 		8DB1EF210C6C60A300586F84 /* MailIMAPServerAction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MailIMAPServerAction.h; path = Source/MailIMAPServerAction.h; sourceTree = "<group>"; };
@@ -405,6 +394,8 @@
 		A71CB2BF2183B0940061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ServerAddressRule.xib; sourceTree = "<group>"; };
 		A71CB2C02183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ShellScriptRule.xib; sourceTree = "<group>"; };
 		A71CB2C12183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/TimeOfDayRule.xib; sourceTree = "<group>"; };
+		A72CEE9C21A7E70300BC78DE /* ActionSetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ActionSetController.h; path = Source/ActionSetController.h; sourceTree = "<group>"; };
+		A72CEE9D21A7E70300BC78DE /* ActionSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ActionSetController.m; path = Source/ActionSetController.m; sourceTree = "<group>"; };
 		A79414A021860E0900CA9C13 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		A79414A821872EB600CA9C13 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A7A49E27218B56C900775312 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ControlPlaneX/Images.xcassets; sourceTree = "<group>"; };
@@ -485,8 +476,6 @@
 		DAB1A7E115C3776D00CF65E8 /* CPNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPNotifications.m; path = Source/CPNotifications.m; sourceTree = "<group>"; };
 		DABE3F6816C44236004F5E63 /* OpenAndHideAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenAndHideAction.h; path = Source/OpenAndHideAction.h; sourceTree = "<group>"; };
 		DABE3F6916C44236004F5E63 /* OpenAndHideAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenAndHideAction.m; path = Source/OpenAndHideAction.m; sourceTree = "<group>"; };
-		DABF656417910AB600AA5B86 /* CPSystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPSystemInfo.h; path = Source/CPSystemInfo.h; sourceTree = "<group>"; };
-		DABF656517910AB600AA5B86 /* CPSystemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPSystemInfo.m; path = Source/CPSystemInfo.m; sourceTree = "<group>"; };
 		DAC45F1E14CDEC170007F5EF /* TimeMachineDestinationAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeMachineDestinationAction.h; path = Source/TimeMachineDestinationAction.h; sourceTree = "<group>"; };
 		DAC45F1F14CDEC170007F5EF /* TimeMachineDestinationAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeMachineDestinationAction.m; path = Source/TimeMachineDestinationAction.m; sourceTree = "<group>"; };
 		DAC672FC152235E800F1C7A1 /* ToggleWebSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleWebSharingAction.h; path = Source/ToggleWebSharingAction.h; sourceTree = "<group>"; };
@@ -501,8 +490,6 @@
 		DAF7F83E1749BB6A002BB402 /* EvidenceSourcePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvidenceSourcePlugin.h; path = Source/EvidenceSourcePlugin.h; sourceTree = "<group>"; };
 		DAF7F83F1749BB90002BB402 /* ActionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionPlugin.h; path = Source/ActionPlugin.h; sourceTree = "<group>"; };
 		DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DisplayServices.framework; path = /System/Library/PrivateFrameworks/DisplayServices.framework; sourceTree = "<absolute>"; };
-		DD7D2537149C338200BE7C8B /* NSTimer+Invalidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Invalidation.h"; path = "Source/NSTimer+Invalidation.h"; sourceTree = "<group>"; };
-		DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Invalidation.m"; path = "Source/NSTimer+Invalidation.m"; sourceTree = "<group>"; };
 		DD8274EE141154780098FA6E /* MailIntervalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailIntervalAction.h; path = Source/MailIntervalAction.h; sourceTree = "<group>"; };
 		DD8274EF141154780098FA6E /* MailIntervalAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MailIntervalAction.m; path = Source/MailIntervalAction.m; sourceTree = "<group>"; };
 		DD8274F114115EE40098FA6E /* StartTimeMachineAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartTimeMachineAction.h; path = Source/StartTimeMachineAction.h; sourceTree = "<group>"; };
@@ -528,7 +515,6 @@
 		DDDF1C2D1411E07F00DB0018 /* ITunesPlaylistAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITunesPlaylistAction.h; path = Source/ITunesPlaylistAction.h; sourceTree = "<group>"; };
 		DDDF1C2E1411E07F00DB0018 /* ITunesPlaylistAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITunesPlaylistAction.m; path = Source/ITunesPlaylistAction.m; sourceTree = "<group>"; };
 		DDE1B067140438DB006564A6 /* ControlPlane.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ControlPlane.sdef; path = Resources/ControlPlane.sdef; sourceTree = "<group>"; };
-		DDFF423014156B0A0047D311 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = Resources/location.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,8 +570,6 @@
 				8D8155CE0C3A304E00228463 /* ContextsDataSource.m */,
 				DDAE0015141474DC00FDADE8 /* CPController+SleepMonitor.h */,
 				DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */,
-				DABF656417910AB600AA5B86 /* CPSystemInfo.h */,
-				DABF656517910AB600AA5B86 /* CPSystemInfo.m */,
 				8D90E51D0B71C4C9007D39FD /* CPController.h */,
 				8D90E51E0B71C4C9007D39FD /* CPController.m */,
 				DAB1A7E015C3776D00CF65E8 /* CPNotifications.h */,
@@ -596,8 +580,8 @@
 				8DBB44960C530F7600064010 /* DSLogger.m */,
 				DA461C0A14C33E3B0019594A /* NSString+ShellScriptHelper.h */,
 				DA461C0B14C33E3B0019594A /* NSString+ShellScriptHelper.m */,
-				DD7D2537149C338200BE7C8B /* NSTimer+Invalidation.h */,
-				DD7D2538149C338300BE7C8B /* NSTimer+Invalidation.m */,
+				A72CEE9C21A7E70300BC78DE /* ActionSetController.h */,
+				A72CEE9D21A7E70300BC78DE /* ActionSetController.m */,
 				8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */,
 				8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */,
 			);
@@ -647,11 +631,7 @@
 				DDE1B067140438DB006564A6 /* ControlPlane.sdef */,
 				DA4A629413E25C9D00CE976F /* Credits.html */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				DDFF423014156B0A0047D311 /* location.png */,
-				8D1A45590BA00DE2004A6BC4 /* minus-8.png */,
 				8DB8917B0BB89BD8005347C2 /* oui.txt */,
-				8D88FE290C534737007A14D6 /* pause.png */,
-				8D1A455A0BA00DE2004A6BC4 /* plus-8.png */,
 				8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */,
 				DA83A22613D1430000074503 /* usb-vendors.txt */,
 			);
@@ -723,8 +703,6 @@
 		8D0164850C02AB08004AD8DB /* UI Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8D9AE3A30BE0DA7E00D4D4E4 /* PopButton.h */,
-				8D9AE3A40BE0DA7E00D4D4E4 /* PopButton.m */,
 				8D38B6690C49D50200290F47 /* SliderWithValue.h */,
 				8D38B66A0C49D50200290F47 /* SliderWithValue.m */,
 			);
@@ -1172,15 +1150,12 @@
 				A7A49E28218B56C900775312 /* Images.xcassets in Resources */,
 				A71CB2AA2183B07F0061014D /* HostAvailability.xib in Resources */,
 				A71CB2B62183B0800061014D /* LightRule.xib in Resources */,
-				8D1A455B0BA00DE2004A6BC4 /* minus-8.png in Resources */,
-				8D1A455C0BA00DE2004A6BC4 /* plus-8.png in Resources */,
 				A71CB2AF2183B07F0061014D /* CoreLocationRule.xib in Resources */,
 				8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */,
 				A71CB2B32183B07F0061014D /* IPRule.xib in Resources */,
 				A71CB2B02183B07F0061014D /* IPv6AddrRule.xib in Resources */,
 				A71CB2AD2183B07F0061014D /* GenericRule.xib in Resources */,
 				8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */,
-				8D88FE2A0C534737007A14D6 /* pause.png in Resources */,
 				A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */,
 				A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */,
 				DA83A22713D1430000074503 /* usb-vendors.txt in Resources */,
@@ -1188,7 +1163,6 @@
 				A71CB2B12183B07F0061014D /* TimeOfDayRule.xib in Resources */,
 				DDE1B068140438DB006564A6 /* ControlPlane.sdef in Resources */,
 				A71CB2AE2183B07F0061014D /* CPHelperToolAuthorizationPrompts.strings in Resources */,
-				DDFF423114156B0A0047D311 /* location.png in Resources */,
 				A71CB2AC2183B07F0061014D /* SearchDomainRule.xib in Resources */,
 				DAA9ABFF1595FDE700B84B05 /* README.md in Resources */,
 				A71CB2B22183B07F0061014D /* Localizable.strings in Resources */,
@@ -1250,7 +1224,6 @@
 				8DF5A4610BC239B100CBEB4B /* DefaultPrinterAction.m in Sources */,
 				8DD790AD0BC28A9F00705346 /* OpenAction.m in Sources */,
 				8DBAFAFC0BDC3B7B00BE0747 /* ShellScriptAction.m in Sources */,
-				8D9AE3A60BE0DA7E00D4D4E4 /* PopButton.m in Sources */,
 				8D75A6200BE6F68B0069DF3F /* ToggleBluetoothAction.m in Sources */,
 				8D649BA50BE8033A00716059 /* ToggleWiFiAction.m in Sources */,
 				8DC4E7FD0C178917007E7E41 /* MuteAction.m in Sources */,
@@ -1303,12 +1276,12 @@
 				739492E2146B8018003C94DE /* DisplaySleepTimeAction.m in Sources */,
 				732A58DF1484300A0011019C /* ShellScriptEvidenceSource.m in Sources */,
 				DAAA7FAE1953E2C500C06DBB /* MountedVolumeEvidenceSource.m in Sources */,
-				DD7D2539149C338300BE7C8B /* NSTimer+Invalidation.m in Sources */,
 				DA461C0C14C33E3C0019594A /* NSString+ShellScriptHelper.m in Sources */,
 				DA49AF6C14C3E0AB00D03D6A /* TogglePrinterSharingAction.m in Sources */,
 				DAC45F2014CDEC170007F5EF /* TimeMachineDestinationAction.m in Sources */,
 				DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */,
 				DA571B71151587B80074CE22 /* ToggleFileSharingAction.m in Sources */,
+				A72CEE9E21A7E70300BC78DE /* ActionSetController.m in Sources */,
 				DA41954D151C17F000FF7BA0 /* ActionSubmenuItem.m in Sources */,
 				DA4ED9C41520055100E6A8CE /* ToggleNaturalScrollingAction.m in Sources */,
 				DA2B4381152161C800E94A1D /* ToggleTFTPAction.m in Sources */,
@@ -1332,7 +1305,6 @@
 				7C6D94591747A1BE00D5B9C7 /* IPAddrEvidenceSource.m in Sources */,
 				7C6D945C1747A1F300D5B9C7 /* IPv4RuleType.m in Sources */,
 				7C4855C0174941C500D8EB84 /* IPv6RuleType.m in Sources */,
-				DABF656617910AB600AA5B86 /* CPSystemInfo.m in Sources */,
 				7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */,
 				DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */,
 			);

@@ -14,6 +14,9 @@
 
 @interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate>
 
+//@property IBOutlet NSSearchField* searchField;
+
+
 - (id)init;
 - (void)start;
 - (void)stop;

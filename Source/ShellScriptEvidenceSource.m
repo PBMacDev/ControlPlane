@@ -12,7 +12,6 @@
 
 #import "ShellScriptEvidenceSource.h"
 #import "DSLogger.h"
-#import "NSTimer+Invalidation.h"
 #import "NSString+ShellScriptHelper.h"
 
 @interface ShellScriptEvidenceSource (Private)

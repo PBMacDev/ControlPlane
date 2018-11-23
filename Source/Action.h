@@ -68,21 +68,3 @@
 // An action whose creation UI should just prompt for a string (NSTextField)
 @protocol ActionWithString
 @end
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-@interface ActionSetController : NSObject {
-	IBOutlet NSWindowController *prefsWindowController;
-	NSMutableArray *classes;	// array of class objects
-    NSDictionary *menuCategories;
-}
-
-- (NSArray *)types;
-
-// NSMenu delegates
-- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(int)index shouldCancel:(BOOL)shouldCancel;
-- (BOOL)menuHasKeyEquivalent:(NSMenu *)menu forEvent:(NSEvent *)event target:(id *)target action:(SEL *)action;
-- (NSUInteger)numberOfItemsInMenu:(NSMenu *)menu;
-
-
-@end
