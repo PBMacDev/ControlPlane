@@ -90,30 +90,6 @@
     return NSLocalizedString(@"Create rules based on the time of day and day of week.", @"");
 }
 
-- (IBAction)closeSheetWithOK:(id)sender
-{
-    if ([self validatePanelParams]) {
-        [super closeSheetWithOK:sender];
-    }
-}
-
-- (BOOL)validatePanelParams
-{
-    NSString *startT = [formatter stringFromDate:startTime];
-    if (startT == nil) {
-        [RuleType alertOnInvalidParamValueWith:NSLocalizedString(@"Start time format is not correct", @"")];
-        return NO;
-    }
-    
-    NSString *endT = [formatter stringFromDate:endTime];
-    if (endT == nil) {
-        [RuleType alertOnInvalidParamValueWith:NSLocalizedString(@"End time format is not correct", @"")];
-        return NO;
-    }
-    
-    return YES;
-}
-
 - (NSMutableDictionary *)readFromPanel
 {
 	NSMutableDictionary *dict = [super readFromPanel];
@@ -189,30 +165,33 @@
         return NO;
     }
 
-    NSCalendarDate *now = [NSCalendarDate calendarDate];
+    NSDate* now = [NSDate date];
+    NSCalendar *cal = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    NSInteger dow = [cal component:NSCalendarUnitWeekday fromDate:now];
     
 	// Check day first
-	NSInteger dow = [now dayOfWeek];	// 0=Sunday, 1=Monday, etc.
 	if ([day isEqualToString:@"Any day"]) {
 		// Okay
 	} else if ([day isEqualToString:@"Weekday"]) {
-		if ((dow < 1) || (dow > 5))
+		if ((dow < 2) || (dow > 6))
 			return NO;
 	} else if ([day isEqualToString:@"Weekend"]) {
-		if ((dow != 0) && (dow != 6))
+		if ((dow != 1) && (dow != 7))
 			return NO;
 	} else {
-		static NSString *day_name[7] = { @"Sunday", @"Monday", @"Tuesday", @"Wednesday",
+		static NSString *day_name[8] = { @"", @"Sunday", @"Monday", @"Tuesday", @"Wednesday",
 						@"Thursday", @"Friday", @"Saturday" };
+        
 		if (![day isEqualToString:day_name[dow]])
 			return NO;
 	}
     
-	NSCalendar *cal = [NSCalendar currentCalendar];
-	NSDateComponents *startC = [cal components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startT];
-	NSDateComponents *endC = [cal components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:endT];
+    NSDateComponents *startC = [cal components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startT];
+    NSDateComponents *endC = [cal components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:endT];
     
-    const NSInteger hourNow = [now hourOfDay], minuteNow = [now minuteOfHour];
+    NSInteger hourNow = [cal component:NSCalendarUnitHour fromDate:now];
+    NSInteger minuteNow = [cal component:NSCalendarUnitMinute fromDate:now];
+
     BOOL hasStarted = (hourNow > [startC hour]) || ( (hourNow == [startC hour]) && (minuteNow >= [startC minute]) );
     BOOL hasEnded   = (hourNow > [endC hour])   || ( (hourNow == [endC hour])   && (minuteNow >= [endC minute]) );
     

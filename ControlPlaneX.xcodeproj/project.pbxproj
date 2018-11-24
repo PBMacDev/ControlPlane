@@ -43,7 +43,6 @@
 		8D8C9E350BBB89320074D5B3 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9E330BBB89320074D5B3 /* DB.m */; };
 		8D90E51F0B71C4C9007D39FD /* CPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E51E0B71C4C9007D39FD /* CPController.m */; };
 		8D91F17D0C47148200D9FC0F /* USBEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D35A34D0BBBA0CB006ACBB0 /* USBEvidenceSource.m */; };
-		8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */; };
 		8DA2F4150CE8630200F92D4D /* DesktopBackgroundAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */; };
 		8DB1EF240C6C60A300586F84 /* MailIMAPServerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1EF220C6C60A300586F84 /* MailIMAPServerAction.m */; };
 		8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB8917B0BB89BD8005347C2 /* oui.txt */; };
@@ -328,7 +327,6 @@
 		8D90E51E0B71C4C9007D39FD /* CPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPController.m; path = Source/CPController.m; sourceTree = "<group>"; };
 		8D91F1F70C4772FF00D9FC0F /* LightEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = LightEvidenceSource.h; path = Source/LightEvidenceSource.h; sourceTree = "<group>"; };
 		8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = LightEvidenceSource.m; path = Source/LightEvidenceSource.m; sourceTree = "<group>"; };
-		8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-arrow.png"; path = "Resources/plus-arrow.png"; sourceTree = "<group>"; };
 		8DA2F4120CE8630200F92D4D /* DesktopBackgroundAction.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DesktopBackgroundAction.h; path = Source/DesktopBackgroundAction.h; sourceTree = "<group>"; };
 		8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = DesktopBackgroundAction.m; path = Source/DesktopBackgroundAction.m; sourceTree = "<group>"; };
 		8DB1EF210C6C60A300586F84 /* MailIMAPServerAction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = MailIMAPServerAction.h; path = Source/MailIMAPServerAction.h; sourceTree = "<group>"; };
@@ -632,7 +630,6 @@
 				DA4A629413E25C9D00CE976F /* Credits.html */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				8DB8917B0BB89BD8005347C2 /* oui.txt */,
-				8D9AE3780BE0D11800D4D4E4 /* plus-arrow.png */,
 				DA83A22613D1430000074503 /* usb-vendors.txt */,
 			);
 			name = Resources;
@@ -1155,7 +1152,6 @@
 				A71CB2B32183B07F0061014D /* IPRule.xib in Resources */,
 				A71CB2B02183B07F0061014D /* IPv6AddrRule.xib in Resources */,
 				A71CB2AD2183B07F0061014D /* GenericRule.xib in Resources */,
-				8D9AE3790BE0D11800D4D4E4 /* plus-arrow.png in Resources */,
 				A71CB2AB2183B07F0061014D /* MainMenu.xib in Resources */,
 				A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */,
 				DA83A22713D1430000074503 /* usb-vendors.txt in Resources */,
