@@ -31,19 +31,7 @@
 @end
 
 
-@implementation CoreLocationSource {
-	CLLocationManager *locationManager;
-	CLLocation *current, *selectedRule;
-	NSDate *startDate;
-	
-	// for custom panel
-    IBOutlet MKMapView *mapView;
-	NSString *address;
-	NSString *coordinates;
-    NSString *accuracy;
-}
-
-static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api/geocode/json?";
+@implementation CoreLocationSource
 
 - (id)init {
     self = [super initWithNibNamed:@"CoreLocationRule"];
@@ -52,39 +40,53 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
     }
     
 	// for custom panel
-	address = @"";
-	coordinates = @"0.0, 0.0";
-//    accuracy = @"0 m";
-	
+	self.address = @"";
+	self.coordinates = @"0.0, 0.0";
+
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+//    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+//    locationManager.distanceFilter = 500; // meters
+
+    geocoder = [[CLGeocoder alloc] init];
+    
+    [locationManager requestLocation];
+
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [self.mapView setDelegate:self];
+    [self.mapView setShowsUserLocation:YES];
+    
+    selectedRuleAnn = [[MKPointAnnotation alloc] init];
+    [self.mapView addAnnotation:selectedRuleAnn];
+    
+    MKCoordinateRegion theRegion = self.mapView.region;
+    theRegion.span.longitudeDelta = .01;
+    theRegion.span.latitudeDelta = .01;
+    [self.mapView setRegion:theRegion animated:NO];
+
 }
 
 - (NSString *)description {
     return NSLocalizedString(@"Create rules based on your current location using OS X's Core Location framework.", @"");
 }
 
-//- (void)dealloc {
-//    [self stop];
-//}
+- (void)dealloc {
+    [self stop];
+}
 
 - (void)start {
 	if (running) {
 		return;
     }
     
-	startDate = [NSDate date];
-    
-	locationManager = [[CLLocationManager alloc] init];
-	locationManager.delegate = self;
-	locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-	[locationManager startUpdatingLocation];
+    [locationManager startUpdatingLocation];
     
 	[self setDataCollected:YES];
 	running = YES;
-    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [self updateMap];
-//    });
 }
 
 - (void)stop {
@@ -92,12 +94,7 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 		return;
     }
     
-    if (locationManager) {
-        [locationManager stopUpdatingLocation];
-        locationManager.delegate = nil;
-        locationManager = nil;
-    }
-	current = nil;
+    [locationManager stopUpdatingLocation];
     
 	[self setDataCollected:NO];
 	running = NO;
@@ -107,9 +104,9 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	NSMutableDictionary *dict = [super readFromPanel];
 	
 	// store values
-	dict[@"parameter"] = coordinates;
+	dict[@"parameter"] = self.coordinates;
 	if (!dict[@"description"]) {
-		dict[@"description"] = address;
+		dict[@"description"] = self.address;
     }
 	
 	return dict;
@@ -117,25 +114,22 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 
 - (void)writeToPanel:(NSDictionary *)dict usingType:(NSString *)type {
 	[super writeToPanel: dict usingType: type];
-	NSString *add = @"";
 	
 	// do we already have settings?
 	if (dict[@"parameter"]) {
 		selectedRule = [[CLLocation alloc] initWithText:dict[@"parameter"]];
     }
 	else {
-		selectedRule = [current copy];
+		selectedRule = [locationManager location];
     }
 	
 	// get corresponding address
-	if (![CoreLocationSource geocodeLocation: selectedRule toAddress: &add]) {
-		add = NSLocalizedString(@"Unknown address", @"CoreLocation");
-    }
+    [self geocodeLocation:selectedRule toAddress:nil];
 	
 	// show values
-	[self setValue:[selectedRule convertToText] forKey:@"coordinates"];
-	[self setValue:add forKey:@"address"];
-//    [self updateMap];
+    self.coordinates = [selectedRule convertToText];
+    
+    [self updateMap];
 }
 
 - (NSString *)name {
@@ -143,6 +137,7 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 }
 
 - (BOOL)doesRuleMatch:(NSDictionary *)rule {
+    
     if (current) {
         // get coordinates of rule
         CLLocation *ruleLocation = [[CLLocation alloc] initWithText:rule[@"parameter"]];
@@ -150,43 +145,40 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
             // match if distance is smaller than accuracy
             return ([ruleLocation distanceFromLocation:current] <= current.horizontalAccuracy);
         }
+    } else {
+        [locationManager requestLocation];
     }
+    
     return NO;
 }
 
 - (IBAction)showCoreLocation:(id)sender {
-	NSString *add = nil;
-	
-	selectedRule = [current copy];
-	if (![CoreLocationSource geocodeLocation:selectedRule toAddress:&add]) {
-		add = NSLocalizedString(@"Unknown address", @"CoreLocation");
-    }
+	selectedRule = [locationManager location];
+    [self geocodeLocation:selectedRule toAddress:nil];
 	
 	// show values
-	[self setValue:[selectedRule convertToText] forKey:@"coordinates"];
-	[self setValue:add forKey:@"address"];
-//    [self updateMap];
+    self.coordinates = [selectedRule convertToText];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(current.coordinate.latitude, current.coordinate.longitude) animated:YES];
 }
 
 #pragma mark -
 #pragma mark UI Validation
 
-//- (BOOL)validateAddress:(inout NSString **)newValue error:(out NSError **)outError {
-//    // check address
-//    CLLocation *loc = nil;
-//    BOOL result = [CoreLocationSource geocodeAddress:newValue toLocation:&loc];
-//
-//    // if correct, set coordinates
-//    if (result) {
-//        selectedRule = loc;
-//
-//        [self setValue:[loc convertToText] forKey:@"coordinates"];
-//        [self setValue:*newValue forKey:@"address"];
-////        [self updateMap];
-//    }
-//
-//    return result;
-//}
+- (BOOL)validateAddress:(inout NSString **)newValue error:(out NSError **)outError {
+
+    [geocoder geocodeAddressString:*newValue completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            CLPlacemark* placemark = placemarks[0];
+            CLLocation *loc = [placemark location];
+            
+            self->selectedRule = loc;
+            self.coordinates = [loc convertToText];
+            [self updateMap];
+        }
+    }];
+    
+    return YES;
+}
 
 - (BOOL)validateCoordinates:(inout NSString **)newValue error:(out NSError **)outError {
 	// check coordinates
@@ -194,136 +186,115 @@ static const NSString *kGoogleAPIPrefix = @"https://maps.googleapis.com/maps/api
 	if (!loc) {
         return NO;
     }
+    
     selectedRule = loc;
     
-    NSString *add = nil;
-    [CoreLocationSource geocodeLocation:loc toAddress:&add];
-    
-    [self setValue:*newValue forKey:@"coordinates"];
-    [self setValue:add forKey:@"address"];
-//    [self updateMap];
-    
+    [geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            CLPlacemark* placemark = [placemarks objectAtIndex:0];
+            self.address = [placemark thoroughfare];
+            
+            self.coordinates = [self->selectedRule convertToText];
+            [self updateMap];
+        }
+    }];
+
 	return YES;
 }
 
 #pragma mark -
 #pragma mark CoreLocation callbacks
 
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation {
-	
-	// Ignore invalid updates
-	if (![self isValidLocation:newLocation withOldLocation:oldLocation]) {
-		return;
-    }
-	
-	// location
-	current = [newLocation copy];
-	CLLocationAccuracy acc = current.horizontalAccuracy;
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    
+    if (newLocation != nil) {
+        
+        current = [newLocation copy];
+        CLLocationAccuracy acc = current.horizontalAccuracy;
 #ifdef DEBUG_MODE
-	CLLocationDegrees lat = current.coordinate.latitude;
-	CLLocationDegrees lon = current.coordinate.longitude;
-	DSLog(@"New location: (%f, %f) with accuracy %f", lat, lon, acc);
+        CLLocationDegrees lat = current.coordinate.latitude;
+        CLLocationDegrees lon = current.coordinate.longitude;
+        DSLog(@"New location: (%f, %f) with accuracy %f", lat, lon, acc);
 #endif
-	
-	// store
-	[self setValue:[NSString stringWithFormat:@"%d m", (int) acc] forKey:@"accuracy"];
+        self.accuracy = [NSString stringWithFormat:@"%d m", (int) acc];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-	DSLog(@"Location manager failed with error: %@", [error localizedDescription]);
-	
-	switch (error.code) {
-		case kCLErrorDenied:
-			DSLog(@"Core Location denied!");
-			[self stop];
-			break;
+    DSLog(@"Location manager failed with error: %@", [error localizedDescription]);
+
+    switch (error.code) {
+        case kCLErrorDenied:
+            DSLog(@"Core Location denied!");
+            [self stop];
+            break;
+
+        default:
+            break;
+    }
+}
+
+#pragma mark MapView delegate
+
+- (void)mapViewDidChangeVisibleRegion:(MKMapView *)mapView
+{
+    self->selectedRule = [[CLLocation alloc] initWithLatitude:mapView.region.center.latitude longitude:mapView.region.center.longitude];
+    self.coordinates = [self->selectedRule convertToText];
+    [self geocodeLocation:self->selectedRule toAddress:nil];
+    self->selectedRuleAnn.coordinate = self->selectedRule.coordinate;
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    // If the annotation is the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    // Handle any custom annotations.
+//    if ([annotation isKindOfClass:[MyCustomAnnotation class]])
+    {
+        // Try to dequeue an existing pin view first.
+        MKPinAnnotationView*    pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"SelectedRulePinAnnotationView"];
+        
+        if (!pinView)
+        {
+            // If an existing pin view was not available, create one.
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                      reuseIdentifier:@"SelectedRulePinAnnotationView"];
+            pinView.pinTintColor = [MKPinAnnotationView purplePinColor];
+//            pinView.animatesDrop = YES;
+//            pinView.canShowCallout = YES;
             
-		default:
-			break;
-	}
+            // If appropriate, customize the callout by adding accessory views (code not shown).
+        }
+        else
+            pinView.annotation = annotation;
+        
+        return pinView;
+    }
+    
+    return nil;
 }
 
 #pragma mark -
 #pragma mark Helper functions
 
 - (void)updateMap {
-    
-//    if (!running) {
-//        return;
-//    }
-//
-	// Get coordinates and replace placeholders with these
-//    NSString *htmlPath = [NSBundle.mainBundle pathForResource:@"CoreLocationMap" ofType:@"html"];
-//    NSString *htmlTemplate = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:NULL];
-    
-//    NSString *htmlString = [NSString stringWithFormat:htmlTemplate,
-//                            (current ? current.coordinate.latitude : 0.0),
-//                            (current ? current.coordinate.longitude : 0.0),
-//                            (selectedRule ? selectedRule.coordinate.latitude : 0.0),
-//                            (selectedRule ? selectedRule.coordinate.longitude : 0.0),
-//                            (current ? current.horizontalAccuracy : 0.0)];
-
-//    // Load the HTML in the WebView
-//    [webView.mainFrame loadHTMLString:htmlString baseURL:nil];
-    
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(current.coordinate.latitude, current.coordinate.longitude)];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(selectedRule.coordinate.latitude, selectedRule.coordinate.longitude)];
 }
 
 
-+ (BOOL)geocodeLocation:(CLLocation *)location toAddress:(NSString **)address {
-	NSString *url = [NSString stringWithFormat:@"%@latlng=%f,%f&sensor=false",
-					 kGoogleAPIPrefix, location.coordinate.latitude, location.coordinate.longitude];
-	
-	// fetch and parse response
-	NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-	if (!jsonData) {
-		return NO;
-    }
+- (BOOL)geocodeLocation:(CLLocation *)location toAddress:(NSString **)addr {
     
-    NSError *error = nil;
-    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    if (!data) {
-        DSLog(@"Failed to decode JSON object: '%@'", [error localizedFailureReason]);
-        return NO;
-    }
-	
-	// check response status
-	if (![data[@"status"] isEqualToString: @"OK"]) {
-		return NO;
-    }
-	
-	// check number of results
-	NSArray *results = data[@"results"];
-	if ([results count] == 0) {
-		return NO;
-    }
-	
-	*address = results[0][@"formatted_address"];
-	return YES;
-}
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            CLPlacemark* placemark = [placemarks objectAtIndex:0];
+            self.address = [placemark thoroughfare];
+        }
+    }];
 
-- (BOOL)isValidLocation:(CLLocation *)newLocation withOldLocation:(CLLocation *)oldLocation {
-	// Filter out nil locations
-	if (!newLocation) {
-		return NO;
-    }
-	// Filter out points by invalid accuracy
-	if (newLocation.horizontalAccuracy < 0) {
-		return NO;
-    }
-	// Filter out points that are out of order
-	NSTimeInterval secondsSinceLastPoint = [newLocation.timestamp timeIntervalSinceDate:oldLocation.timestamp];
-	if (secondsSinceLastPoint < 0) {
-		return NO;
-    }
-	// Filter out points created before the manager was initialized
-	NSTimeInterval secondsSinceManagerStarted = [newLocation.timestamp timeIntervalSinceDate:startDate];
-	if (secondsSinceManagerStarted < 0) {
-		return NO;
-    }
-	// The newLocation is good to use
 	return YES;
 }
 

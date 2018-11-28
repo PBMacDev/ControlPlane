@@ -12,12 +12,21 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate>
+@interface CoreLocationSource : EvidenceSource <CLLocationManagerDelegate, MKMapViewDelegate> {
+    CLLocationManager *locationManager;
+    CLLocation *current;
+    CLLocation *selectedRule;
+    CLGeocoder* geocoder;
+    MKPointAnnotation* selectedRuleAnn;
+}
 
 //@property IBOutlet NSSearchField* searchField;
+@property IBOutlet MKMapView *mapView;
+@property NSString* address;
+@property NSString* coordinates;
+@property NSString* accuracy;
 
 
-- (id)init;
 - (void)start;
 - (void)stop;
 
