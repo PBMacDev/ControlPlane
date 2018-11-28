@@ -149,15 +149,15 @@
             </connections>
         </arrayController>
         <customView id="901" userLabel="GeneralPrefs">
-            <rect key="frame" x="0.0" y="0.0" width="413" height="299"/>
+            <rect key="frame" x="0.0" y="0.0" width="413" height="276"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <box verticalHuggingPriority="750" boxType="separator" id="1385">
-                    <rect key="frame" x="20" y="144" width="381" height="5"/>
+                    <rect key="frame" x="12" y="149" width="389" height="5"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button toolTip="Delays switching locations until the same place is guessed twice in a row" id="1366">
-                    <rect key="frame" x="18" y="122" width="161" height="18"/>
+                    <rect key="frame" x="18" y="127" width="161" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use switch smoothing" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1845">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -173,7 +173,7 @@
                     </connections>
                 </button>
                 <button toolTip="If ControlPlan is unable to determine the correct context based on your rules, ControlPlaneX will use this context." id="937">
-                    <rect key="frame" x="18" y="77" width="161" height="18"/>
+                    <rect key="frame" x="18" y="69" width="161" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Use a default context:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1842">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -183,17 +183,8 @@
                         <binding destination="288" name="value" keyPath="values.UseDefaultContext" id="1701"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" id="932">
-                    <rect key="frame" x="309" y="20" width="84" height="13"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Highly confident" id="1839">
-                        <font key="font" metaFont="system" size="10"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField verticalHuggingPriority="750" id="931">
-                    <rect key="frame" x="220" y="20" width="71" height="13"/>
+                    <rect key="frame" x="210" y="20" width="71" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Not confident" id="1838">
                         <font key="font" metaFont="system" size="10"/>
@@ -202,7 +193,7 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="930">
-                    <rect key="frame" x="17" y="41" width="198" height="17"/>
+                    <rect key="frame" x="18" y="43" width="198" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Confidence required to switch:" id="1837">
                         <font key="font" metaFont="system"/>
@@ -211,7 +202,7 @@
                     </textFieldCell>
                 </textField>
                 <slider verticalHuggingPriority="750" id="929" customClass="SliderWithValue">
-                    <rect key="frame" x="218" y="37" width="177" height="21"/>
+                    <rect key="frame" x="210" y="39" width="183" height="21"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <sliderCell key="cell" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" sliderType="linear" id="1836">
                         <font key="font" size="12" name="Helvetica"/>
@@ -221,7 +212,7 @@
                     </connections>
                 </slider>
                 <button id="928">
-                    <rect key="frame" x="18" y="263" width="195" height="18"/>
+                    <rect key="frame" x="18" y="240" width="195" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Enable automatic switching" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1835">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -232,7 +223,7 @@
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" id="1916">
-                    <rect key="frame" x="57" y="151" width="100" height="26"/>
+                    <rect key="frame" x="60" y="157" width="154" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="1917">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -252,7 +243,7 @@
                     </connections>
                 </popUpButton>
                 <textField verticalHuggingPriority="750" id="1924">
-                    <rect key="frame" x="159" y="157" width="83" height="17"/>
+                    <rect key="frame" x="222" y="162" width="83" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="in status bar" id="1925">
                         <font key="font" metaFont="system"/>
@@ -261,7 +252,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="2028">
-                    <rect key="frame" x="18" y="243" width="195" height="18"/>
+                    <rect key="frame" x="18" y="220" width="195" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Start ControlPlaneX at login" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2029">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -273,7 +264,7 @@
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" id="2038">
-                    <rect key="frame" x="17" y="157" width="38" height="17"/>
+                    <rect key="frame" x="18" y="162" width="38" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Show" id="2039">
                         <font key="font" metaFont="system"/>
@@ -282,7 +273,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="2048">
-                    <rect key="frame" x="18" y="102" width="341" height="18"/>
+                    <rect key="frame" x="18" y="107" width="341" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <string key="toolTip">If disabled, ControlPlaneX will always try to determine what context to be in at start.  This allows rules to be rerun if you are still at the same location as before.  If enabled,ControlPlaneX will simply start in the same context it was in when it was quit.</string>
                     <buttonCell key="cell" type="check" title="Restore previous context when ControlPlaneX starts" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2049">
@@ -294,7 +285,7 @@
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" id="sbo-bO-gUE">
-                    <rect key="frame" x="171" y="73" width="223" height="25"/>
+                    <rect key="frame" x="183" y="65" width="213" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ZBp-20-tsK" id="s4n-8A-WFL">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -316,7 +307,7 @@
                     </connections>
                 </popUpButton>
                 <button id="2044">
-                    <rect key="frame" x="18" y="223" width="153" height="18"/>
+                    <rect key="frame" x="18" y="200" width="153" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Hide from status bar" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="2045">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -330,8 +321,17 @@
                         </binding>
                     </connections>
                 </button>
+                <textField verticalHuggingPriority="750" id="932">
+                    <rect key="frame" x="311" y="20" width="84" height="13"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Highly confident" id="1839">
+                        <font key="font" metaFont="system" size="10"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="139" y="2080"/>
+            <point key="canvasLocation" x="138.5" y="2068"/>
         </customView>
         <customView id="902" userLabel="RulesPrefs">
             <rect key="frame" x="0.0" y="0.0" width="494" height="284"/>
@@ -831,7 +831,7 @@ IA
                     </tableHeaderView>
                 </scrollView>
                 <segmentedControl verticalHuggingPriority="750" id="xN5-1o-54S">
-                    <rect key="frame" x="20" y="219" width="32" height="23"/>
+                    <rect key="frame" x="22" y="219" width="32" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="jc4-As-5WE">
                         <font key="font" metaFont="system"/>
@@ -844,7 +844,7 @@ IA
                     </connections>
                 </segmentedControl>
                 <button verticalHuggingPriority="750" id="1014">
-                    <rect key="frame" x="52" y="219" width="20" height="23"/>
+                    <rect key="frame" x="54" y="219" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1850">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
