@@ -338,7 +338,7 @@
             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" id="1158">
-                    <rect key="frame" x="73" y="19" width="22" height="23"/>
+                    <rect key="frame" x="64" y="19" width="22" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSActionTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="1849">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -491,12 +491,12 @@
                     </tableHeaderView>
                 </scrollView>
                 <segmentedControl verticalHuggingPriority="750" id="NZa-o3-MRL">
-                    <rect key="frame" x="20" y="19" width="32" height="23"/>
+                    <rect key="frame" x="20" y="19" width="24" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="2eD-SI-lN1">
                         <font key="font" metaFont="system"/>
                         <segments>
-                            <segment image="NSAddTemplate" width="32"/>
+                            <segment image="NSAddTemplate" width="22"/>
                         </segments>
                     </segmentedCell>
                     <connections>
@@ -504,7 +504,7 @@
                     </connections>
                 </segmentedControl>
                 <button verticalHuggingPriority="750" id="1117">
-                    <rect key="frame" x="52" y="19" width="22" height="23"/>
+                    <rect key="frame" x="43" y="19" width="22" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1848">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -831,12 +831,12 @@ IA
                     </tableHeaderView>
                 </scrollView>
                 <segmentedControl verticalHuggingPriority="750" id="xN5-1o-54S">
-                    <rect key="frame" x="22" y="219" width="32" height="23"/>
+                    <rect key="frame" x="22" y="219" width="24" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="smallSquare" trackingMode="momentary" id="jc4-As-5WE">
                         <font key="font" metaFont="system"/>
                         <segments>
-                            <segment image="NSAddTemplate" width="32"/>
+                            <segment image="NSAddTemplate" width="22"/>
                         </segments>
                     </segmentedCell>
                     <connections>
@@ -844,7 +844,7 @@ IA
                     </connections>
                 </segmentedControl>
                 <button verticalHuggingPriority="750" id="1014">
-                    <rect key="frame" x="54" y="219" width="20" height="23"/>
+                    <rect key="frame" x="45" y="219" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1850">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
