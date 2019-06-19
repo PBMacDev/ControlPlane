@@ -57,6 +57,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     [self.mapView setDelegate:self];
     [self.mapView setShowsUserLocation:YES];
     

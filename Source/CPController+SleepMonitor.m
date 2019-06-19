@@ -96,23 +96,24 @@ static void sleepCallBack(void *refCon, io_service_t service, natural_t messageT
             break;
             
 		case kIOMessageSystemWillSleep:
-			DSLog(@"System sleep callback: going to sleep");
-            
+            DSLog(@"System sleep callback: going to sleep");
+
             [[NSNotificationCenter defaultCenter] postNotificationName:@"systemWillSleep" object:nil];
-            
+
             [cpController restartSwitchSmoothing];
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"EnableSwitchSmoothing"]) {
                 [cpController forceUpdate];
             }
             [cpController forceUpdate];
-            
+
             dispatch_group_notify(actionsInProgress, dispatch_get_main_queue(), ^{
                 IOAllowPowerChange(rootPort, (long)argument);
 #ifdef DEBUG_MODE
                 DSLog(@"System sleep callback: Allowed power change on system sleep");
 #endif
             });
-            
+            DSLog(@"System sleep callback: going to sleep 2");
+
 			break;
             
 		case kIOMessageSystemWillPowerOn:

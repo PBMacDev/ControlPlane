@@ -214,7 +214,9 @@
 
 - (void)awakeFromNib
 {
-	// Evil!
+    [super awakeFromNib];
+    
+    // Evil!
 	[NSValueTransformer setValueTransformer:[[ContextNameTransformer alloc] init:contextsDataSource]
 					forName:@"ContextNameTransformer"];
 

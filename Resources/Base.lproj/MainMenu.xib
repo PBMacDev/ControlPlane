@@ -127,7 +127,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-39" y="-148"/>
+            <point key="canvasLocation" x="-39.5" y="-148"/>
         </menu>
         <arrayController avoidsEmptySelection="NO" id="513" userLabel="ActionsController">
             <declaredKeys>

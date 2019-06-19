@@ -118,9 +118,9 @@ static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidence
 
 - (void) goingToSleep:(id)arg {
     
-    if (running) {
-        activeApplication = @"";
-    }
+//    if (running) {
+//        activeApplication = @"";
+//    }
 }
 
 @end
