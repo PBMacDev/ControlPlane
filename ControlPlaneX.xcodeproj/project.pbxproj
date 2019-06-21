@@ -126,7 +126,6 @@
 		DA922E9D144FC95200920B40 /* ToggleInternetSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922E9C144FC95200920B40 /* ToggleInternetSharingAction.m */; };
 		DA9957EA160D4BA300AB3C7A /* StressTestEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */; };
 		DAA9ABFF1595FDE700B84B05 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DAA9ABFE1595FDE700B84B05 /* README.md */; };
-		DAA9AC1B15961CDF00B84B05 /* MessagesAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA9AC1A15961CDF00B84B05 /* MessagesAction.m */; };
 		DAAA7FAB1953DE0500C06DBB /* PreventSystemSleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FA91953DE0500C06DBB /* PreventSystemSleepAction.m */; };
 		DAAA7FAE1953E2C500C06DBB /* MountedVolumeEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FAD1953E2C500C06DBB /* MountedVolumeEvidenceSource.m */; };
 		DAAF16B61413174400F5D915 /* ToggleTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF16B51413174400F5D915 /* ToggleTimeMachineAction.m */; };
@@ -463,8 +462,6 @@
 		DA9957E8160D4BA300AB3C7A /* StressTestEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StressTestEvidenceSource.h; path = Source/StressTestEvidenceSource.h; sourceTree = "<group>"; };
 		DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StressTestEvidenceSource.m; path = Source/StressTestEvidenceSource.m; sourceTree = "<group>"; };
 		DAA9ABFE1595FDE700B84B05 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		DAA9AC1915961CDF00B84B05 /* MessagesAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesAction.h; path = Source/MessagesAction.h; sourceTree = "<group>"; };
-		DAA9AC1A15961CDF00B84B05 /* MessagesAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesAction.m; path = Source/MessagesAction.m; sourceTree = "<group>"; };
 		DAAA7FA91953DE0500C06DBB /* PreventSystemSleepAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreventSystemSleepAction.m; path = Source/PreventSystemSleepAction.m; sourceTree = "<group>"; };
 		DAAA7FAA1953DE0500C06DBB /* PreventSystemSleepAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreventSystemSleepAction.h; path = Source/PreventSystemSleepAction.h; sourceTree = "<group>"; };
 		DAAA7FAC1953E2C500C06DBB /* MountedVolumeEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MountedVolumeEvidenceSource.h; path = Source/MountedVolumeEvidenceSource.h; sourceTree = "<group>"; };
@@ -892,8 +889,6 @@
 				DD8274EF141154780098FA6E /* MailIntervalAction.m */,
 				8DD790C10BC28C4E00705346 /* MailSMTPServerAction.h */,
 				8DD790C20BC28C4E00705346 /* MailSMTPServerAction.m */,
-				DAA9AC1915961CDF00B84B05 /* MessagesAction.h */,
-				DAA9AC1A15961CDF00B84B05 /* MessagesAction.m */,
 				8DD790AA0BC28A9F00705346 /* OpenAction.h */,
 				8DD790AB0BC28A9F00705346 /* OpenAction.m */,
 				DABE3F6816C44236004F5E63 /* OpenAndHideAction.h */,
@@ -1196,7 +1191,6 @@
 			inputPaths = (
 				"com.apple.mail:Mail",
 				"com.apple.iTunes:iTunes",
-				"com.apple.iChat:Messages",
 			);
 			name = "Generate Script Bridge Headers";
 			outputPaths = (
@@ -1292,7 +1286,6 @@
 				DA2B4385152161D900E94A1D /* ToggleFTPAction.m in Sources */,
 				DAC672FE152235E800F1C7A1 /* ToggleWebSharingAction.m in Sources */,
 				DA8E283F156BCAD50040FC35 /* ToggleRemoteLoginAction.m in Sources */,
-				DAA9AC1B15961CDF00B84B05 /* MessagesAction.m in Sources */,
 				DAB1A7E215C3776D00CF65E8 /* CPNotifications.m in Sources */,
 				DADFF79715D96CBC00DEF412 /* ToggleNotificationCenterAlertsAction.m in Sources */,
 				DA7EAF4715D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m in Sources */,

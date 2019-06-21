@@ -22,7 +22,7 @@
 #import "MailIMAPServerAction.h"
 #import "MailSMTPServerAction.h"
 #import "MailIntervalAction.h"
-#import "MessagesAction.h"
+//#import "MessagesAction.h"
 #import "MountAction.h"
 #import "MuteAction.h"
 #import "NetworkLocationAction.h"
@@ -81,7 +81,7 @@
                [MailIMAPServerAction class],
                [MailSMTPServerAction class],
                [MailIntervalAction class],
-               [MessagesAction class],
+//               [MessagesAction class],
                [MountAction class],
                [MuteAction class],
                [NetworkLocationAction class],

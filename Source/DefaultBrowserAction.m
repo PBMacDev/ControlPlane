@@ -51,7 +51,7 @@
 }
 
 - (void) setControlPlaneXAsURLHandler {
-    NSString *currentSystemBrowser = (__bridge NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef) @"http");
+    NSString *currentSystemBrowser = (__bridge_transfer NSString *)LSCopyDefaultHandlerForURLScheme((CFStringRef) @"http");
     
     if (![[currentSystemBrowser lowercaseString] isEqualToString:[[[NSBundle mainBundle] bundleIdentifier] lowercaseString]]) {
         NSAlert *alert = [[NSAlert alloc] init];
@@ -99,7 +99,7 @@
 }
 
 + (NSArray *) limitedOptions {
-    NSArray *handlers = (__bridge NSArray *) LSCopyAllHandlersForURLScheme((CFStringRef) @"http");
+    NSArray *handlers = (__bridge_transfer NSArray *) LSCopyAllHandlersForURLScheme((CFStringRef) @"http");
 	
 	// no handlers
 	if (!handlers)
