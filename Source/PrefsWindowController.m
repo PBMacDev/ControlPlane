@@ -567,6 +567,7 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 	[NSApp activateIgnoringOtherApps:YES];
 	NSDictionary *proto = [NSDictionary dictionaryWithObject:type forKey:@"type"];
 	
+    [src writeToPanel:nil usingType:type];
     NSPanel *sourcePanel = src.panel;
     if (sourcePanel) {
         [src writeToPanel:proto usingType:type];
