@@ -10,7 +10,7 @@
 
 @implementation SampleESPlugin
 
-@synthesize screenIsLocked;
+//@synthesize screenIsLocked;
 
 - (id) init {
     self = [super init];

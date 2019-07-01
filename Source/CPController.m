@@ -130,25 +130,14 @@ NSString* const kCPUserDefaultsEnabledKey = @"Enabled";
 #define CP_DISPLAY_CONTEXT  1u
 #define CP_DISPLAY_BOTH     2u
 
-static NSSet *sharedActiveContexts = nil;
+static CPController *sharedCPController = nil;
 
 @synthesize screenSaverRunning;
 @synthesize screenLocked;
 @synthesize goingToSleep;
 
 + (NSSet *) sharedActiveContexts {
-
-    
-    if (!sharedActiveContexts) {
-        sharedActiveContexts = [NSSet set];
-    }
-    
-    return sharedActiveContexts;
-}
-
-+ (void) setSharedActiveContexts:(NSSet *) newActiveContexts {
-    sharedActiveContexts = newActiveContexts;
-    return;
+    return sharedCPController.activeContexts;
 }
 
 - (NSImage *)tintedIconImage:(NSImage *)image withTint:(NSColor *)color {
@@ -169,9 +158,15 @@ static NSSet *sharedActiveContexts = nil;
 
 - (id)init {
     
-	if (!(self = [super init])) {
+    if (sharedCPController) {
+        return sharedCPController;
+    }
+    
+    if (!(self = [super init])) {
 		return nil;
     }
+    
+    sharedCPController = self;
 
     sbImageTemplate = [NSImage imageNamed:@"CPStatusBarIcon"];
     [sbImageTemplate setSize:NSMakeSize(18, 18)];
@@ -557,16 +552,11 @@ static NSSet *sharedActiveContexts = nil;
 - (NSArray *)getRulesThatMatchAndSetChangeFlag:(BOOL *)flag {
 	NSArray *rules = self.rules;
 
-#ifdef DEBUG_MODE
-//    DSLog(@"Rules list (%ld rules):\n%@", [rules count], rules);
-#endif
 	NSMutableArray *matchingRules = [NSMutableArray array];
     BOOL changed = NO;
 
 	for (NSMutableDictionary *rule in rules) {
-#ifdef DEBUG_MODE
-//        DSLog(@"checking rule %@", rule);
-#endif
+
         RuleMatchStatusType isMatching = [evidenceSources ruleMatches:rule];
         if (([rule[@"negate"] integerValue] == 1) && (isMatching != RuleMatchStatusIsUnknown)) {
             isMatching = (isMatching == RuleDoesMatch) ? (RuleDoesNotMatch) : (RuleDoesMatch);
@@ -854,16 +844,15 @@ static NSSet *sharedActiveContexts = nil;
     // Create context named 'Developer Crash' and CP will crash when moving to it if using a DEBUG build
     // Allows you to test QuincyKit
     
-    if ([context.name isEqualToString:@"Developer Crash"]) {
-        kill( getpid(), SIGABRT );
-    }
+//    if ([context.name isEqualToString:@"Developer Crash"]) {
+//        kill( getpid(), SIGABRT );
+//    }
     
     [self.activeContexts addObject:context];
     DSLog(@"Triggering arrival actions, if any, for '%@'", context.name);
     [self triggerArrivalActionsOnWalk:[NSArray arrayWithObject:context]];
     [self updateActiveContextsMenuTitle];
     [self updateActiveContextsMenuList];
-    [CPController setSharedActiveContexts:self.activeContexts];
 }
 
 - (void) deactivateContext:(Context *) context {
@@ -875,8 +864,6 @@ static NSSet *sharedActiveContexts = nil;
     }
     [self updateActiveContextsMenuTitle];
     [self updateActiveContextsMenuList];
-
-    [CPController setSharedActiveContexts:self.activeContexts];
 }
 
 - (void) activateContextByMenuClick:(NSMenuItem *) sender {
@@ -889,7 +876,6 @@ static NSSet *sharedActiveContexts = nil;
 }
 
 - (void) deactivateContextByMenuClick:(NSMenuItem *) sender {
-    //[self triggerDepartureActionsOnWalk:[NSArray arrayWithObject:[contextsDataSource contextByName:sender.title]]];
 
     if (forcedContextIsSticky && [self.stickyActiveContexts containsObject:sender.representedObject])
         [self.stickyActiveContexts removeObject:sender.representedObject];
@@ -946,7 +932,6 @@ static NSSet *sharedActiveContexts = nil;
         DSLog(@"Triggering arrival actions, if any, for '%@'", [self currentContextName]);
         [self triggerArrivalActionsOnWalk:enteringWalk];
     }
-    [CPController setSharedActiveContexts:self.activeContexts];
 }
 
 - (void)postNotificationsOnContextTransitionWhenForcedByUserIs:(BOOL)isManuallyTriggered {
@@ -1237,7 +1222,6 @@ static NSSet *sharedActiveContexts = nil;
         [self updateActiveContextsMenuTitle];
         [self updateActiveContextsMenuList];
         [self updateMenuBarAndContextMenu];
-        [CPController setSharedActiveContexts:self.activeContexts];
     });
 }
 
@@ -1764,7 +1748,6 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
             [self changeActiveContextsBasedOnGuesses:[NSMutableDictionary dictionary]];
             [self.activeContexts removeAllObjects];
             [self forceOneFullUpdate];
-            [CPController setSharedActiveContexts:self.activeContexts];
             break;
             
         default:
@@ -1785,14 +1768,6 @@ const int64_t UPDATING_TIMER_LEEWAY = (int64_t) (0.5 * NSEC_PER_SEC);
 }
 
 - (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent {
-    //NSBundle *requestedAppBundle = [NSBundle bundleWithPath:@"/Applications/Google Chrome.app"];
-    
-    // if the requestedAppBundle comes back nil then
-    // they are either specifying that an actual file (not an app) be opened
-
-    //NSString *bundleId = [requestedAppBundle bundleIdentifier];
-
-    //NSLog(@"%@", bundleId);
     NSString *calledURL = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
     Action *defaultBrowserAction = [Action actionFromDictionary:@{@"type" : @"DefaultBrowser"}];
     

@@ -40,7 +40,7 @@
 // Create rule description from panel's controls' values or from rule[@"parameter"].
 - (NSString *)getDefaultDescription:(NSDictionary *)rule;
 
-- (BOOL)canAutoupdateDescription:(NSString *)description ofRule:(NSDictionary *)rule;
+//- (BOOL)canAutoupdateDescription:(NSString *)description ofRule:(NSDictionary *)rule;
 
 // To be implemented by descendant classes.
 // rule[@"parameter"] *must* be filled in.

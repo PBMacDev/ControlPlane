@@ -39,7 +39,7 @@
     }
     
     [[CWWiFiClient sharedWiFiClient] setDelegate:self];
-    [self setDataCollected:YES]; //just in case. new implementation does not depend on this parameter.
+//    [self setDataCollected:YES]; //just in case. new implementation does not depend on this parameter.
     
     return self;
 }
@@ -85,7 +85,7 @@
 
 - (void)start {
     
-    if (running) {
+    if (self.running) {
         return;
     }
     
@@ -98,14 +98,14 @@
     [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeLinkDidChange) error:nil];
 //    [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeSSIDDidChange) error:nil];
 
-    running = YES;
+    self.running = YES;
 }
 
 - (void)stop {
-    if (running) {
+    if (self.running) {
         [[CWWiFiClient sharedWiFiClient] stopMonitoringAllEventsAndReturnError:nil];
         [self clearCollectedData];
-        running = NO;
+        self.running = NO;
     }
 }
 

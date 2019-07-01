@@ -11,19 +11,10 @@
 #import "PrefsWindowController.h"
 
 
-@interface EvidenceSource (Private)
-
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-
-@end
-
-#pragma mark -
-
 @implementation EvidenceSource
 
-@synthesize screenIsLocked;
-
-- (id)initWithPanel:(NSPanel *)initPanel {
+- (id)init {
+    
     if ([[self class] isEqualTo:[EvidenceSource class]]) {
         [NSException raise:@"Abstract Class Exception"
                     format:@"Error, attempting to instantiate EvidenceSource directly."];
@@ -32,50 +23,8 @@
     if (!(self = [super init]))
         return nil;
     
-    running = NO;
-    dataCollected = NO;
-    startAfterSleep = NO;
-    goingToSleep = NO;
-    screenIsLocked = NO;
-    
-    oldDescription = nil;
-
-    self.panel = initPanel;
-
-    // Get notified when we go to sleep, and wake from sleep
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(goingToSleep:)
-                                                 name:@"systemWillSleep"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(wakeFromSleep:)
-                                                 name:@"systemDidWake"
-                                               object:nil];
-    
-    // Monitor screensaver status
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                        selector:@selector(screenSaverDidBecomeInActive:)
-                                                            name:@"com.apple.screensaver.didstop"
-                                                          object:nil];
-    
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                        selector:@selector(screenSaverDidBecomeActive:)
-                                                            name:@"com.apple.screensaver.didstart"
-                                                          object:nil];
-    
-    
-    
-    // Monitor screen lock status
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                        selector:@selector(screenDidUnlock:)
-                                                            name:@"com.apple.screenIsUnlocked"
-                                                          object:nil];
-    
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                        selector:@selector(screenDidLock:)
-                                                            name:@"com.apple.screenIsLocked"
-                                                          object:nil];
+    _running = NO;
+    self.panel = nil;
     
     return self;
 }
@@ -106,7 +55,7 @@
 }
 
 - (id)initWithNibNamed:(NSString *)name {
-    if (!(self = [self initWithPanel:nil])) {
+    if (!(self = [super init])) {
         return nil;
     }
     
@@ -118,59 +67,12 @@
     return self;
 }
 
-- (void)dealloc {
-    [[NSDistributedNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-
 - (NSString *)description {
     return NSLocalizedString(@"No description provided", @"");
 }
 
-- (void)goingToSleep:(id)arg {
-    if (!goingToSleep) {
-        goingToSleep = YES;
-        if ([self isRunning]) {
-            startAfterSleep = YES;
-            DSLog(@"Stopping %@ for sleep.", [self class]);
-            [self stop];
-        }
-    }
-}
-
-- (void)wakeFromSleep:(id)arg {
-    if (goingToSleep) {
-        goingToSleep = NO;
-        if (startAfterSleep && ![self isRunning]) {
-            startAfterSleep = NO;
-            DSLog(@"Starting %@ after sleep.", [self class]);
-            [self start];
-        }
-    }
-}
-
 - (BOOL)matchesRulesOfType:(NSString *)type {
     return [[self typesOfRulesMatched] containsObject:type];
-}
-
-- (BOOL)dataCollected {
-    return dataCollected;
-}
-
-- (void)setDataCollected:(BOOL)collected {
-    dataCollected = collected;
-}
-
-- (BOOL)isRunning {
-    return running;
-}
-
-- (void)setThreadNameFromClassName {
-    // Mac OS X 10.5 (Leopard) introduces -[NSThread setName:], which might make crash logs easier to read
-    NSThread *thr = [NSThread currentThread];
-    if ([thr respondsToSelector:@selector(setName:)])
-        [thr performSelector:@selector(setName:) withObject:NSStringFromClass([self class])];
 }
 
 #pragma mark -
@@ -178,7 +80,7 @@
 
 - (void)setContextMenu:(NSMenu *)menu
 {
-    [ruleContext setMenu:menu];
+    [self.ruleContext setMenu:menu];
 }
 
 - (IBAction)closeSheetWithOK:(id)sender
@@ -194,14 +96,11 @@
 - (NSMutableDictionary *)readFromPanel
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-        [[ruleContext selectedItem] representedObject], @"context",
-        [NSNumber numberWithDouble:[ruleConfidenceSlider doubleValue]], @"confidence",
+        [[self.ruleContext selectedItem] representedObject], @"context",
+        [NSNumber numberWithDouble:[self.ruleConfidenceSlider doubleValue]], @"confidence",
         [[self typesOfRulesMatched] objectAtIndex:0], @"type",
         [NSNumber numberWithInteger:[self.negateRule state]], @"negate",
         nil];
-
-    if (oldDescription)
-        [dict setValue:oldDescription forKey:@"description"];
 
     return dict;
 }
@@ -210,23 +109,15 @@
 {
     if ([dict objectForKey:@"context"]) {
         // Set up context selector
-        NSInteger index = [ruleContext indexOfItemWithRepresentedObject:[dict valueForKey:@"context"]];
-        [ruleContext selectItemAtIndex:index];
+        NSInteger index = [self.ruleContext indexOfItemWithRepresentedObject:[dict valueForKey:@"context"]];
+        [self.ruleContext selectItemAtIndex:index];
     }
 
     if ([dict objectForKey:@"confidence"]) {
         // Set up confidence slider
-        [ruleConfidenceSlider setDoubleValue:[[dict valueForKey:@"confidence"] doubleValue]];
+        [self.ruleConfidenceSlider setDoubleValue:[[dict valueForKey:@"confidence"] doubleValue]];
     }
 
-    // Hang on to custom descriptions
-    oldDescription = nil;
-    if ([dict objectForKey:@"description"]) {
-        NSString *desc = [dict valueForKey:@"description"];
-        if (desc && ([desc length] > 0))
-            oldDescription = desc;
-    }
-    
     if ([dict objectForKey:@"negate"]) {
         [self.negateRule setState:[[dict valueForKey:@"negate"] integerValue]];
     }
@@ -302,24 +193,6 @@
     return true;
 }
 
-- (void) screenSaverDidBecomeInActive:(NSNotification *)notification {
-    
-}
-
-- (void) screenSaverDidBecomeActive:(NSNotification *)notification {
-    
-}
-
-- (void) screenDidUnlock:(NSNotification *)notification {
-    [self setScreenIsLocked:NO];
-}
-
-- (void) screenDidLock:(NSNotification *)notification {
-    [self setScreenIsLocked:YES];
-}
-
-
-
 @end
 
 #pragma mark -
@@ -335,7 +208,6 @@
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)aTableView;
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex;
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex;
-- (NSArray *)getEvidenceSourcePlugins;
 
 @end
 
@@ -362,7 +234,7 @@
 #import "CoreWLANEvidenceSource.h"
 #import "ScreenLockEvidenceSource.h"
 #import "ShellScriptEvidenceSource.h"
-#import "SleepEvidenceSource.h"
+//#import "SleepEvidenceSource.h"
 #import "CoreLocationSource.h"
 #import "HostAvailabilityEvidenceSource.h"
 #import "RemoteDesktopEvidenceSource.h"
@@ -407,24 +279,10 @@
                         [RunningApplicationEvidenceSource class],
                         [ScreenLockEvidenceSource class],
                         [ShellScriptEvidenceSource class],
-                        [SleepEvidenceSource class],
+//                        [SleepEvidenceSource class],
                         [TimeOfDayEvidenceSource class],
                         nil];
     
-#ifdef DEBUG_MODE
-    for (NSString *pluginPath in [self getEvidenceSourcePlugins]) {
-        NSLog(@"would load plugin at %@", pluginPath);
-        NSBundle *thePlugin = [NSBundle bundleWithPath:pluginPath];
-        Class principalClass = [thePlugin principalClass];
-        @try {
-            [classes addObject:principalClass];
-        }
-        @catch (NSException *e) {
-            NSLog(@"%@ is not a valid plugin", pluginPath);
-        }
-    }
-#endif
-
     if (NO) {
         // Purely for the benefit of 'genstrings'
         NSLocalizedString(@"AttachedPowerAdapter", @"Evidence source");
@@ -473,53 +331,6 @@
 
 - (void)dealloc {
     [self stopAllRunningEvidenceSources];
-}
-
-/**
- *  Returns an array containing paths to all of the available Evidence Source Plugins
- */
-- (NSArray *)getEvidenceSourcePlugins {
-    NSMutableArray *searchPaths = [NSMutableArray array];
-    NSMutableArray *bundles = [NSMutableArray array];
-    NSString *pluginPath = @"/Application Support/ControlPlaneX/PlugIns/Evidence Sources";
-    
-    
-    for (NSString *path in NSSearchPathForDirectoriesInDomains(
-                                                               NSLibraryDirectory,
-                                                               NSAllDomainsMask - NSSystemDomainMask,
-                                                               YES)) {
-        [searchPaths addObject:[path stringByAppendingPathComponent:pluginPath]];
-    }
-    
-    [searchPaths addObject:[NSString stringWithFormat:@"%@/Evidence Sources",[[NSBundle mainBundle] builtInPlugInsPath]]];
-    
-    
-    for (NSString *currentPath in searchPaths) {
-        NSDirectoryEnumerator *dirEnumerator;
-        NSString *currentFile;
-        
-        dirEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:currentPath];
-        
-        if (dirEnumerator) {
-            while (currentFile = [dirEnumerator nextObject]) {
-                if([[currentFile pathExtension] isEqualToString:@"bundle"]) {
-                    [bundles addObject:[currentPath stringByAppendingPathComponent:currentFile]];
-                }
-            }
-        }
-    }
-    
-    // hand back an immutable version
-    return (NSArray *)bundles;
-}
-
-- (EvidenceSource *)sourceWithName:(NSString *)name {
-    for (EvidenceSource *src in sources) {
-        if ([[src name] isEqualToString:name]) {
-            return src;
-        }
-    }
-    return nil;
 }
 
 - (void)startEvidenceSource:(EvidenceSource *)src {
@@ -585,9 +396,6 @@
     [sources enumerateObjectsAtIndexes:sourceIndexes options:0
                             usingBlock:^(EvidenceSource *src, NSUInteger idx, BOOL *stop) {
         if ([src isRunning]) {
-#if DEBUG_MODE
-            DSLog(@"checking EvidenceSource %@ for matching rules", src);
-#endif
             if ([src doesRuleMatch:rule]) {
                 result = RuleDoesMatch;
                 *stop = YES;
@@ -630,10 +438,6 @@
         [item setAction:@selector(addRule:)];
         [item setRepresentedObject:src];
     }
-
-    // Bindings
-//    [item bind:@"enabled" toObject:src withKeyPath:@"dataCollected" options:nil];
-    // TODO?: enabled2 -> NSUserDefaults.values.Enable%@EvidenceSource
 
     [item setHidden:![src isRunning]];
 

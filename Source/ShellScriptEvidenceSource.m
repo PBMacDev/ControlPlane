@@ -35,7 +35,7 @@
     if (!self)
         return nil;
     
-    running = NO;
+    self.running = NO;
 	ruleUpdateTimer = nil;
     [self setDefaultValues];
 	
@@ -65,8 +65,8 @@
     
     // setDataCollected to true now so that 
     // rules can be configured immediately
-    [self setDataCollected:true];
-    running = YES;
+//    [self setDataCollected:true];
+    self.running = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(getRuleList)
@@ -77,8 +77,7 @@
 - (void)stop {        
     [self stopAllTasks];
 
-    [self setDataCollected: NO];
-    running = NO;
+    self.running = NO;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
 }
@@ -329,14 +328,6 @@
     if ([fileBrowser runModal] == NSModalResponseOK) {
         [self setCurrentFileName:[[fileBrowser URL] path]];
     }
-}
-
-// being asked if we are running, this usually means this source
-// has just been enabled or the rules have changed
-// If this evidence source is running it wants to immediately
-// fetch rules so the tasks can be started
-- (BOOL)isRunning {
-	return running;
 }
 
 - (NSString *) friendlyName {

@@ -40,7 +40,7 @@
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -68,11 +68,11 @@
                               (int64_t) (loopLeeway * NSEC_PER_SEC));
     dispatch_resume(loopTimer);
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (running) {
+	if (self.running) {
 	 	[self doStop];
     }
 }
@@ -88,8 +88,7 @@
 		[self performSelector: selector];
     }
 
-	[self setDataCollected:NO];
-	running = NO;
+	self.running = NO;
 }
 
 @end

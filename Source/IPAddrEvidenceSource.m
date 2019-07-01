@@ -108,7 +108,7 @@ static void ipAddrChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *
         return nil;
     }
     
-    [self setDataCollected:YES];
+//    [self setDataCollected:YES];
     
 	return self;
 }
@@ -230,7 +230,7 @@ static NSComparator descendingSorter = ^NSComparisonResult(id obj1, id obj2) {
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -270,11 +270,11 @@ static NSComparator descendingSorter = ^NSComparisonResult(id obj1, id obj2) {
         }
     });
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (running) {
+	if (self.running) {
         [self doStop];
     }
 }
@@ -300,7 +300,7 @@ static NSComparator descendingSorter = ^NSComparisonResult(id obj1, id obj2) {
 
     [self removeAllDataCollected];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name {

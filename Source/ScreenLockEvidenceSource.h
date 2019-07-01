@@ -10,6 +10,8 @@
 
 @interface ScreenLockEvidenceSource : GenericEvidenceSource
 
+@property (readwrite) BOOL screenIsLocked;
+
 - (id) init;
 
 - (void) doRealUpdate;
@@ -21,5 +23,9 @@
 - (BOOL) doesRuleMatch: (NSDictionary*) rule;
 - (NSString*) getSuggestionLeadText: (NSString*) type;
 - (NSArray*) getSuggestions;
+
+- (void) screenDidUnlock:(NSNotification *)notification;
+- (void) screenDidLock:(NSNotification *)notification;
+
 
 @end

@@ -146,7 +146,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 			//NSLog(@"FireWire >> [%d] Adding %@", cnt, dev_dict);
 #endif
 			[devices addObject:dev_dict];
-			[self setDataCollected:YES];
+//            [self setDataCollected:YES];
             //[[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
 		}
 		
@@ -170,7 +170,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 	[devices removeAllObjects];
 	[lock unlock];
 	[self devAdded:iterator];
-	[self setDataCollected:[devices count] > 0];
+//    [self setDataCollected:[devices count] > 0];
 
 	IOObjectRelease(iterator);
 }
@@ -223,13 +223,13 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 {
 	[lock lock];
 	[devices removeAllObjects];
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 	[lock unlock];
 }
 
 - (void)start
 {
-	if (running)
+	if (self.running)
 		return;
 
 	notificationPort = IONotificationPortCreate(kIOMasterPortDefault);
@@ -255,7 +255,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 
 - (void)stop
 {
-	if (!running)
+	if (!self.running)
 		return;
 
 	CFRunLoopSourceInvalidate(runLoopSource);

@@ -16,7 +16,7 @@
 - (void)start;
 - (void)stop;
 
-- (void)goingToSleep:(NSNotification*)note;
+//- (void)goingToSleep:(NSNotification*)note;
 
 - (NSString *)name;
 - (BOOL)doesRuleMatch:(NSDictionary *)rule;

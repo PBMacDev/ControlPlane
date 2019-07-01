@@ -23,15 +23,12 @@
 
 
 - (void)start {
-    running = YES;
-    dataCollected = YES;
-    
+    self.running = YES;
     return;
     
 }
 - (void)stop {
-    running = NO;
-
+    self.running = NO;
 }
 
 

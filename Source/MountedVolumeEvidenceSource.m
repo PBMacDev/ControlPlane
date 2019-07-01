@@ -22,7 +22,7 @@
 
 
 - (void)start {
-    running = YES;
+    self.running = YES;
 
     self.mountedVolumes = [NSDictionary dictionary];
     
@@ -34,8 +34,7 @@
     
 }
 - (void)stop {
-    running = NO;
-    dataCollected = NO;
+    self.running = NO;
 }
 
 - (void) volumeListDidChange:(NSNotification *)notification {
@@ -49,12 +48,12 @@
     
     self.mountedVolumes = volumeList;
 
-    if ([self.mountedVolumes count] > 0) {
-        dataCollected = YES;
-    }
-    else {
-        dataCollected = NO;
-    }
+//    if ([self.mountedVolumes count] > 0) {
+//        dataCollected = YES;
+//    }
+//    else {
+//        dataCollected = NO;
+//    }
 
 }
 

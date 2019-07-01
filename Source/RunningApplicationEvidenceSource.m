@@ -46,29 +46,18 @@
 
 	@synchronized(self) {
         [applications setArray:apps];
-        [self setDataCollected:[applications count] > 0];
+//        [self setDataCollected:[applications count] > 0];
         //[[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
-    #ifdef DEBUG_MODE
-        DSLog(@"Running apps:\n%@", applications);
-    #endif
+//    #ifdef DEBUG_MODE
+//        DSLog(@"Running apps:\n%@", applications);
+//    #endif
     }
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
-
-	/* register for notifications
-	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(doFullUpdate)
-                                                               name:NSWorkspaceDidLaunchApplicationNotification
-                                                             object:nil];
-	[[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(doFullUpdate)
-                                                               name:NSWorkspaceDidTerminateApplicationNotification
-                                                             object:nil];
-     */
     
     [[NSWorkspace sharedWorkspace] addObserver:self forKeyPath:@"runningApplications" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -77,11 +66,11 @@
      */
 	[self doFullUpdate];
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (!running) {
+	if (!self.running) {
 		return;
     }
 
@@ -95,9 +84,9 @@
 
     @synchronized (self) {
         [applications removeAllObjects];
-        [self setDataCollected:NO];
+//        [self setDataCollected:NO];
     }
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name

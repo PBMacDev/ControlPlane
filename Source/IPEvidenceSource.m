@@ -94,8 +94,6 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 
 - (void)doFullUpdate
 {
-	[self setThreadNameFromClassName];
-
 	NSArray *addrs = [[self class] enumerate];
 #ifdef DEBUG_MODE
 	DSLog(@"%@ >> found %lu address(s).", [self class], [addrs count]);
@@ -103,13 +101,13 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 
 	[lock lock];
 	[addresses setArray:addrs];
-	[self setDataCollected:[addresses count] > 0];
+//    [self setDataCollected:[addresses count] > 0];
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
 	[lock unlock];
 }
 
 - (void)start {
-	if (running)
+	if (self.running)
 		return;
 
 	// Register for asynchronous notifications
@@ -130,11 +128,11 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
         [self doFullUpdate];
     });
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (!running)
+	if (!self.running)
 		return;
 
 	CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runLoop, kCFRunLoopCommonModes);
@@ -143,10 +141,10 @@ static void ipChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info
 
 	[lock lock];
 	[addresses removeAllObjects];
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 	[lock unlock];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSMutableDictionary *)readFromPanel

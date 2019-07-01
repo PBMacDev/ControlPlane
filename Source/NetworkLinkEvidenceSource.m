@@ -34,7 +34,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 @end
 
 @implementation NetworkLinkEvidenceSource {
-    BOOL didSleep;
+//    BOOL didSleep;
 
     // To get network services
     SCPreferencesRef prefs;
@@ -50,7 +50,7 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 		return nil;
     }
 
-    didSleep = NO;
+//    didSleep = NO;
 
 	return self;
 }
@@ -98,16 +98,16 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 - (void)doFullUpdate:(id)sender {
     NSSet *inters = [self enumerate];
     self.interfaces = inters;
-    [self setDataCollected:[inters count] > 0];
+//    [self setDataCollected:[inters count] > 0];
 }
 
-- (void) goingToSleep:(id)arg {
-    [super goingToSleep:arg];
-    didSleep = YES;
-}
+//- (void) goingToSleep:(id)arg {
+//    [super goingToSleep:arg];
+//    didSleep = YES;
+//}
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -146,7 +146,8 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
 
     // Delay initial scan if we're waking from sleep, otherwise we'll get false
     // negatives for interfaces that takes time to become active (e.g. slow DHCP)
-    NSTimeInterval delay = (didSleep) ? (15.0 * NSEC_PER_SEC) : (0.0);
+//    NSTimeInterval delay = (didSleep) ? (15.0 * NSEC_PER_SEC) : (0.0);
+    NSTimeInterval delay = 0.0;
     dispatch_time_t scanTime = dispatch_time(DISPATCH_TIME_NOW, delay);
     dispatch_after(scanTime, serialQueue, ^{
         if (dispatch_get_specific(queueIsStopped) != queueIsStopped) {
@@ -156,12 +157,11 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
         }
     });
 
-    didSleep = NO;
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (running) {
+	if (self.running) {
 		[self doStop];
     }
 }
@@ -190,9 +190,9 @@ static void linkChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *in
     }
 
     self.interfaces = nil;
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name {

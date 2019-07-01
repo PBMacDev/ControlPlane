@@ -75,8 +75,7 @@ static void HostAvailabilityReachabilityCallBack(SCNetworkReachabilityRef target
             [self addMonitoredHost:rule[@"parameter"]];
         }
         
-        running = YES;
-        dataCollected = YES;
+        self.running = YES;
     }
     return;
 }
@@ -147,9 +146,8 @@ static void HostAvailabilityReachabilityCallBack(SCNetworkReachabilityRef target
             DSLog(@"failed to stop monitoring %@", key);
     }];
     [self.monitoredHosts removeAllObjects];
-    self.dataCollected = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"hostAvailabilityChanged" object:nil];
-    running = NO;
+    self.running = NO;
 }
 
 - (NSString *)getSuggestionLeadText:(NSString *)type

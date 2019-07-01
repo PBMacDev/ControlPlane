@@ -70,7 +70,7 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
         sourceID = kIOAudioOutputPortSubTypeExternalSpeaker;
 	}
 	source = sourceID;
-	[self setDataCollected:YES];
+//    [self setDataCollected:YES];
 
 #ifdef DEBUG_MODE
 	NSLog(@"%@ >> Got 0x%08lu", [self class], (unsigned long) sourceID);
@@ -116,7 +116,7 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
 
 - (void)start
 {
-	if (running)
+	if (self.running)
 		return;
 
 	// Register listener for the default output device
@@ -203,12 +203,12 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
 
 	[self doRealUpdate];
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop
 {
-	if (!running)
+	if (!self.running)
 		return;
 	
 	AudioObjectPropertyAddress address = {
@@ -226,9 +226,9 @@ static OSStatus sourceChange(AudioObjectID inDevice, UInt32 inChannel,
     AudioObjectRemovePropertyListener(builtinDeviceID, &address, &sourceChange, (__bridge void * _Nullable)(self));
 
 	source = 0;
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *) friendlyName {

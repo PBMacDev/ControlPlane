@@ -180,7 +180,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
         if (isNew) {
             //NSLog(@"USB >> [%d] Adding %@", cnt, dev_dict);
             [devices addObject:dev_dict];
-            [self setDataCollected:YES];
+//            [self setDataCollected:YES];
             
         }
         
@@ -208,7 +208,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
     [devices removeAllObjects];
     [lock unlock];
     [self devAdded:iterator];
-    [self setDataCollected:[devices count] > 0];
+//    [self setDataCollected:[devices count] > 0];
 
     IOObjectRelease(iterator);
 }
@@ -277,13 +277,13 @@ static void devRemoved(void *ref, io_iterator_t iterator)
 {
     [lock lock];
     [devices removeAllObjects];
-    [self setDataCollected:NO];
+//    [self setDataCollected:NO];
     [lock unlock];
 }
 
 - (void)start
 {
-    if (running)
+    if (self.running)
         return;
 
     paranoid = [[NSUserDefaults standardUserDefaults] boolForKey:@"Debug USBParanoia"];
@@ -308,13 +308,12 @@ static void devRemoved(void *ref, io_iterator_t iterator)
     [self devAdded:addedIterator];
     [self devRemoved:removedIterator];
 
-    running = YES;
-    //[super start];
+    self.running = YES;
 }
 
 - (void)stop
 {
-    if (!running)
+    if (!self.running)
         return;
 
     CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopDefaultMode);
@@ -322,8 +321,7 @@ static void devRemoved(void *ref, io_iterator_t iterator)
     IOObjectRelease(addedIterator);
     IOObjectRelease(removedIterator);
 
-    running = NO;
-    //[super stop];
+    self.running = NO;
 }
 
 - (NSString *)name

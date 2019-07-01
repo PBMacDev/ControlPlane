@@ -97,7 +97,7 @@
 																	 repeats: NO];
 
     // we now mark the evidence source as running
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop
@@ -139,11 +139,11 @@
     
 	[lock lock];
 	[devices removeAllObjects];
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 	[lock unlock];
     
     // mark evidence source as not running
-    running = NO;
+    self.running = NO;
 	
 }
 
@@ -378,9 +378,9 @@
                       aborted:(BOOL)aborted  {
     [self setInquiryStatus:FALSE];
     
-#ifdef DEBUG_MODE
-    DSLog(@"in deviceInquiryComplete with goingToSleep == %s and error %x",goingToSleep ? "YES" : "NO", error);
-#endif
+//#ifdef DEBUG_MODE
+//    DSLog(@"in deviceInquiryComplete with goingToSleep == %s and error %x",goingToSleep ? "YES" : "NO", error);
+//#endif
     
 	if (error != kIOReturnSuccess) {
 #ifdef DEBUG_MODE
@@ -413,15 +413,15 @@
 {
     timerCounter++;
     
-    if (goingToSleep) {
-#ifdef DEBUG_MODE
-        DSLog(@"invalidating cleanupTimer because we're going to sleep (from cleanupTimerPoll)");
-#endif
-		if (cleanupTimer && [cleanupTimer isValid]) {
-			[cleanupTimer invalidate];
-			cleanupTimer = nil;
-		}
-    }
+//    if (goingToSleep) {
+//#ifdef DEBUG_MODE
+//        DSLog(@"invalidating cleanupTimer because we're going to sleep (from cleanupTimerPoll)");
+//#endif
+//        if (cleanupTimer && [cleanupTimer isValid]) {
+//            [cleanupTimer invalidate];
+//            cleanupTimer = nil;
+//        }
+//    }
 	// Go through list to remove all expired devices
 	[lock lock];
 	NSEnumerator *en = [devices objectEnumerator];
@@ -494,7 +494,7 @@
 		[devices addObject:dev];
 	}
     
-	[self setDataCollected:[devices count] > 0];
+//    [self setDataCollected:[devices count] > 0];
 	[lock unlock];
 }
 

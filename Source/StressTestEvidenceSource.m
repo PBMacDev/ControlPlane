@@ -26,7 +26,7 @@
 
 - (void)start
 {
-	if (running)
+	if (self.running)
 		return;
     
     [self setLoopTimer:[NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)0.001
@@ -34,7 +34,7 @@
                                                       selector:@selector(wtf:)
                                                       userInfo:nil
                                                        repeats:YES]];
-	running = YES;
+	self.running = YES;
 }
 
 - (void) wtf:(NSTimer *) timer {
@@ -45,12 +45,12 @@
 
 - (void)stop
 {
-	if (!running)
+	if (!self.running)
 		return;
     
     [[self loopTimer] invalidate];
     [self setLoopTimer:nil];
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name

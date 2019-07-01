@@ -80,25 +80,21 @@
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
     
     [locationManager startUpdatingLocation];
-    
-	[self setDataCollected:YES];
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (!running) {
+	if (!self.running) {
 		return;
     }
     
     [locationManager stopUpdatingLocation];
-    
-	[self setDataCollected:NO];
-	running = NO;
+	self.running = NO;
 }
 
 - (NSMutableDictionary *)readFromPanel {
@@ -297,32 +293,6 @@
     }];
 
 	return YES;
-}
-
-- (void)wakeFromSleep:(id)arg {
-    if (goingToSleep) {
-        goingToSleep = NO;
-        if (startAfterSleep && ![self isRunning]) {
-            startAfterSleep = NO;
-            running = YES;
-            
-            DSLog(@"Starting %@ after sleep.", [self class]);
-            [locationManager startUpdatingLocation];
-        }
-    }
-}
-
-- (void)goingToSleep:(id)arg {
-    if (!goingToSleep) {
-        goingToSleep = YES;
-        if ([self isRunning]) {
-            startAfterSleep = YES;
-            running = NO;
-            
-            DSLog(@"Stopping %@ for sleep.", [self class]);
-            [locationManager stopUpdatingLocation];
-        }
-    }
 }
 
 - (NSString *)friendlyName {

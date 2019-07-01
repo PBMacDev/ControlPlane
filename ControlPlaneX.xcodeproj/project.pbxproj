@@ -100,6 +100,8 @@
 		A7A49E43218EDDCB00775312 /* CPHelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E40218EDDCB00775312 /* CPHelperTool.m */; };
 		A7A49E44218EDDCB00775312 /* CPHelperToolMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */; };
 		A7A49E46218FA14800775312 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E45218FA14800775312 /* Foundation.framework */; };
+		A7B7355F22C4D9D5008BA4BD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B7355E22C4D9D5008BA4BD /* Cocoa.framework */; };
+		A7DAE8DA22BE570300A0D1F8 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAE8D922BE570300A0D1F8 /* Rule.swift */; };
 		DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */; };
 		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
@@ -146,7 +148,6 @@
 		DD8274F614116CC90098FA6E /* OpenURLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F514116CC80098FA6E /* OpenURLAction.m */; };
 		DD8274F91411748C0098FA6E /* LockKeychainAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274F81411748B0098FA6E /* LockKeychainAction.m */; };
 		DD8274FE14117C590098FA6E /* SpeakAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8274FD14117C580098FA6E /* SpeakAction.m */; };
-		DDAA9A181402FAAD00D4757E /* SleepEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA9A171402FAAD00D4757E /* SleepEvidenceSource.m */; };
 		DDAE0017141474DC00FDADE8 /* CPController+SleepMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */; };
 		DDAEFFFB1414714F00FDADE8 /* Action+HelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAEFFFA1414714F00FDADE8 /* Action+HelperTool.m */; };
 		DDDF1C2B1411D49300DB0018 /* DefaultBrowserAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDF1C2A1411D49300DB0018 /* DefaultBrowserAction.m */; };
@@ -168,13 +169,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = DA5B01FA1412BB1700E19C50;
 			remoteInfo = CPHelperTool;
-		};
-		DA94BEE215CA233400ED2AB2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DA94BEDE15CA233400ED2AB2 /* SampleESPlugin.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DA94BECD15CA233400ED2AB2;
-			remoteInfo = SampleESPlugin;
 		};
 		DAD889A715D5F338009F30A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -408,6 +402,9 @@
 		A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHelperToolMain.m; sourceTree = "<group>"; };
 		A7A49E45218FA14800775312 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7ADE84A22899E9B0070C0BF /* ControlPlaneX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ControlPlaneX.entitlements; path = ControlPlaneX/ControlPlaneX.entitlements; sourceTree = "<group>"; };
+		A7B7355E22C4D9D5008BA4BD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A7DAE8D822BE570300A0D1F8 /* ControlPlaneX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControlPlaneX-Bridging-Header.h"; sourceTree = "<group>"; };
+		A7DAE8D922BE570300A0D1F8 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Rule.swift; path = Source/Rule.swift; sourceTree = "<group>"; };
 		DA04D57015DC119E004B9E1C /* ToggleContextStickinessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleContextStickinessAction.h; path = Source/ToggleContextStickinessAction.h; sourceTree = "<group>"; };
 		DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleContextStickinessAction.m; path = Source/ToggleContextStickinessAction.m; sourceTree = "<group>"; };
 		DA07C10E18FE04A3008FE8B5 /* ContextEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContextEvidenceSource.h; path = Source/ContextEvidenceSource.h; sourceTree = "<group>"; };
@@ -458,7 +455,6 @@
 		DA922E9B144FC95200920B40 /* ToggleInternetSharingAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleInternetSharingAction.h; path = Source/ToggleInternetSharingAction.h; sourceTree = "<group>"; };
 		DA922E9C144FC95200920B40 /* ToggleInternetSharingAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleInternetSharingAction.m; path = Source/ToggleInternetSharingAction.m; sourceTree = "<group>"; };
 		DA94BE8E15CA1B6E00ED2AB2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		DA94BEDE15CA233400ED2AB2 /* SampleESPlugin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SampleESPlugin.xcodeproj; path = "Plugins/Evidence Source/SampleESPlugin/SampleESPlugin/SampleESPlugin.xcodeproj"; sourceTree = "<group>"; };
 		DA9957E8160D4BA300AB3C7A /* StressTestEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StressTestEvidenceSource.h; path = Source/StressTestEvidenceSource.h; sourceTree = "<group>"; };
 		DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StressTestEvidenceSource.m; path = Source/StressTestEvidenceSource.m; sourceTree = "<group>"; };
 		DAA9ABFE1595FDE700B84B05 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -483,7 +479,6 @@
 		DADFF79615D96CBC00DEF412 /* ToggleNotificationCenterAlertsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleNotificationCenterAlertsAction.m; path = Source/ToggleNotificationCenterAlertsAction.m; sourceTree = "<group>"; };
 		DAE893E414546897005FA13C /* ToggleFirewallAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleFirewallAction.h; path = Source/ToggleFirewallAction.h; sourceTree = "<group>"; };
 		DAE893E514546897005FA13C /* ToggleFirewallAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleFirewallAction.m; path = Source/ToggleFirewallAction.m; sourceTree = "<group>"; };
-		DAF7F83E1749BB6A002BB402 /* EvidenceSourcePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvidenceSourcePlugin.h; path = Source/EvidenceSourcePlugin.h; sourceTree = "<group>"; };
 		DAF7F83F1749BB90002BB402 /* ActionPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionPlugin.h; path = Source/ActionPlugin.h; sourceTree = "<group>"; };
 		DAFC0E3D14788A5000DA6139 /* DisplayServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DisplayServices.framework; path = /System/Library/PrivateFrameworks/DisplayServices.framework; sourceTree = "<absolute>"; };
 		DD8274EE141154780098FA6E /* MailIntervalAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailIntervalAction.h; path = Source/MailIntervalAction.h; sourceTree = "<group>"; };
@@ -498,8 +493,6 @@
 		DD8274FD14117C580098FA6E /* SpeakAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeakAction.m; path = Source/SpeakAction.m; sourceTree = "<group>"; };
 		DD827505141188880098FA6E /* DisplayBrightnessAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayBrightnessAction.h; path = Source/DisplayBrightnessAction.h; sourceTree = "<group>"; };
 		DD827506141188880098FA6E /* DisplayBrightnessAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DisplayBrightnessAction.m; path = Source/DisplayBrightnessAction.m; sourceTree = "<group>"; };
-		DDAA9A161402FAAD00D4757E /* SleepEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SleepEvidenceSource.h; path = Source/SleepEvidenceSource.h; sourceTree = "<group>"; };
-		DDAA9A171402FAAD00D4757E /* SleepEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SleepEvidenceSource.m; path = Source/SleepEvidenceSource.m; sourceTree = "<group>"; };
 		DDAE0015141474DC00FDADE8 /* CPController+SleepMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CPController+SleepMonitor.h"; path = "Source/CPController+SleepMonitor.h"; sourceTree = "<group>"; };
 		DDAE0016141474DC00FDADE8 /* CPController+SleepMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CPController+SleepMonitor.m"; path = "Source/CPController+SleepMonitor.m"; sourceTree = "<group>"; };
 		DDAE004B141521EF00FDADE8 /* CoreLocationSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreLocationSource.h; path = Source/CoreLocationSource.h; sourceTree = "<group>"; };
@@ -539,6 +532,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B7355F22C4D9D5008BA4BD /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +574,8 @@
 				A72CEE9D21A7E70300BC78DE /* ActionSetController.m */,
 				8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */,
 				8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */,
+				A7DAE8D922BE570300A0D1F8 /* Rule.swift */,
+				A7DAE8D822BE570300A0D1F8 /* ControlPlaneX-Bridging-Header.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -637,6 +633,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7B7355E22C4D9D5008BA4BD /* Cocoa.framework */,
 				A7170BD5219EFC5900EE1A30 /* Security.framework */,
 				A7170BD3219EFC4900EE1A30 /* ScriptingBridge.framework */,
 				A7170BD1219EFC2900EE1A30 /* ServiceManagement.framework */,
@@ -708,7 +705,6 @@
 		8DAD148E0BBCA40700F93914 /* Evidence Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DA94BE8815CA1B0300ED2AB2 /* Plugins */,
 				8DE4C0C00C4EEE3E00511590 /* Concrete Evidence Sources */,
 				8D8C9CA30BBB74E70074D5B3 /* EvidenceSource.h */,
 				8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */,
@@ -720,7 +716,6 @@
 				8D643CDB0C4EF6FD006D8ECC /* LoopingEvidenceSource.m */,
 				7C42F30816FB9D14000EE57B /* MultiRuleEvidenceSource.h */,
 				7C42F30916FB9D47000EE57B /* MultiRuleEvidenceSource.m */,
-				DAF7F83E1749BB6A002BB402 /* EvidenceSourcePlugin.h */,
 				7C42F30416FB8966000EE57B /* RuleType.h */,
 				7C42F30116FB8960000EE57B /* RuleType.m */,
 			);
@@ -773,8 +768,6 @@
 				640E7DBF1C1C983400045672 /* ScreenLockEvidenceSource.m */,
 				732A58DD1484300A0011019C /* ShellScriptEvidenceSource.h */,
 				732A58DE1484300A0011019C /* ShellScriptEvidenceSource.m */,
-				DDAA9A161402FAAD00D4757E /* SleepEvidenceSource.h */,
-				DDAA9A171402FAAD00D4757E /* SleepEvidenceSource.m */,
 				DA9957E8160D4BA300AB3C7A /* StressTestEvidenceSource.h */,
 				DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */,
 				8DE428F90C5084D00073499A /* TimeOfDayEvidenceSource.h */,
@@ -842,22 +835,6 @@
 			);
 			name = HelperTool;
 			path = Source/CPHelperTool;
-			sourceTree = "<group>";
-		};
-		DA94BE8815CA1B0300ED2AB2 /* Plugins */ = {
-			isa = PBXGroup;
-			children = (
-				DA94BEDE15CA233400ED2AB2 /* SampleESPlugin.xcodeproj */,
-			);
-			name = Plugins;
-			sourceTree = "<group>";
-		};
-		DA94BEDF15CA233400ED2AB2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DA94BEE315CA233400ED2AB2 /* SampleESPlugin.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DAD889A415D5F337009F30A3 /* Products */ = {
@@ -1073,6 +1050,7 @@
 				LastUpgradeCheck = 1020;
 				TargetAttributes = {
 					8D1107260486CEB800E47090 = {
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 0;
@@ -1110,10 +1088,6 @@
 					ProductGroup = DAD889A415D5F337009F30A3 /* Products */;
 					ProjectRef = DAD889A315D5F337009F30A3 /* NotificationCenterAction.xcodeproj */;
 				},
-				{
-					ProductGroup = DA94BEDF15CA233400ED2AB2 /* Products */;
-					ProjectRef = DA94BEDE15CA233400ED2AB2 /* SampleESPlugin.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1125,13 +1099,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		DA94BEE315CA233400ED2AB2 /* SampleESPlugin.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SampleESPlugin.bundle;
-			remoteRef = DA94BEE215CA233400ED2AB2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		DAD889A815D5F338009F30A3 /* NotificationCenterAction.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -1209,6 +1176,7 @@
 				A7A49E3F218EDD1A00775312 /* CPHelperToolCommon.m in Sources */,
 				DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */,
 				DAE893EE1454FFFB005FA13C /* ToggleFirewallAction.m in Sources */,
+				A7DAE8DA22BE570300A0D1F8 /* Rule.swift in Sources */,
 				DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */,
@@ -1257,7 +1225,6 @@
 				8DFD0DA60CEBBC8A00E79049 /* UnmountAction.m in Sources */,
 				DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */,
 				DA83A21D13D0FE8F00074503 /* CoreWLANEvidenceSource.m in Sources */,
-				DDAA9A181402FAAD00D4757E /* SleepEvidenceSource.m in Sources */,
 				DA812E83140681D2006869F7 /* AppleScript.m in Sources */,
 				DD8274F0141154780098FA6E /* MailIntervalAction.m in Sources */,
 				DD8274F314115EE50098FA6E /* StartTimeMachineAction.m in Sources */,
@@ -1461,31 +1428,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "ControlPlaneX Launcher/ControlPlaneX_Launcher.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = X75PQ8DR5A;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "ControlPlaneX Launcher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.ControlPlaneX-Launcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
@@ -1496,28 +1450,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "ControlPlaneX Launcher/ControlPlaneX_Launcher.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = X75PQ8DR5A;
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "ControlPlaneX Launcher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.ControlPlaneX-Launcher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
@@ -1528,6 +1469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -1541,12 +1483,19 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ua.in.pboyko.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = ControlPlaneX;
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "ControlPlaneX-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1554,6 +1503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -1567,6 +1517,10 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
@@ -1575,6 +1529,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev Profile";
 				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ControlPlaneX-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

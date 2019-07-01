@@ -119,7 +119,7 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
         return nil;
     }
 
-    [self setDataCollected:YES];
+//    [self setDataCollected:YES];
     
 	return self;
 }
@@ -175,7 +175,7 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -213,11 +213,11 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
         }
     });
 
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (running) {
+	if (self.running) {
         [self doStop];
     }
 }
@@ -243,7 +243,7 @@ static BOOL addDNSServersToSet(NSDictionary *dict, NSString *dnsKey, NSMutableSe
 
     [self removeAllDataCollected];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name {

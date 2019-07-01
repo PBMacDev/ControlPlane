@@ -134,14 +134,12 @@
 
 - (void)start
 {
-	running = YES;
-	[self setDataCollected:YES];
+	self.running = YES;
 }
 
 - (void)stop
 {
-	running = NO;
-	[self setDataCollected:NO];
+	self.running = NO;
 }
 
 - (NSString *)name

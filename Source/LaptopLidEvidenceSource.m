@@ -143,7 +143,7 @@ static void onPMrootDomainChange(void *refcon, io_service_t service, uint32_t me
 }
 
 - (void)start {
-    if (running) {
+    if (self.running) {
         return;
     }
 
@@ -159,12 +159,11 @@ static void onPMrootDomainChange(void *refcon, io_service_t service, uint32_t me
         return;
     }
 
-    [self setDataCollected:YES];
-    running = YES;
+    self.running = YES;
 }
 
 - (void)stop {
-    if (running) {
+    if (self.running) {
         [self doStop];
     }
 }
@@ -173,20 +172,7 @@ static void onPMrootDomainChange(void *refcon, io_service_t service, uint32_t me
     [self removeLidStateNotificaiton];
     laptopLidState = LaptopLidStateIsUnavailable;
 
-    [self setDataCollected:NO];
-    running = NO;
-}
-
-- (void)goingToSleep:(NSNotification *)note {
-#ifdef DEBUG_MODE
-	DSLog(@"goingToSleep: %@", [note name]);
-#endif
-}
-
-- (void)wakeFromSleep:(NSNotification *)note {
-#ifdef DEBUG_MODE
-	DSLog(@"wakeFromSleep: %@", [note name]);
-#endif
+    self.running = NO;
 }
 
 - (BOOL)doesRuleMatch:(NSDictionary *)rule {

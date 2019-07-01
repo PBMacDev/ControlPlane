@@ -110,7 +110,7 @@ enum {
 
     if (self.level != level) {
         self.level  = level;
-        [self setDataCollected:(kr == KERN_SUCCESS)];
+//        [self setDataCollected:(kr == KERN_SUCCESS)];
 
         NSString *perc = [NSNumberFormatter localizedStringFromNumber:@(level) numberStyle:NSNumberFormatterPercentStyle];
         [self setValue:perc forKey:@"currentLevel"];
@@ -118,7 +118,7 @@ enum {
 }
 
 - (void)clearCollectedData {
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 }
 
 - (NSMutableDictionary *)readFromPanel {

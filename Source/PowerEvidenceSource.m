@@ -51,7 +51,6 @@
 	CFRelease(blob);
 
     status = (onBattery) ? (@"Battery") : (@"A/C");
-	[self setDataCollected:YES];
 
     if (notification) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
@@ -59,7 +58,7 @@
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -69,11 +68,11 @@
                                                object:nil];
     
     [self doFullUpdate:nil];
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
-	if (!running) {
+	if (!self.running) {
 		return;
     }
 
@@ -82,9 +81,8 @@
                                                   object:nil];
 
 	status = nil;
-	[self setDataCollected:NO];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name {
@@ -104,14 +102,6 @@
         @{ @"type": @"Power", @"parameter": @"Battery", @"description": NSLocalizedString(@"Battery", @"") },
         @{ @"type": @"Power", @"parameter": @"A/C",     @"description": NSLocalizedString(@"Power Adapter", @"") },
     ];
-}
-
-- (void) goingToSleep:(id)arg {
-    [self stop];
-}
-
-- (void) wakeFromSleep:(id)arg {
-    [self start];
 }
 
 - (NSString *)friendlyName {

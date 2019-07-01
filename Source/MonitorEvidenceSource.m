@@ -78,7 +78,7 @@
 
 	[lock lock];
 	[monitors setArray:display_array];
-	[self setDataCollected:[monitors count] > 0];
+//    [self setDataCollected:[monitors count] > 0];
 	[lock unlock];
 }
 
@@ -86,7 +86,7 @@
 {
 	[lock lock];
 	[monitors removeAllObjects];
-	[self setDataCollected:NO];
+//    [self setDataCollected:NO];
 	[lock unlock];
 }
 

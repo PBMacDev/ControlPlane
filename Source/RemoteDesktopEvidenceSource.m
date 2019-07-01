@@ -19,7 +19,7 @@
 }
 
 - (void)start {
-    if (running) {
+    if (self.running) {
         return;
     }
     
@@ -29,22 +29,19 @@
                                                  name:@"com.apple.remotedesktop.viewerNames"
                                                object:nil];
     
-    [self setDataCollected:YES];
-    running = YES;
+    self.running = YES;
 }
 
 - (void)stop {
-    if (!running) {
+    if (!self.running) {
         return;
     }
 
     [[NSDistributedNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"com.apple.remotedesktop.viewerNames"
                                                   object:nil];
-    
-    [self setDataCollected:NO];
-    
-    running = NO;
+        
+    self.running = NO;
 }
 
 - (void)doFullUpdate:(NSNotification *)notification {

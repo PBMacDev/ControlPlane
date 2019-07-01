@@ -27,18 +27,13 @@
 	return nil;
 }
 
-- (id)initWithPanel:(NSPanel *)initPanel {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
 - (id)initWithNibNamed:(NSString *)name {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
 }
 
 - (id)initWithRules:(NSArray *)ruleTypeClasses {
-    self = [super initWithPanel:nil];
+    self = [super init];
     if (!self) {
         return nil;
     }
@@ -125,10 +120,6 @@
     self.panel = ruleType.panel;
     [super writeToPanel:rule usingType:type];
     [ruleType writeToPanel:rule];
-
-    if (oldDescription && [ruleType canAutoupdateDescription:oldDescription ofRule:rule]) {
-        oldDescription = nil;
-    }
 }
 
 @end

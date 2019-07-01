@@ -115,10 +115,10 @@
 	return nil;
 }
 
-- (BOOL)canAutoupdateDescription:(NSString *)description ofRule:(NSDictionary *)rule
-{
-    return [description isEqualToString:[self getDefaultDescription:rule]];
-}
+//- (BOOL)canAutoupdateDescription:(NSString *)description ofRule:(NSDictionary *)rule
+//{
+//    return [description isEqualToString:[self getDefaultDescription:rule]];
+//}
 
 - (void)setContextMenu:(NSMenu *)menu
 {

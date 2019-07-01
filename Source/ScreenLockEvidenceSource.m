@@ -11,10 +11,25 @@
 
 @implementation ScreenLockEvidenceSource
 
+@synthesize screenIsLocked;
+
 - (id) init {
     if (!(self = [super init]))
         return nil;
+
+    screenIsLocked = NO;
+
+    // Monitor screen lock status
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(screenDidUnlock:)
+                                                            name:@"com.apple.screenIsUnlocked"
+                                                          object:nil];
     
+    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                        selector:@selector(screenDidLock:)
+                                                            name:@"com.apple.screenIsLocked"
+                                                          object:nil];
+
     return self;
 }
 
@@ -23,7 +38,7 @@
 }
 
 - (void) doRealUpdate {
-    [self setDataCollected:YES];
+//    [self setDataCollected:YES];
 }
 
 - (NSString*) name {
@@ -53,21 +68,19 @@
 }
 
 - (void) start {
-    if (running)
+    if (self.running)
         return;
     
     [self doRealUpdate];
     
-    running = YES;
+    self.running = YES;
 }
 
 - (void) stop {
-    if (!running)
+    if (!self.running)
         return;
     
-    [self setDataCollected:NO];
-    
-    running = NO;
+    self.running = NO;
 }
 
 - (NSString *) friendlyName {
@@ -79,7 +92,7 @@
         DSLog(@"screenDidUnlock: %@", [notification name]);
     #endif
 
-    [super screenDidUnlock:nil];
+    [self setScreenIsLocked:NO];
     [self doRealUpdate];
 }
 
@@ -88,7 +101,7 @@
         DSLog(@"screenDidLock: %@", [notification name]);
     #endif
 
-    [super screenDidLock:nil];
+    [self setScreenIsLocked:YES];
     [self doRealUpdate];
 }
 

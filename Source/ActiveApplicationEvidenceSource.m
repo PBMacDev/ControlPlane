@@ -21,7 +21,7 @@ static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidence
 		return nil;
     
     activeApplication = [[[NSWorkspace sharedWorkspace] frontmostApplication] bundleIdentifier];
-    [self setDataCollected:YES];
+//    [self setDataCollected:YES];
 
 	return self;
 }
@@ -37,26 +37,26 @@ static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidence
 
 - (void)start {
     
-	if (running) {
+	if (self.running) {
 		return;
     }
     
     NSWorkspace* sharedWS = [NSWorkspace sharedWorkspace];
     [sharedWS addObserver:self forKeyPath:@"frontmostApplication" options:(NSKeyValueObservingOptionNew |NSKeyValueObservingOptionInitial) context:ActiveApplicationEvidenceSourceContext];
     
-	running = YES;
+	self.running = YES;
 }
 
 - (void)stop {
     
-	if (!running) {
+	if (!self.running) {
 		return;
     }
 
     NSWorkspace* sharedWS = [NSWorkspace sharedWorkspace];
     [sharedWS removeObserver:self forKeyPath:@"frontmostApplication" context:ActiveApplicationEvidenceSourceContext];
     
-	running = NO;
+	self.running = NO;
 }
 
 - (NSString *)name
@@ -114,13 +114,6 @@ static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidence
 
 - (NSString *) friendlyName {
     return NSLocalizedString(@"Active Application", @"");
-}
-
-- (void) goingToSleep:(id)arg {
-    
-//    if (running) {
-//        activeApplication = @"";
-//    }
 }
 
 @end

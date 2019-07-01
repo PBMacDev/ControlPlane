@@ -10,7 +10,6 @@
 @interface MultiRuleEvidenceSource : EvidenceSource
 
 - (id)init;
-- (id)initWithPanel:(NSPanel *)initPanel;
 - (id)initWithNibNamed:(NSString *)name;
 
 - (id)initWithRules:(NSArray *)ruleTypeClasses;

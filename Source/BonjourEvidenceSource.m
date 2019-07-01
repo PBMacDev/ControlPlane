@@ -87,7 +87,7 @@
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
 
@@ -102,11 +102,11 @@
 	// This finds all service types
 	[topLevelNetworkBrowser searchForServicesOfType:@"_services._dns-sd._udp." inDomain:@""];
     
-    running = YES;
+    self.running = YES;
 }
 
 - (void)stop {
-	if (!running) {
+	if (!self.running) {
 		return;
     }
 
@@ -118,9 +118,9 @@
     self.servicesBeingResolved = nil;
     self.servicesResolved = nil;
 
-    [self setDataCollected:NO];
+//    [self setDataCollected:NO];
 
-	running = NO;
+	self.running = NO;
 }
 
 - (void)stopAllBrowsersAndServices {
@@ -239,9 +239,9 @@
 
         NSMutableSet *servicesResolved = self.servicesResolved;
         [servicesResolved removeObject:removedService];
-        if ([servicesResolved count] == 0) {
-            [self setDataCollected:NO];
-        }
+//        if ([servicesResolved count] == 0) {
+//            [self setDataCollected:NO];
+//        }
     });
 }
 
@@ -256,7 +256,7 @@
         
         [self.servicesBeingResolved removeObject:resolvedService];
         [self.servicesResolved addObject:resolvedService];
-        [self setDataCollected:YES];
+//        [self setDataCollected:YES];
     });
 }
 

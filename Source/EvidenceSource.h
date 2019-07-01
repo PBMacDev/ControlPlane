@@ -6,49 +6,29 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ControlPlaneX-Swift.h"
 
+typedef NS_ENUM(int, RuleMatchStatusType) {
+    RuleMatchStatusIsUnknown = -1,
+    RuleDoesNotMatch = 0,
+    RuleDoesMatch = 1
+};
 
 @interface EvidenceSource : NSObject {
-    BOOL running;
-    BOOL dataCollected;
-    BOOL startAfterSleep;
-    BOOL goingToSleep;
-
-    // Sheet hooks
-//    NSPanel *panel;
-    IBOutlet NSPopUpButton *ruleContext;
-    IBOutlet NSSlider *ruleConfidenceSlider;
-    NSString *oldDescription;
     NSMutableArray *rulesThatBelongToThisEvidenceSource;
-    
-    BOOL screenIsLocked;
 }
 
+@property (getter=isRunning) BOOL running;
+
+// Sheet hooks
+@property (weak) IBOutlet NSPopUpButton *ruleContext;
+@property (weak) IBOutlet NSSlider *ruleConfidenceSlider;
 @property (weak) IBOutlet NSButton *negateRule;
-@property (readwrite) BOOL screenIsLocked;
 @property (strong, nonatomic) NSPanel *panel;
 
-+ (NSPanel *)getPanelFromNibNamed:(NSString *)name instantiatedWithOwner:(id)owner;
-
-- (id)initWithPanel:(NSPanel *)initPanel;
 - (id)initWithNibNamed:(NSString *)name;
-- (void)goingToSleep:(id)arg;
-- (void)wakeFromSleep:(id)arg;
-- (void) screenSaverDidBecomeInActive:(NSNotification *) notification;
-- (void) screenSaverDidBecomeActive:(NSNotification *) notification;
-- (void) screenDidUnlock:(NSNotification *) notification;
-- (void) screenDidLock:(NSNotification *) notification;
+
 - (BOOL)matchesRulesOfType:(NSString *)type;
-
-- (BOOL)dataCollected;
-- (void)setDataCollected:(BOOL)collected;
-- (BOOL)isRunning;
-
-- (void)setThreadNameFromClassName;
-
-- (void)setContextMenu:(NSMenu *)menu;
-- (IBAction)closeSheetWithOK:(id)sender;
-- (IBAction)closeSheetWithCancel:(id)sender;
 
 // Need to be extended by descendant classes
 // (need to add handling of 'parameter', and optionally 'type' and 'description' keys)
@@ -63,38 +43,38 @@
 - (void)start;
 - (void)stop;
 
+- (void)startForRule:(Rule*)rule;
+
 // To be implemented by descendant classes:
-- (NSString *)name;
+- (NSString*)name;
 - (BOOL)doesRuleMatch:(NSMutableDictionary *)rule;
 
 // Optionally implemented by descendant classes
-- (NSArray *)typesOfRulesMatched;    // optional; default is [self name]
+- (NSArray*)typesOfRulesMatched;    // optional; default is [self name]
 
 // Returns the rules that belong to the calling evidence source
-- (NSArray *)myRules;
+- (NSArray*)myRules;
 
 // Returns a friendly name to be used in the drop down menu
-- (NSString *) friendlyName;
+- (NSString*)friendlyName;
 
 // Return true if the evidence source should be enabled for this model of Mac
-+ (BOOL) isEvidenceSourceApplicableToSystem;
++ (BOOL)isEvidenceSourceApplicableToSystem;
+
++ (NSPanel*)getPanelFromNibNamed:(NSString *)name instantiatedWithOwner:(id)owner;
+
+- (void)setContextMenu:(NSMenu *)menu;
+- (IBAction)closeSheetWithOK:(id)sender;
+- (IBAction)closeSheetWithCancel:(id)sender;
 
 @end
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
-typedef NS_ENUM(int, RuleMatchStatusType) {
-    RuleMatchStatusIsUnknown = -1,
-    RuleDoesNotMatch = 0,
-    RuleDoesMatch = 1
-};
-
 @interface EvidenceSourceSetController : NSObject {
     IBOutlet NSWindowController *prefsWindowController;
     NSArray *sources;    // dictionary of EvidenceSource descendants (key is its name)
 }
 
-- (EvidenceSource *)sourceWithName:(NSString *)name;
 - (void)startEnabledEvidenceSources;
 - (void)stopAllRunningEvidenceSources;
 - (RuleMatchStatusType)ruleMatches:(NSMutableDictionary *)rule;

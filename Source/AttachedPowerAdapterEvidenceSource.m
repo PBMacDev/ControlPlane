@@ -68,7 +68,6 @@
     NSNumber *attachedPowerAdapter = self.attachedPowerAdapter;
     if ((attachedPowerAdapter == nil) || ![serialNumber isEqualToNumber:attachedPowerAdapter]) {
         self.attachedPowerAdapter = serialNumber;
-        [self setDataCollected:(serialNumber != nil)];
         if (notification) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"evidenceSourceDataDidChange" object:nil];
         }
@@ -76,11 +75,11 @@
 }
 
 - (void)start {
-	if (running) {
+	if (self.running) {
 		return;
     }
     
-	running = YES;
+	self.running = YES;
 	[self doFullUpdate:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -90,7 +89,7 @@
 }
 
 - (void)stop {
-	if (!running) {
+	if (!self.running) {
 		return;
     }
     
@@ -99,10 +98,8 @@
                                                     name:@"powerAdapterDidChangeNotification"
                                                   object:nil];
     
-    self.attachedPowerAdapter = nil;
-	[self setDataCollected:NO];
-    
-	running = NO;
+    self.attachedPowerAdapter = nil;    
+	self.running = NO;
 }
 
 - (NSString *)name {
