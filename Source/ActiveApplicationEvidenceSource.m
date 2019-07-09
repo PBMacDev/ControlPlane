@@ -21,7 +21,6 @@ static void *ActiveApplicationEvidenceSourceContext = &ActiveApplicationEvidence
 		return nil;
     
     activeApplication = [[[NSWorkspace sharedWorkspace] frontmostApplication] bundleIdentifier];
-//    [self setDataCollected:YES];
 
 	return self;
 }

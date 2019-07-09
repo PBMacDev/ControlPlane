@@ -7,7 +7,7 @@
 #import "Action.h"
 #import "DSLogger.h"
 #import "PrefsWindowController.h"
-#import "RuleType.h"
+//#import "RuleType.h"
 #import <ServiceManagement/ServiceManagement.h>
 
 // This is here to avoid IB's problem with unknown base classes
@@ -153,7 +153,6 @@
 
 @property (nonatomic,strong) NSDate *logBufferUnchangedSince;
 
-- (void)doAddRule:(NSDictionary *)dict;
 - (void)doEditRule:(NSDictionary *)dict;
 - (void)updateLogBuffer:(NSTimer *)timer;
 - (void)onPrefsWindowClose:(NSNotification *)notification;
@@ -574,15 +573,10 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
         [prefsWindow beginSheet:sourcePanel completionHandler:^(NSModalResponse returnCode) {
             if (returnCode == NSModalResponseOK) {
                 NSMutableDictionary *readFromPanel = [src readFromPanel];
-                [self doAddRule:readFromPanel];
+                [self->rulesController addObject:readFromPanel];
             }
         }];
     }
-}
-
-- (void)doAddRule:(NSDictionary *)dict
-{
-	[rulesController addObject:dict];
 }
 
 - (IBAction)editRule:(id)sender
@@ -608,11 +602,14 @@ static NSString * const sizeParamPrefix = @"NSView Size Preferences/";
 
     NSString *key = [NSString stringWithFormat:@"Enable%@EvidenceSource", [src name]];
     if (![src isRunning] || ![[NSUserDefaults standardUserDefaults] boolForKey:key]) {
-        [RuleType alertWithMessage:NSLocalizedString(@"Evidence source for this rule is disabled",
-                                                     @"Shown when the user attempt to edit rule with disabled ES.")
-                   informativeText:NSLocalizedString(@"You need to enable the corresponding evidence source"
-                                                     " to be able to edit the rule",
-                                                     @"Shown when the user attempt to edit rule with disabled ES.")];
+        NSAlert *alert = [NSAlert new];
+        [alert setMessageText:NSLocalizedString(@"Evidence source for this rule is disabled",
+                                                @"Shown when the user attempt to edit rule with disabled ES.")];
+        [alert setInformativeText:NSLocalizedString(@"You need to enable the corresponding evidence source"
+                                                    " to be able to edit the rule",
+                                                    @"Shown when the user attempt to edit rule with disabled ES.")];
+        [alert runModal];
+
         return;
     }
 

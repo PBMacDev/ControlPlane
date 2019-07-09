@@ -81,9 +81,6 @@ static char * const queueIsStopped = "queueIsStopped";
 static void ipAddrChange(SCDynamicStoreRef store, CFArrayRef changedKeys, void *info) {
     if (dispatch_get_specific(queueIsStopped) != queueIsStopped) {
         @autoreleasepool {
-#ifdef DEBUG_MODE
-            NSLog(@"ipAddrChange called with changedKeys:\n%@", changedKeys);
-#endif
             [(__bridge IPAddrEvidenceSource *) info enumerate];
         }
     }

@@ -12,7 +12,7 @@
 
 #import "AttachedPowerAdapterEvidenceSource.h"
 #import "DSLogger.h"
-#import "CPNotifications.h"
+//#import "CPNotifications.h"
 
 
 @interface AttachedPowerAdapterEvidenceSource ()
@@ -50,12 +50,12 @@
                 DSLog(@"WARNING: System is on AC power, but cannot provide power adapter details"
                       " due to an internal error.");
                 
-                NSString *title = NSLocalizedString(@"Cannot get power adapter S/N",
-                                                    @"Title to warn users on failed attempts to get power adapter S/N");
-                NSString *msg = NSLocalizedString(@"It is an internal system error."
-                                                  " Try to re-plug the MagSafe connector.",
-                                                  @"Shown when CP cannot get details about the attached power adapter");
-                [CPNotifications postUserNotification:title withMessage:msg];
+//                NSString *title = NSLocalizedString(@"Cannot get power adapter S/N",
+//                                                    @"Title to warn users on failed attempts to get power adapter S/N");
+//                NSString *msg = NSLocalizedString(@"It is an internal system error."
+//                                                  " Try to re-plug the MagSafe connector.",
+//                                                  @"Shown when CP cannot get details about the attached power adapter");
+//                [CPNotifications postUserNotification:title withMessage:msg];
             }
             
             CFRelease(blob);

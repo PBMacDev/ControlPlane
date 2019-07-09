@@ -8,41 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		5DCCE0BB1CA4870100FACF9F /* ScrollBarsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCE0BA1CA4870100FACF9F /* ScrollBarsAction.m */; };
-		640E7DC01C1C983400045672 /* ScreenLockEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 640E7DBF1C1C983400045672 /* ScreenLockEvidenceSource.m */; };
-		732A58DF1484300A0011019C /* ShellScriptEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A58DE1484300A0011019C /* ShellScriptEvidenceSource.m */; };
 		739492E2146B8018003C94DE /* DisplaySleepTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 739492E1146B8018003C94DE /* DisplaySleepTimeAction.m */; };
-		7C42F30216FB8960000EE57B /* RuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C42F30116FB8960000EE57B /* RuleType.m */; };
-		7C42F30716FB9519000EE57B /* SearchDomainRuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C42F30616FB9518000EE57B /* SearchDomainRuleType.m */; };
-		7C42F30A16FB9D47000EE57B /* MultiRuleEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C42F30916FB9D47000EE57B /* MultiRuleEvidenceSource.m */; };
-		7C4855C0174941C500D8EB84 /* IPv6RuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4855BF174941C500D8EB84 /* IPv6RuleType.m */; };
-		7C6D94591747A1BE00D5B9C7 /* IPAddrEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D94581747A1BE00D5B9C7 /* IPAddrEvidenceSource.m */; };
-		7C6D945C1747A1F300D5B9C7 /* IPv4RuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6D945B1747A1F300D5B9C7 /* IPv4RuleType.m */; };
-		7C8574EC16FB52AF0081659A /* DNSEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8574EB16FB52AF0081659A /* DNSEvidenceSource.m */; };
-		7C8574F116FB53180081659A /* ServerAddressRuleType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8574F016FB53180081659A /* ServerAddressRuleType.m */; };
-		7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA6847617947E2200563601 /* LaptopLidEvidenceSource.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		8D1493F70C824B6D00D29FE8 /* BonjourEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1493F50C824B6D00D29FE8 /* BonjourEvidenceSource.m */; };
-		8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D27ECAE0C4456A300AE1929 /* AudioOutputEvidenceSource.m */; };
-		8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2BAAAB0C56E26100A50777 /* NetworkLinkEvidenceSource.m */; };
 		8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D38B66A0C49D50200290F47 /* SliderWithValue.m */; };
 		8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C85130CDD8546009DBCD9 /* ScreenSaverStartAction.m */; };
-		8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */; };
-		8D643CDD0C4EF6FD006D8ECC /* LoopingEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D643CDB0C4EF6FD006D8ECC /* LoopingEvidenceSource.m */; };
 		8D649BA50BE8033A00716059 /* ToggleWiFiAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D649BA30BE8033A00716059 /* ToggleWiFiAction.m */; };
 		8D6762170C3B8D8D000B63EC /* NetworkLocationAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D6762150C3B8D8D000B63EC /* NetworkLocationAction.m */; };
 		8D71CAEF0C17BA7900E56526 /* ToggleableAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CAED0C17BA7900E56526 /* ToggleableAction.m */; };
 		8D71CB790C17C01700E56526 /* ScreenSaverPasswordAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CB770C17C01700E56526 /* ScreenSaverPasswordAction.m */; };
-		8D73CB8D0C46FD5200DF839E /* MonitorEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5684B30C38711D00881E32 /* MonitorEvidenceSource.m */; };
-		8D73CBB30C46FEC800DF839E /* PowerEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBF4FD0BE5B11F00A01414 /* PowerEvidenceSource.m */; };
-		8D73CC140C470FE000DF839E /* RunningApplicationEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D341CD10C0459D0008A7B4F /* RunningApplicationEvidenceSource.m */; };
 		8D75A6200BE6F68B0069DF3F /* ToggleBluetoothAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D75A61E0BE6F68B0069DF3F /* ToggleBluetoothAction.m */; };
 		8D8155D00C3A304E00228463 /* ContextsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8155CE0C3A304E00228463 /* ContextsDataSource.m */; };
 		8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */; };
 		8D8C9CA60BBB74E70074D5B3 /* EvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */; };
-		8D8C9CE70BBB7BE00074D5B3 /* BluetoothEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9CE50BBB7BE00074D5B3 /* BluetoothEvidenceSource.m */; };
 		8D8C9E350BBB89320074D5B3 /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C9E330BBB89320074D5B3 /* DB.m */; };
 		8D90E51F0B71C4C9007D39FD /* CPController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D90E51E0B71C4C9007D39FD /* CPController.m */; };
-		8D91F17D0C47148200D9FC0F /* USBEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D35A34D0BBBA0CB006ACBB0 /* USBEvidenceSource.m */; };
 		8DA2F4150CE8630200F92D4D /* DesktopBackgroundAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2F4130CE8630200F92D4D /* DesktopBackgroundAction.m */; };
 		8DB1EF240C6C60A300586F84 /* MailIMAPServerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1EF220C6C60A300586F84 /* MailIMAPServerAction.m */; };
 		8DB8917C0BB89BD8005347C2 /* oui.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB8917B0BB89BD8005347C2 /* oui.txt */; };
@@ -53,8 +32,6 @@
 		8DCB43580C4DBABD00E71D28 /* FirewallRuleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCB43560C4DBABD00E71D28 /* FirewallRuleAction.m */; };
 		8DCBE96C0C1A7ECE008260EF /* MountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBE96A0C1A7ECE008260EF /* MountAction.m */; };
 		8DD790AD0BC28A9F00705346 /* OpenAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD790AB0BC28A9F00705346 /* OpenAction.m */; };
-		8DE13F0E0C460E1700AEC949 /* FireWireEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCBF4900BE5622600A01414 /* FireWireEvidenceSource.m */; };
-		8DE428FC0C5084D00073499A /* TimeOfDayEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE428FA0C5084D00073499A /* TimeOfDayEvidenceSource.m */; };
 		8DE4C0110C4EE60700511590 /* GenericEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE4C00F0C4EE60700511590 /* GenericEvidenceSource.m */; };
 		8DE4EE470C4B2A6F00A5B559 /* ScreenSaverTimeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE4EE450C4B2A6F00A5B559 /* ScreenSaverTimeAction.m */; };
 		8DF5A4180BC2353D00CBEB4B /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5A4160BC2353D00CBEB4B /* Action.m */; };
@@ -87,9 +64,12 @@
 		A71CB2B42183B07F0061014D /* ShellScriptRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A42183B07F0061014D /* ShellScriptRule.xib */; };
 		A71CB2B52183B07F0061014D /* ServerAddressRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A62183B07F0061014D /* ServerAddressRule.xib */; };
 		A71CB2B62183B0800061014D /* LightRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71CB2A82183B07F0061014D /* LightRule.xib */; };
+		A71DCF5422CE8FBD00D86AC9 /* CoreLocationSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71DCF5322CE8FBD00D86AC9 /* CoreLocationSource.swift */; };
 		A72CEE9E21A7E70300BC78DE /* ActionSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72CEE9D21A7E70300BC78DE /* ActionSetController.m */; };
 		A79414A121860E0A00CA9C13 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A021860E0900CA9C13 /* CoreWLAN.framework */; };
 		A79414A921872EB600CA9C13 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A79414A821872EB600CA9C13 /* UserNotifications.framework */; };
+		A79F5E6722CA2CA60047B400 /* ActiveApplicationEvidenceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79F5E6622CA2CA60047B400 /* ActiveApplicationEvidenceSource.swift */; };
+		A79F5E7222CC76B80047B400 /* EvidenceSourceSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F5E7122CC76B80047B400 /* EvidenceSourceSetController.m */; };
 		A7A49E28218B56C900775312 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A49E27218B56C900775312 /* Images.xcassets */; };
 		A7A49E2D218D93EA00775312 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E2C218D93EA00775312 /* AppKit.framework */; };
 		A7A49E2F218E35D600775312 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E2E218E35D600775312 /* AudioToolbox.framework */; };
@@ -100,12 +80,11 @@
 		A7A49E43218EDDCB00775312 /* CPHelperTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E40218EDDCB00775312 /* CPHelperTool.m */; };
 		A7A49E44218EDDCB00775312 /* CPHelperToolMain.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */; };
 		A7A49E46218FA14800775312 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A49E45218FA14800775312 /* Foundation.framework */; };
+		A7ACD47722D4E9EA00B5C0B9 /* WiFiEvidenceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ACD47622D4E9EA00B5C0B9 /* WiFiEvidenceSource.swift */; };
 		A7B7355F22C4D9D5008BA4BD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B7355E22C4D9D5008BA4BD /* Cocoa.framework */; };
 		A7DAE8DA22BE570300A0D1F8 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAE8D922BE570300A0D1F8 /* Rule.swift */; };
 		DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA04D57115DC119E004B9E1C /* ToggleContextStickinessAction.m */; };
-		DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */; };
 		DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0CAE6416C4813600EDE2C5 /* PreventDisplaySleepAction.m */; };
-		DA0E648615EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0E648515EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m */; };
 		DA2523BD1968601400F717FC /* ConnectBluetoothDeviceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2523BC1968601400F717FC /* ConnectBluetoothDeviceAction.m */; };
 		DA2B4381152161C800E94A1D /* ToggleTFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4380152161C800E94A1D /* ToggleTFTPAction.m */; };
 		DA2B4385152161D900E94A1D /* ToggleFTPAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2B4384152161D900E94A1D /* ToggleFTPAction.m */; };
@@ -116,20 +95,13 @@
 		DA4A629513E25C9D00CE976F /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = DA4A629413E25C9D00CE976F /* Credits.html */; };
 		DA4ED9C41520055100E6A8CE /* ToggleNaturalScrollingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4ED9C31520055100E6A8CE /* ToggleNaturalScrollingAction.m */; };
 		DA571B71151587B80074CE22 /* ToggleFileSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA571B70151587B80074CE22 /* ToggleFileSharingAction.m */; };
-		DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA69D7E117BD04C30062FBBC /* HostAvailabilityEvidenceSource.m */; };
 		DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */; };
-		DA7A0C171AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7A0C161AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m */; };
-		DA7EAF4715D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */; };
 		DA812E83140681D2006869F7 /* AppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = DA812E82140681D2006869F7 /* AppleScript.m */; };
-		DA83A21D13D0FE8F00074503 /* CoreWLANEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */; };
 		DA83A22713D1430000074503 /* usb-vendors.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA83A22613D1430000074503 /* usb-vendors.txt */; };
-		DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D91F1F80C4772FF00D9FC0F /* LightEvidenceSource.m */; };
 		DA8E283F156BCAD50040FC35 /* ToggleRemoteLoginAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E283E156BCAD50040FC35 /* ToggleRemoteLoginAction.m */; };
 		DA922E9D144FC95200920B40 /* ToggleInternetSharingAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DA922E9C144FC95200920B40 /* ToggleInternetSharingAction.m */; };
-		DA9957EA160D4BA300AB3C7A /* StressTestEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9957E9160D4BA300AB3C7A /* StressTestEvidenceSource.m */; };
 		DAA9ABFF1595FDE700B84B05 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DAA9ABFE1595FDE700B84B05 /* README.md */; };
 		DAAA7FAB1953DE0500C06DBB /* PreventSystemSleepAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FA91953DE0500C06DBB /* PreventSystemSleepAction.m */; };
-		DAAA7FAE1953E2C500C06DBB /* MountedVolumeEvidenceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAA7FAD1953E2C500C06DBB /* MountedVolumeEvidenceSource.m */; };
 		DAAF16B61413174400F5D915 /* ToggleTimeMachineAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAF16B51413174400F5D915 /* ToggleTimeMachineAction.m */; };
 		DAB1A7E215C3776D00CF65E8 /* CPNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB1A7E115C3776D00CF65E8 /* CPNotifications.m */; };
 		DABE3F6A16C44236004F5E63 /* OpenAndHideAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DABE3F6916C44236004F5E63 /* OpenAndHideAction.m */; };
@@ -385,10 +357,15 @@
 		A71CB2BF2183B0940061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ServerAddressRule.xib; sourceTree = "<group>"; };
 		A71CB2C02183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ShellScriptRule.xib; sourceTree = "<group>"; };
 		A71CB2C12183B0950061014D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/TimeOfDayRule.xib; sourceTree = "<group>"; };
+		A71DCF5322CE8FBD00D86AC9 /* CoreLocationSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreLocationSource.swift; path = Source/CoreLocationSource.swift; sourceTree = "<group>"; };
 		A72CEE9C21A7E70300BC78DE /* ActionSetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ActionSetController.h; path = Source/ActionSetController.h; sourceTree = "<group>"; };
 		A72CEE9D21A7E70300BC78DE /* ActionSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ActionSetController.m; path = Source/ActionSetController.m; sourceTree = "<group>"; };
 		A79414A021860E0900CA9C13 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		A79414A821872EB600CA9C13 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		A79F5E6622CA2CA60047B400 /* ActiveApplicationEvidenceSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActiveApplicationEvidenceSource.swift; path = Source/ActiveApplicationEvidenceSource.swift; sourceTree = "<group>"; };
+		A79F5E6922CA2E350047B400 /* ControlPlaneX-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControlPlaneX-Swift.h"; sourceTree = "<group>"; };
+		A79F5E7022CC76480047B400 /* EvidenceSourceSetController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EvidenceSourceSetController.h; path = Source/EvidenceSourceSetController.h; sourceTree = "<group>"; };
+		A79F5E7122CC76B80047B400 /* EvidenceSourceSetController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EvidenceSourceSetController.m; path = Source/EvidenceSourceSetController.m; sourceTree = "<group>"; };
 		A7A49E27218B56C900775312 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ControlPlaneX/Images.xcassets; sourceTree = "<group>"; };
 		A7A49E2C218D93EA00775312 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A7A49E2E218E35D600775312 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -401,6 +378,7 @@
 		A7A49E41218EDDCB00775312 /* CPHelperTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHelperTool.h; sourceTree = "<group>"; };
 		A7A49E42218EDDCB00775312 /* CPHelperToolMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHelperToolMain.m; sourceTree = "<group>"; };
 		A7A49E45218FA14800775312 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A7ACD47622D4E9EA00B5C0B9 /* WiFiEvidenceSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WiFiEvidenceSource.swift; path = Source/WiFiEvidenceSource.swift; sourceTree = "<group>"; };
 		A7ADE84A22899E9B0070C0BF /* ControlPlaneX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ControlPlaneX.entitlements; path = ControlPlaneX/ControlPlaneX.entitlements; sourceTree = "<group>"; };
 		A7B7355E22C4D9D5008BA4BD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A7DAE8D822BE570300A0D1F8 /* ControlPlaneX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ControlPlaneX-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -442,13 +420,9 @@
 		DA72BFF515019D8C003072C6 /* CPBonjourResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPBonjourResolver.m; path = Source/CPBonjourResolver.m; sourceTree = "<group>"; };
 		DA7A0C151AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteDesktopEvidenceSource.h; path = Source/RemoteDesktopEvidenceSource.h; sourceTree = "<group>"; };
 		DA7A0C161AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteDesktopEvidenceSource.m; path = Source/RemoteDesktopEvidenceSource.m; sourceTree = "<group>"; };
-		DA7EAF4515D9F7F2008DF67C /* ActiveApplicationEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveApplicationEvidenceSource.h; path = Source/ActiveApplicationEvidenceSource.h; sourceTree = "<group>"; };
-		DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveApplicationEvidenceSource.m; path = Source/ActiveApplicationEvidenceSource.m; sourceTree = "<group>"; };
 		DA7EAF5A19F2EB2800DF6F54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DA812E81140681D2006869F7 /* AppleScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleScript.h; path = Source/AppleScript.h; sourceTree = "<group>"; };
 		DA812E82140681D2006869F7 /* AppleScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleScript.m; path = Source/AppleScript.m; sourceTree = "<group>"; };
-		DA83A21B13D0FE8F00074503 /* CoreWLANEvidenceSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreWLANEvidenceSource.h; path = Source/CoreWLANEvidenceSource.h; sourceTree = "<group>"; };
-		DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreWLANEvidenceSource.m; path = Source/CoreWLANEvidenceSource.m; sourceTree = "<group>"; };
 		DA83A22613D1430000074503 /* usb-vendors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "usb-vendors.txt"; path = "Resources/usb-vendors.txt"; sourceTree = "<group>"; };
 		DA8E283D156BCAD50040FC35 /* ToggleRemoteLoginAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToggleRemoteLoginAction.h; path = Source/ToggleRemoteLoginAction.h; sourceTree = "<group>"; };
 		DA8E283E156BCAD50040FC35 /* ToggleRemoteLoginAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToggleRemoteLoginAction.m; path = Source/ToggleRemoteLoginAction.m; sourceTree = "<group>"; };
@@ -551,8 +525,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A79F5E7322CCFA090047B400 /* Evidence Sources */,
 				8DF5A4130BC2350000CBEB4B /* Actions */,
-				8DAD148E0BBCA40700F93914 /* Evidence Sources */,
+				8DAD148E0BBCA40700F93914 /* Evidence Sources (ObjC) */,
 				8D0164850C02AB08004AD8DB /* UI Utilities */,
 				DA812E81140681D2006869F7 /* AppleScript.h */,
 				DA812E82140681D2006869F7 /* AppleScript.m */,
@@ -574,8 +549,10 @@
 				A72CEE9D21A7E70300BC78DE /* ActionSetController.m */,
 				8D82F0A10AA81411009ADA44 /* PrefsWindowController.h */,
 				8D82F0A20AA81411009ADA44 /* PrefsWindowController.m */,
-				A7DAE8D922BE570300A0D1F8 /* Rule.swift */,
+				A79F5E7022CC76480047B400 /* EvidenceSourceSetController.h */,
+				A79F5E7122CC76B80047B400 /* EvidenceSourceSetController.m */,
 				A7DAE8D822BE570300A0D1F8 /* ControlPlaneX-Bridging-Header.h */,
+				A79F5E6922CA2E350047B400 /* ControlPlaneX-Swift.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -702,14 +679,10 @@
 			name = "UI Utilities";
 			sourceTree = "<group>";
 		};
-		8DAD148E0BBCA40700F93914 /* Evidence Sources */ = {
+		8DAD148E0BBCA40700F93914 /* Evidence Sources (ObjC) */ = {
 			isa = PBXGroup;
 			children = (
 				8DE4C0C00C4EEE3E00511590 /* Concrete Evidence Sources */,
-				8D8C9CA30BBB74E70074D5B3 /* EvidenceSource.h */,
-				8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */,
-				8DE4C00E0C4EE60700511590 /* GenericEvidenceSource.h */,
-				8DE4C00F0C4EE60700511590 /* GenericEvidenceSource.m */,
 				8D643C650C4EF197006D8ECC /* GenericLoopingEvidenceSource.h */,
 				8D643C660C4EF197006D8ECC /* GenericLoopingEvidenceSource.m */,
 				8D643CDA0C4EF6FD006D8ECC /* LoopingEvidenceSource.h */,
@@ -719,14 +692,12 @@
 				7C42F30416FB8966000EE57B /* RuleType.h */,
 				7C42F30116FB8960000EE57B /* RuleType.m */,
 			);
-			name = "Evidence Sources";
+			name = "Evidence Sources (ObjC)";
 			sourceTree = "<group>";
 		};
 		8DE4C0C00C4EEE3E00511590 /* Concrete Evidence Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DA7EAF4515D9F7F2008DF67C /* ActiveApplicationEvidenceSource.h */,
-				DA7EAF4615D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m */,
 				DA0E648715EC707300E77ABF /* AttachedPowerAdapterEvidenceSource.h */,
 				DA0E648515EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m */,
 				8D27ECAD0C4456A300AE1929 /* AudioOutputEvidenceSource.h */,
@@ -736,10 +707,6 @@
 				7C48611717C79ED80064D2A5 /* BonjourEvidenceSource */,
 				DA07C10E18FE04A3008FE8B5 /* ContextEvidenceSource.h */,
 				DA07C10F18FE04A3008FE8B5 /* ContextEvidenceSource.m */,
-				DDAE004B141521EF00FDADE8 /* CoreLocationSource.h */,
-				DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */,
-				DA83A21B13D0FE8F00074503 /* CoreWLANEvidenceSource.h */,
-				DA83A21C13D0FE8F00074503 /* CoreWLANEvidenceSource.m */,
 				7C8574EE16FB52C80081659A /* DNSEvidenceSource */,
 				8DCBF48F0BE5622600A01414 /* FireWireEvidenceSource.h */,
 				8DCBF4900BE5622600A01414 /* FireWireEvidenceSource.m */,
@@ -809,6 +776,31 @@
 				A7170BBF219EA22B00EE1A30 /* ControlPlaneX_Launcher.entitlements */,
 			);
 			path = "ControlPlaneX Launcher";
+			sourceTree = "<group>";
+		};
+		A79F5E7322CCFA090047B400 /* Evidence Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A79F5E7422CCFF940047B400 /* Concrete Evidence Sources */,
+				A7DAE8D922BE570300A0D1F8 /* Rule.swift */,
+				8D8C9CA30BBB74E70074D5B3 /* EvidenceSource.h */,
+				8D8C9CA40BBB74E70074D5B3 /* EvidenceSource.m */,
+				8DE4C00E0C4EE60700511590 /* GenericEvidenceSource.h */,
+				8DE4C00F0C4EE60700511590 /* GenericEvidenceSource.m */,
+			);
+			name = "Evidence Sources";
+			sourceTree = "<group>";
+		};
+		A79F5E7422CCFF940047B400 /* Concrete Evidence Sources */ = {
+			isa = PBXGroup;
+			children = (
+				A79F5E6622CA2CA60047B400 /* ActiveApplicationEvidenceSource.swift */,
+				DDAE004B141521EF00FDADE8 /* CoreLocationSource.h */,
+				DDAE004C141521EF00FDADE8 /* CoreLocationSource.m */,
+				A71DCF5322CE8FBD00D86AC9 /* CoreLocationSource.swift */,
+				A7ACD47622D4E9EA00B5C0B9 /* WiFiEvidenceSource.swift */,
+			);
+			name = "Concrete Evidence Sources";
 			sourceTree = "<group>";
 		};
 		DA008D1C15D4B73C0091CC54 /* Plugins */ = {
@@ -1175,16 +1167,16 @@
 			files = (
 				A7A49E3F218EDD1A00775312 /* CPHelperToolCommon.m in Sources */,
 				DAF2257E15ABD8CD003A8030 /* DisplayBrightnessAction.m in Sources */,
+				A79F5E7222CC76B80047B400 /* EvidenceSourceSetController.m in Sources */,
 				DAE893EE1454FFFB005FA13C /* ToggleFirewallAction.m in Sources */,
 				A7DAE8DA22BE570300A0D1F8 /* Rule.swift in Sources */,
 				DAF36ECA143E7C5700350991 /* CoreLocationSource.m in Sources */,
+				A71DCF5422CE8FBD00D86AC9 /* CoreLocationSource.swift in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				8D82F0A30AA81411009ADA44 /* PrefsWindowController.m in Sources */,
 				8D90E51F0B71C4C9007D39FD /* CPController.m in Sources */,
 				8D8C9CA60BBB74E70074D5B3 /* EvidenceSource.m in Sources */,
 				5DCCE0BB1CA4870100FACF9F /* ScrollBarsAction.m in Sources */,
-				8D8C9CE70BBB7BE00074D5B3 /* BluetoothEvidenceSource.m in Sources */,
-				DA7A0C171AE3F5A90063CDDC /* RemoteDesktopEvidenceSource.m in Sources */,
 				8D8C9E350BBB89320074D5B3 /* DB.m in Sources */,
 				8DF5A4180BC2353D00CBEB4B /* Action.m in Sources */,
 				8DF5A4610BC239B100CBEB4B /* DefaultPrinterAction.m in Sources */,
@@ -1194,37 +1186,23 @@
 				8D649BA50BE8033A00716059 /* ToggleWiFiAction.m in Sources */,
 				8DC4E7FD0C178917007E7E41 /* MuteAction.m in Sources */,
 				8DC4E8000C17891D007E7E41 /* MailSMTPServerAction.m in Sources */,
-				DA07C11018FE04A3008FE8B5 /* ContextEvidenceSource.m in Sources */,
 				8D71CAEF0C17BA7900E56526 /* ToggleableAction.m in Sources */,
 				8D71CB790C17C01700E56526 /* ScreenSaverPasswordAction.m in Sources */,
 				8DCBE96C0C1A7ECE008260EF /* MountAction.m in Sources */,
 				8D8155D00C3A304E00228463 /* ContextsDataSource.m in Sources */,
 				8D6762170C3B8D8D000B63EC /* NetworkLocationAction.m in Sources */,
-				8D27ECB00C4456A300AE1929 /* AudioOutputEvidenceSource.m in Sources */,
-				8DE13F0E0C460E1700AEC949 /* FireWireEvidenceSource.m in Sources */,
-				8D73CB8D0C46FD5200DF839E /* MonitorEvidenceSource.m in Sources */,
-				8D73CBB30C46FEC800DF839E /* PowerEvidenceSource.m in Sources */,
-				8D73CC140C470FE000DF839E /* RunningApplicationEvidenceSource.m in Sources */,
-				8D91F17D0C47148200D9FC0F /* USBEvidenceSource.m in Sources */,
 				8D38B66C0C49D50200290F47 /* SliderWithValue.m in Sources */,
 				8DE4EE470C4B2A6F00A5B559 /* ScreenSaverTimeAction.m in Sources */,
 				8DCB43580C4DBABD00E71D28 /* FirewallRuleAction.m in Sources */,
 				8DE4C0110C4EE60700511590 /* GenericEvidenceSource.m in Sources */,
-				8D643C680C4EF197006D8ECC /* GenericLoopingEvidenceSource.m in Sources */,
-				8D643CDD0C4EF6FD006D8ECC /* LoopingEvidenceSource.m in Sources */,
+				A79F5E6722CA2CA60047B400 /* ActiveApplicationEvidenceSource.swift in Sources */,
 				DA2523BD1968601400F717FC /* ConnectBluetoothDeviceAction.m in Sources */,
-				8DE428FC0C5084D00073499A /* TimeOfDayEvidenceSource.m in Sources */,
 				8DBB44980C530F7600064010 /* DSLogger.m in Sources */,
-				8D2BAAAD0C56E26200A50777 /* NetworkLinkEvidenceSource.m in Sources */,
 				8DB1EF240C6C60A300586F84 /* MailIMAPServerAction.m in Sources */,
-				8D1493F70C824B6D00D29FE8 /* BonjourEvidenceSource.m in Sources */,
 				8DFA46170CC33E46003EAC16 /* QuitApplicationAction.m in Sources */,
 				8D3C85150CDD8546009DBCD9 /* ScreenSaverStartAction.m in Sources */,
 				8DA2F4150CE8630200F92D4D /* DesktopBackgroundAction.m in Sources */,
-				640E7DC01C1C983400045672 /* ScreenLockEvidenceSource.m in Sources */,
 				8DFD0DA60CEBBC8A00E79049 /* UnmountAction.m in Sources */,
-				DA8B17351149AD0C00417D4F /* LightEvidenceSource.m in Sources */,
-				DA83A21D13D0FE8F00074503 /* CoreWLANEvidenceSource.m in Sources */,
 				DA812E83140681D2006869F7 /* AppleScript.m in Sources */,
 				DD8274F0141154780098FA6E /* MailIntervalAction.m in Sources */,
 				DD8274F314115EE50098FA6E /* StartTimeMachineAction.m in Sources */,
@@ -1239,14 +1217,13 @@
 				DDAE0017141474DC00FDADE8 /* CPController+SleepMonitor.m in Sources */,
 				DA922E9D144FC95200920B40 /* ToggleInternetSharingAction.m in Sources */,
 				739492E2146B8018003C94DE /* DisplaySleepTimeAction.m in Sources */,
-				732A58DF1484300A0011019C /* ShellScriptEvidenceSource.m in Sources */,
-				DAAA7FAE1953E2C500C06DBB /* MountedVolumeEvidenceSource.m in Sources */,
 				DA461C0C14C33E3C0019594A /* NSString+ShellScriptHelper.m in Sources */,
 				DA49AF6C14C3E0AB00D03D6A /* TogglePrinterSharingAction.m in Sources */,
 				DAC45F2014CDEC170007F5EF /* TimeMachineDestinationAction.m in Sources */,
 				DA72BFF615019D8C003072C6 /* CPBonjourResolver.m in Sources */,
 				DA571B71151587B80074CE22 /* ToggleFileSharingAction.m in Sources */,
 				A72CEE9E21A7E70300BC78DE /* ActionSetController.m in Sources */,
+				A7ACD47722D4E9EA00B5C0B9 /* WiFiEvidenceSource.swift in Sources */,
 				DA41954D151C17F000FF7BA0 /* ActionSubmenuItem.m in Sources */,
 				DA4ED9C41520055100E6A8CE /* ToggleNaturalScrollingAction.m in Sources */,
 				DA2B4381152161C800E94A1D /* ToggleTFTPAction.m in Sources */,
@@ -1255,22 +1232,9 @@
 				DA8E283F156BCAD50040FC35 /* ToggleRemoteLoginAction.m in Sources */,
 				DAB1A7E215C3776D00CF65E8 /* CPNotifications.m in Sources */,
 				DADFF79715D96CBC00DEF412 /* ToggleNotificationCenterAlertsAction.m in Sources */,
-				DA7EAF4715D9F7F2008DF67C /* ActiveApplicationEvidenceSource.m in Sources */,
 				DA04D57215DC119E004B9E1C /* ToggleContextStickinessAction.m in Sources */,
-				DA0E648615EC665000E77ABF /* AttachedPowerAdapterEvidenceSource.m in Sources */,
-				DA9957EA160D4BA300AB3C7A /* StressTestEvidenceSource.m in Sources */,
 				DABE3F6A16C44236004F5E63 /* OpenAndHideAction.m in Sources */,
 				DA0CAE6516C4813600EDE2C5 /* PreventDisplaySleepAction.m in Sources */,
-				7C8574EC16FB52AF0081659A /* DNSEvidenceSource.m in Sources */,
-				7C8574F116FB53180081659A /* ServerAddressRuleType.m in Sources */,
-				7C42F30216FB8960000EE57B /* RuleType.m in Sources */,
-				7C42F30716FB9519000EE57B /* SearchDomainRuleType.m in Sources */,
-				7C42F30A16FB9D47000EE57B /* MultiRuleEvidenceSource.m in Sources */,
-				7C6D94591747A1BE00D5B9C7 /* IPAddrEvidenceSource.m in Sources */,
-				7C6D945C1747A1F300D5B9C7 /* IPv4RuleType.m in Sources */,
-				7C4855C0174941C500D8EB84 /* IPv6RuleType.m in Sources */,
-				7CA6847717947E2200563601 /* LaptopLidEvidenceSource.m in Sources */,
-				DA69D7E217BD04C30062FBBC /* HostAvailabilityEvidenceSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

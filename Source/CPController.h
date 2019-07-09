@@ -14,7 +14,7 @@ extern NSString* const kCPUserDefaultsEnabledKey;
 @interface CPController : NSObject <NSApplicationDelegate>
 
 @property (retain,atomic,readonly) NSString *currentContextName;
-@property (retain,atomic,readonly) NSString *currentContextPath;
+//@property (retain,atomic,readonly) NSString *currentContextPath;
 @property (retain,atomic) NSString *activeContextsMenuHeader;
 
 @property (readwrite) BOOL screenSaverRunning;

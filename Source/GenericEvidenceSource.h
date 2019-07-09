@@ -18,5 +18,6 @@
 // Need to be implemented by descendant classes
 - (NSString *)getSuggestionLeadText:(NSString *)type;
 - (NSArray *)getSuggestions;	// returns an NSArray of NSDictionary: keys are type, parameter, description
+- (NSString *) description;
 
 @end

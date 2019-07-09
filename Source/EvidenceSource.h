@@ -43,7 +43,7 @@ typedef NS_ENUM(int, RuleMatchStatusType) {
 - (void)start;
 - (void)stop;
 
-- (void)startForRule:(Rule*)rule;
+//- (void)startForRule:(Rule*)rule;
 
 // To be implemented by descendant classes:
 - (NSString*)name;
@@ -57,6 +57,7 @@ typedef NS_ENUM(int, RuleMatchStatusType) {
 
 // Returns a friendly name to be used in the drop down menu
 - (NSString*)friendlyName;
+- (NSString *)enablementKeyName;
 
 // Return true if the evidence source should be enabled for this model of Mac
 + (BOOL)isEvidenceSourceApplicableToSystem;
@@ -66,18 +67,5 @@ typedef NS_ENUM(int, RuleMatchStatusType) {
 - (void)setContextMenu:(NSMenu *)menu;
 - (IBAction)closeSheetWithOK:(id)sender;
 - (IBAction)closeSheetWithCancel:(id)sender;
-
-@end
-
-//////////////////////////////////////////////////////////////////////////////////////////
-@interface EvidenceSourceSetController : NSObject {
-    IBOutlet NSWindowController *prefsWindowController;
-    NSArray *sources;    // dictionary of EvidenceSource descendants (key is its name)
-}
-
-- (void)startEnabledEvidenceSources;
-- (void)stopAllRunningEvidenceSources;
-- (RuleMatchStatusType)ruleMatches:(NSMutableDictionary *)rule;
-- (NSEnumerator *)sourceEnumerator;
 
 @end

@@ -8,7 +8,7 @@
 import Foundation
 
 @objc class Rule: NSObject {
-    
+    class var name: String {return ""}
     override init() {
         super.init()
     }

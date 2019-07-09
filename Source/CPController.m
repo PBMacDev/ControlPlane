@@ -16,6 +16,8 @@
 #import <libkern/OSAtomic.h>
 #import <UserNotifications/UserNotifications.h>
 #import "EvidenceSource.h"
+#import "EvidenceSourceSetController.h"
+
 
 NSString* const kCPUserDefaultsEnabledKey = @"Enabled";
 
@@ -352,8 +354,7 @@ static CPController *sharedCPController = nil;
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"menuBarOption"] != CP_DISPLAY_CONTEXT) {
         __block NSColor *iconColor = nil;
         
-        const BOOL usingMultipleActiveContexts = [self useMultipleActiveContexts];
-        if (usingMultipleActiveContexts && ([self.activeContexts count] > 0)) {
+        if ([self.activeContexts count] > 0) {
             [self.activeContexts enumerateObjectsUsingBlock:^(Context *context, BOOL *stop) {
                 NSColor *contextIconColor = context.iconColor;
                 if (iconColor == nil) {
@@ -363,7 +364,7 @@ static CPController *sharedCPController = nil;
                     *stop = YES;
                 }
             }];
-        } else if (!usingMultipleActiveContexts && (self.currentContext != nil)) {
+        } else if (self.currentContext != nil) {
             iconColor = self.currentContext.iconColor;
         } else {
             iconColor = [NSColor darkGrayColor]; // inactive icon color
@@ -926,19 +927,25 @@ static CPController *sharedCPController = nil;
     }
     
     [self changeCurrentContextTo:context];
-    [self postNotificationsOnContextTransitionWhenForcedByUserIs:isManuallyTriggered];
     
-    if ([enteringWalk count] > 0) {
-        DSLog(@"Triggering arrival actions, if any, for '%@'", [self currentContextName]);
-        [self triggerArrivalActionsOnWalk:enteringWalk];
-    }
-}
+    {
+        NSString *msgSuffix = nil;
+        if (isManuallyTriggered) {
+            msgSuffix = NSLocalizedString(@"(forced)", @"Used when force-switching to a context");
+        } else {
+            NSNumber *confidence = self.currentContext.confidence;
+            NSString *percentage = [NSNumberFormatter localizedStringFromNumber:confidence numberStyle:NSNumberFormatterPercentStyle];
+            
+            NSString *suffixFmt = NSLocalizedString(@"with confidence %@", @"Appended to a context-change notification");
+            msgSuffix = [NSString stringWithFormat:suffixFmt, percentage];
+        }
+        
+        NSString *fmt = NSLocalizedString(@"Activating context '%@' %@.",
+                                          @"First parameter is the context name, second parameter is the confidence value,"
+                                          " or 'as default context'");
+        NSString *msg = [NSString stringWithFormat:fmt, self.currentContextPath, msgSuffix];
 
-- (void)postNotificationsOnContextTransitionWhenForcedByUserIs:(BOOL)isManuallyTriggered {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"EnableUserNotification"]) {
-        NSString *msg = [self getMesssageForChangingToContextWhenForcedByUserIs:isManuallyTriggered];
-        [CPNotifications postUserNotification:NSLocalizedString(@"Activating Context", @"User Notification message title")
-                                  withMessage:msg];
+        [CPNotifications postUserNotification:NSLocalizedString(@"Activating Context", @"User Notification message title") withMessage:msg];
     }
     
     // Notify subscribed apps
@@ -948,26 +955,12 @@ static CPController *sharedCPController = nil;
                        object:notificationObject
                      userInfo:@{ @"context": self.currentContextPath }
            deliverImmediately:YES];
-}
 
-- (NSString *)getMesssageForChangingToContextWhenForcedByUserIs:(BOOL)isManuallyTriggered {
-    NSString *msgSuffix = nil;
-    if (isManuallyTriggered) {
-        msgSuffix = NSLocalizedString(@"(forced)", @"Used when force-switching to a context");
-    } else {
-        NSNumber *confidence = self.currentContext.confidence;
-        NSString *percentage = [NSNumberFormatter localizedStringFromNumber:confidence numberStyle:NSNumberFormatterPercentStyle];
-
-        NSString *suffixFmt = NSLocalizedString(@"with confidence %@", @"Appended to a context-change notification");
-        msgSuffix = [NSString stringWithFormat:suffixFmt, percentage];
+    if ([enteringWalk count] > 0) {
+        DSLog(@"Triggering arrival actions, if any, for '%@'", [self currentContextName]);
+        [self triggerArrivalActionsOnWalk:enteringWalk];
     }
-
-    NSString *fmt = NSLocalizedString(@"Activating context '%@' %@.",
-                                      @"First parameter is the context name, second parameter is the confidence value,"
-                                      " or 'as default context'");
-	return [NSString stringWithFormat:fmt, self.currentContextPath, msgSuffix];
 }
-
 
 #pragma mark -
 #pragma mark Force context switching
@@ -1046,9 +1039,6 @@ static CPController *sharedCPController = nil;
 #endif
     
     if (!changed && (smoothCounter == 0) && !self.forceOneFullUpdate) {
-#ifdef DEBUG_MODE
-//        DSLog(@"Same rule are matching as on previous update. No further actions required.");
-#endif
         return;
     }
     self.forceOneFullUpdate = NO;
@@ -1066,8 +1056,6 @@ static CPController *sharedCPController = nil;
     DSLog(@"Context guesses: %@", guesses);
     
     [contextsDataSource updateConfidencesFromGuesses:guesses];
-    
-    
     
     if ([self useMultipleActiveContexts]) {
         [self changeActiveContextsBasedOnGuesses:guesses];

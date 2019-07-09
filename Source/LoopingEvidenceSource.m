@@ -45,9 +45,6 @@
     }
 
     if (![self respondsToSelector: doUpdateSelector]) {
-#ifdef DEBUG_MODE
-        DSLog(@"Error: %@ cannot respond to method 'doUpdate'", [self class]);
-#endif
         [self doStop];
         return;
     }

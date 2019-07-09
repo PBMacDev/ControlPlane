@@ -7,8 +7,6 @@
 
 #import "ScreenSaverPasswordAction.h"
 #import "DSLogger.h"
-#import "CPNotifications.h"
-
 
 @implementation ScreenSaverPasswordAction
 

@@ -3,6 +3,8 @@
 #import <Cocoa/Cocoa.h>
 #import "CPController.h"
 #import "EvidenceSource.h"
+#import "EvidenceSourceSetController.h"
+
 
 @interface PrefsWindowController : NSWindowController<NSToolbarDelegate>
 {

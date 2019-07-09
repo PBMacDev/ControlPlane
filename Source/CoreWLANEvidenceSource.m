@@ -20,7 +20,7 @@
 @property BOOL currentNetworkIsSecure;
 @property (atomic, retain, readwrite) NSDictionary *networkSSIDs;
 @property (atomic, retain, readwrite) NSString *interfaceBSDName;
-@property (atomic) BOOL linkActive;
+//@property (atomic) BOOL linkActive;
 
 - (void)clearCollectedData;
 
@@ -39,7 +39,6 @@
     }
     
     [[CWWiFiClient sharedWiFiClient] setDelegate:self];
-//    [self setDataCollected:YES]; //just in case. new implementation does not depend on this parameter.
     
     return self;
 }
@@ -57,7 +56,6 @@
     CWInterface* defaultInterface = [[CWWiFiClient sharedWiFiClient] interface];
     self.interfaceBSDName = [defaultInterface interfaceName];
     NSSet *foundNetworks = [defaultInterface cachedScanResults];
-//    NSSet *foundNetworks = [defaultInterface scanForNetworksWithName:self.interfaceBSDName error:nil];
     [self updateCollectedDataFromScanResults:foundNetworks];
     [self updateCollectedSecurity];
 }
@@ -94,9 +92,7 @@
     
     CWWiFiClient *sharedWiFiClient = [CWWiFiClient sharedWiFiClient];
     [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeScanCacheUpdated) error:nil];
-//    [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeBSSIDDidChange) error:nil];
     [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeLinkDidChange) error:nil];
-//    [sharedWiFiClient startMonitoringEventWithType:(CWEventTypeSSIDDidChange) error:nil];
 
     self.running = YES;
 }
@@ -159,7 +155,7 @@
     NSDictionary *networkSSIDs = self.networkSSIDs;
     NSArray *sortedSSIDs = [[networkSSIDs allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 
-	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:(2 * [networkSSIDs count])];
+	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:(2 * [networkSSIDs count] + 2)];
 
     for (NSString *ssid in sortedSSIDs) {
 		NSString *mac = networkSSIDs[ssid];

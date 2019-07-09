@@ -20,14 +20,6 @@
 
 @implementation RuleType
 
-+ (void)alertWithMessage:(NSString *)msg informativeText:(NSString *)infoText
-{
-    NSAlert *alert = [NSAlert new];
-    [alert setMessageText:msg];
-    [alert setInformativeText:infoText];
-    [alert runModal];
-}
-
 + (void)alertOnInvalidParamValueWith:(NSString *)msg
 {
     [self alertWithMessage:msg informativeText:NSLocalizedString(@"Provide a valid parameter value", @"")];

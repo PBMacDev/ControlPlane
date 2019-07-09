@@ -24,7 +24,6 @@
 // To be implemented by descendant classes.
 - (BOOL)doesRuleMatch:(NSMutableDictionary *)rule;
 
-+ (void)alertWithMessage:(NSString *)msg informativeText:(NSString *)infoText;
 + (void)alertOnInvalidParamValueWith:(NSString *)msg;
 
 // Optional to implement in descendant classes.
